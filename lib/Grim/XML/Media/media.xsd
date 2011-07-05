@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.w3schools.com" xmlns="http://www.w3schools.com" elementFormDefault="unqualified">
+
+<!--item_id-->
+<xs:element name="item_id" type="xs:integer" />
+
+<!--Titel?-->
+<xs:element name="title" type="xs:string" />
+
+<!--wat aan te vangen met beschreven onderdelen?-->
+<xs:element name="action">
+        <xs:simpleType>
+                <xs:restriction base="xs:string">
+                        <xs:enumeration value="init" />
+                        <xs:enumeration value="add" />
+			<xs:enumeration value="remove" />
+                </xs:restriction>
+        </xs:simpleType>
+</xs:element>
+
+<!--onderdelen van item-->
+<xs:element name="access">
+        <xs:simpleType>
+                <xs:restriction base="xs:string">
+                        <xs:enumeration value="public" />
+                        <xs:enumeration value="private" />
+                </xs:restriction>
+        </xs:simpleType>
+</xs:element>
+
+<xs:element name="context">
+        <xs:simpleType>
+                <xs:restriction base="xs:string">
+                        <xs:enumeration value="Image" />
+                </xs:restriction>
+        </xs:simpleType>
+</xs:element>
+
+<xs:element name="dev">
+        <xs:simpleType>
+                <xs:restriction base="xs:string">
+                        <xs:enumeration value="thumbnail" />
+                        <xs:enumeration value="small" />
+                        <xs:enumeration value="medium" />
+                        <xs:enumeration value="large" />
+                </xs:restriction>
+        </xs:simpleType>
+</xs:element>
+
+<xs:element name="devs">
+	<xs:complexType>
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element ref="dev" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="svc_id">
+        <xs:simpleType>
+                <xs:restriction base="xs:string">
+                        <xs:enumeration value="thumbnail" />
+                        <xs:enumeration value="small" />
+                        <xs:enumeration value="medium" />
+                        <xs:enumeration value="large" />
+                        <xs:enumeration value="zoomer" />
+                        <xs:enumeration value="carousel" />
+                </xs:restriction>
+        </xs:simpleType>
+</xs:element>
+
+<xs:element name="svc_ids">
+	<xs:complexType>
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element ref="svc_id" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!--onderdelen van file-->
+<xs:element name="path" type="xs:string" />
+<xs:element name="content_type">
+        <xs:simpleType>
+                <xs:restriction base="xs:string">
+                        <xs:enumeration value="image/tiff" />
+                </xs:restriction>
+        </xs:simpleType>
+</xs:element>
+
+<!--file-->
+<xs:element name="file">
+	<xs:complexType>
+		<xs:all>
+			<xs:element ref="path" minOccurs="1" maxOccurs="1" />
+                        <xs:element ref="content_type" minOccurs="1" maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+</xs:element>
+<xs:element name="files">
+	<xs:complexType>
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element ref="file" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!--items-in-media-->
+<xs:element name="item">
+	<xs:complexType>
+        	<xs:all>
+			<xs:element ref="files" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="context" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="devs" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="svc_ids" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="access" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="action" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="title" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="item_id" minOccurs="1" maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+</xs:element>
+
+<!--media-->
+<xs:element name="media">
+	<xs:complexType>
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element ref="item" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<!--poster_item_id-->
+<xs:element name="poster_item_id" default="1">
+	<xs:simpleType>
+        	<xs:restriction base="xs:positiveInteger">
+                	<xs:minInclusive value="1" />
+                </xs:restriction>
+	</xs:simpleType>
+</xs:element>
+
+<xs:attribute name="id">
+        <xs:simpleType>
+                <xs:restriction base="xs:string">
+                        <xs:pattern value="^rug01:\d{9}$" />
+                </xs:restriction>
+        </xs:simpleType>
+</xs:attribute>
+
+<!--record-->
+<xs:element name="record">
+	 <xs:complexType>
+		<xs:all>
+			<xs:element ref="poster_item_id" default="1" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="media" minOccurs="1" maxOccurs="1" />
+		</xs:all>
+		<xs:attribute ref="id" />
+	</xs:complexType>
+</xs:element>
+
+<!--root-element-->
+<xs:element name="database">
+	<xs:complexType> 
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element ref="record" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>
