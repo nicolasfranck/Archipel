@@ -1,0 +1,3 @@
+<div class="left">
+	<a onclick="javascript: pageTracker._trackPageview('[% rooturl %]/xml?rft_id=[% rft_id %]');" href="[% rooturl %]/xml?rft_id=[% rft_id %]"><img border="0"  title="Dit record in XML" src="[% rooturl %]/images/icons/xml.gif"></a>
+</div>

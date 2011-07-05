@@ -1,0 +1,22 @@
+[% i = begin_item - 1  %]
+[% FOREACH hit IN hits  %]
+        <div class="block" onclick="window.location.href='[% rooturl %]/opensearch?q=[% q | $uri_escape -%]&amp;display=prevnext&amp;start=[% i %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]'">
+                <div class="imgholder">
+                        [% poster_index = hit.poster_item_id - 1 %]
+                        [% thumb = hit.media.${poster_index}.devs.thumbnail %]
+                        [% width = thumb.width %]
+                        [% height = thumb.height %]
+                        [% wratio = 1 %][% hratio = 1 %]
+                        [% IF width > 160 %][% wratio = 160 / width %][% END %]
+                        [% IF height > 110 %][% hratio = 110 / height %][% END %]
+                        [% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
+                        [% rwidth = width * ratio %]
+                        [% rheight = height * ratio %]
+                        <img alt="loading" src="[% thumb.url %]" width="[% rwidth %]" height="[% rheight %]" />
+                </div>
+                <div class="caption">
+                        [% hit.title.join('') %]
+                </div>
+        </div>
+        [% i = i + 1 %]
+[% END %]

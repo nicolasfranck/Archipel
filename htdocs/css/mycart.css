@@ -1,0 +1,50 @@
+#mycart {
+	display:block;
+	padding:0px;
+	margin:0px;
+}
+#mycart #dashboard {
+	display:block;
+	float:right;
+	right:0px;
+	top:0px;
+	padding:10px;
+	width:163px;
+	background-color:#EFEFEF;
+}
+#mycart #media {
+	display:block;
+	float:left;
+	left:0px;
+	top:0px;
+	width:748px;
+}
+.paging{
+	float:none;
+}
+#mycart table {
+	margin:10px 0px 10px 0px;
+}
+#mycart table td, #mycart table th {
+	margin:0px;
+	padding:0px;
+}
+.band table {
+	margin:0px 0px 10px 0px;
+	background-color:#EFEFEF;
+}
+.band table th, #main table td {
+	padding:5px 10px 5px 5px;
+	color:#222222;
+}
+.paging {
+	margin-top:10px;margin-bottom:10px;
+}
+.block img.remove {
+	position:absolute;
+	z-index:1;
+	right:2px;
+	top:2px;
+	padding:2px;
+	width:10px;
+}

@@ -2,31 +2,26 @@
 logfile: "/tmp/peepshow.log"
 openURL:
  version: "Z39.88-2004"
-#ip: "50.17.222.182"
+ path: "/OpenURL/resolve"
 ip: "127.0.0.1"
 allowed_range: "127.0.0.*"
-#rooturl: "http://ec2-50-17-222-182.compute-1.amazonaws.com/grim"
-rooturl: "http://localhost/images"
+rooturl: "http://localhost"
 permroot: "http://search.ugent.be/meercat/x/view"
 languages:
  - nl
- - en
 DB:
  db:    
   class: 'Catmandu::Store::Merge'
   args:
    patha: "../data/metadata.db"
    pathb: "../data/media.db"
-#   patha: "../affiches/metadata.db"
-#   pathb: "../affiches/media.db"
  index:
   class: "Catmandu::Index::Solr"
   args:
    url: "http://localhost:8983/solr"
-#   url: "http://localhost:8080/solr"
    id_field: 'id'
-  min_results: 10
-  max_results: 200
+  minresults: 10
+  maxresults: 200
   pages_per_set: 8
   num_default: 20
   sort_fields:
@@ -38,13 +33,12 @@ Columns:
   class: 'Catmandu::Store::Simple'
   args:
    path: '../data/columns.db'
-#   path: "../testdata/columns.db"
  desc:
-  max_chars: 1000
+  maxchars: 1000
  language:
   default: "nl"
  title:
-  max_chars: 50
+  maxchars: 50
  auth:
   username: 'admin'
   password: 'geheimpaswoord'
@@ -113,8 +107,8 @@ Cart:
   args:
    path: '../data/snapshots.db'
  default_service: "thumbnail"
- max_items: 30
- max_age: "30d"
+ max: 30
+ maxage: "30d"
  email:
   params:
    - smtp
@@ -159,55 +153,6 @@ ServiceOrder:
  - large
 Language:
  default: 'nl'
- en:
-  Context:
-   Image: 'image'
-  Record:
-   header:
-    key: 'title'
-    map: 'title' 
-   subfields:
-    - key: 'author'
-      map: 'author'     
-      search: 1
-    - key: 'publisher'
-      map: 'publisher'   
-    - key: 'description'
-      map: 'description'  
-    - key: 'note'
-      map: 'note'
-    - key: 'subject'
-      map: 'subject' 
-      search: 1
-      subarray: 1
-    - key: 'location'
-      map: 'plaatsnummer'      
-    - key: 'rights'
-      map: 'rights'   
-   sort_fields:
-    - key: 'author_sort'
-      map: 'author'
-    - key: 'title_sort'
-      map: 'title'
-    - key: 'subject_sort'
-      map: 'subject'
-    - key: 'year'
-      map: 'datum'
-  Templates:
-   tree: 'en/tree'
-   home: 'en/home'
-   search: 'en/search_all'   
-   search_advanced: 'en/search_meercat_advanced'
-   record_simple: 'en/rft_meercat_record'
-   record_pages: 'en/rft_meercat_pages'
-   record_carousel: 'en/rft_meercat_carousel'
-   record_fulltext: 'en/rft_meercat_text'
-   opensearch: 'en/antifonarium/browser'
-   opensearch_view: 'en/antifonarium/browser_view'
-   help: 'en/help'
-   sendmail_cart: 'en/sendmail_cart.tt'
-   mycart: 'en/mycart'
-   googlemaps: 'en/googlemaps'
  nl:
   Context:
    Image: 'foto'
@@ -243,17 +188,12 @@ Language:
     - key: 'year'
       map: 'date'
   Templates:
-   tree: 'nl/tree'
    home: 'nl/home'
-   search: 'nl/search_all'
-   search_advanced: 'nl/search_meercat_advanced'
-   record_simple: 'nl/rft_meercat_record'
-   record_pages: 'nl/rft_meercat_pages'
-   record_carousel: 'nl/rft_meercat_carousel'
-   record_fulltext: 'nl/rft_meercat_text'
-   opensearch: 'nl/antifonarium/browser'
-   opensearch_view: 'nl/antifonarium/browser_view'
-   help: 'nl/help'
+   search: 'nl/search'
+   search_advanced: 'nl/search_advanced'
+   record_simple: 'nl/record_view_simple'
+   record_pages: 'nl/record_view_pages'
+   record_carousel: 'nl/record_view_carousel'
    sendmail_cart: 'nl/sendmail_cart.tt'
    mycart: 'nl/mycart'
    googlemaps: 'nl/googlemaps'
@@ -270,7 +210,3 @@ RSS:
     uri: "http://a9.com/-/spec/opensearch/1.1/"
   - prefix: "atom"
     uri: "http://www.w3.org/2005/Atom"
-#Proxy->Path:
-#	wanneer request via proxy passeren, kan een stuk uit de request_uri geknipt worden (vb. Apache doet dit). 
-#	In dat geval moet het uitgeknipte 'pad' hier gespecificeerd worden. 
-#	Op die manier kan ik de volledige url achterhalen langs waarheen de website werd bereikt

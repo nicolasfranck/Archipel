@@ -1,0 +1,20 @@
+table {
+	border-collapse:collapse;
+}
+table td div {
+	display:block;
+	padding:2px;
+	border-bottom:1px solid #DFDFDF;
+	background-color:#EFEFEF;
+}
+tr.title > th {
+	font-size:bold;
+	text-align:left;
+	border-bottom:1px solid black;
+}
+tr.odd > td {
+	background-color:#EBF0F5;
+}
+tr.even > td {
+	background-color:#D5E0EB;
+}

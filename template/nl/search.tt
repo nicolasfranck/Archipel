@@ -1,0 +1,59 @@
+[% INCLUDE nl/html.tt %]
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	[% INCLUDE nl/head_search.tt %]
+	</head>
+<body>
+<div id="wrap">
+	[% INCLUDE nl/top.tt %]
+	<div id="content">
+		<!-- search box -->
+		[% INCLUDE nl/form.tt %]				
+		[% IF restfields.spellcheck.defined && restfields.spellcheck.suggestions.defined && restfields.spellcheck.suggestions.keys.size > 0 %]
+		<div class="band">
+			<span style="color: #900;">Bedoelde u:&nbsp;</span>
+			[% FOREACH term IN restfields.spellcheck.suggestions.keys %]
+				[% FOREACH sugg IN restfields.spellcheck.suggestions.${term}.suggestion %]
+					<a href="[% rooturl %]?q=[% sugg %]">[% sugg %]</a> 
+				 [% END %]
+			[% END %]
+		</div>
+		[% END %]
+		[% IF hits && hits.size > 0 %]
+			<div class="band">
+				<div class="left">Resultaten <b>[% begin_item %]-[% end_item %]</b> van <b>[% total_hits %]</b> voor <b>[% q %]</b></div>
+				[% INCLUDE nl/rss.tt %]
+				[% INCLUDE nl/cart.tt %]
+				<div style="clear:both"></div>
+			</div>
+			<div class="band">
+				[% INCLUDE nl/paging.tt %]
+				[% INCLUDE nl/manip.tt %]	
+				<div style="clear:both"></div>			
+			</div>
+		[% END %]
+		<div id="raster">
+				[% IF confirm_search || search_type != 'advanced' %]
+					[% IF errmsg %]
+						[% INCLUDE nl/search_help.tt %]
+					[% ELSIF hits.size == 0 %]
+						[% INCLUDE nl/search_help.tt %]				
+					[% END %]
+				 [% END %]
+				<div id="raster_inside">
+					[% INCLUDE nl/hits.tt %]
+					<div style="clear:both">
+				</div>							
+			</div>							
+		</div>
+		[% IF hits && hits.size > 0 %]
+			<div class="band">
+				[% INCLUDE nl/paging.tt %]
+				<div style="clear:both"></div>			
+			</div>
+		[% END %]
+	</div>	
+	[% INCLUDE nl/footer.tt %]		
+</div>
+</body>
+</html>

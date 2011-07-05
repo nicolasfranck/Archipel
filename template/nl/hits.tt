@@ -1,0 +1,25 @@
+[% IF hits && hits.size > 0 %]
+	[% i = begin_item - 1  %]
+	[% FOREACH hit IN hits  %]
+		<div class="block shadow">
+			<div class="imgholder" onclick="window.location.href='[% rooturl %]/view?q=[% q | uri -%]&amp;start=[% i %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]'">
+				[% poster_index = hit.poster_item_id - 1 %]
+				[% thumb = hit.media.${poster_index}.devs.thumbnail %]
+				[% width = thumb.width %]
+				[% height = thumb.height %]
+				[% wratio = 1 %][% hratio = 1 %]
+				[% IF width > 160 %][% wratio = 160 / width %][% END %]
+				[% IF height > 110 %][% hratio = 110 / height %][% END %]
+				[% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
+				[% rwidth = width * ratio %]
+				[% rheight = height * ratio %]
+				<img alt="loading" src="[% rooturl %]/OpenURL/resolve?rft_id=[% hit.id %]:[% hit.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% openURL.version %]" width="[% rwidth %]" height="[% rheight %]" />
+			</div>
+			<div class="caption">
+				[% hit.title.join('') %]
+			</div>
+			<input title="voeg toe aan mandje" type="checkbox" _id="[% hit.id %]" rft_id="[% hit.id %]" class="rft checkbox_cart" [% 'CHECKED' IF sess_devs.${hit.id} %] />			
+		</div>
+		[% i = i + 1 %]
+	[% END %]
+[% END %]

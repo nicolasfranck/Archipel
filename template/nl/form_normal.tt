@@ -1,0 +1,9 @@
+<div id="search">
+	<form method="get" action="[% rooturl %]" accept-charset="UTF-8">			
+		<input type="text" id="q" name="q" size="30" value="[% q | html_entity %]" />
+		<input type="submit" name="submit" value="zoek" />
+		<input type="hidden" name="confirm_search" value="1" />
+		&nbsp;<a href="[% rooturl %]?search_type=advanced">geavanceerd zoeken</a>
+		<a href="[% rooturl %]/googlemaps">Google maps</a>
+	</form>
+</div>

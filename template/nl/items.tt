@@ -1,0 +1,46 @@
+[% FOREACH item IN hit.media %]
+	<div class="block_normal shadow">
+	        <div class="imgholder">
+	                [% thumb = item.devs.thumbnail %]
+	                [% width = thumb.width %]
+	                [% height = thumb.height %]
+	                [% wratio = 1 %][% hratio = 1 %]
+	                [% IF width > 110 %][% wratio = 110 / width %][% END %]
+	                [% IF height > 110 %][% hratio = 110 / height %][% END %]
+	                [% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
+	                [% rwidth = width * ratio %]
+	                [% rheight = height * ratio %]
+			[% IF (hit.access.defined && hit.access.services.carousel == 1) || (is_local) %]				
+				<a href="[% rooturl %]/view?q=[% q | uri %]&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]&amp;item_id=[% item.item_id %]&amp;view=carousel">
+					<img alt="loading" src="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% item.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% openURL.version %]" width="[% rwidth %]" height="[% rheight %]" /> 
+				</a>
+			[% ELSE %]
+				<img alt="loading" src="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% item.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% openURL.version %]" width="[% rwidth %]" height="[% rheight %]" />
+			[% END %]
+	        </div>
+		<div class="caption_item">
+	        [% IF item.context == "Image" %]
+	                [% IF (hit.access.services.thumbnail == 1) || is_local %]
+	                <a href="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% item.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% openURL.version %]" title="thumbnail" target="_BLANK">
+	                        <img src="[% rooturl %]/images/icons/thumbnail.png" height="12" />
+	                </a>
+	                [% END %]
+	                [% IF (hit.access.services.small == 1) || is_local %]
+	                <a href="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% item.item_id %]&amp;svc_id=small&amp;url_ver=[% openURL.version %]" title="small" target="_BLANK">
+	                        <img src="[% rooturl %]/images/icons/thumbnail.png" height="16" />
+	                </a>
+	                [% END %]
+	                [% IF (hit.access.services.medium == 1) || is_local %]
+	                <a href="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% item.item_id %]&amp;svc_id=medium&amp;url_ver=[% openURL.version %]" title="medium" target="_BLANK">
+	                        <img src="[% rooturl %]/images/icons/thumbnail.png" height="20" />
+	                </a>
+	                [% END %]
+	                [% IF (hit.access.services.large == 1) || is_local %]
+	                <a href="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% item.item_id %]&amp;svc_id=large&amp;url_ver=[% openURL.version %]" title="large" target="_BLANK">
+	                        <img src="[% rooturl %]/images/icons/thumbnail.png" height="24" />
+	                </a>
+	                [% END %]
+	        [% END %]
+	        </div>
+	</div>
+[% END %]

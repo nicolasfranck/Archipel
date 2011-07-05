@@ -1,0 +1,5 @@
+[% IF search_type == 'advanced' && !confirm_search %]
+	[% INCLUDE nl/form_advanced.tt %]
+[% ELSE %]
+	[% INCLUDE nl/form_normal.tt %]
+[% END %]

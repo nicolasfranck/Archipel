@@ -1,0 +1,170 @@
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 16px;
+	height: 100%;
+	z-index:1;	
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	z-index:1;
+	/*background: red;*/
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	background: #383838;
+	position: relative;
+}
+
+.jspDrag
+{
+	background: #373737;
+	border-top:1px solid #a8a8a8;
+	border-left:1px solid #a8a8a8;
+	border-right:1px solid #121212;
+	border-bottom:1px solid #121212;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+.jspHorizontalBar .jspDrag {
+	height:14px;
+}
+
+.jspArrow
+{
+	background-color: #222222;
+	border-top:1px solid #a8a8a8;
+        border-left:1px solid #a8a8a8;
+        border-right:1px solid #121212;
+        border-bottom:1px solid #121212;
+	/*text-indent: -20000px;*/
+	display: block;
+	cursor: pointer;
+	height:14px;
+}
+.jspArrow:hover {
+	background-color: #333333;
+        border-top:1px solid #a8a8a8;
+        border-left:1px solid #a8a8a8;
+        border-right:1px solid #121212;
+        border-bottom:1px solid #121212;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background-color: #313131;
+        border-top:1px solid #a8a8a8;
+        border-left:1px solid #a8a8a8;
+        border-right:1px solid #121212;
+        border-bottom:1px solid #121212;
+}
+.jspArrow .jspActive {
+	background-color:#555555;
+}
+.jspVerticalBar .jspArrow
+{
+	height: 14px;
+	width:14px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 14px;
+	float: left;
+	height: 14px;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+.jspArrowLeft {
+	/*background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAHCAYAAAAvZezQAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sFCw0vNn6ycJoAAAAsSURBVAjXXczBDQAgDMPAwBSw/6DHp0Jq/XNkJSlwoAk0gfWzYie5mbSPOT6HYjdeb5aiEAAAAABJRU5ErkJggg==);*/
+	background-image:url(http://ec2-50-17-222-182.compute-1.amazonaws.com/grim/images/icons/scrollbar_prev.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.jspArrowLeft .jspDisabled {
+	/*background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAHCAYAAAAvZezQAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sFCw0wFRGPD3YAAAAuSURBVAjXY2SAgpkzZ0owMDA8Z0TmMDAwMDAicxgYGBiYkDkwAUlkAUwz0G0BAKoqDvyjFpuxAAAAAElFTkSuQmCC);*/
+	background-image:url(http://ec2-50-17-222-182.compute-1.amazonaws.com/grim/images/icons/scrollbar_prev_disabled.png);
+        background-repeat:no-repeat; 
+        background-position:center center;
+}
+.jspArrowRight {
+	/*background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAHCAYAAAAvZezQAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sFCw0yATljuYkAAAAsSURBVAjXZc2xDQAgDMRAwxTJ/oOaIkIR4UoX/1iCyxYAS5WWM7B55bfBfDk63yxrg1wqQQAAAABJRU5ErkJggg==);*/
+	background-image:url(http://ec2-50-17-222-182.compute-1.amazonaws.com/grim/images/icons/scrollbar_next.png);
+        background-repeat:no-repeat; 
+        background-position:center center;
+}
+.jspArrowRight .jspDisabled {
+	/*background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAHCAYAAAAvZezQAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sFCw0yESTUqe0AAAA2SURBVAjXXYrJDQAgDMNCp4AJO5MnLFuUTxGHP1asCEigq7By7NiA1GGYXuIPz2O4+7R7SNICdb8P0gCm9JgAAAAASUVORK5CYII=);*/
+	background-image:url(http://ec2-50-17-222-182.compute-1.amazonaws.com/grim/images/icons/scrollbar_next_disabled.png);
+	background-repeat:no-repeat; 
+        background-position:center center;
+}
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}

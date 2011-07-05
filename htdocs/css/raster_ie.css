@@ -1,0 +1,26 @@
+#raster{
+        display:block;
+        margin:0px;padding:0px;margin-top:20px;
+        background-color:#FFFFFF;margin-bottom:20px;
+}
+#raster #raster_inside{
+        display:block;
+        /*width:940px;*/
+        padding:0px;
+        margin:3px 0px 0px 3px;
+}
+
+.block{
+        position:relative;
+        display:block;
+        text-align:center;
+        float:left;
+        margin:0px 3px 3px 0px;
+        padding:0px;
+        width:179px;
+        height:170px;
+        overflow:hidden;
+        border:1px solid #555555;       
+        background-color:white;
+}
+

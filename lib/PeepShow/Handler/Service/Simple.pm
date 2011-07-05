@@ -68,9 +68,9 @@ sub handle{
 		#file-item
 		elsif($opts->{rft_id} =~ $self->file_item){
 			my $catch = $1;
-                        $catch =~ s/\d{4}_(\d{4}_AC)/????_\1/;
+                        $catch =~ s/\d{4}_((\d{4})_AC)/????_\1/;
                         $query = "files:$catch";
-                        $item_id = $2;
+                        $item_id = int($2);
 		}else{
 			return undef,undef,500,"rft_id ".$opts->{rft_id}." invalid";
 		}

@@ -1,0 +1,67 @@
+[% USE uri_escape %]
+[% INCLUDE nl/html.tt %]
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	[% INCLUDE nl/head_record_view_pages.tt %]
+	</head>
+<body>	
+<div id="wrap">
+	[% INCLUDE nl/top.tt %]
+	<div id="content">
+		<!-- search box -->
+		[% INCLUDE nl/form.tt %]
+		[% IF hit %]	
+			[% INCLUDE nl/perm.tt %]	
+			[% IF q %]
+				[% INCLUDE nl/results_short.tt %]
+				<div class="band" style="margin-bottom:10px;padding-left:0px">
+					[% INCLUDE nl/paging_prevnext.tt %]
+					[% INCLUDE nl/cart.tt %]
+					<div style="clear:both"></div>
+				</div>		
+			[% END %]                       	
+			<table>
+				<tr>
+					<td style="padding:0px;" colspan="2">
+					<ul id="tabnav">
+						<li>
+							<a href="[% rooturl %]/view?q=[% q | uri %]&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">record</a>
+						</li>
+						<li class="selected_tab">
+							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=pages&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">overzicht media ([% total_items %])</a>
+						</li>
+						[% IF (hit.access.defined && hit.access.services.carousel == 1) || (is_local) %]
+						<li>
+							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=carousel&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">blader media ([% total_items %])</a>
+						</li>
+						[% END %]
+					</ul>
+					</td>
+				</tr>
+			</table>			
+			<table id="record">
+				<tr>
+					<th class="title" colspan="2">[% hit.${conf_metadata.header.key}.0 %]</th>		
+				</tr>
+			</table>		
+			[% INCLUDE nl/items_paging_prevnext.tt %]
+			<div id="raster">
+				<div id="small_raster">
+					[% INCLUDE nl/items.tt %]
+					<div style="clear:both"></div>
+				</div>
+			</div>
+			[% INCLUDE nl/id.tt %]
+		[% ELSE %]
+			[% IF errmsg %]
+			<div class="error">[% errmsg %]</div>
+			[% ELSE %]
+			<div class="error">not found</div>
+			[% END %]
+		[% END %]
+	</div>	
+	[% INCLUDE nl/footer.tt %]	
+</div>
+</body>
+</html>
+

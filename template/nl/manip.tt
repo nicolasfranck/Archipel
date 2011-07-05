@@ -1,0 +1,22 @@
+<div class="manip">
+	<form method="get" id="manip_form" action="">
+		Gesorteerd op:&nbsp;
+		<select name="sort" onchange="document.getElementById('manip_form').submit();">
+			<option value="">--relevantie (standaard)--</option>
+			[% FOREACH csort IN conf_sorts %]					
+			<option value="[% csort.key %]" [% 'SELECTED' IF sort == csort.key %]>[% csort.map %]</option>					
+			[% END %]
+		</select>	
+		Aflopend:&nbsp;<input type="checkbox" name="sort_dir" value="desc" [% 'CHECKED' IF sort_dir == 'desc' %] onchange="document.getElementById('manip_form').submit();" />
+		Per pagina:&nbsp;
+		<select name="num" onchange="document.getElementById('manip_form').submit();">
+			<option value="10" [% 'SELECTED' IF num == 10 %]>10</option>
+			<option value="20" [% 'SELECTED' IF num == 20 %]>20</option>
+			<option value="50" [% 'SELECTED' IF num == 50 %]>50</option>
+			<option value="100" [% 'SELECTED' IF num == 100 %]>100</option>
+			<option value="200" [% 'SELECTED' IF num == 200 %]>200</option>
+		</select>	
+		<input type="hidden" name="q" value="[% q | html %]" />		
+	</form>
+	<div style="clear:both"></div>
+</div>

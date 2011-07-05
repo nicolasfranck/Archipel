@@ -1,0 +1,10 @@
+[% INCLUDE nl/html.tt %]
+[% USE Date %]
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
+<body>
+	<h1>Grim media services</h1>
+        <p><b>[% from %]</b> stuurde u een <a href="[% link %]">link</a> naar deze foto's</p>
+        <p>Met de volgende boodschap</p>
+        <p>[% message %]</p>
+</body>
+</html>

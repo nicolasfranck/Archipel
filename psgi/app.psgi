@@ -1,9 +1,6 @@
 #!/usr/bin/perl
 use Plack::Builder;
 use Plack::Session::Store::File;
-use PeepShow::opensearch;
-use PeepShow::opensearch_view;
-use PeepShow::help;
 use PeepShow::search_all;
 use PeepShow::search_view;
 use PeepShow::admin;
@@ -16,15 +13,13 @@ use Catmandu;
 
 builder{
 	#middleware
-	enable 'Session',store=>Plack::Session::Store::File->new(dir=> '/tmp/sessions/peepshow');
+	#enable 'Session',store=>Plack::Session::Store::File->new(dir=> '/tmp/sessions/peepshow');
+	enable 'Session';
 	enable "Static", path => qr{^/(images|js|css|flash)/} , root => 'htdocs/';
 	enable 'openURL';
 	#routes
 	mount "/",PeepShow::search_all->to_app;
 	mount "/view",PeepShow::search_view->to_app;
-	mount "/opensearch",PeepShow::opensearch->to_app;
-	mount "/opensearch/view",PeepShow::opensearch_view->to_app;
-	mount "/help",PeepShow::help->to_app;
 	mount "/rss",PeepShow::rss->to_app;
 	mount "/xml",PeepShow::xml->to_app;
 	mount "/mycart",PeepShow::mycart->to_app;

@@ -1,0 +1,3 @@
+<div class="left" id="cart">
+	<a href="[% rooturl %]/mycart?language=nl"><img src="[% rooturl %]/images/icons/cart-add.gif" /> Toon mandje</a>
+</div>

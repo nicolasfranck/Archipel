@@ -1,0 +1,11 @@
+<title>Universiteitsbibliotheek Gent</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+<script type="text/javascript" src="[% rooturl %]/js/jquery-1.4.4-min.js"></script>
+<script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
+<script type="text/javascritp">
+	/*var pageTracker = _gat._createTracker("UA-1002951-2"); /*'getTracker' is deprecated*/
+	pageTracker._trackPageview();*/
+</script>
+<link rel="stylesheet" href="[% rooturl %]/css/master-min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="[% rooturl %]/css/rft_meercat_common-min.css" type="text/css" media="screen" />		
+<link rel="stylesheet" href="[% rooturl %]/css/help-min.css" type="text/css" media="screen" />

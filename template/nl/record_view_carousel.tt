@@ -1,0 +1,115 @@
+[% USE uri_escape %]
+[% INCLUDE nl/html.tt %]
+<html lang="nl" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	[% INCLUDE nl/head_record_view_carousel.tt %]	
+	</head>
+<body>
+<div id="wrap">
+	[% INCLUDE nl/top.tt %]
+	<div id="content">
+		<!-- search box -->
+		[% INCLUDE nl/form.tt %]		
+		[% IF hit %]
+			[% INCLUDE nl/perm.tt %]
+			[% IF q %]
+				[% INCLUDE nl/results_short.tt %]
+				<div class="band" style="margin-bottom:10px;padding-left:0px">
+					[% INCLUDE nl/paging_prevnext.tt %]
+					[% INCLUDE nl/cart.tt %]
+					<div style="clear:both"></div>
+				</div>		
+			[% END %]			
+			
+			<table>
+				<tr>
+					<td style="padding:0px;" colspan="2">
+					<ul id="tabnav">
+						<li>
+							<a href="[% rooturl %]/view?q=[% q | uri %]&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">record</a>
+						</li>
+						<li>
+							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=pages&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">overzicht media ([% total_items %])</a>
+						</li>
+						[% IF(hit.access.defined && hit.access.services.carousel == 1) || (is_local) %]
+						<li class="selected_tab">
+							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=carousel&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">blader media ([% total_items %])</a>
+						</li>
+						[% END %]
+					</ul>
+					</td>	
+				</tr>
+			</table>			
+			<table id="record">
+				<tr>
+					<th class="title" colspan="2">[% hit.${conf_metadata.header.key}.0 %]</th>									
+				</tr>				
+			</table>
+			[% IF hit.media.size > 1 %]	
+			<div class="prevnext">								
+					
+				[% IF first_set %]				
+				<div class="first"><a  href="[% rooturl | url %]/view?q=[% q | uri %]&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]&amp;item_id=[% first_set %]&amp;view=carousel">eerste</a></div>
+				[% END %]
+				[% IF prev_set %]
+				<div class="prev"><a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]&amp;item_id=[% prev_set %]&amp;view=carousel">vorige</a></div>
+				[% END %]
+				[% IF next_set %]
+				<div class="next"><a  href="[% rooturl | url %]/view?q=[% q | uri %]&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]&amp;item_id=[% next_set %]&amp;view=carousel">volgende</a></div>
+				[% END %]
+				[% IF last_set %]				
+				<div class="last"><a  href="[% rooturl | url %]/view?q=[% q | uri %]&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]&amp;item_id=[% last_set %]&amp;view=carousel">laatste</a></div>
+				[% END %]
+				<div class="pages">	
+					[% begin_item_id = hit.media.0.item_id %]
+					[% li = hit.media.size - 1 %]				
+					[% end_item_id = hit.media.${li}.item_id %]
+					[%  begin_item_id _ '-' _ end_item_id _ ' (' _ total_items _ ')' %]							
+					<form style="display:inline" onsubmit="return goToPage();">
+						<input type="text" size="2" id="goTo" name="goTo" />
+						<input type="hidden" id="rft_id" name="rft_id" value="[% rft_id %]" />
+					</form>							
+				</div>	
+												
+			</div>		
+			[% END %]
+			<div class="results">
+				<!--
+				<div class="left">				
+				[% IF hit.media.${index_item}.context == "Image" %]
+		                	[% FOREACH key IN service_order %]
+						[% NEXT IF NOT (hit.access.defined && hit.access.services.${key} == 1) %]
+		                        	<a href="OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${index_item}.item_id %]&amp;svc_id=[% key %]&amp;url_ver=[% openURL.version %]" id="svc_id_[% key %]" target="_BLANK">[% key %]</a>
+					[% END %]
+				[% END %]		
+				</div>		
+				-->
+				<div class="right" id="item_id">[% hit.media.${index_item}.item_id %]</div>
+				<div style="clear:both"></div>
+			</div>		
+			<div id="sub_main">				
+				<div id="overlay" style="position:absolute;z-index:100;background-color:black;width:100%;height:100%;">
+					<div style="position: absolute;top: 50%; left: 50%;margin-left:-61px;margin-top:-50px">loading..</div>
+				</div>
+				<iframe frameborder="0" id='zoomer_iframe' name='zoomer_iframe' src='[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${index_item}.item_id %]&amp;svc_id=zoomer&amp;url_ver=[% openURL.version %]' scrolling='no'></iframe>
+				<div id="car_nav">					
+					<div id="carousel">
+						<ul id="mycarousel" class="jcarousel-skin-tango">						
+						</ul>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			[% IF hit.access.defined && hit.access.services.carousel == 1 || is_local %]
+			<div class="band" style="margin-left:-6px;"><a href="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:1&amp;svc_id=carousel&amp;url_ver=[% openURL.version %]" style="font-size:normal">fullscreen carousel</a></div>
+			[% END %]
+			[% INCLUDE nl/id.tt %]
+		[% ELSE %]
+		<div class="error">[% errmsg %]</div>
+		[% END %]	
+	</div>		
+	[% INCLUDE nl/footer.tt %]
+</div>
+</body>
+</html>
+
