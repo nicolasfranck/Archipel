@@ -13,6 +13,7 @@ sub new {
 		allowed_range => glob_to_regex(Catmandu->conf->{allowed_range}),
 		file_item => qr/^([\w_\-]+_AC)$/,
 		rug01_item => qr/^(rug01:\d{9}):(\d+)$/,
+		other_item => qr/^(\w+):(\d+)$/,
 		aliases => {
 			"zoomer_fullscreen" => "zoomer"
 		}
@@ -27,6 +28,9 @@ sub file_item {
 }
 sub rug01_item {
 	shift->{rug01_item};
+}
+sub other_item {
+	shift->{other_item};
 }
 sub allowed_range {
 	shift->{allowed_range};
@@ -71,7 +75,12 @@ sub handle{
                         $catch =~ s/\d{4}_((\d{4})_AC)/????_\1/;
                         $query = "files:$catch";
                         $item_id = int($2);
-		}else{
+		}elsif($opts->{rft_id} =~ $self->other_item){
+			$rft_id = $1;
+			$item_id = $2;
+			$query = "id:\"$rft_id\"";
+		}
+		else{
 			return undef,undef,500,"rft_id ".$opts->{rft_id}." invalid";
 		}
 	

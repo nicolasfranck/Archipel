@@ -1,0 +1,62 @@
+my $a = {
+	_id => 'gent',
+	title => ['Uitzicht op de Sint-Pietersabdij vanuit de boekentoren'],
+	subject => [['Boekentoren','Gent']]
+};
+my $b = {
+	_id => 'gent',
+	access => {
+		services=>{thumbnail => 1,small=>1,medium=>1,large=>1}
+	},
+	poster_item_id => 1,
+	media => [
+		 {	
+                        'devs' => {
+                                     'large' => {
+                                                  'width' => 1200,
+                                                  'content_type' => 'image/jpeg',
+                                                  'url' => 'http://50.17.222.182/archipel/gent/gent_large.jpeg',
+                                                  'height' => 797,
+                                                  'size' => 221157
+                                                },
+                                     'small' => {
+                                                  'width' => 300,
+                                                  'content_type' => 'image/jpeg',
+                                                  'url' => 'http://50.17.222.182/archipel/gent/gent_small.jpeg',
+                                                  'height' => 199,
+                                                  'size' => 40075
+                                                },
+                                     'thumbnail' => {
+                                                      'width' => 150,
+                                                      'content_type' => 'image/jpeg',
+                                                      'url' => 'http://50.17.222.182/archipel/gent/gent_small.jpeg',
+                                                      'height' => 100,
+                                                      'size' => 28566
+                                                    },
+                                     'medium' => {
+                                                   'width' => 600,
+                                                   'content_type' => 'image/jpeg',
+                                                   'url' => 'http://50.17.222.182/archipel/gent/gent_medium.jpeg',
+                                                   'height' => 399,
+                                                   'size' => 78928
+                                                 }
+                                   },
+                         'services' => [
+                                         'thumbnail',
+                                         'small',
+                                         'medium',
+                                         'large',
+                                       ],
+                         'context' => 'Image',
+                         'file' => [
+                                     {
+                                       'width' => 6144,
+                                       'content_type' => 'image/jpeg',
+                                       'height' => 4081,
+                                       'size' => 1366542
+                                     }
+                                   ],
+                         'item_id' => 1
+                       }
+	]
+};

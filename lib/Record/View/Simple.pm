@@ -22,7 +22,6 @@ sub prepare{
         $self->args->{contexts} = $contexts;
         $self->args->{rft_id} = $self->record->{_id};
         $self->args->{item_id} = $self->args->{item_id};
-	$self->record->{media}=[];
 	$self->args->{hit}=$self->record;
 }
 

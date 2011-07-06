@@ -1,5 +1,5 @@
 <div id="top">
-	<h2><a href="#" title="Back to main page">LoadFoO [V2]</a></h2>
+	<h2><a href="#" title="Back to main page">Archipel Project</a></h2>
         <div id="menu">
         	<ul>
                         <li><a href="[% rooturl %]" class="current">home</a></li>

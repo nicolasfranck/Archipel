@@ -11,6 +11,7 @@
 		<!-- search box -->
 		[% INCLUDE nl/form.tt %]
 		[% IF hit %]	
+			[% poster_index = hit.poster_item_id - 1 %]
 			[% INCLUDE nl/perm.tt %]	
 			[% IF q %]
 				[% INCLUDE nl/results_short.tt %]
@@ -30,7 +31,7 @@
 						<li class="selected_tab">
 							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=pages&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">overzicht media ([% total_items %])</a>
 						</li>
-						[% IF (hit.access.defined && hit.access.services.carousel == 1) || (is_local) %]
+						[% IF ((hit.access.defined && hit.access.services.carousel == 1) || (is_local)) && hit.media.${poster_index}.services.grep('carousel').size > 0 %]
 						<li>
 							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=carousel&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">blader media ([% total_items %])</a>
 						</li>

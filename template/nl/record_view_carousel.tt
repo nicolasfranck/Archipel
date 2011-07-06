@@ -11,6 +11,7 @@
 		<!-- search box -->
 		[% INCLUDE nl/form.tt %]		
 		[% IF hit %]
+			[% poster_index = hit.poster_item_id - 1 %]
 			[% INCLUDE nl/perm.tt %]
 			[% IF q %]
 				[% INCLUDE nl/results_short.tt %]
@@ -31,7 +32,7 @@
 						<li>
 							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=pages&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">overzicht media ([% total_items %])</a>
 						</li>
-						[% IF(hit.access.defined && hit.access.services.carousel == 1) || (is_local) %]
+						[% IF ((hit.access.defined && hit.access.services.carousel == 1) || (is_local)) && hit.media.${poster_index}.services.grep('carousel').size > 0 %]
 						<li class="selected_tab">
 							<a href="[% rooturl | url %]/view?q=[% q | uri %]&amp;view=carousel&amp;start=[% start %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">blader media ([% total_items %])</a>
 						</li>
@@ -100,7 +101,7 @@
 				</div>
 				<div style="clear:both"></div>
 			</div>
-			[% IF hit.access.defined && hit.access.services.carousel == 1 || is_local %]
+			[% IF (hit.access.defined && hit.access.services.carousel == 1 || is_local) && hit.media.${poster_index}.services.grep('carousel').size > 0 %]
 			<div class="band" style="margin-left:-6px;"><a href="[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:1&amp;svc_id=carousel&amp;url_ver=[% openURL.version %]" style="font-size:normal">fullscreen carousel</a></div>
 			[% END %]
 			[% INCLUDE nl/id.tt %]
