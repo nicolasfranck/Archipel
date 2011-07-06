@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="[% hash.rooturl %]/js/urlvars-min.js"></script>
 		<script type="text/javascript">
 			var params = getUrlVars();
-			var controls = (params['controls'] == undefined)? true:(params['controls'] == 1)? true:false;
+			var controls = (params['controls'] == undefined || params['controls'] == "")? true:((params['controls'] == 1)? true:false);
 			// The iipsrv server path (/fcgi-bin/iipsrv.fcgi by default)
 			var server = '[% hash.server %]';
 
