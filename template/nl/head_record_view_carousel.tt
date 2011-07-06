@@ -19,6 +19,13 @@ function goToPage(){
 		var mycarousel_itemList = [
 			[% i = 0 %]
 			[% WHILE i < hit.media.size %]						
+				[% service = "" %]
+                                [% SWITCH hit.media.${i}.context %]
+                                        [% CASE "Image" %]
+                                                [% service = "zoomer" %]
+                                        [% CASE "Video" %]
+                                                [% service = "videolink" %]
+                                [% END %]
 				[% thumb = hit.media.${i}.devs.thumbnail %]
                                 [% width = thumb.width %]
 				[% height = thumb.height %]
@@ -30,7 +37,7 @@ function goToPage(){
 				[% rheight = height * ratio %]
 
 				{"url": "[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${i}.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% openURL.version %]", 
-				 "rel": "[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${i}.item_id %]&amp;svc_id=zoomer&amp;url_ver=[% openURL.version %]",
+				 "rel": "[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${i}.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% openURL.version %]",
 				 "title": "[% hit.media.${i}.title %]",
 				 "item_id": "[% hit.media.${i}.item_id %]",
 			     	 "base": "[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${i}.item_id %]&amp;url_ver=[% openURL.version %]",

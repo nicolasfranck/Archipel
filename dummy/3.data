@@ -1,0 +1,51 @@
+my $a = {
+	_id => 'youtube',
+	title => ['Boekentoren, the end?'],
+	subject => [['Boekentoren','Gent']]
+};
+my $b = {
+	'media' => [
+	       {
+		 'devs' => {
+			     'thumbnail' => {
+					      'width' => 120,
+					      'content_type' => 'image/jpeg',
+					      'url' => 'http://img.youtube.com/vi/6Gn4KDVPM0c/default.jpg',
+					      'height' => 90,
+					      'size' => 4839
+					    },
+			     'small' => {
+					'width' => 480,
+                                        'content_type' => 'image/jpeg',
+                                        'url' => 'http://img.youtube.com/vi/6Gn4KDVPM0c/0.jpg',
+                                        'height' => 360,
+                                        'size' => 12624
+			      }
+			   },
+		 'services' => [
+				 'thumbnail',
+				 'small',
+				 'videolink'
+			       ],
+		 'context' => 'Video',
+		 'file' => [
+			     {
+			       'content_type' => 'text/html',
+			       'path' => "youtube",
+			       'url' => 'http://www.youtube.com/embed/6Gn4KDVPM0c'
+			     }
+			   ],
+		 'item_id' => 1
+	       }
+	     ],
+	'_id' => 'youtube',
+	'access' => {
+		'services' => {
+				'thumbnail' => 1,
+				'small' => 1,
+				'videolink' => 1,
+				'carousel' => 1
+			      }
+	      },
+	'poster_item_id' => 1
+};
