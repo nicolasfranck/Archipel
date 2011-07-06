@@ -92,13 +92,7 @@
 				<div id="overlay" style="position:absolute;z-index:100;background-color:black;width:100%;height:100%;">
 					<div style="position: absolute;top: 50%; left: 50%;margin-left:-61px;margin-top:-50px">loading..</div>
 				</div>
-				[% service = "" %]
-                                [% SWITCH hit.media.${poster_index}.context %]
-                                        [% CASE "Image" %]
-                                                [% service = "zoomer" %]
-                                        [% CASE "Video" %]
-                                                [% service = "videolink" %]
-                                [% END %]
+				[% service = carousel.mapping.${hit.media.${index_item}.context} %]
 				<iframe frameborder="0" id='zoomer_iframe' name='zoomer_iframe' src='[% rooturl %]/OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${index_item}.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% openURL.version %]' scrolling='no'></iframe>
 				<div id="car_nav">					
 					<div id="carousel">

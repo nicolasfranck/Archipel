@@ -124,7 +124,9 @@ sub create_jp2k{
         if($rate > 32){
                 $rate = "24,32";
         }
-        my $command = "kdu_compress -i $input Stiles='{256,256}' Clevels=8 Clayers=8 -rate $rate Creversible=yes Corder=RPCL -no_weights -o $output";
+        #my $command = "kdu_compress -i $input Stiles='{256,256}' Clevels=8 Clayers=8 -rate $rate Creversible=yes Corder=RPCL -no_weights -o $output";
+	#voorlopig crash iipsrv.fcgi op lossy compression
+	my $command = "kdu_compress -i $input Stiles='{256,256}' Clevels=8 Clayers=8 -rate $rate Corder=RPCL -no_weights -o $output";
         $self->print("$command\n");
         my($stdout, $stderr, $success, $exit_code) = capture_exec($command);
         if(not $success){

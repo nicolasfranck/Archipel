@@ -12,7 +12,7 @@ sub new {
 		stash => {},
 		allowed_range => glob_to_regex(Catmandu->conf->{allowed_range}),
 		file_item => qr/^([\w_\-]+_AC)$/,
-		rug01_item => qr/^(rug01:\d{9}):(\d+)$/,
+		rug01_item => qr/^(rug01:\d{9}):(\d+)$/,		
 		other_item => qr/^(\w+):(\d+)$/,
 		aliases => {
 			"zoomer_fullscreen" => "zoomer"

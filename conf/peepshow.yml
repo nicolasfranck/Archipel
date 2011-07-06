@@ -18,7 +18,7 @@ DB:
  index:
   class: "Catmandu::Index::Solr"
   args:
-   url: "http://localhost:8983/solr"
+   url: "http://localhost:8080/solr"
    id_field: 'id'
   minresults: 10
   maxresults: 200
@@ -42,6 +42,10 @@ Columns:
  auth:
   username: 'admin'
   password: 'geheimpaswoord'
+Carousel:
+ Mapping:
+  Image: "zoomer"
+  Video: "videolink"
 Service:
  Image:
   thumbnail:
@@ -76,7 +80,7 @@ Service:
   videolink:
    HandlingPackage: 'PeepShow::Handler::Service::Video::Link'
    Template: 'videolink'
-  stream:
+  videostream:
    HandlingPackage: 'PeepShow::Handler::Service::Video::Stream'
    Template: 'videostream'
 # Doc:
@@ -190,10 +194,12 @@ Language:
   Templates:
    home: 'nl/home'
    search: 'nl/search'
-   search_advanced: 'nl/search_advanced'
    record_simple: 'nl/record_view_simple'
    record_pages: 'nl/record_view_pages'
    record_carousel: 'nl/record_view_carousel'
+   opensearch: 'nl/antifonarium/browser'
+   opensearch_view: 'nl/antifonarium/browser_view'
+   help: 'nl/help'
    sendmail_cart: 'nl/sendmail_cart.tt'
    mycart: 'nl/mycart'
    googlemaps: 'nl/googlemaps'

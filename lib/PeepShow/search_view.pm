@@ -8,6 +8,7 @@ use PeepShow::Tools::Record;
 use Data::Pageset;
 use PeepShow::Resolver::DB;
 use Text::Glob qw(glob_to_regex);
+use List::MoreUtils qw(first_index);
 
 any([qw(get post)],'',sub{
 	my $self = shift;
@@ -36,9 +37,11 @@ any([qw(get post)],'',sub{
 			$args->{next} = ($totalhits - 1 > $opts->{start})? $opts->{start} + 1:undef;
 			$args->{total_hits}=$totalhits;
 			$args->{start}=$opts->{start};
-			#security check (records met locale toegang worden sowieso uit de zoekresultaten gehaald!)
+			#security check
 			if(!$self->is_local && defined($hits->[0]->{access}) && defined($hits->[0]->{access})){
-				if(defined($params->{view}) && $params->{view} eq "carousel" && !$hits->[0]->{access}->{services}->{carousel}){
+				my $poster_item_id = $hits->[0]->{poster_item_id};
+			my $has_carousel = ((first_index {$_ eq "carousel"} @{$hits->[0]->{media}->[$poster_item_id]->{services}}) > -1 );
+				if(defined($params->{view}) && $params->{view} eq "carousel" && (!$hits->[0]->{access}->{services}->{carousel} || !$has_carousel)){
 					$params->{view} = "record";
 				}
 			}

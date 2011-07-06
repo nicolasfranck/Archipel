@@ -125,7 +125,6 @@ sub query_tiff {
 			$info->{$key}=$value;
 		}
 	}
-	print Dumper($info);
 	return $info;
 }
 sub unsharp_pyramid {
@@ -172,18 +171,18 @@ sub create_pyramid{
         unlink($temp) if defined($temp) && -f $temp;
 	return $success if not $success;
 
-	my $temp = $self->tempdir."/".Data::UUID->new->create_str.".tif";
-	if(!$self->unsharp_pyramid($output,$temp)){
-		$self->print("--> warning: sharpening of pyramid failed:".$self->err);
-	}else{
-		$self->print("--> moving $temp to $output\n");
-		if(!move($temp,$output)){
-			$self->err($?);
-			$success = 0;
-		}else{
-			$success = 1;
-		}		
-	}
+#	my $temp = $self->tempdir."/".Data::UUID->new->create_str.".tif";
+#	if(!$self->unsharp_pyramid($output,$temp)){
+#		$self->print("--> warning: sharpening of pyramid failed:".$self->err);
+#	}else{
+#		$self->print("--> moving $temp to $output\n");
+#		if(!move($temp,$output)){
+#			$self->err($?);
+#			$success = 0;
+#		}else{
+#			$success = 1;
+#		}		
+#	}
 	return $success;
 }
 sub create_file {
@@ -262,7 +261,8 @@ sub make_item {
                         "small",
                         "medium",
                         "large",
-                        "zoomer"
+                        "zoomer",
+			"carousel"
                 ]
 	};
 	foreach my $type(keys %$devs_info){

@@ -11,14 +11,16 @@ sub handle{
 		push @$rels,{
 			thumbnail => $item->{devs}->{thumbnail},
 			title => $item->{title},
-			item_id => $item->{item_id}
+			item_id => $item->{item_id},
+			context => $item->{context}
 		};
 	}
 	return {
 		rft_id => $record->{_id},
 		rels => $rels,
 		rooturl => Catmandu->conf->{rooturl},
-		item_id => $opts->{item_id}
+		item_id => $opts->{item_id},
+		mapping => Catmandu->conf->{Carousel}->{Mapping}
 	},200,undef;
 }
 

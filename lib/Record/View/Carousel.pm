@@ -1,4 +1,5 @@
 package Record::View::Carousel;
+use Catmandu;
 use PeepShow::Tools::Record;
 use Data::Pageset;
 use POSIX qw(ceil floor);
@@ -55,6 +56,7 @@ sub prepare{
                 $self->args->{prev_set}=$prev_set;
                 $self->args->{next_set}=$next_set;
                 $self->args->{last_set}=$last_set;
+		$self->args->{carousel}->{mapping} = Catmandu->conf->{Carousel}->{Mapping};
 	}
 }
 
