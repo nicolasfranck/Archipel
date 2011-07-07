@@ -38,10 +38,12 @@ any([qw(get post)],'',sub{
 			$args->{total_hits}=$totalhits;
 			$args->{start}=$opts->{start};
 			#security check
-			if(!$self->is_local && defined($hits->[0]->{access}) && defined($hits->[0]->{access})){
+			if(defined($params->{view}) && $params->{view} eq "carousel"){	
 				my $poster_item_id = $hits->[0]->{poster_item_id};
-			my $has_carousel = ((first_index {$_ eq "carousel"} @{$hits->[0]->{media}->[$poster_item_id]->{services}}) > -1 );
-				if(defined($params->{view}) && $params->{view} eq "carousel" && (!$hits->[0]->{access}->{services}->{carousel} || !$has_carousel)){
+				my $has_carousel = ((first_index {$_ eq "carousel"} @{$hits->[0]->{media}->[$poster_item_id - 1]->{services}}) > -1 );
+				if(!$has_carousel){
+					$params->{view} = "record";
+				}elsif(!$self->is_local && !$hits->[0]->{access}->{services}->{carousel}){
 					$params->{view} = "record";
 				}
 			}
