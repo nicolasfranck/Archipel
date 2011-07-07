@@ -454,14 +454,6 @@ div#sub_main{
         margin:0px;
         padding:0px;border:1px solid black;
 }
-
-.selected_image {
-        background-color:#111111 !important;
-        border-top:1px solid #000000 !important;
-        border-left:1px solid #000000 !important;
-        border-right:1px solid #AAAAAA !important;
-        border-bottom:1px solid #AAAAAA !important;
-}
 #mycarousel a.changeItem{
         text-decoration:none;
         color:white;

@@ -5,8 +5,7 @@
 		<title>UGENT ARCHIPEL</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />					
 		<link type="image/x-icon" href="[% hash.rooturl %]/images/icons/ugent_theme_favicon.png" rel="shortcut icon" />
-		<link rel="stylesheet" type="text/css" media="all" href="[% hash.rooturl %]/css/rft_meercat_item-min.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="[% hash.rooturl %]/css/carousel/carousel-min.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="[% hash.rooturl %]/css/carousel/carousel.css" />
 		<script type="text/javascript" src="[% hash.rooturl %]/js/jquery-1.4.4-min.js"></script>
 		<script type="text/javascript" src="[% hash.rooturl %]/js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="[% hash.rooturl %]/js/jquery.mousewheel.min.js"></script>
@@ -130,7 +129,7 @@
                         <div style="position:absolute;top:50%;left:50%;margin-top:65px;margin-left:-61px;color:#DDDDDD;text-align:center;width:122px;">loading..</div>
                 </div>
 		<div id="main">
-			<iframe frameborder="0" id="zoomer" name="zoomer" src="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% openURL.version %]"></iframe>
+			<iframe frameborder="0" id="zoomer" name="zoomer" src="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.version %]"></iframe>
 			<div id="carousel">
 				<div id="head">
 					<div id="bg" class="opaque70"></div>
@@ -172,7 +171,7 @@
 					<ul style="width:[% hash.rels.size * 115 + 6 %]px;">
 					[% i = 0 %]
 					[% WHILE i < hash.rels.size %]
-						[% service = mapping.${hash.rels.${i}.context} %]
+						[% service = hash.mapping.${hash.rels.${i}.context} %]
 						[% thumb = hash.rels.${i}.thumbnail %]
 						[% width = thumb.width %]
 						[% height = thumb.height %]
@@ -182,9 +181,9 @@
 						[% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
 						[% rwidth = width * ratio %]
 						[% rheight = height * ratio %]
-						<li item_id="[% hash.rels.${i}.item_id %]" class="" onclick="document.getElementById('zoomer').src='[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.rels.${i}.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% openURL.version %]'">
+						<li item_id="[% hash.rels.${i}.item_id %]" class="" onclick="document.getElementById('zoomer').src='[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.rels.${i}.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.version %]'">
 							<div class="imgholder">
-								<a target="zoomer" href="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.rels.${i}.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% openURL.version %]"><img src="[% hash.rooturl %]/images/icons/loading.png" original="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.rels.${i}.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% openURL.version %]" alt="[% hash.rels.${i}.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% hash.rels.${i}.title %]" alt="[% hash.rels.${i}.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% hash.rels.${i}.title %]" /></a>
+								<a target="zoomer" href="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.rels.${i}.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.version %]"><img src="[% hash.rooturl %]/images/icons/loading.png" original="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.rels.${i}.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% hash.openURL.version %]" alt="[% hash.rels.${i}.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% hash.rels.${i}.title %]" alt="[% hash.rels.${i}.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% hash.rels.${i}.title %]" /></a>
 							</div>
 							<div class="textholder">[% hash.rels.${i}.item_id %].&nbsp;[% hash.rels.${i}.title %]</div>
 						</li>

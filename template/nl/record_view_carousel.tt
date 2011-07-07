@@ -75,16 +75,6 @@
 			</div>		
 			[% END %]
 			<div class="results">
-				<!--
-				<div class="left">				
-				[% IF hit.media.${index_item}.context == "Image" %]
-		                	[% FOREACH key IN service_order %]
-						[% NEXT IF NOT (hit.access.defined && hit.access.services.${key} == 1) %]
-		                        	<a href="OpenURL/resolve?rft_id=[% rft_id %]:[% hit.media.${index_item}.item_id %]&amp;svc_id=[% key %]&amp;url_ver=[% openURL.version %]" id="svc_id_[% key %]" target="_BLANK">[% key %]</a>
-					[% END %]
-				[% END %]		
-				</div>		
-				-->
 				<div class="right" id="item_id">[% hit.media.${index_item}.item_id %]</div>
 				<div style="clear:both"></div>
 			</div>		

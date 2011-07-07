@@ -1,5 +1,5 @@
 [% INCLUDE nl/head.tt %]
-<!--[if IE]><style type="text/css">@import "[% rooturl %]/css/raster_ie-min.css";</style><![endif]-->
+<!--[if IE]><style type="text/css">@import "[% rooturl %]/css/raster_ie.css";</style><![endif]-->
 <script type="text/javascript" src="[% rooturl %]/js/cart.peepshow.js"></script>
 <script type="text/javascript">
         var rooturl = '[% rooturl %]';

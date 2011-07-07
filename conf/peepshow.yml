@@ -18,7 +18,7 @@ DB:
  index:
   class: "Catmandu::Index::Solr"
   args:
-   url: "http://localhost:8080/solr"
+   url: "http://localhost:8983/solr"
    id_field: 'id'
   minresults: 10
   maxresults: 200
@@ -83,6 +83,9 @@ Service:
   videostream:
    HandlingPackage: 'PeepShow::Handler::Service::Video::Stream'
    Template: 'videostream'
+  carousel:
+   HandlingPackage: 'PeepShow::Handler::Service::Image::Carousel'
+   Template: 'carousel'
 # Doc:
 #  viewer:
 #   HandlingPackage: 'PeepShow::Handler::Service::Doc::Google' 

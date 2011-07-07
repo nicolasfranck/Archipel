@@ -6,6 +6,6 @@
 	/*var pageTracker = _gat._createTracker("UA-1002951-2"); /*'getTracker' is deprecated*/
 	pageTracker._trackPageview();*/
 </script>
-<link rel="stylesheet" href="[% rooturl %]/css/master-min.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="[% rooturl %]/css/rft_meercat_common-min.css" type="text/css" media="screen" />		
-<link rel="stylesheet" href="[% rooturl %]/css/help-min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="[% rooturl %]/css/master.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="[% rooturl %]/css/common.css" type="text/css" media="screen" />		
+<link rel="stylesheet" href="[% rooturl %]/css/help.css" type="text/css" media="screen" />

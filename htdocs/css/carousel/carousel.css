@@ -200,3 +200,10 @@ div#main #carousel #content {
         /* For IE 5.5 - 7 */
         filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
 }
+.selected_image {
+        background-color:#111111 !important;
+        border-top:1px solid #000000 !important;
+        border-left:1px solid #000000 !important;
+        border-right:1px solid #AAAAAA !important;
+        border-bottom:1px solid #AAAAAA !important;
+}

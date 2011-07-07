@@ -20,7 +20,8 @@ sub handle{
 		rels => $rels,
 		rooturl => Catmandu->conf->{rooturl},
 		item_id => $opts->{item_id},
-		mapping => Catmandu->conf->{Carousel}->{Mapping}
+		mapping => Catmandu->conf->{Carousel}->{Mapping},
+		openURL => Catmandu->conf->{openURL}
 	},200,undef;
 }
 
