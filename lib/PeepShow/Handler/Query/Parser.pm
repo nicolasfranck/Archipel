@@ -6,7 +6,7 @@ use List::MoreUtils qw(first_index);
 sub new {
 	bless {
 		_query_fixer => PeepShow::Handler::Query::Fixer->new(),
-		_sort_fields => Catmandu->conf->{DB}->{index}->{sort_fields},
+		_sort_fields => Catmandu->conf->{app}->{search}->{sort_fields},
 		error => undef
 	},shift;
 }
@@ -31,13 +31,13 @@ sub parse {
 	#q en opts zijn de return-waarden
 	my $opts = {};
 	#conf
-	my $maxresults= Catmandu->conf->{DB}->{index}->{maxresults};
-        my $num_default = Catmandu->conf->{DB}->{index}->{num_default};
-        my $pages_per_set = Catmandu->conf->{DB}->{index}->{pages_per_set};
+	my $maxresults= Catmandu->conf->{app}->{search}->{maxresults};
+        my $num_default = Catmandu->conf->{app}->{search}->{num_default};
+        my $pages_per_set = Catmandu->conf->{app}->{search}->{pages_per_set};
 	
 	#params
 	my $q = $self->_query_fixer->handle($params);
-	$params->{q}=$q;
+	$params->add(q =>$q);
         my $display = $params->{display};
         my $sort = $params->{sort};
         my $sort_dir = $params->{sort_dir};
@@ -58,11 +58,14 @@ sub parse {
                         $opts->{start} = $start;
 			$opts->{limit} = 1;
                         $opts->{sort}="$sort $sort_dir" if defined($sort);
-			$params->{num}=1;
+			$params->add(num => 1);
 		}else{
-			$params->{num} = $params->{num} || $num_default;
-                        $params->{num} = $params->{num} > $maxresults ? $maxresults:$params->{num};
-                        $params->{page} = ($params->{page} && $params->{page} > 0 && $params->{page} =~ /^\d+$/)? $params->{page} : 1;
+			my $num = $params->{num};
+			$num = $num || $num_default;
+                        $num = $num > $maxresults ? $maxresults:$num;
+			$params->add(num=>$num);
+			my $page = ($params->{page} && $params->{page} > 0 && $params->{page} =~ /^\d+$/)? $params->{page} : 1;
+			$params->add(page => $page);
                         $start = ($params->{page} - 1)*$params->{num};
                        	$opts->{start} = $start;
 			$opts->{limit} = $params->{num};
@@ -74,7 +77,6 @@ sub parse {
 		$self->error("no query");
 	}
 	return $q,$opts;
-	
 }
 
 1;

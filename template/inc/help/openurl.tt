@@ -1,0 +1,134 @@
+<h1><a name="openurl"></a>OpenURL/resolve</h1>
+
+<p>
+Elk bibliografisch record kan meerdere media bevatten. 
+De media van zo'n record noemen we <i>items</i>. 
+Voor elk van die items worden zogenaamde diensten of <i>services</i> aangeboden. 
+Een simpel voorbeeld kan dit illustreren:
+Voor een boek wordt metadata aangemaakt, en is er m.a.w. een bibliografisch record.
+Elke ingescande pagina van dat boek geldt als een item. 
+De foto's worden opgeslagen in pyramidaal tiff- of in JPEG2000-formaat. 
+De interne structuur van die bestanden bevat meerdere resoluties van het origineel, en breekt het geheel op in kleinere blokjes of 'tiles'. 
+Die interne structuur biedt zoomer-technologieën de kans om specifieke stukken uit de foto's op te vragen, zonder de volledige foto te downloaden.
+Een 'zoomer' is dus een dienst of <i>service</i> die wordt toegepast op het originele item, om het toegankelijk te maken.
+Voor het gebruiksgemak worden eveneens afgeleiden van de originelen voorzien, en dat in meerdere afmetingen (zie beneden). 
+Dus kort samengevat: wanneer een <i>service</i> wordt toegepast op een item, dan kan de werkelijke inhoud die je ontvangt in de browser een HTML-pagina zijn (zoomer), of rauwe inhoud (bij afgeleiden).
+</p>
+
+<p>
+Om de werking van de diensten zo ruim mogelijk toegankelijk te houden, werd een aparte API gecreëerd, die ook voor externe sites beschikbaar is. 
+De basis-url van de API is <i>[% conf.all.rooturl %]/OpenURL/resolve</i>. 
+Aan die URL kunt u de volgende parameters toevoegen:
+</p>
+
+<table>
+	<tr>
+		<th colspan="3" class="title">[% conf.all.rooturl %]/OpenURL/resolve?rft_id=&lt;rug01&gt;:&lt;item_id&gt;&amp;svc_id=&lt;svc_id&gt;</th>
+	</tr>
+	<tr>
+		<th>parameter</th>
+		<th>betekenis</th>
+		<th>voorbeeld</th>
+	</tr>
+	<tr>
+		<td>rft_id</td>
+		<td>Referent ID. Dit is de ID waarmee men verwijst naar het object. Zo'n ID bestaat uit de volgende onderdelen:
+			&lt;record-id&gt;:&lt;item_id&gt;.</td>
+		<td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:001003936:1&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]">test</a></td>
+	</tr>
+	<tr>
+                <td>svc_id</td>
+                <td>
+			Service ID. Dit is de ID waarmee men verwijst naar de service. 
+			Niet elk item biedt dezelfde diensten aan.
+			<br/>Ondersteund: <b>[% services.join(', ') %]</b>
+		</td>
+                <td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:001003936:1&amp;svc_id=zoomer&amp;url_ver=[% conf.app.openURL.version %]">test</a></td>
+        </tr>
+	<tr>
+                <th colspan="3" class="title">Services</th>
+        </tr>
+        <tr>
+                <th>svc_id</th>
+                <th>betekenis</th>
+                <th>voorbeeld</th>
+        </tr>
+        <tr>
+                <td>thumbnail</td>
+                <td>			
+                        Afgeleid van de originele (tiff-)file in JPEG formaat.<br/>
+                        Lengte langste as: 150px<br/>
+                        MIME: image/jpeg<nr/>
+                </td>
+                <td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:000979865:1&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]">thumbnail</a></td>
+        </tr>
+        <tr>
+                <td>small</td>
+                <td>
+                        Afgeleid van de originele (tiff-)file in JPEG formaat.<br/>
+                        Lengte langste as: 300px<br/>
+                        MIME: image/jpeg<br/>
+                </td>
+                <td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:000979865:1&amp;svc_id=small&amp;url_ver=[% conf.app.openURL.version %]">small</a></td>
+        </tr>
+        <tr>
+                <td>medium</td>
+                <td>
+			Afgeleid van de originele (tiff-)file in JPEG formaat.<br/>
+                        Lengte langste as: 600px<br/>
+                        MIME: image/jpeg<br/>
+                </td>
+                <td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:000979865:1&amp;svc_id=medium&amp;url_ver=[% conf.app.openURL.version %]">medium</a></td>
+        </tr>
+        <tr>
+                <td>large</td>
+                <td>
+			Afgeleid van de originele (tiff-)file in JPEG formaat.<br/>
+                        Lengte langste as: 1200px<br/>
+                        MIME: image/jpeg<br/>
+                </td>
+                <td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:000979865:1&amp;svc_id=large&amp;url_ver=[% conf.app.openURL.version %]">large</a></td>
+        </tr>
+	 <tr>
+                <td>zoomer</td>
+                <td>
+                        <a href="http://iipimage.sourceforge.net/"><img src="[% conf.all.rooturl %]/images/iip/iip.32x32.png" style="display:block;float:left;padding:10px;" /></a>
+                        IIPMooviewer van Ruven Pillay.
+			Deze viewer werkt in de browser, en is gebaseerd op de Javascript-bibliotheek Mootools.
+			Het communiceert via Ajax met een IIPImage-server om 'tiles' van de origele foto op te vragen.
+			Om deze service te ondersteunen, moet Javascript dus ingeschakeld zijn in de browser.
+			<br/>
+                        MIME: text/html
+                </td>
+                <td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:000979865:1&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]">thumbnail</a></td>
+        </tr>
+        <tr>
+                <td>carousel</td>
+                <td>
+			De carousel is eigenlijk een combinatie van meerdere services.
+			Het voorziet onderaan in een horizontale band een lijst van thumbnail-links, die elk staan voor een apart item binnen het record (vb. elke pagina in een boek).
+			Als je op een van de thumbnails klikt, verschijnt bovenaan iets. 
+			Wat daar precies verschijnt hangt af van het type van het item.
+			Bij foto's verschijnt de zoomer.
+			<br/>
+                        MIME: text/html
+                </td>
+                <td><a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=rug01:000979865:1&amp;svc_id=carousel&amp;url_ver=[% conf.app.openURL.version %]">thumbnail</a></td>
+        </tr>
+</table>
+<p>
+Sommige diensten (thumbnail,small,medium and large) leveren rauwe inhoud aan de client browser, en kunnen dus rechtstreeks gebruikt worden.
+</p>
+<div class="code">
+	<div>
+		<span style="color: #008000; font-weight: bold">&lt;img</span> <span style="color: #7D9029">src=</span><span style="color: #BA2121">&quot;[% conf.all.rooturl %]?rft_id=rug01:001003936&amp;item_id=1&amp;svc_id=thumbnail&quot;</span> <span style="color: #008000; font-weight: bold">/&gt;</span>
+	</div>
+</div>
+<p>
+Om diensten zoals de zoomer en andere HTML-gebaseerde diensten in te bedden in uw eigen website, is het het best aangewezen om gebruik te maken van iframes (zie beneden).
+</p>
+<div class="code">
+        <div>
+		<span style="color: #008000; font-weight: bold">&lt;iframe</span> <span style="color: #7D9029">src=</span><span style="color: #BA2121">&quot;http://ec2-50-17-222-182.compute-1.amazonaws.com/grim/OpenURL/resolve?rft_id=rug01:001003936:1&amp;svc_id=zoomer&quot;</span> <span style="color: #008000; font-weight: bold">&gt;&lt;/iframe&gt;</span>
+	</div>
+</div>

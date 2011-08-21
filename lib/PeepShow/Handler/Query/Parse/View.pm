@@ -18,6 +18,7 @@ sub parse{
 	my $start = $params->{start};
 	#berekening
 	$start = ($start && int($start) >= 0)? int($start) :0;
+	$params->add(start=>$start);
         $opts->{start} = $start;
         $opts->{limit} = 1;
         $opts->{sort}="$sort $sort_dir" if defined($sort);

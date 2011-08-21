@@ -1,0 +1,24 @@
+<div class="paging">
+[% IF args.pages_in_set && args.pages_in_set.size > 0 %]
+	[% IF args.first_page && args.first_page < args.current_page %]
+	<a href="[% conf.all.rooturl %]/mycart?page=[% args.first_page %]&amp;num=[% args.num %]&amp;language=[% args.language %]" >[% tt_term_paging_first %]</a>
+	[% END %]
+	[% IF args.previous_page %]
+	<a href="[% conf.all.rooturl %]/mycart?page=[% args.previous_page %]&amp;num=[% args.num %]&amp;language=[% args.language %]" >[% tt_term_paging_previous %]</a>
+	[% END %]
+	[% FOREACH page IN args.pages_in_set %]
+		[% IF page == args.current_page %]
+		<span class="current">[% page %]</span>
+		[% ELSE %]
+		<a href="[% conf.all.rooturl %]/mycart?page=[% page %]&amp;num=[% args.num %]&amp;language=[% args.language %]">[% page %]</a>
+		[% END %]
+	[% END %]
+	[% IF args.next_page %]
+	<a href="[% conf.all.rooturl %]/mycart?page=[% args.next_page %]&amp;num=[% args.num %]&amp;language=[% args.language %]" >[% tt_term_paging_next %]</a>	
+	[% END %]
+	[% last_index = args.pages_in_set.size - 1 %]
+	[% IF args.last_page && args.last_page > args.current_page %]
+	<a href="[% conf.all.rooturl %]/mycart?page=[% args.last_page %]&amp;num=[% args.num %]&amp;language=[% args.language %]" >[% tt_term_paging_last %]</a>
+	[% END %]
+[% END %]
+</div>

@@ -1,16 +1,7 @@
 package PeepShow::Tools::Record;
 use Exporter qw(import);
-@EXPORT=qw(shortenValues filter slice);
+@EXPORT=qw(filter slice);
 
-sub shortenValues{
-	my($record,$key,$length)=@_;	
-	for($i=0;$i < scalar(@$record);$i++){
-		my $slength = $length - 2;		
-		if(length($record->[$i]->{$key}) > $length){			
-			$record->[$i]->{$key} = substr($record->[$i]->{$key},0,$slength)."..";
-		}
-	}
-}
 sub filter{
 	my($array,$filter)=@_;
 	my $newarray=[];

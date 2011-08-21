@@ -1,0 +1,11 @@
+<div id="top">
+	<img src="[% rooturl %]/images/icons/archipel.png" style="height:70px;margin-top:5px;"/>
+        <div id="menu">
+        	<ul>
+                        <li><a href="[% rooturl %]" class="current">home</a></li>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">portofolio</a></li>
+                        <li><a href="#">contact</a></li>
+                </ul>
+        </div>
+</div>

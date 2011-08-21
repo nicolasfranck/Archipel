@@ -8,13 +8,13 @@ sub new {
 	my $c;
 	my $a;
 	#index
-	$c = Catmandu->conf->{DB}->{index}->{class};
-        $a = Catmandu->conf->{DB}->{index}->{args};
+	$c = Catmandu->conf->{index}->{core}->{class};
+        $a = Catmandu->conf->{index}->{core}->{args};
         Plack::Util::load_class($c);
         my $index = $c->new(%$a);
 	#store
-	$c = Catmandu->conf->{DB}->{db}->{class};
-        $a = Catmandu->conf->{DB}->{db}->{args};
+	$c = Catmandu->conf->{database}->{core}->{class};
+        $a = Catmandu->conf->{database}->{core}->{args};
         Plack::Util::load_class($c);
 	my $store = $c->new(%$a);
 	bless {

@@ -1,0 +1,9 @@
+<div class="paging">
+	<a href="[% conf.all.rooturl %]?q=[% params.q | url %]&amp;page=[% sess.page %]&amp;num=[% sess.num %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&language=[% args.language %]">&lt;&lt;[% tt_term_paging_back_to_results %]</a>&nbsp;
+	[% IF args.prev != "" %]
+	<a href="[% conf.all.rooturl %]/view?q=[% params.q | url %]&amp;start=[% args.prev %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;view=[% params.view %]&language=[% args.language %]">&lt;[% tt_term_paging_previous %]</a>&nbsp;&nbsp;
+	[% END %]
+	[% IF args.next %]
+	<a href="[% conf.all.rooturl %]/view?q=[% params.q | url %]&amp;start=[% args.next %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;view=[% params.view %]&language=[% args.language %]">[% tt_term_paging_next %]&gt;</a>&nbsp;&nbsp;
+	[% END %]
+</div>

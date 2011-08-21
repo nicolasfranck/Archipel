@@ -1,4 +1,5 @@
 package PeepShow::Handler::Service::Image::Carousel;
+use strict;
 use Catmandu;
 
 sub new {
@@ -18,10 +19,10 @@ sub handle{
 	return {
 		rft_id => $record->{_id},
 		rels => $rels,
-		rooturl => Catmandu->conf->{rooturl},
+		rooturl => Catmandu->conf->{all}->{rooturl},
 		item_id => $opts->{item_id},
-		mapping => Catmandu->conf->{Carousel}->{Mapping},
-		openURL => Catmandu->conf->{openURL}
+		mapping => Catmandu->conf->{service_aggregate}->{carousel}->{mapping},
+		openURL => Catmandu->conf->{app}->{openURL}
 	},200,undef;
 }
 

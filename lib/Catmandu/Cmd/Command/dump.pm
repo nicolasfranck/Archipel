@@ -9,16 +9,19 @@ use Plack::Util;
 extends qw(Catmandu::Cmd::Command);
 
 #nodig voor dit commando
-use Catmandu::Store::Simple;
 use Data::Dumper;
+with qw(Catmandu::Cmd::Opts::Grim::Store);
 
-has db => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]",
-    required => 1
+has _store => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                my $self = shift;
+                my $class = "Catmandu::Store::Simple";
+                Plack::Util::load_class($class);
+                $class->new(%{$self->store_arg});
+        }
 );
 has id => (
     traits => ['Getopt'],
@@ -28,19 +31,11 @@ has id => (
     documentation => "id [required]",
     required => 1
 );
-has _db => (
-	is => 'ro',
-	isa => 'Ref',
-	lazy => 1,
-	default => sub {
-		Catmandu::Store::Simple->new(%{shift->db});
-	}
-);
 
 sub execute{
         my($self,$opts,$args)=@_;
 	#databank
-	my $record = $self->_db->load($self->id);
+	my $record = $self->_store->load($self->id);
 	print Dumper($record) if defined($record);
 }
 

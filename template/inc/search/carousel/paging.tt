@@ -1,0 +1,24 @@
+<div class="prevnext">
+        [% IF args.first_set %]
+        <div class="first"><a  href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;item_id=[% args.first_set %]&amp;view=carousel&language=[% args.language %]">[% tt_term_paging_first %]</a></div>
+        [% END %]
+        [% IF args.prev_set %]
+        <div class="prev"><a href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;item_id=[% args.prev_set %]&amp;view=carousel&language=[% args.language %]">[% tt_term_paging_previous %]</a></div>
+        [% END %]
+        [% IF args.next_set %]
+        <div class="next"><a  href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;item_id=[% args.next_set %]&amp;view=carousel&language=[% args.language %]">[% tt_term_paging_next %]</a></div>
+        [% END %]
+        [% IF args.last_set %]
+        <div class="last"><a  href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;item_id=[% args.last_set %]&amp;view=carousel&language=[% args.language %]">[% tt_term_paging_last %]</a></div>
+        [% END %]
+        <div class="pages">
+                [% begin_item_id = args.hit.media.0.item_id %]
+                [% li = args.hit.media.size - 1 %]
+                [% end_item_id = args.hit.media.${li}.item_id %]
+                [%  begin_item_id _ '-' _ end_item_id _ ' (' _ args.total_items _ ')' %]
+                <form style="display:inline" onsubmit="return goToPage();" accept-charset="UTF-8">
+                        <input type="text" size="2" id="goTo" name="goTo" />
+                        <input type="hidden" id="rft_id" name="rft_id" value="[% args.rft_id %]" />
+                </form>
+        </div>
+</div>

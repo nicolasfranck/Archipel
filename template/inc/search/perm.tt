@@ -1,0 +1,17 @@
+<div class="band" style="background-color:#F3F3F3">
+	<div class="left">
+    	<b>Permalink:</b>&nbsp;
+	[% r = args.rft_id %]
+	[% r = r.replace(':','/') %]
+    	<input type="text" size="55" readonly="readonly" value="[% conf.app.search.permroot %]/[% r %]" />
+    </div>
+	[% PROCESS inc/bookmark_link.tt %]
+        [% PROCESS inc/xml_link.tt %]
+	<div class="left">
+                <!-- Place this tag in your head or just before your close body tag -->
+                <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+                <!-- Place this tag where you want the +1 button to render -->
+                <g:plusone size="small"></g:plusone>
+        </div>
+    <div style="clear:both"></div>
+</div>

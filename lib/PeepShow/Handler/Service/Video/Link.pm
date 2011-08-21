@@ -1,4 +1,5 @@
 package PeepShow::Handler::Service::Video::Link;
+use strict;
 
 sub new {
 	bless {},shift;

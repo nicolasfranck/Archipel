@@ -1,0 +1,37 @@
+[% PROCESS data/en/common.tt %]
+[% PROCESS data/en/search.tt %]
+[% PROCESS data/en/paging_terms.tt %]
+[% BLOCK tt_text_search_help %]
+	<p>Your search - <b>[% params.q | html %]</b> - did not match any documents</p>
+        <ul>
+                <li>Make sure all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords. </li>
+        </ul>
+        <p></p>
+[% END %]
+[%
+tt_title_search_manip_sort = "Sort on" 
+tt_title_search_manip_sort_default = "--relevance--" 
+tt_title_search_manip_sort_desc = "Descending" 
+tt_title_search_manip_per_page = "Per page"
+tt_search_all_suggestion_title = "Dead you mean" 
+tt_title_search_advanced = "Advanced search" 
+tt_title_form_advanced_search_terms = "Find records that have.." 
+tt_title_form_advanced_search_all_terms = "all these words"
+tt_title_form_advanced_search_some_terms = "one or more of these words" 
+tt_title_form_advanced_search_exact_terms = "this exact wording or phrase"
+tt_title_form_advanced_search_negative_terms = "do not contain any of these words"
+tt_title_form_advanced_per_page = "Per page" 
+tt_title_form_advanced_type = "Type" 
+tt_title_form_advanced_type_all_media = "--all media--"
+tt_title_form_advanced_sort = "Sort on"
+tt_title_form_advanced_sort_default = "relevance (default)"
+tt_title_form_advanced_sort_dir = "Descending"
+tt_title_form_advanced_submit = "search" 
+tt_title_form_advanced_reset = "reset"
+%]
+[% q = params.q | html %]
+[%
+tt_search_all_results = "Results <b>" _ args.begin_item _ "-" _ args.end_item _ "</b> out of <b>" _ args.total_hits _ "</b> for <b>" _ q _ "</b>"
+%]

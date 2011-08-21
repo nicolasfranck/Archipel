@@ -9,9 +9,8 @@ sub new {
 		args => $opts{args} || {},
 		sess => $opts{sess} || {},
 		params => $opts{params} || {},
-		conf => $opts{conf} || {},
-		_err => undef,
-		_errmsg => undef
+		err => undef,
+		errmsg => undef
 	},$class;
 }
 sub record {
@@ -34,20 +33,15 @@ sub sess {
         if(@_){$self->{sess}=shift;}
         $self->{sess};
 }
-sub conf {
-        my $self = shift;
-        if(@_){$self->{conf}=shift;}
-        $self->{conf};
-}
 sub err {
         my $self = shift;
-        if(@_){$self->{_err}=shift;}
-        $self->{_err};
+        if(@_){$self->{err}=shift;}
+        $self->{err};
 }
 sub errmsg {
         my $self = shift;
-        if(@_){$self->{_errmsg}=shift;}
-        $self->{_errmsg};
+        if(@_){$self->{errmsg}=shift;}
+        $self->{errmsg};
 }
 
 1;

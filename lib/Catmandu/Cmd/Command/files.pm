@@ -8,22 +8,20 @@ use Plack::Util;
 
 extends qw(Catmandu::Cmd::Command);
 
-has storetype => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'Str',
-    cmd_aliases => 's',
-    documentation => "Type of store [default:Simple]",
-        default => sub{"Simple";}
+use Catmandu::Store::Simple;
+with qw(
+	Catmandu::Cmd::Opts::Grim::Store::Media
 );
 
-has db_args => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]"
+has _media => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                Catmandu::Store::Simple->new(%{shift->media_arg});
+        }
 );
+
 has id => (
 	traits => ['Getopt'],
 	is => 'rw',
@@ -42,14 +40,11 @@ sub print_files{
 }
 sub execute{
         my($self,$opts,$args)=@_;
-	my $class = "Catmandu::Store::".$self->storetype;
-	Plack::Util::load_class($class) or die();
-	my $store = $class->new(%{$self->db_args});
 	if(defined($self->id)){
-		my $record = $store->load($self->id);
+		my $record = $self->_media->load($self->id);
 		$self->print_files($record) if defined($record);
 	}else{
-		$store->each(sub{
+		$self->_media->each(sub{
 			$self->print_files(shift);
 		});
 	}

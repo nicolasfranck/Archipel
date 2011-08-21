@@ -1,0 +1,25 @@
+[% metadata = conf.language.${args.language}.Record %]
+<div class="manip">
+	<form method="get" id="manip_form" action="" accept-charset="UTF-8">
+		[% tt_title_search_manip_sort %]:&nbsp;
+		<select name="sort" onchange="document.getElementById('manip_form').submit();">
+			<option value="">[% tt_title_search_manip_sort_default %]</option>
+			[% FOREACH csort IN metadata.sort_fields %]					
+			<option value="[% csort.key %]" [% 'SELECTED' IF args.s == csort.key %]>[% csort.map %]</option>
+			[% END %]
+		</select>	
+		&nbsp;
+		[% tt_title_search_manip_sort_desc %]:&nbsp;<input type="checkbox" name="sort_dir" value="desc" onchange="document.getElementById('manip_form').submit();" [% 'CHECKED' IF params.sort_dir == 'desc' %]/>
+		[% tt_title_search_manip_per_page %]:&nbsp;
+		<select name="num" onchange="document.getElementById('manip_form').submit();">
+			<option value="10" [% 'SELECTED' IF params.num == 10 %]>10</option>
+			<option value="20" [% 'SELECTED' IF params.num == 20 %]>20</option>
+			<option value="50" [% 'SELECTED' IF params.num == 50 %]>50</option>
+			<option value="100" [% 'SELECTED' IF params.num == 100 %]>100</option>
+			<option value="200" [% 'SELECTED' IF params.num == 200 %]>200</option>
+		</select>	
+		<input type="hidden" name="q" value="[% params.q | html %]" />		
+		<input type="hidden" name="language" value="[% args.language %]" /> 
+	</form>
+	<div style="clear:both"></div>
+</div>

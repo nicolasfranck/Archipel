@@ -5,25 +5,22 @@ use Moose;
 use Catmandu;
 use Plack::Runner;
 use Plack::Util;
-
 extends qw(Catmandu::Cmd::Command);
-use Catmandu::Store::Simple;
 
-has db => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]"
+with qw(Catmandu::Cmd::Opts::Grim::Store);
+
+has _store => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                my $self = shift;
+                my $class = "Catmandu::Store::Simple";
+                Plack::Util::load_class($class);
+                $class->new(%{$self->store_arg});
+        }
 );
-has _db => (
-	is => 'ro',
-	isa => 'Ref',
-	lazy => 1,
-	default => sub{
-		Catmandu::Store::Simple->new(%{shift->db});
-	}
-);
+
 has id => (
 	traits => ['Getopt'],
 	is => 'rw',
@@ -34,7 +31,7 @@ has id => (
 );
 sub execute{
         my($self,$opts,$args)=@_;
-	my $record = $self->_db->load($self->id);
+	my $record = $self->_store->load($self->id);
 	my $total_size_files = 0;
 	my $total_size_devs = {};
 	foreach my $item(@{$record->{media}}){

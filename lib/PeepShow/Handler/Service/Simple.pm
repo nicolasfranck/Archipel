@@ -1,39 +1,43 @@
 package PeepShow::Handler::Service::Simple;
+use strict;
 use PeepShow::Resolver::DB;
 use List::MoreUtils qw(first_index);
 use Catmandu;
 use Plack::Util;
-use Text::Glob qw(glob_to_regex);
 
 sub new {
 	my $class = shift;
+	my @rft_parsers = ();
+	foreach my $rft(@{Catmandu->conf->{app}->{openURL}->{rft_id}->{formats}}){
+		my $class = $rft->{class};
+		my $args = $rft->{args};
+		Plack::Util::load_class($class);
+		push @rft_parsers,$class->new(%$args);
+	}
+	my @acls = ();
+	foreach my $acl(@{Catmandu->conf->{app}->{openURL}->{acls}}){
+		my $class = $acl->{class};
+		my $args = $acl->{args};
+		Plack::Util::load_class($class);
+                push @acls,$class->new(%$args);
+	}
 	return bless {
 		db => PeepShow::Resolver::DB->new,
 		stash => {},
-		allowed_range => glob_to_regex(Catmandu->conf->{allowed_range}),
-		file_item => qr/^([\w_\-]+_AC)$/,
-		rug01_item => qr/^(rug01:\d{9}):(\d+)$/,		
-		other_item => qr/^(\w+):(\d+)$/,
-		aliases => {
-			"zoomer_fullscreen" => "zoomer"
-		}
+		aliases => Catmandu->conf->{service}->{aliases},
+		rft_id_parsers => \@rft_parsers,
+		acls => \@acls 
 	},$class;
 }
 sub alias {
 	my($self,$name)=@_;
 	defined($self->{aliases}->{$name}) ? $self->{aliases}->{$name} : $name;
 }
-sub file_item {
-	shift->{file_item};
+sub rft_id_parsers {
+	shift->{rft_id_parsers};
 }
-sub rug01_item {
-	shift->{rug01_item};
-}
-sub other_item {
-	shift->{other_item};
-}
-sub allowed_range {
-	shift->{allowed_range};
+sub acls {
+	shift->{acls};
 }
 sub stash {
 	my $self = shift;
@@ -54,33 +58,18 @@ sub handle{
 	$svc_id = $self->alias($svc_id);
 	my $query;
 
-	my $sourceIP = $env->{HTTP_X_FORWARDED_FOR} ? $env->{HTTP_X_FORWARDED_FOR} : $env->{REMOTE_HOST};
-	my @ips = split(',',$sourceIP);
-	$sourceIP = pop(@ips);
-	
 	#syntactische controle van rft_id
-		if(not defined($opts->{rft_id})){
-			#rft_id_not_given
-			return undef,undef,500,"rft_id ".$opts->{rft_id}." is undefined";
+		#parse rft_id
+		my $success = 0;
+		foreach my $rft_id_parser(@{$self->rft_id_parsers}){
+			$success = $rft_id_parser->parse($opts->{rft_id});
+			if($success){
+				$query = $rft_id_parser->query;
+				$item_id = $rft_id_parser->item_id;			
+				last;
+			}
 		}
-		#rug01-item
-		if($opts->{rft_id} =~ $self->rug01_item){
-			$rft_id = $1;
-			$item_id = $2;
-			$query = "id:\"$rft_id\"";
-		}
-		#file-item
-		elsif($opts->{rft_id} =~ $self->file_item){
-			my $catch = $1;
-                        $catch =~ s/\d{4}_((\d{4})_AC)/????_\1/;
-                        $query = "files:$catch";
-                        $item_id = int($2);
-		}elsif($opts->{rft_id} =~ $self->other_item){
-			$rft_id = $1;
-			$item_id = $2;
-			$query = "id:\"$rft_id\"";
-		}
-		else{
+		if(!$success){
 			return undef,undef,500,"rft_id ".$opts->{rft_id}." invalid";
 		}
 	
@@ -106,22 +95,22 @@ sub handle{
 		return undef,undef,500,"$rft_id-$item_id-$svc_id does not exist";
 	}
 	#toegang tot svc_id?
-	if(defined($record->{access}) && !$record->{access}->{services}->{$svc_id} && $sourceIP !~ $self->allowed_range){
-		return undef,undef,401,"";
+	my $allowed = 1;
+	foreach my $acl(@{$self->acls}){
+		if(!$acl->is_allowed($env,$record,$item_id,$svc_id)){
+			$allowed = 0;
+			last;
+		}
 	}
+	return undef,undef,401,"" if !$allowed;
 	#context?
 	my $context = $item->{context};#Image, Video
 	if(not defined($context)){
 		#context_not_in_database
 		return undef,undef,500,"Technical error. Context of $rft_id-$item_id undefined in database";
 	}
-	#en in het conf bestand?
-	if(not defined($self->conf->{$context}->{$svc_id})){
-		#context_not_in_configuration
-		return undef,undef,500,"Technical error. Service $svc_id defined in database, but not in configuration file";
-	}
 	#zoek pakket
-	my $package = $self->conf->{$context}->{$svc_id}->{HandlingPackage};
+	my($package,$args,$template) = $self->get_handling_package($context,$svc_id);
 	if(not defined($package)){
 		#handling_package_undefined
 		return undef,undef,500,"Technical error. Handling package for $rft_id-$item_id-$svc_id not defined in configuration file";
@@ -130,30 +119,37 @@ sub handle{
 	my $path = $item->{file};
 	if(not defined($path)){
 		#path_undefined
-		
 		return undef,undef,500,"Technical error. Location of $rft_id-$item_id-$svc_id not in database";
 	}
 	#load class	
-	my($hash,$code,$err)=$self->get_package($package)->handle({
+	my($hash,$code,$err)=$self->get_package($package,$args)->handle({
 		rft_id => $rft_id,item_id=>$item_id,svc_id=>$svc_id
 	},$record);
-
-	#aangezien het record al eens is opgehaald, kunnen we maar best van de gelegenheid gebruik maken
-	#om de Show te helpen met het vinden van de template
-	my $template = $self->conf->{$context}->{$svc_id}->{Template};
 	return $hash,$template,$code,$err;
 }
 sub get_package {
-	my($self,$package)=@_;
-	$self->stash->{$package} ||= $self->build_package($package);
+	my($self,$package,$args)=@_;
+	$self->stash->{$package} ||= $self->build_package($package,$args);
 }
 sub build_package {
-	my($self,$package)=@_;
+	my($self,$package,$args)=@_;
 	Plack::Util::load_class($package);
-	$package->new();
+	$package->new(%$args);
 }
-sub conf {
-	Catmandu->conf->{Service};
+sub get_handling_package {
+	my($self,$context,$svc_id)=@_;
+	my $package;
+	my $template;
+	my $args;
+	if(defined(Catmandu->conf->{context}->{$context}) && defined(Catmandu->conf->{context}->{$context}->{$svc_id})){
+		$package = Catmandu->conf->{context}->{$context}->{$svc_id}->{HandlingPackage};
+		$args = Catmandu->conf->{context}->{$context}->{$svc_id}->{args} || {};
+		$template = Catmandu->conf->{context}->{$context}->{$svc_id}->{Template};
+	}elsif(defined(Catmandu->conf->{service_aggregate}->{$svc_id})){
+		$package = Catmandu->conf->{service_aggregate}->{$svc_id}->{HandlingPackage};
+		$args = Catmandu->conf->{service_aggregate}->{$svc_id}->{args} || {};
+		$template = Catmandu->conf->{service_aggregate}->{$svc_id}->{Template};
+	}
+	return $package,$args,$template;
 }
-
 1;

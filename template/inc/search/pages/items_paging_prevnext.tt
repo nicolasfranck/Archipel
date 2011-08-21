@@ -1,0 +1,34 @@
+[% IF args.pages_in_set.size %]
+	<div class="prevnext">
+		[% IF args.first_page %]
+		<div class="first"><a href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;view=pages&amp;page=[% args.first_page %]&amp;numitems=[% params.numitems %]&amp;language=[% args.language %]">[% tt_term_paging_first %]</a></div>
+		[% END %]
+		[% IF args.previous_page %]
+		<div class="prev"><a href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;view=pages&amp;page=[% args.previous_page %]&amp;numitems=[% params.numitems %]&amp;language=[% args.language %]">[% tt_term_paging_previous %]</a></div>
+		[% END %]
+		<div class="pages">
+		[% IF args.pages_in_set.size > 1 %]
+			[% FOREACH page IN args.pages_in_set %]
+				[% IF page == args.current_page %]
+				<span class="current">[% page %]</span>
+				[% ELSE %]
+				<a  href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;view=pages&amp;page=[% page %]&amp;numitems=[% params.numitems %]&amp;language=[% args.language %]">[% page %]</a>
+				[% END %]
+			[% END %]
+		[% END %]
+		</div>
+		[% IF args.next_page %]
+		<div class="next">
+		<a href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;view=pages&amp;page=[% args.next_page %]&amp;numitems=[% params.numitems %]&amp;language=[% args.language %]">[% tt_term_paging_next %]</a>
+		</div>
+		[% END %]
+		[% IF args.last_page %]
+		<div class="last">
+		<a href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;view=pages&amp;page=[% args.last_page %]&amp;numitems=[% params.numitems %]&amp;language=[% args.language %]">[% tt_term_paging_last %]</a>
+		</div>
+		[% END %]
+	</div>
+[% END %]
+[% IF args.pages_in_set %]
+	<div class="results">items [% args.begin_item %]-[% args.end_item %] ([% args.total_items %])</div>
+[% END %]

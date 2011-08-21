@@ -1,0 +1,9 @@
+[% PROCESS inc/html.tt %]
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+	</head>
+	<body>
+		<iframe src="[% hash.link %]" width="99%" height="99%" style="position:absolute;left:0px;top:0px;margin:0px;padding:0px;"></iframe>
+	</body>
+</html>

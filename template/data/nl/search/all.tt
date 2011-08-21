@@ -1,0 +1,37 @@
+[% PROCESS data/nl/common.tt %]
+[% PROCESS data/nl/search.tt %]
+[% PROCESS data/nl/paging_terms.tt %]
+[% BLOCK tt_text_search_help %]
+	<p>Uw zoekvraag - <b>[% params.q | html %]</b> - leverde geen resultaten op</p>
+	<ul>
+		<li>Alle woorden correct spellen a.u.b.</li>
+		<li>Probeer andere zoektermen.</li>
+		<li>Probeer meer algemene termen.</li>
+	</ul>
+	<p></p>
+[% END %]
+[%
+tt_title_search_manip_sort = "Sorteer op" 
+tt_title_search_manip_sort_default = "--relevantie--" 
+tt_title_search_manip_sort_desc = "Aflopend" 
+tt_title_search_manip_per_page = "Per pagina"
+tt_search_all_suggestion_title = "Bedoelde u" 
+tt_title_search_advanced = "Geavanceerd zoeken" 
+tt_title_form_advanced_search_terms = "Zoektermen" 
+tt_title_form_advanced_search_all_terms = "met alle woorden"
+tt_title_form_advanced_search_some_terms = "met een van deze woorden" 
+tt_title_form_advanced_search_exact_terms = "met exacte woordcombinatie"
+tt_title_form_advanced_search_negative_terms = "zonder de woorden"
+tt_title_form_advanced_per_page = "Per pagina" 
+tt_title_form_advanced_type = "Type" 
+tt_title_form_advanced_type_all_media = "--alle media--"
+tt_title_form_advanced_sort = "Sorteer op"
+tt_title_form_advanced_sort_default = "relevantie (default)"
+tt_title_form_advanced_sort_dir = "oplopend"
+tt_title_form_advanced_submit = "zoek" 
+tt_title_form_advanced_reset = "leeg"
+%]
+[% q = params.q | html %]
+[%
+tt_search_all_results = "Resultaten <b>" _ args.begin_item _ "-" _ args.end_item _ "</b> van <b>" _ args.total_hits _ "</b> voor <b>" _ q _ "</b>"
+%]

@@ -1,0 +1,4 @@
+<div class="band" style="padding-left:0px;">
+	<div class="left">[% tt_search_results_short %]</b></div>
+   	<div style="clear:both"></div>
+</div>

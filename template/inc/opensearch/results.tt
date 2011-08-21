@@ -1,0 +1,5 @@
+[% IF params.showInfo %]
+	<div class="browserResults">
+		[% tt_text_opensearch_results %]
+	</div>
+[% END %]

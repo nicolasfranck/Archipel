@@ -1,0 +1,16 @@
+[% PROCESS data/nl/common.tt %]
+[% PROCESS data/nl/paging_terms.tt %]
+[%
+tt_title_mycart = "Mijn mandje"
+tt_term_mycart_confirm_empty_cart = "Hiermee wordt het mandje geledigd! Bent u akkoord?" 
+tt_title_mycart_form_to = "Naar" 
+tt_title_mycart_form_message = "Boodschap" 
+tt_title_mycart_form_submit = "Verstuur" 
+tt_title_mycart_form_cancel = "Annuleren" 
+tt_title_mycart_is_empty = "Geen media in mandje. Vink de checkbox naast de foto aan om een bibliografisch record met al zijn elementen toe te voegen aan dit mandje."
+tt_error_mycart_sendmail_to_not_valid = "bestemmingsadres is ongeldig"
+tt_error_mycart_sendmail_failed = "uw email kon niet worden verstuurd wegens technische problemen. Probleem later opnieuw"
+tt_error_mycart_sendmail_rejected = "verzoek werd verworpen. waarschijnlijk is de ingevulde waarde van captcha verkeerd"
+tt_title_mycart_empty_cart = "Leeg mandje"
+tt_title_mycart_mail_cart = "Mail"
+%]

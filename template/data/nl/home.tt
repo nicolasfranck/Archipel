@@ -1,0 +1,5 @@
+[% PROCESS data/nl/common.tt %]
+[%
+tt_title_home = "Grim databank - collecties"
+tt_title_home_inspect_results = "bekijk"
+%]

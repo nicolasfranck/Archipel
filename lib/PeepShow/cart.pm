@@ -2,7 +2,6 @@ package PeepShow::cart;
 use Catmandu::App;
 use JSON;
 use PeepShow::Handler::Cart::Devs;
-use Plack::Util;
 
 any([qw(get post)],'',sub{
 	my $self = shift;

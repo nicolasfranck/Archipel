@@ -9,6 +9,7 @@ use Plack::Util;
 extends qw(Catmandu::Cmd::Command);
 
 #intern gebruik
+use utf8;
 use Archive::BagIt;
 use File::Basename;
 use Try::Tiny;
@@ -197,9 +198,8 @@ sub process_bag{
 	}
 	$self->tee->print("[OK]\n");
 	$self->tee->print("DC-Identifier:$_id\n\n");
-
+	
 	my @payloads = grep {$_->name =~ $self->_allowed_extensions} $self->_bagit->list_files;
-	#my @payloads = grep {$_->name =~ /_MA\.\w+$/i} $self->_bagit->list_files;
 	#sorteer..
 	@payloads = map{
     		$_->[1];

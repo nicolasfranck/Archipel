@@ -1,0 +1,13 @@
+[% PROCESS inc/head.tt %]
+<link rel="stylesheet" href="[% conf.all.rooturl %]/css/mycart.css" type="text/css" media="screen" />
+<script type="text/javascript">
+	var confirm_empty_cart = "[% tt_term_mycart_confirm_empty_cart %]"
+	function confirm_delete_cart(){
+                if(confirm(confirm_empty_cart))return true;
+                return false;
+        }
+	function cancelAction(action){
+		$('#'+action).fadeOut('slow');
+		$('#'+action).remove();
+	}
+</script>

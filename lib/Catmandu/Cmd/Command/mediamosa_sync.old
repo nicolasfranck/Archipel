@@ -1,0 +1,191 @@
+package Catmandu::Cmd::Command::mediamosa_sync;
+our $VERSION = 0.01;# VERSION
+#nodig voor cmd::command
+use Moose;
+use Catmandu;
+use Plack::Runner;
+use Plack::Util;
+
+extends qw(Catmandu::Cmd::Command);
+
+#nodig voor dit commando
+with qw(
+	Catmandu::Cmd::Opts::Grim::Store::Media
+	Catmandu::Cmd::Opts::Grim::Store::Metadata
+	Catmandu::Cmd::Opts::Grim::Index::Solr
+	Catmandu::Cmd::Opts::Grim::Harvester
+	Catmandu::Cmd::Opts::Grim::MediaMosa
+);
+use Net::OAI::Harvester;
+use Catmandu::Store::Simple;
+use Catmandu::Index::Solr;
+use File::Temp;
+use Image::ExifTool;
+use Data::Dumper;
+
+
+has _metadata => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                Catmandu::Store::Simple->new(%{shift->metadata_arg});
+        }
+);
+has _media => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                Catmandu::Store::Simple->new(%{shift->media_arg});
+        }
+);
+has _index => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                Catmandu::Index::Solr->new(%{shift->index_arg});
+        }
+);
+has _exif => (
+	is => 'rw',
+	isa => 'Ref',
+	default => sub{
+		Image::ExifTool->new;
+	}
+);
+sub make_metadata_record {
+	my($self,$oai_record)=@_;
+	my $new_metadata_record = {};
+	foreach my $fobject(@{$self->_yaml_mediamosa->{fields}}){
+		next if $fobject->{mappings}->{oai_dc}->{present} eq "false";
+		if(defined($fobject->{mappings}->{oai_dc}->{identifier}) && $fobject->{mappings}->{oai_dc}->{identifier} eq "true"){
+			$new_metadata_record->{_id} = $oai_record->header->identifier;
+			next;
+		}
+		my $aleph_metadata_key = $fobject->{key};
+		my $oai_metadata_key = $fobject->{mappings}->{oai_dc}->{key};
+		my @data = $oai_record->metadata->$oai_metadata_key() || ();
+		next if scalar(@data)==0;
+		$new_metadata_record->{$aleph_metadata_key} = \@data;
+	}
+	return $new_metadata_record;
+}
+sub make_media_record {
+	my($self,$oai_record)=@_;
+
+	my $context = ucfirst(lc($oai_record->metadata->{type}));
+	my $services = {"thumbnail"=>1};
+	my $files = [];
+	my $item = {item_id=>1};
+
+	my $media_record= {
+		_id => $oai_record->header->identifier,
+		access => {
+			services => {thumbnail=>1}
+		},
+		poster_item_id => 1,
+		media => []
+	};
+	#haal asset op
+	print "getting asset..\n";
+	my($asset,$errmsg) = $self->get_asset($oai_record->header->identifier);
+	return undef,$errmsg if defined($errmsg);
+	
+	#inspecteer still (bestaat geen metadata over)
+	print "getting still image..\n";
+	my $thumbnail = {};
+	my $still_url = $asset->{vpx_still_url};
+	my $response = $self->_ua->get($still_url);
+	return undef,$response->content if not $response->is_success;
+	my $tempfile = tmpnam();
+	open FILE,">$tempfile" or return undef,$!;
+	print FILE $response->content;
+	close FILE;
+	print "inspecting still image..\n";
+	my $still_info = $self->_exif->ImageInfo($tempfile);
+	
+	$thumbnail->{url} = $still_url;	
+	$thumbnail->{width} = $still_info->{ImageWidth};
+	$thumbnail->{height} = $still_info->{ImageHeight};
+	$thumbnail->{size} = -s $tempfile;
+        $thumbnail->{content_type} = $still_info->{MIMEType};
+	
+	$item->{devs}->{thumbnail} = $thumbnail;
+	unlink($tempfile) if -w $tempfile;
+	
+	#transformeer naar media_record
+	foreach my $mediafile(@{$asset->{mediafiles}}){
+		my $url;
+		if($context eq "Image"){
+			$url = $mediafile->{ega_download_url};#maar we gaan het niet downloaden
+		}elsif($context eq "Video"){
+			$url = $mediafile->{ega_play_url};
+			$services->{videolink} = 1;
+			$media_record->{access}->{videolink} = 1;
+		}
+		push @$files,{
+			path => $mediafile->{filename},
+			url => $url,
+			content_type => $mediafile->{metadata}->{mime_type},
+			size => $mediafile->{metadata}->{filesize},
+			width => $mediafile->{metadata}->{width},
+			height => $mediafile->{metadata}->{height}
+		};
+	}
+	$item->{file} = $files;
+	$item->{context} = $context;
+	$item->{services} = [keys %$services];
+
+	push @{$media_record->{media}},$item;
+
+	return $media_record,undef;
+}
+sub confirm {
+	my($self,$complete_list_size)=@_;
+	my $answer = "";
+	do{
+		print "complete list size:$complete_list_size. Do you want to continue? [y|n]";
+		$answer = lc(<STDIN>);
+		chomp $answer;
+	}while($answer ne "y" && $answer ne "n");
+	return $answer eq "y";
+}
+sub execute{
+        my($self,$opts,$args)=@_;
+
+	#login (nodig voor latere fetch van mediamosa)
+	my($success,$errmsg)=$self->login;
+	$self->fatal($errmsg) if not $success;
+
+	#harvest
+	my $records = $self->_harvester->listAllRecords(metadataPrefix=>'oai_dc');
+	$self->cancel if(!$self->confirm($records->resumptionToken->completeListSize));
+	while(my $record = $records->next){
+		print $record->header->identifier."\n";
+		my $new_metadata_record = $self->make_metadata_record($record);
+		my($new_media_record,$errmsg) = $self->make_media_record($record);
+		$self->fatal($errmsg) if defined($errmsg);
+		print Dumper($new_media_record);
+#		$self->_metadata->save($new_metadata_record);
+#		$self->_media->save($new_media_record);
+#		$self->_index->save($self->make_index_merge($new_metadata_record,$new_media_record));
+	}
+	#logout
+	$self->logout;
+}
+sub cancel {
+	my $self = shift;
+	print "operation cancelled\n";
+	exit(0);
+}
+sub fatal {
+	my($self,$errmsg)=@_;
+	print STDERR $errmsg;
+	exit(1);
+}
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
+__PACKAGE__;

@@ -1,0 +1,20 @@
+[% data = "data/" _ args.language _ "/help.tt" %]
+[% PROCESS $data %]
+[% PROCESS inc/html.tt %]
+        <head>
+		[% PROCESS inc/help/head.tt %]
+        </head>
+	<body>
+		[% PROCESS inc/common_header.tt %]
+		<div id="main">
+	                <!-- search box -->
+			[% PROCESS inc/form.tt %]
+			[% tt_text_help_table_content %]
+			[% tt_text_help_meaning_grim %]
+			[% tt_text_help_openurl %]
+			[% tt_text_help_opensearch %]
+			[% tt_text_help_admin %]
+		</div>
+	        [% PROCESS inc/common_footer.tt %]
+	</body>
+</html>

@@ -10,6 +10,9 @@ use List::Util qw(min max sum);
 use IO::CaptureOutput qw(capture_exec);
 use Image::Magick;
 use Image::Magick::Thumbnail::Simple;
+
+my $rgb_profile = "../profiles/Adobe ICC Profiles/RGB Profiles/sRGB Color Space Profile.icm";
+
 #attributen
 sub new {
 	my($class,%opts) = @_;
@@ -50,24 +53,6 @@ sub is_jp2k{
         return 0 if $info->{MIMEType} ne "image/jp2";
         return 1;
 }
-#check functies
-sub check_orientation{
-        my($self,$path)=@_;
-        @{$self->magick} = ();
-        my $changed = 0;
-        my $tmp_path = undef;
-        my $info = $self->exif->ImageInfo($path);
-        if($info->{Orientation} ne "Horizontal (normal)"){
-		$self->print("orientation wrong\n");
-                $tmp_path = $self->tempdir."/".Data::UUID->new->create_str.".tif";
-                $self->magick->Read($path);
-                $self->magick->AutoOrient();
-                $self->magick->Write($tmp_path);
-                $changed = 1;
-		$self->print("[NEW MA] $tmp_path\n");
-        }
-        return $changed,$tmp_path;
-}
 sub test_file {
 	my($self,$file_info)=@_;
 	$self->is_jp2k($file_info->{file});
@@ -84,6 +69,22 @@ sub test_devs {
 	return 1;
 }
 #create-functie
+#sub unsharp {
+#	my($self,$in,$out)=@_;
+#	@{$self->magick} = ();
+#        $self->magick->Read($in);
+#        $self->magick->UnsharpMask(radius=>6,sigma=>3,amount=>1,threshold=>0);
+#        $self->magick->Write($out);
+#	return 1;
+#}
+sub to_rgb {
+        my($self,$in,$out)=@_;
+        @{$self->magick} = ();
+        $self->magick->Read($in);
+        $self->magick->Profile(name=>$rgb_profile);
+        $self->magick->Write($out);
+        return (1,undef);
+}
 sub create_thumb{
         my($self,$input,$output,$size)=@_;
         my $success = $self->thumber->thumbnail(
@@ -102,30 +103,11 @@ sub create_thumb{
 	return $success;
 }
 sub create_jp2k{
-        my($self,$input,$output)=@_;
-        my $info = $self->exif->ImageInfo($input);
-        my $width = $info->{ImageWidth};
-        my $height = $info->{ImageHeight};
-        my $max = max($width,$height);
-        my $temp;
-        if($max > 4000){
-		$self->print("too big, resizing..\n");
-                $temp = $self->tempdir."/".Data::UUID->new->create_str.'.tif';
-		$self->print("[MA TIFF] $input -> [RESIZED TIFF] $temp\n");
-                my $success = $self->create_thumb($input,$temp,4000);
-                if(not $success){
-                        $self->err("error:error while storing pyramid in temporary file $temp","\n");
-                        unlink($temp) if -f $temp;
-                        return undef;
-                }
-                $input = $temp;
-        }
-        my $rate = sum(split(' ',$info->{BitsPerSample}));
+        my($self,$input,$input_info,$output)=@_;
+        my $rate = sum(split(' ',$input_info->{BitsPerSample}));
         if($rate > 32){
                 $rate = "24,32";
         }
-        #my $command = "kdu_compress -i $input Stiles='{256,256}' Clevels=8 Clayers=8 -rate $rate Creversible=yes Corder=RPCL -no_weights -o $output";
-	#voorlopig crash iipsrv.fcgi op lossy compression
 	my $command = "kdu_compress -i $input Stiles='{256,256}' Clevels=8 Clayers=8 -rate $rate Corder=RPCL -no_weights -o $output";
         $self->print("$command\n");
         my($stdout, $stderr, $success, $exit_code) = capture_exec($command);
@@ -133,7 +115,6 @@ sub create_jp2k{
                 $self->err($stderr);
                 unlink($output) if -f $output;
         }
-        unlink($temp) if defined($temp) && -f $temp;
         return $success;
 }
 sub create_file {
@@ -144,12 +125,62 @@ sub create_file {
 		return undef;
 	}
 	my $out = $opts->{datadir}."/$sublocation/".$opts->{outname}.".jp2";
-#        my($changed,$tmp_path) = $self->check_orientation($opts->{in});
-#        if($changed){
-#                $opts->{in} = $tmp_path;
-#        }
-	$self->print("[MA TIFF] ".$opts->{in}." -> $out [JPEG2000]\n");
-        if(not $self->create_jp2k($opts->{in},$out)){
+	my $temp;
+	my $copy;
+	#werk altijd op een kopie!
+	$copy = $self->tempdir."/".Data::UUID->new->create_str.".tif";
+	$self->print("--> copying ".$opts->{in}." to $copy\n");
+	my $status = copy($opts->{in},$copy);
+	if(!$status){
+		$self->err($!);
+		return  undef;
+	}	
+	#profile
+	$temp = $self->tempdir."/".Data::UUID->new->create_str.".tif";
+	$self->print("--> converting to sRGB: $copy -> $temp\n");
+	my($success,$err)=$self->to_rgb($copy,$temp);
+	$self->err($err);
+	if(!$success){
+		unlink($temp) if -f $temp;
+		unlink($copy) if -f $copy;
+		return 0;
+	}
+	unlink($copy);
+	$copy = $temp;
+	$self->print("--> copy is now $copy\n");
+	#resize
+	my $info = $self->exif->ImageInfo($copy);
+        my $width = $info->{ImageWidth};
+        my $height = $info->{ImageHeight};
+        my $max = max($width,$height);
+        if($max > 4000){
+                $self->print("--> axis $max is too big, resizing..\n");
+                $temp = $self->tempdir."/".Data::UUID->new->create_str.'.tif';
+                $self->print("[MA TIFF] $copy -> [RESIZED TIFF] $temp\n");
+                my $success = $self->create_thumb($copy,$temp,4000);
+                if(not $success){
+                        unlink($temp) if -f $temp;
+			unlink($copy) if -f $copy;
+                        return undef;
+                }
+		unlink($copy);
+		$copy=$temp;
+		$self->print("--> copy is now $copy\n");
+        }
+	#unsharp mask
+#	$temp = $self->tempdir."/".Data::UUID->new->create_str.'.tif';
+#	$self->print("--> applying unsharp mask: $copy -> $temp\n");
+#	if(!$self->unsharp($copy,$temp)){
+#		unlink($temp) if -f $temp;
+#                unlink($copy) if -f $copy;
+#                return undef;
+#	}
+#	unlink($copy);
+#	$copy = $temp;
+#	$self->print("--> copy is now $copy\n");
+	#jpeg2000
+	$self->print("[MA TIFF] $copy -> $out [JPEG2000]\n");
+        if(not $self->create_jp2k($copy,$info,$out)){
                 return undef;
         }
         if(not $self->is_jp2k($out)){
@@ -160,7 +191,7 @@ sub create_file {
 		file_sublocation => "$sublocation/".$opts->{outname}.".jp2"
 	};
 	$file_info->{url} = $opts->{data_prefix_url}.$file_info->{file_sublocation} if($opts->{data_prefix_url});
-	return $file_info;
+	return $file_info,$copy;
 }
 sub create_dev {
 	my($self,$in,$out,$type)=@_;
@@ -235,7 +266,8 @@ sub handle {
 		$self->err("invalid master");
 		return undef;
 	}
-	my $file_info = $self->create_file($opts);
+	my($file_info,$copy) = $self->create_file($opts);
+	$opts->{in} = $copy;
 	if($self->err){
 		$self->print($self->err);
 		return undef;
@@ -255,7 +287,9 @@ sub handle {
 		$self->print($self->err);
 		return undef;
 	}
-	my $item = $self->make_item($file_info,$devs_info);
+	$self->print("--> deleting copy $copy\n");
+	unlink($copy) if -f $copy;
+	my $item = $self->make_item($file_info,$devs_info);	
 }
 
 

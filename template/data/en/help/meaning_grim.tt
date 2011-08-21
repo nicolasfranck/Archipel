@@ -1,0 +1,45 @@
+[% tt_text_help_meaning_grim = BLOCK %]
+
+<h1><a name="meaning"></a>What is GRIM?</h1>
+
+<p>
+GRIM stands for <i>Ghent Repository for Images and Multimedia</i>. 
+GRIM is a website, that was erected to disclose all kinds of multimedia collections, belonging to the University Library of Ghent, for the big audience. 
+It does not have the intension to replace the already existing website of the library, but rather to enhance its capabilities by integrating new features and content. At first glance the site does not differ substantially from the one already present at search.ugent.be. 
+One can still search for bibliographical records - a logical result if one searches on a library website. 
+GRIM adds support for the visualisation of media that are linked to these records.
+</p>
+
+<p>
+The support for these content required the creation of a new architecture behind al of this. 
+While the visual representation globally remains the same, it is now possible to inspect media, linked to the records, from within the same interface.
+</p>
+
+<p>
+If you supply this simple <a href="[% conf.all.rooturl %]?q=cambron+casteau&amp;language=en">query</a> in the form above this text, you will get these results.
+</p>
+<p><img class="screenshot" src="[% conf.all.rooturl %]/images/screenshots/nl/search-all/search_normal_cropped.png" /></p>
+
+<p>
+The result is a list of thumbnails. 
+Each thumbnail in the list represents a bibliographical record. 
+In case of a book, its first page is shown. 
+Hit the link, and you receive the usual display of the record. 
+Usual display? 
+Some tabs are added to show the media that are linked to the record. 
+One can travel through these in two ways.
+</p>
+
+<p>By use of the <a href="[% conf.all.rooturl %]/view?q=cambron+casteau&amp;view=pages&amp;start=0&amp;language=en">page view</a></p>
+<p><img class="screenshot" src="[% conf.all.rooturl %]/images/screenshots/nl/search-view/pages_cropped.png" /></p>
+<p>By use of the <a href="[% conf.all.rooturl %]/view?q=cambron+casteau&amp;view=carousel&amp;start=0&amp;language=en">carousel view</a>:
+<p><img class="screenshot" src="[% conf.all.rooturl %]/images/screenshots/nl/search-view/carousel_cropped.png" /></p>
+<p>
+Using the carousel view, one can travel through all the media that belongs to the record. 
+The original content is shown in an iframe. 
+What is shown exactly depends on the kind of media. 
+E.g. Images are shown in a zoomer, and video's in a videoplayer. 
+The same tab gives the opportunity to save a derivative of the original shown.
+</p>
+
+[% END %]

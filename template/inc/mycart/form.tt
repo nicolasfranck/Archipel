@@ -1,0 +1,24 @@
+<div id="form">
+        <table>
+                <tr>
+                        <td>[% tt_title_mycart_form_to %]</td><td><input type="text" name="to" /></td>
+                </tr>
+                <tr>
+                        <td>[% tt_title_mycart_form_message %]</td>
+                        <td>
+                                <textarea cols="50" rows="6" name="message"></textarea>
+                        </td>
+                </tr>
+                <tr>
+                        <td colspan="2">[% args.captcha_html %]</td>
+                </tr>
+                <tr>
+                        <td colspan="2">
+                                <input type="hidden" name="action" value="mail" />
+				<input type="hidden" name="language" value="[% args.language %]" />
+                                <input type="submit" name="submit" value="[% tt_title_mycart_form_submit %]" />
+                                <input type="button" name="cancel" value="[% tt_title_mycart_form_reset %]" onclick="cancelAction('mail')"/>
+                        </td>
+                </tr>
+        </table>
+</div>

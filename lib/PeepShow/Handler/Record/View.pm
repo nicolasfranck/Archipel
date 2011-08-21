@@ -4,7 +4,7 @@ use Plack::Util;
 
 sub new {
 	bless {
-		_conf => Catmandu->conf->{Record}->{View},
+		_conf => Catmandu->conf->{package}->{Record}->{View},
 		_stash => {}
 	},shift;
 }
@@ -17,24 +17,17 @@ sub _stash {
 	$self->{_stash};
 }
 sub handle{
-        my($self,$opts) = @_;
-	my $view = (defined($opts->{view}) && defined($self->_conf->{$opts->{view}}))? $opts->{view}:$self->_conf->{default};
+        my($self,$page_args) = @_;
+	my $view = (defined($page_args->{params}->{view}) && defined($self->_conf->{$page_args->{params}->{view}}))? $page_args->{params}->{view}:$self->_conf->{default};
 	my $package = "Record::View::".$self->_conf->{$view};
 	$self->check_package($package) or croak("cannot find $package");
 	my $v =	$package->new(
-		record => $opts->{record},
-		args => $opts->{args},
-		params => $opts->{params},
-		conf => $opts->{conf},
-		sess => $opts->{sess}
+		args => $page_args->{args},
+		params => $page_args->{params},
+		sess => $page_args->{sess}
 	);
 	$v->prepare;
 	my $hash = {
-		record => $v->record,
-		args => $v->args,
-		params => $v->params,
-		conf => $v->conf,
-		sess => $v->params,		
 		template_key => lc($view) ,
 		err => $v->err,
 		errmsg => $v->errmsg

@@ -1,0 +1,33 @@
+[% PROCESS inc/html.tt %]
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<script type="text/javascript" src="js/jwplayer/jwplayer.js"></script>
+	</head>
+	<body>
+	<!-- HTML5 ? -->
+	<video id="container" controls height="380">
+		[% flvlink = '' %]
+		[% FOREACH link IN hash.links %]
+		<source src="[% link %]" />		
+			[% IF link.match('\.flv$') %]
+			[% flvlink = link %]	
+			[% END %]	
+		[% END %]		
+		<!-- geen HTML5? Dan maar evil Flash JW Player .. -->
+		<script type="text/javascript">
+		document.onload=function(){
+			var videos=document.getElementsByTagName('video');
+			if(videos.length ==0){
+				jwplayer("container").setup({
+		    			flashplayer: "flash/jwplayer/player.swf",
+			    		file: "[% flvlink %]"
+				});
+			}	
+		}
+		</script>
+		<!-- Zelfs geen Flash? -->
+		<img src="[% hash.poster %]" alt="" />				
+	</video>	
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="paging">
+[% IF args.pages_in_set && args.pages_in_set.size %]
+	[% IF args.eerste_page && args.eerste_page < args.current_page %]
+	<a href="[% conf.all.rooturl %]?q=[% params.q | url -%]&amp;page=[% args.eerste_page %]&amp;num=[% params.num %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]">[% tt_term_paging_first %]</a>
+	[% END %]
+	[% IF args.previous_page %]
+	<a href="[% conf.all.rooturl %]?q=[% params.q | url -%]&amp;page=[% args.previous_page %]&amp;num=[% params.num %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]" >[% tt_term_paging_previous %]</a>
+	[% END %]
+	[% IF args.pages_in_set.size > 1 %]
+		[% FOREACH page IN args.pages_in_set %]
+			[% IF page == args.current_page %]
+			<span class="current">[% page %]</span>
+			[% ELSE %]
+			<a href="[% conf.all.rooturl %]?q=[% params.q | url -%]&amp;page=[% page %]&amp;num=[% params.num %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]">[% page %]</a>
+			[% END %]
+		[% END %]
+	[% END %]
+	[% IF args.next_page %]
+	<a href="[% conf.all.rooturl %]?q=[% params.q | url -%]&amp;page=[% args.next_page %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;num=[% params.num %]&amp;language=[% args.language %]" >[% tt_term_paging_next %]</a>	
+	[% END %]
+	[% last_index = args.pages_in_set.size - 1 %]
+	[% IF args.last_page && args.last_page > args.current_page %]
+	<a href="[% conf.all.rooturl %]?q=[% params.q | url -%]&amp;page=[% args.last_page %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;num=[% params.num %]&amp;language=[% args.language %]">[% tt_term_paging_last %]</a>
+	[% END %]
+[% END %]
+</div>

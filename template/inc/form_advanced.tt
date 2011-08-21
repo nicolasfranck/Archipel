@@ -1,0 +1,81 @@
+[% metadata = conf.language.${args.language}.Record %]
+<div id="search_advanced">
+	<form method="get" action="[% conf.all.rooturl %]" accept-charset="UTF-8">
+	<table>	
+		<tr>
+			<th class="title" colspan="3">
+				[% tt_title_search_advanced %]
+			</th>
+		</tr>					
+		<tr>
+			<th>[% tt_title_form_advanced_search_terms %]</th>
+			<td>[% tt_title_form_advanced_search_all_terms %]</td>
+			<td><input type="text" name="search_and" value="" /></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>[% tt_title_form_advanced_search_some_terms %]</td>
+			<td><input type="text" name="search_or" value="" /></td>
+		</tr>	
+		<tr>
+			<th></th>
+			<td>[% tt_title_form_advanced_search_exact_terms %]</td>
+			<td><input type="text" name="search_exact" value="" /></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>[% tt_title_form_advanced_search_negative_terms %]</td>
+			<td><input type="text" name="search_negative" value="" /></td>
+		</tr>	
+		<tr>
+			<th>[% tt_title_form_advanced_per_page %]</th>						
+			<td>
+				<select name="num">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+					<option value="200">200</option>
+				</select>
+			</td>
+			<td></td>
+		</tr>				
+		<tr>
+			<th>[% tt_title_form_advanced_type %]</th>
+			<td>
+				<select name="context">
+					<option value="">[% tt_title_form_advanced_type_all_media %]</option>
+					[% FOREACH context IN conf.context.keys %]
+						<option value="Image">[% context %]</option>
+					[% END %]
+				</select>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>[% tt_title_form_advanced_sort %]</th>
+			<td>
+				<select name="sort">
+					<option value="">[% tt_title_form_advanced_sort_default %]</option>
+					[% FOREACH sort IN metadata.sort_fields %]					
+					<option value="[% sort.key %]">[% sort.map %]</option>
+					[% END %]
+				</select>
+			</td>
+			<td>
+				<input type="checkbox" value="asc" name="sort_dir"/>
+				[% tt_title_form_advanced_sort_dir %]
+			</td>
+		</tr>	
+		<tr>
+			<th colspan="3" class="foot">
+				<input type="submit" value="[% tt_title_form_advanced_submit %]" />
+				<input type="reset" value="[% tt_title_form_advanced_reset %]" />
+				<input type="hidden" name="confirm_search" value="1" />
+				<input type="hidden" name="search_type" value="advanced" />
+				<input type="hidden" name="language" value="[% args.language %]" />
+			</th>
+		</tr>									
+	</table>
+	</form>
+</div>

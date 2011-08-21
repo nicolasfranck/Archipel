@@ -8,8 +8,8 @@ use HTTP::Date;
 
 my $proxy = Plack::App::Proxy->new->to_app;
 my $handler = PeepShow::Handler::Service::Simple->new();
-my $openurl_path = Catmandu->conf->{openURL}->{path} || "/openURL";
-my $x_send_expire = Catmandu->conf->{openURL}->{expire} || 3600;
+my $openurl_path = Catmandu->conf->{app}->{openURL}->{path} || "/openURL";
+my $x_send_expire = Catmandu->conf->{app}->{openURL}->{expire} || 3600;
 
 sub call {
         my($self,$env)=@_;
@@ -74,10 +74,6 @@ sub response_error {
 		push @$body,"access denied";
 	}
         return [$code,['Content-Type'=>'text/html'],$body];
-}
-sub rooturl {
-        my $self = shift;
-        Catmandu->conf->{rooturl};
 }
 
 1;

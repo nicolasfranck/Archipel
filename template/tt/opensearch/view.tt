@@ -1,0 +1,18 @@
+[% data = "data/" _ args.language _ "/opensearch/view.tt" %]
+[% PROCESS $data %]
+[% PROCESS inc/html.tt %]
+        <head>
+		<link rel="stylesheet" type="text/css" href="[% conf.all.rooturl %]/css/antifonarium/lib.css" />
+		<link rel="stylesheet" type="text/css" href="[% conf.all.rooturl %]/css/antifonarium/thickbox.css" />
+        </head>
+	<body class="base">
+		<div id="container">
+			<div id="stage">
+				[% PROCESS inc/opensearch/view/results.tt %]
+				[% PROCESS inc/opensearch/view/results_list.tt %]
+				[% PROCESS inc/opensearch/view/cells.tt %]
+				<div style="clear:both"></div>
+			</div>
+		</div>
+	</body>
+</html>

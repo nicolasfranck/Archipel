@@ -1,0 +1,7 @@
+<div class="left">        
+	<script type="text/javascript">var addthis_pub="4a04375a43307a91";</script>
+	<a href="http://www.addthis.com/bookmark.php?v=20" onmouseover="return addthis_open(this, '', '[% conf.all.root_url _ env.REQUEST_URI  %]', '[% params.q | url %]')" onmouseout="addthis_close()" onclick="pageTracker._trackPageview('http://www.addthis.com/bookmark.php?v=20'); return addthis_sendto()">
+		<img alt="loading" src="http://search.ugent.be/meercat/img/sm-bookmark-en.gif" alt="Bookmark and Share" style="border:0">
+	</a>
+	<script type="text/javascript" src="http://s7.addthis.com/js/200/addthis_widget.js"></script>
+</div>

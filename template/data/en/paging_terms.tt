@@ -1,0 +1,11 @@
+[% 
+tt_term_paging_back_to_results = "Back to results" 
+tt_term_paging_first = "first" 
+tt_term_paging_previous = "previous" 
+tt_term_paging_next = "next" 
+tt_term_paging_last = "last" 
+tt_term_paging_first_record = tt_term_paging_first _ " record"
+tt_term_paging_previous_record = tt_term_paging_previous _ " record"
+tt_term_paging_next_record = tt_term_paging_next _ " record"
+tt_term_paging_last_record = tt_term_paging_last _ " record"
+%]

@@ -1,0 +1,20 @@
+[% data = "data/" _ args.language _ "/googlemaps.tt" %]
+[% PROCESS $data %]
+[% PROCESS inc/html.tt %]
+<head>
+	[% PROCESS inc/googlemaps/head.tt %]
+</head>
+<body onload="initialize();">
+	[% PROCESS inc/common_header.tt %]
+	<div id="main">
+		<!-- search box -->
+		[% PROCESS inc/form.tt %]
+	    	<div id="raster">
+			[% tt_title_googlemaps %]
+			<div id="map_canvas"></div>
+			<div style="clear:both"></div>
+		</div>
+	</div>	
+	[% PROCESS inc/common_footer.tt %]		
+</body>
+</html>

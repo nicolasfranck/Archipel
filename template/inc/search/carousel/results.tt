@@ -1,0 +1,4 @@
+<div class="results">
+        <div class="right" id="item_id">[% args.hit.media.${args.index_item}.item_id %]</div>
+        <div style="clear:both"></div>
+</div>

@@ -1,0 +1,5 @@
+[% PROCESS data/en/common.tt %]
+[% PROCESS data/en/search.tt %]
+[% PROCESS data/en/paging_terms.tt %]
+[% 
+%]

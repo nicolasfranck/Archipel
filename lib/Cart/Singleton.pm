@@ -1,4 +1,6 @@
 package Cart::Singleton;
+use strict;
+use warnings;
 use Hash::Merge::Simple qw(merge);
 use Clone qw(clone);
 #bij Hash::Merge

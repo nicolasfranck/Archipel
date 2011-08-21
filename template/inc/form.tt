@@ -1,0 +1,5 @@
+[% IF params.search_type == 'advanced' && !params.confirm_search %]
+	[% PROCESS inc/form_advanced.tt %]
+[% ELSE %]
+	[% PROCESS inc/form_normal.tt %]
+[% END %]

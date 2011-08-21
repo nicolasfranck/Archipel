@@ -1,0 +1,34 @@
+[% data = "data/" _ args.language _ "/home.tt" %]
+[% PROCESS $data %]
+[% PROCESS inc/html.tt %]
+<head>
+	[% PROCESS inc/home/head.tt %]
+</head>
+<body>
+	[% PROCESS inc/common_header.tt %]
+	<div id="main">
+		<!-- search box -->
+		[% PROCESS inc/form.tt %]
+		<div class="page_title">[% tt_title_home %]</div>
+	    	<div id="raster">
+			<table id="columns">
+			[% FOREACH column IN args.columns %]
+				[% NEXT IF NOT column.desc.${args.language}.defined %]
+				<tr>
+				[% link = conf.all.rooturl _ conf.app.openURL.path _ "?rft_id=" _ column.rft_id _ ":" _ column.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.app.openURL.version %]
+					<td class="image"><img alt="loading" src="[% link | url %]" onclick="window.location='[% conf.all.rooturl | url %]?q=[% column.query | url %]&language=[% args.language | url %]'" /></td>
+					<td>
+						<h1>[% column.title.${args.language} %]</h1>
+						<p>[% column.desc.${args.language} %]</p>
+						[% link = conf.all.rooturl _ "?q=" _ column.query _ "&language=" _ args.language %]
+						<a href="[% link | url %]">[% tt_title_home_inspect_results %]</a>	
+					</td>
+				</tr>
+			[% END %]
+			</table>			
+			<div style="clear:both"></div>
+		</div>
+	</div>	
+        [% PROCESS inc/common_footer.tt %]
+</body>
+</html>

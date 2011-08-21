@@ -1,0 +1,16 @@
+[% PROCESS data/en/common.tt %]
+[% PROCESS data/en/paging_terms.tt %]
+[%
+tt_title_mycart = "My Cart"
+tt_term_mycart_confirm_empty_cart = "Your cart will be emptied! Are you sure?" 
+tt_title_mycart_form_to = "To" 
+tt_title_mycart_form_message = "Message" 
+tt_title_mycart_form_submit = "Send" 
+tt_title_mycart_form_cancel = "Cancel" 
+tt_title_mycart_is_empty = "No media found in cart. Check the checkbox next to an image to include a bibliographical record and all its elements in this cart."
+tt_error_mycart_sendmail_to_not_valid = "destination address is invalid"
+tt_error_mycart_sendmail_failed = "Due to technical problems your email could not be sent. Try again later."
+tt_error_mycart_sendmail_rejected = "Request rejected. Probably due to an invalid captcha value"
+tt_title_mycart_empty_cart = "Empty cart"
+tt_title_mycart_mail_cart = "Mail"
+%]

@@ -3,3 +3,4 @@ template:
  ENCODING: "UTF-8"
  PRE_CHOMP: 3
  POST_CHOMP: 3
+ PRIVATE: 0

@@ -1,9 +1,10 @@
 package PeepShow::admin;
 use Catmandu::App;
-use PeepShow::Resolver::DB;
+
+use parent qw(PeepShow::App::Common);
+
 use Plack::Util;
 use Clone qw(clone);
-use Data::UUID;
 use Hash::Merge::Simple qw(merge);
 use List::MoreUtils qw(first_index);
 
@@ -13,10 +14,10 @@ any([qw(get post)],'',sub{
 	my $params = $self->request->parameters;
 	my $action = $params->{action} || "";
 	my $submit = $params->{submit};
-	my $desc_maxchars = $self->conf->{desc}->{maxchars};
-	my $title_maxchars = $self->conf->{title}->{maxchars};
+	my $desc_maxchars = Catmandu->conf->{app}->{admin}->{desc}->{maxchars};
+	my $title_maxchars = Catmandu->conf->{app}->{admin}->{title}->{maxchars};
 	my $query = $params->{query};
-	my $id = $params->{id};#bij wijzigingen..
+	my $id = $params->{id};
 	my $title = $params->{title};
         my $desc = $params->{desc};
         my $rft_id = $params->{rft_id};
@@ -26,7 +27,10 @@ any([qw(get post)],'',sub{
 	my $id_b = $params->{id_b} // "";
 	my $language = $params->{language};
 	my @errs = ();
-	my $page_args={rooturl=>$self->rooturl};
+
+	my $page_args = $self->page_args;
+	my $args={};
+
 	if($action eq "add"){
 		#controle
 		my $new;
@@ -36,16 +40,15 @@ any([qw(get post)],'',sub{
 			($new,$errs) = $self->check_params_new;
 			if(scalar(@$errs)==0){
 				my $n = $self->columns->save($new);
-				$page_args->{msgs}=['toegevoegd!'];
+				$args->{msgs}=['toegevoegd!'];
 				$new->{id}=$n->{_id};
                 	}else{
 				push @errs,@$errs;
 			}
 		}
-		$page_args->{column} = $new;
-		$page_args->{errs}=\@errs;	
-		$page_args->{params}=$params;
-		$page_args->{conf}=$self->conf;
+		$args->{column} = $new;
+		$args->{errs}=\@errs;	
+		$page_args->{args} = {%{$page_args->{args}},%$args};
 		$self->print_template('new_column',$page_args);
 	}elsif($action eq "edit"){
 		my $edit_confirm = ($params->{edit_confirm} && $params->{edit_confirm} eq "1")? 1:0;
@@ -53,15 +56,12 @@ any([qw(get post)],'',sub{
 			my($merge,$errs)=$self->check_params_edit;
 			if(scalar(@$errs)==0){
 				$self->columns->save($merge);
-				$page_args->{msgs}=["record $id is aangepast"];
+				$args->{msgs}=["record $id is aangepast"];
 			}else{
-				$page_args->{errs} = $errs;				
+				$args->{errs} = $errs;				
 			}
-			$page_args->{conf}=$self->conf;
-        	        $page_args->{params}=$params;
 	                $merge->{id}=$merge->{_id};
-                        $page_args->{column}=$merge;
-			$self->print_template('new_column',$page_args);
+                        $args->{column}=$merge;
 		}else{
 			my $record;
 			if(!defined($id)){
@@ -73,18 +73,14 @@ any([qw(get post)],'',sub{
 				push @errs,"taal $language wordt niet ondersteund";
 			}
 			if(scalar(@errs)==0){
-				$page_args->{conf}=$self->conf;
-				$page_args->{params}=$params;
 				$record->{id}=$record->{_id};
-				$page_args->{column}=$record;
-				$self->print_template('new_column',$page_args);
+				$args->{column}=$record;
 			}else{
-				$page_args->{errs}=\@errs;
-				$page_args->{params}=$params;
-				$page_args->{conf}=$self->conf;
-				$self->print_columns($page_args);
+				$args->{errs}=\@errs;
 			}
 		}
+		$page_args->{args} = {%{$page_args->{args}},%$args};
+		$self->print_template('new_column',$page_args);
 	}elsif($action eq "remove"){
 		my $record = $self->columns->load($id);
                 if(!defined($record)){
@@ -103,9 +99,8 @@ any([qw(get post)],'',sub{
 		}else{
 			$self->columns->delete($id);
 		}
-		$page_args->{errs}=\@errs;
-		$page_args->{params}=$params;
-                $page_args->{conf}=$self->conf;
+		$args->{errs}=\@errs;
+		$page_args->{args} = {%{$page_args->{args}},%$args};
 		$self->print_columns($page_args);
 	}elsif($action eq "switch"){
 		my $a = $self->columns->load($id_a);
@@ -122,52 +117,28 @@ any([qw(get post)],'',sub{
 			$b->{added} = $temp;
 			$self->columns->save($a);
 			$self->columns->save($b);
-			$page_args->{msgs}=["records $id_a en $id_b zijn omgewisseld!"];			
+			$args->{msgs}=["records $id_a en $id_b zijn omgewisseld!"];			
 		}else{
-			$page_args->{errs} = \@errs;
+			$args->{errs} = \@errs;
 		}
-		$page_args->{conf}=$self->conf;
+		$page_args->{args} = {%{$page_args->{args}},%$args};
 		$self->print_columns($page_args);
 	}else{
-		$page_args->{conf}=$self->conf;
-		$self->print_columns($page_args);
+		$page_args->{args} = {%{$page_args->{args}},%$args};
+                $self->print_columns($page_args);
 	}
 });
 
 sub columns{
         my $self = shift;
-        $self->stash->{store} ||=$self->_build_columns;
+        $self->stash->{columns} ||=$self->load_columns;
 }
-sub _build_columns {
+sub load_columns {
 	my $self = shift;
-	my $class = $self->conf->{db}->{class};
+	my $class = Catmandu->conf->{database}->{columns}->{class};
         Plack::Util::load_class($class);
-	$class->new($self->conf->{db}->{args});
-}
-sub db {
-	my $self = shift;
-	$self->stash->{db} ||= PeepShow::Resolver::DB->new();
-}
-sub conf {
-	my $self = shift;
-	my $c =	{%{Catmandu->conf->{Columns}},languages => Catmandu->conf->{languages}};
-	return $c;
-}
-sub baseurl{
-        my $self = shift;
-        my $rooturl = $self->rooturl;
-        my $own_path = $self->request->path;
-        my $params = clone($self->request->parameters);
-        delete $params->{language};
-        delete $params->{view};
-        my $url = "$rooturl$own_path?".join('&',map {$_."=".$params->{$_}} keys %{$params});
-        return $url;
-}
-sub rooturl{
-	Catmandu->conf->{rooturl};
-}
-sub openURL {
-	Catmandu->conf->{openURL};
+	my $args = Catmandu->conf->{database}->{columns}->{args};
+	$class->new(%$args);
 }
 sub print_columns {
 	my($self,$page_args)=@_;
@@ -177,42 +148,37 @@ sub print_columns {
 		$columns->[$i]->{id} = $columns->[$i]->{_id};
         }
 	$columns = [sort {$a->{added} <=> $b->{added}} @$columns];
-	$page_args->{columns}=$columns;
+	$page_args->{args}->{columns}=$columns;
         $self->print_template('columns',$page_args);
-}
-sub languages {
-	my $self = shift;
-	Catmandu->conf->{languages};
 }
 sub check_params_new {
 	my $self = shift;	
 	my @errs = ();
 	my $new;
-	#parameters
 	my $params = $self->request->parameters;
         my $title = $params->{title};
         my $desc = $params->{desc};
         my $rft_id = $params->{rft_id};
         my $item_id = $params->{item_id};
 	my $query = $params->{query};
-	my $language = $params->{language} // $self->languages->[0];
-	if(!defined($title) || $title eq ""){
+	my $language = $params->{language} // Catmandu->conf->{language}->{default};
+	if(!(defined($title) && $title ne "")){
 		push @errs,'gelieve een titel op te geven';
-	}elsif(length($title)> $self->conf->{title}->{maxchars}){
-		push @errs,'maximum aantal karakters voor titel:'.$self->conf->{title}->{maxchars};
+	}elsif(length($title)> Catmandu->conf->{app}->{admin}->{title}->{maxchars}){
+		push @errs,'maximum aantal karakters voor titel:'.Catmandu->conf->{app}->{admin}->{title}->{maxchars};
 	}
-	if(!defined($desc) || $desc eq ""){
+	if(!(defined($desc) && $desc ne "")){
 		push @errs,'gelieve een beschrijving op te geven';
-	}elsif(length($desc) > $self->conf->{desc}->{maxchars}){
-		push @errs,'maximum aantal karakters voor beschrijving:'.$self->conf->{desc}->{maxchars};
+	}elsif(length($desc) > Catmandu->conf->{app}->{admin}->{desc}->{maxchars}){
+		push @errs,'maximum aantal karakters voor beschrijving:'.Catmandu->conf->{app}->{admin}->{desc}->{maxchars};
 	}
-	if(!defined($rft_id) || $rft_id eq ""){
+	if(!(defined($rft_id) && $rft_id ne "")){
 		push @errs,'gelieve een record-nummer op te geven';
 	}
-	if(!defined($item_id) || $item_id eq ""){
+	if(!(defined($item_id) && $item_id ne "")){
 		push @errs,'gelieve het nummer van het item op te geven';
 	}
-	if(!defined($query) || $query eq ""){
+	if(!(defined($query) && $query ne "")){
 		push @errs,'gelieve een zoekquery op te geven';
 	}
 	if((first_index {$_ eq $language} @{$self->languages}) == -1){
@@ -250,7 +216,6 @@ sub check_params_edit {
 		push @errs,"id $id bestaat niet";
 	}
 	return merge($old,$new),\@errs;
-
 }
 __PACKAGE__->meta->make_immutable;
 no Catmandu::App;

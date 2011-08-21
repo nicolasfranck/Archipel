@@ -5,32 +5,27 @@ use Moose;
 use Catmandu;
 use Plack::Runner;
 use Plack::Util;
-use Data::Validate::URI qw(is_web_uri);
 
 extends qw(Catmandu::Cmd::Command);
 
 #nodig voor dit commando
+use Data::Validate::URI qw(is_web_uri);
 use LWP::UserAgent;
-
-has storetype => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'Str',
-    cmd_aliases => 's',
-    documentation => "Type of store [default:Simple]",
-        default => sub{"Simple";}
+with qw(
+        Catmandu::Cmd::Opts::Grim::Store::Media
+        Catmandu::Cmd::Opts::Grim::Exif::Image
 );
+use Catmandu::Store::Simple;
 
-has db_args => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]",
-        required => 1
+has _media => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                Catmandu::Store::Simple->new(%{shift->media_arg});
+        }
 );
-
-has ua => (
+has _ua => (
 	is => 'rw',
 	isa => 'Ref',
 	default => sub{
@@ -40,24 +35,18 @@ has ua => (
 sub check{
 	my($self,$url,$content_type)=@_;
 	#absoluut of relatief?
-	my $response = $self->ua->head($url);
+	my $response = $self->_ua->head($url);
 	return{
 		exists => $response->is_success,
 		content_type_valid => $response->content_type eq $content_type
 	};
 }
 
-
 sub execute{
         my($self,$opts,$args)=@_;
 
-	#databank
-	my $class = "Catmandu::Store::".$self->storetype;
-        Plack::Util::load_class($class) or die();
-        my $store = $class->new(%{$self->db_args});
 	#useragent
-	my $ua = LWP::UserAgent->new();
-	$store->each(sub{
+	$self->_media->each(sub{
                 my $record = shift;
                 my $files = {_id=>$record->{_id},valid=>[],err=>[]};
                 #files

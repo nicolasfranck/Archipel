@@ -1,99 +1,271 @@
 ---
-logfile: "/tmp/peepshow.log"
-openURL:
- version: "Z39.88-2004"
- path: "/OpenURL/resolve"
-ip: "127.0.0.1"
-allowed_range: "127.0.0.*"
-rooturl: "http://localhost"
-permroot: "http://search.ugent.be/meercat/x/view"
-languages:
- - nl
-DB:
- db:    
-  class: 'Catmandu::Store::Merge'
+database:
+ core:
+  class: "Catmandu::Store::Merge"
   args:
    patha: "../data/metadata.db"
    pathb: "../data/media.db"
- index:
+ columns:
+  class: "Catmandu::Store::Simple"
+  args:
+   path: "../data/columns.db"
+ cart:
+  class: "Catmandu::Store::Simple"
+  args:
+   path: "../data/snapshots.db"
+index:
+ core:
   class: "Catmandu::Index::Solr"
   args:
-   url: "http://localhost:8983/solr"
-   id_field: 'id'
+   url: "http://localhost:8983/solr/core0"
+   id_field: "id"
+ tags:
+  class: "Catmandu::Index::Solr"
+  args:
+   url: "http://localhost:8983/solr/core1"
+   id_field: "id"
+all:
+ allowed_range: "127.0.0.*"
+ rooturl: "http://localhost"
+ ip: "127.0.0.1"
+ logfile: "/tmp/peepshow.log"
+ captcha:
+  public_key: "6Le1AscSAAAAAOx0zhOwFfpRsVg2aV7UP7nDMbsT"
+  private_key: "6Le1AscSAAAAAC05iC30xJUA5gPovEsD0y-2yjjt"
+app:
+ openURL:
+  version: "Z39.88-2004"
+  path: "/OpenURL/resolve"
+  rft_id:
+   formats:
+    - class: "Rft::Common"
+      args: {}
+    - class: "Rft::Fedora"
+      args: {}
+  acls:
+   - class: "Acl::VPN"
+     args:
+      allowed_range: "127.0.0.*"
+ search:
+  permroot: "http://search.ugent.be/meercat/x/view"
   minresults: 10
   maxresults: 200
   pages_per_set: 8
   num_default: 20
   sort_fields:
-   - 'author_sort'
-   - 'title_sort'
-   - 'subject_sort'   
-Columns:
- db:
-  class: 'Catmandu::Store::Simple'
-  args:
-   path: '../data/columns.db'
- desc:
-  maxchars: 1000
- language:
-  default: "nl"
- title:
-  maxchars: 50
- auth:
-  username: 'admin'
-  password: 'geheimpaswoord'
-Carousel:
- Mapping:
-  Image: "zoomer"
-  Video: "videolink"
-Service:
+   - "author_sort"
+   - "title_sort"
+   - "subject_sort"
+  service_order:
+   - thumbnail
+   - small
+   - medium
+   - large
+ admin:
+  desc:
+   maxchars: 2000
+  language:
+   default: "nl"
+  title:
+   maxchars: 50
+  auth:
+   username: "admin"
+   password: "00e151cb8fb01030c262b7c713933e7f"
+ cart:
+  default_service: "thumbnail"
+  max: 30
+  max_age: "30d"
+  email:
+   from: "nicolas.franck@ugent.be"
+   params:
+    - smtp
+    - localhost:25
+language:
+ default: "nl"
+ en:
+  Context:
+   Image: "image"
+  Record:
+   header:
+    key: "title"
+    map: "title" 
+    search: 1
+   subfields:
+    - key: "title"
+      map: "title"
+    - key: "author"
+      map: "author"     
+      search: 1
+    - key: "publisher"
+      map: "publisher"   
+    - key: "description"
+      map: "description"  
+    - key: "note"
+      map: "note"
+    - key: "subject"
+      map: "subject" 
+      search: 1
+      subarray: 1
+    - key: "location"
+      map: "location"      
+    - key: "rights"
+      map: "rights"   
+   sort_fields:
+    - key: "author_sort"
+      map: "author"
+    - key: "title_sort"
+      map: "title"
+    - key: "subject_sort"
+      map: "subject"
+  Templates:
+   home: "tt/home"
+   search: "tt/search/all"   
+   record_simple: "tt/search/record"
+   record_pages: "tt/search/pages"
+   record_carousel: "tt/search/carousel"
+   opensearch: "tt/opensearch"
+   opensearch_view: "tt/opensearch/view"
+   help: "tt/help"
+   mycart: "tt/mycart"
+   googlemaps: "tt/googlemaps"
+ nl:
+  Context:
+   Image: "foto"
+  Record:
+   header:
+    key: "title"
+    map: "title"   
+    search: 1
+   subfields:
+    - key: "title"
+      map: "titel"
+    - key: "author"
+      map: "auteur"     
+      search: 1
+    - key: "publisher"
+      map: "uitgever"      
+    - key: "description"
+      map: "beschrijving"     
+    - key: "note"
+      map: "nota"
+    - key: "subject"
+      map: "onderwerp"     
+      search: 1
+      subarray: 1
+    - key: "location"
+      map: "plaatsnummer"     
+    - key: "rights"
+      map: "rechten"     
+   sort_fields:
+    - key: "author_sort"
+      map: "auteur"
+    - key: "title_sort"
+      map: "titel"
+    - key: "subject_sort"
+      map: "onderwerp"
+  Templates:
+   home: "tt/home"
+   search: "tt/search/all"
+   record_simple: "tt/search/record"
+   record_pages: "tt/search/pages"
+   record_carousel: "tt/search/carousel"
+   opensearch: "tt/opensearch"
+   opensearch_view: "tt/opensearch/view"
+   help: "tt/help"
+   mycart: "tt/mycart"
+   googlemaps: "tt/googlemaps"
+package:
+ Marc:
+  Transformations:
+   source: "Marc::XSLT::Source"
+   mods: "Marc::XSLT::Mods"
+   rdf: "Marc::XSLT::RDF"
+   oai: "Marc::XSLT::OAI"
+   srw: "Marc::XSLT::SRW"
+ XML:
+  RSS:
+   namespaces:
+    - prefix: "opensearch"
+      uri: "http://a9.com/-/spec/opensearch/1.1/"
+    - prefix: "atom"
+      uri: "http://www.w3.org/2005/Atom"
+ Record:
+  View:
+   default: "simple"
+   simple: "Simple"
+   pages: "Pages"
+   carousel: "Carousel"
+ Query:
+  Store:
+   simple:
+    params:
+     - "page"
+     - "num"
+    sess:
+     - "num"
+   advanced:
+    params:
+     - "page"
+    sess: []
+  Default:
+   simple:
+    params:
+     page: 1
+     num: 20
+     sort: "score"
+     sort_dir: "asc"
+   advanced:
+    params:
+     page: 1
+     num: 20
+     sort: "score"
+     sort_dir: "asc"
+  Fixer:
+   default: "Query::Fix::Simple"
+   advanced: "Query::Fix::Advanced"
+service_aggregate:
+ carousel: 
+  HandlingPackage: "PeepShow::Handler::Service::Image::Carousel"
+  Template: "tt/carousel"
+  mapping:
+    Image: "zoomer"
+    Video: "videolink"
+service:
+ aliases:
+  zoomer_fullscreen: "zoomer"
+context:
  Image:
   thumbnail:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
-   Options: 
-    Size: 150
+   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
   small:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
-   Options: 
-    Size: 300
+   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
   medium:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
-   Options: 
-    Size: 600
+   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
   large:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
-   Options: 
-    Size: 1200
+   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
   zoomer:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::IIP'
-   Server: '/iip'
-   ServerType: 'IIP'
-   Template: 'viewerIIP'
-  carousel:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Carousel'
-   Template: 'carousel'
+   HandlingPackage: "PeepShow::Handler::Service::Image::IIP"
+   Server: "/iip"
+   Template: "tt/viewerIIP"
  Video:
   thumbnail:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
+   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
   small:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
+   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
   videolink:
-   HandlingPackage: 'PeepShow::Handler::Service::Video::Link'
-   Template: 'videolink'
-  videostream:
-   HandlingPackage: 'PeepShow::Handler::Service::Video::Stream'
-   Template: 'videostream'
-  carousel:
-   HandlingPackage: 'PeepShow::Handler::Service::Image::Carousel'
-   Template: 'carousel'
+   HandlingPackage: "PeepShow::Handler::Service::Video::Link"
+   Template: "tt/videolink"
+  videostreaming:
+   HandlingPackage: "PeepShow::Handler::Service::Video::Streaming"
+   Template: "tt/videostreaming"
 # Doc:
 #  viewer:
-#   HandlingPackage: 'PeepShow::Handler::Service::Doc::Google' 
+#   HandlingPackage: "PeepShow::Handler::Service::Doc::Google" 
 #   Server:
 #   ServerType:
-#   Template: 'viewerGoogle'
+#   Template: "tt/viewerGoogle"
 #  thumbnail:
-#   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
+#   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
 #   Server:
 #   ServerType:
 #   Template:
@@ -101,121 +273,10 @@ Service:
 #    Size: 150
 #   download: 1
 #  small:
-#   HandlingPackage: 'PeepShow::Handler::Service::Image::Size'
+#   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
 #   Server:
 #   ServerType:
 #   Template:
 #   Options: 
 #    Size: 300
 #   download: 1
-Cart:
- db:
-  class: 'Catmandu::Store::Simple'
-  args:
-   path: '../data/snapshots.db'
- default_service: "thumbnail"
- max: 30
- maxage: "30d"
- email:
-  params:
-   - smtp
-   - localhost:25
-Query:
- Store:
-  simple:
-   params:
-    - 'page'
-   sess:
-    - 'num'
-  advanced:
-   params:
-    - 'page'
-   sess: []
- Default:
-  simple:
-   params:
-    page: 1
-    num: 20
-    sort: "score"
-    sort_dir: "asc"
-  advanced:
-   params:
-    page: 1
-    num: 20
-    sort: "score"
-    sort_dir: "asc"
- Fixer:
-  default: 'Query::Fix::Simple'
-  advanced: 'Query::Fix::Advanced'
-Record:
- View:
-  default: 'simple'
-  simple: 'Simple'
-  pages: 'Pages'
-  carousel: 'Carousel'
-ServiceOrder:
- - thumbnail
- - small
- - medium
- - large
-Language:
- default: 'nl'
- nl:
-  Context:
-   Image: 'foto'
-  Record:
-   header:
-    key: 'title'
-    map: 'title'   
-   subfields:
-    - key: 'author'
-      map: 'auteur'     
-      search: 1
-    - key: 'publisher'
-      map: 'uitgever'      
-    - key: 'description'
-      map: 'beschrijving'     
-    - key: 'note'
-      map: 'nota'
-    - key: 'subject'
-      map: 'onderwerp'     
-      search: 1
-      subarray: 1
-    - key: 'location'
-      map: 'plaatsnummer'     
-    - key: 'rights'
-      map: 'rechten'     
-   sort_fields:
-    - key: 'author_sort'
-      map: 'auteur'
-    - key: 'title_sort'
-      map: 'titel'
-    - key: 'subject_sort'
-      map: 'onderwerp'
-    - key: 'year'
-      map: 'date'
-  Templates:
-   home: 'nl/home'
-   search: 'nl/search'
-   record_simple: 'nl/record_view_simple'
-   record_pages: 'nl/record_view_pages'
-   record_carousel: 'nl/record_view_carousel'
-   opensearch: 'nl/antifonarium/browser'
-   opensearch_view: 'nl/antifonarium/browser_view'
-   help: 'nl/help'
-   sendmail_cart: 'nl/sendmail_cart.tt'
-   mycart: 'nl/mycart'
-   googlemaps: 'nl/googlemaps'
-Marc:
- Transformations:
-  source: 'Marc::XSLT::Source'
-  mods: 'Marc::XSLT::Mods'
-  rdf: 'Marc::XSLT::RDF'
-  oai: 'Marc::XSLT::OAI'
-  srw: 'Marc::XSLT::SRW'
-RSS:
- namespaces:
-  - prefix: "opensearch"
-    uri: "http://a9.com/-/spec/opensearch/1.1/"
-  - prefix: "atom"
-    uri: "http://www.w3.org/2005/Atom"

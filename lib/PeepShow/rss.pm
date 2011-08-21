@@ -1,8 +1,9 @@
 package PeepShow::rss;
 use Catmandu::App;
-use Plack::Util;
+
+use parent qw(PeepShow::App::Common);
+
 use Data::Pageset;
-use PeepShow::Resolver::DB;
 use XML::RSS;
 use List::MoreUtils qw(first_index);
 use PeepShow::Handler::Query::Parser;
@@ -24,7 +25,7 @@ any([qw(get post )],'',sub{
         	#channel
 	        $rss->channel(
         	        title => "$q - Universiteitsbibliotheek - GRIM",
-                	link => $self->rooturl."?q=$q",
+                	link => Catmandu->conf->{all}->{rooturl}."?q=$q",
 	                description => "Zoekresultaten voor \"$q\" in de GRIM",
 			"opensearch" => {
         	        	"totalResults" => $totalhits,
@@ -41,41 +42,28 @@ any([qw(get post )],'',sub{
 			my $context_description = join ',',map {lc($_)."s (".lc($contexts->{$_}).")"} keys %$contexts;
 			$rss->add_item(
 				title=> $hit->{title}->[0],
-				link => $self->rooturl."/view?q=".$hit->{_id},
+				link => Catmandu->conf->{all}->{rooturl}."/view?q=".$hit->{_id},
 				guid => $hit->{_id},
 				enclosure => {
-					url => $self->rooturl."/OpenURL/resolve?rft_id=".$hit->{_id}.":1&svc_id=thumbnail&url_ver=".$self->openURL->{version},
+					url => Catmandu->conf->{all}->{rooturl}."/OpenURL/resolve?rft_id=".$hit->{_id}.":1&svc_id=thumbnail&url_ver=".Catmandu->conf->{app}->{openURL}->{version},
 					length => $hit->{media}->[0]->{devs}->{thumbnail}->{size},
 					type => $hit->{media}->[0]->{devs}->{thumbnail}->{content_type}
 				},
 				description => $context_description
 			);
 		}
+		$self->response->content_type("application/xml");
 		$self->print($rss->as_string);
-
 	}
 });
-sub db {
-	shift->stash->{db} ||= PeepShow::Resolver::DB->new();
-}
 
-sub rooturl{
-	Catmandu->conf->{rooturl};
-}
-sub openURL {
-        Catmandu->conf->{openURL};
-}
-sub sort_fields{
-        my $self = shift;
-        my $language = $self->language;
-        return Catmandu->conf->{DB}->{index}->{sort_fields};
-}
 sub namespaces {
-	Catmandu->conf->{RSS}->{namespaces};
+	Catmandu->conf->{package}->{XML}->{RSS}->{namespaces};
 }
 sub query_parser {
         shift->stash->{query_parser}||=PeepShow::Handler::Query::Parser->new();
 }
+
 __PACKAGE__->meta->make_immutable;
 no Catmandu::App;
 __PACKAGE__;

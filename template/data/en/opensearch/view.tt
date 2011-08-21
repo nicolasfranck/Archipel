@@ -1,0 +1,7 @@
+[% PROCESS data/en/common.tt %]
+[% PROCESS data/en/paging_terms.tt %]
+[% q = params.q | url %]
+[% start = args.start || 1 %]
+[%
+tt_title_opensearch_view_results = "Results <b>" _ start _ "</b> - <b>" _ start _ "</b> out of <b>" _ args.total_hits _ "</b> for <b>" _ q _ "</b>"
+%]

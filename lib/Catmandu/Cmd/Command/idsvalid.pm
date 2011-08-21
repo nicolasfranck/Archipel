@@ -8,24 +8,18 @@ use Plack::Util;
 
 extends qw(Catmandu::Cmd::Command);
 
-use Image::ExifTool;
+with qw(Catmandu::Cmd::Opts::Grim::Store);
 
-has storetype => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'Str',
-    cmd_aliases => 's',
-    documentation => "Type of store [default:Simple]",
-        default => sub{"Simple";}
-);
-
-has db_args => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]",
-        required => 1
+has _store => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                my $self = shift;
+                my $class = "Catmandu::Store::Simple";
+                Plack::Util::load_class($class);
+                $class->new(%{$self->store_arg});
+        }
 );
 has _re => (
         is => 'rw',
@@ -36,10 +30,7 @@ has _re => (
 );
 sub execute{
         my($self,$opts,$args)=@_;
-	my $class = "Catmandu::Store::".$self->storetype;
-	Plack::Util::load_class($class) or die();
-	my $store = $class->new(%{$self->db_args});
-	$store->each(sub{
+	$self->_store->each(sub{
 		my $record = shift;
 		if($record->{_id} =~ $self->_re){
 			print $record->{_id}."\n";

@@ -1,0 +1,24 @@
+<title>[% tt_title %]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+<meta http-equiv="Cache-Control" content="public" />
+<link type="image/x-icon" href="[% conf.all.rooturl %]/images/icons/ugent_theme_favicon.png" rel="shortcut icon">
+<script type="text/javascript" src="[% conf.all.rooturl %]/js/jquery-1.4.4-min.js"></script>
+<script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
+<script type="text/javascript">
+	/*var pageTracker = _gat._createTracker("UA-1002951-2");*/ 
+	/*'getTracker' is deprecated*/
+	/*pageTracker._trackPageview();*/
+</script>
+<link rel="stylesheet" href="[% conf.all.rooturl %]/css/master.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="[% conf.all.rooturl %]/css/common.css" type="text/css" media="screen" />
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('#q').focus();
+		jQuery('#q').select();
+	});
+</script>
+<!--demo-start-->
+<link type="image/x-icon" href="[% rooturl %]/images/favicon.ico" rel="shortcut icon">
+<script type="text/javascript" src="[% rooturl %]/js/textsizer.js"></script>
+<script type="text/javascript" src="[% rooturl %]/js/rel.js"></script>
+<!--demo-end-->

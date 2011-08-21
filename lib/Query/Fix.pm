@@ -1,16 +1,9 @@
 package Query::Fix;
+use strict;
 use utf8;
-use Text::Unaccent::PurePerl;
-use Hash::MultiValue;
 
 sub new {
 	bless{},shift;
-}
-sub unaccent{
-        my($self,$value)=@_;
-        $value = "" if not defined($value);
-        $value = unac_string("UTF8",$value);
-	return $value;
 }
 sub double_quotes {
 	my($self,$value)=@_;

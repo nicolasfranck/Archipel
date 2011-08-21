@@ -1,0 +1,16 @@
+[% IF params.showInfo %]
+	<div class="browserResults">
+		<a href="[% conf.all.rooturl %]/opensearch?q=[% params.q | url -%]&amp;page=[% sess.page %]&amp;num=[% sess.num %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;cols=[% params.cols %]&amp;showInfo=[% params.showInfo %]&amp;showPaging=[% params.showPaging %]&amp;language=[% args.language %]">[% tt_term_paging_back_to_results %]</a>
+	</div>
+	<div class="browserResults">
+		[% IF args.prev !="" %]
+                	<a href="[% conf.all.rooturl %]/opensearch/view?q=[% params.q | url -%]&amp;start=[% args.prev %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;cols=[% params.cols %]&amp;showInfo=[% params.showInfo %]&amp;showPaging=[% params.showPaging %]&amp;language=[% args.language %]">[% tt_term_paging_previous_record %]</a>
+	        [% END %]
+		[% IF args.next != "" %]
+                	<a href="[% conf.all.rooturl %]/opensearch/view?q=[% params.q | url -%]&amp;start=[% args.next %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;cols=[% params.cols %]&amp;showInfo=[% params.showInfo %]&amp;showPaging=[% params.showPaging %]&amp;language=[% args.language %]">[% tt_term_paging_next_record %]</a>
+	        [% END %]
+	</div>
+	<div class="browserResults">
+		[% tt_title_opensearch_view_results %]	
+	</div>
+[% END %]

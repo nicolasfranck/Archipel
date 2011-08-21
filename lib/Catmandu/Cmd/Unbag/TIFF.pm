@@ -1,5 +1,6 @@
 package Catmandu::Cmd::Unbag::TIFF;
 use strict;
+use warnings;
 use parent qw(Catmandu::Cmd::Unbag);
 
 use Data::UUID;
@@ -10,10 +11,8 @@ use List::Util qw(min max);
 use IO::CaptureOutput qw(capture_exec);
 use Image::Magick;
 use Image::Magick::Thumbnail::Simple;
-use Data::Dumper;
 
-my $sharper = $ENV{HOME}."/PeepShow/bin/psharp";
-my $query = $ENV{HOME}."/PeepShow/bin/pinfo";
+my $rgb_profile = "../profiles/Adobe ICC Profiles/RGB Profiles/sRGB Color Space Profile.icm";
 
 #attributen
 sub new {
@@ -57,24 +56,6 @@ sub is_ac{
         return 0 if not defined($info->{TileByteCounts});
         return 1;
 }
-#check functies
-#sub check_orientation{
-#        my($self,$path)=@_;
-#        @{$self->magick} = ();
-#        my $changed = 0;
-#        my $tmp_path = undef;
-#        my $info = $self->exif->ImageInfo($path);
-#        if($info->{Orientation} ne "Horizontal (normal)"){
-#		$self->print("--> orientation wrong\n");
-#                $tmp_path = $self->tempdir."/".Data::UUID->new->create_str.".tif";
-#                $self->magick->Read($path);
-#                $self->magick->AutoOrient();
-#                $self->magick->Write($tmp_path);
-#                $changed = 1;
-#		$self->print("--> [NEW MA] $tmp_path\n");
-#        }
-#        return $changed,$tmp_path;
-#}
 sub test_file {
 	my($self,$file_info)=@_;
 	$self->is_ac($file_info->{file});
@@ -92,6 +73,14 @@ sub test_devs {
 	return 1;
 }
 #create-functie
+sub to_rgb {
+	my($self,$in,$out)=@_;
+	@{$self->magick} = ();
+	$self->magick->Read($in);
+	$self->magick->Profile(name=>$rgb_profile);
+	$self->magick->Write($out);
+	return (1,undef);
+}
 sub create_thumb{
         my($self,$input,$output,$size)=@_;
         my $success = $self->thumber->thumbnail(
@@ -109,58 +98,8 @@ sub create_thumb{
 	}
 	return $success;
 }
-sub query_tiff {
-	my($self,$path)=@_;
-	my $command = "$query $path";
-        my($stdout, $stderr, $success, $exitcode) = capture_exec($command);
-        $self->out($stdout);
-        $self->exitcode($exitcode);
-        $self->err($stderr);	
-	my $info = undef;
-	if($success){
-		$info = {};
-		my(@pairs)=split("\n",$stdout);
-		foreach(@pairs){
-			my($key,$value)=split(':',$_);
-			$info->{$key}=$value;
-		}
-	}
-	return $info;
-}
-sub unsharp_pyramid {
-	my($self,$in,$out)=@_;
-	my $info;
-	if(!($info = $self->query_tiff($in))){
-		return undef;
-	}
-	my $lastDir = $info->{numdirs} - 1;
-	my $command = "$sharper $in $out $lastDir $lastDir";
-	$self->print("--> $command\n");
-        my($stdout, $stderr, $success, $exitcode) = capture_exec($command);
-	$self->out($stdout);
-	$self->exitcode($exitcode);
-	$self->err($stderr);
-	unlink($out) if !$success && -f $out;
-	return $success;
-}
 sub create_pyramid{
-        my($self,$input,$output)=@_;
-        my $info = $self->exif->ImageInfo($input);
-        my $width = $info->{ImageWidth};
-        my $height = $info->{ImageHeight};
-        my $max = max($width,$height);
-        my $temp;
-        if($max > 4000){
-		$self->print("--> [MA TIFF] $input too big,resizing..\n");
-                $temp = $self->tempdir."/".Data::UUID->new->create_str;
-		$self->print("--> resizing [MA TIFF] $input -> $temp [RESIZED MA TIFF]\n");
-                my $success = $self->create_thumb($input,$temp,4000);
-                if(not $success){
-                        unlink($temp) if -f $temp;
-                        return 0;
-                }
-                $input = $temp;
-        }
+        my($self,$input,$input_info,$output)=@_;
         my $command = "vips im_vips2tiff $input $output:deflate,tile:256x256,pyramid";
 	$self->print("--> command: $command\n");
         my($stdout, $stderr, $success, $exitcode) = capture_exec($command);
@@ -168,21 +107,6 @@ sub create_pyramid{
 	$self->exitcode($exitcode);
 	$self->err($stderr);
 	unlink($output) if !$success && -f $output;
-        unlink($temp) if defined($temp) && -f $temp;
-	return $success if not $success;
-
-#	my $temp = $self->tempdir."/".Data::UUID->new->create_str.".tif";
-#	if(!$self->unsharp_pyramid($output,$temp)){
-#		$self->print("--> warning: sharpening of pyramid failed:".$self->err);
-#	}else{
-#		$self->print("--> moving $temp to $output\n");
-#		if(!move($temp,$output)){
-#			$self->err($?);
-#			$success = 0;
-#		}else{
-#			$success = 1;
-#		}		
-#	}
 	return $success;
 }
 sub create_file {
@@ -193,12 +117,49 @@ sub create_file {
 		return undef;
 	}
 	my $out = $opts->{datadir}."/$sublocation/".$opts->{outname}.".tif";
-#        my($changed,$tmp_path) = $self->check_orientation($opts->{in});
-#        if($changed){
-#                $opts->{in} = $tmp_path;
-#        }
-	$self->print("--> trying to convert [MA TIFF] ".$opts->{in}." -> $out [AC TIFF]\n");
-        if(not $self->create_pyramid($opts->{in},$out)){
+	my $temp;
+	my $copy;
+        #werk altijd op een kopie!
+        $copy = $self->tempdir."/".Data::UUID->new->create_str.".tif";
+        $self->print("--> copying ".$opts->{in}." to $copy\n");
+        my $status = copy($opts->{in},$copy);
+        if(!$status){
+                $self->err($!);
+                return  undef;
+        }
+	#profile
+	$temp = $self->tempdir."/".Data::UUID->new->create_str.".tif";
+	$self->print("--> converting to sRGB: $copy -> $temp\n");
+	my($success,$err)=$self->to_rgb($copy,$temp);
+	$self->err($err);
+	if(!$success){
+		unlink($temp) if -f $temp;
+		unlink($copy) if -f $copy;
+		return 0;
+	}
+	unlink($copy);
+	$copy = $temp;
+	#resize
+	my $info = $self->exif->ImageInfo($copy);
+        my $width = $info->{ImageWidth};
+        my $height = $info->{ImageHeight};
+        my $max = max($width,$height);
+        if($max > 4000){
+                $self->print("--> axis $max too big,resizing..\n");
+                $temp = $self->tempdir."/".Data::UUID->new->create_str.".tif";
+                $self->print("--> resizing [MA TIFF] $copy -> $temp [RESIZED MA TIFF]\n");
+                my $success = $self->create_thumb($copy,$temp,4000);
+                if(not $success){
+                        unlink($temp) if -f $temp;
+			unlink($copy) if -f $copy;
+                        return 0;
+                }
+		unlink($copy);
+		$copy = $temp;
+        }
+	#pyramid tiff
+	$self->print("--> trying to convert [MA TIFF] $copy -> $out [AC TIFF]\n");
+        if(not $self->create_pyramid($copy,$info,$out)){
                 return undef;
         }
         if(not $self->is_ac($out)){
@@ -209,7 +170,7 @@ sub create_file {
 		file_sublocation => "$sublocation/".$opts->{outname}.".tif"
 	};
 	$file_info->{url} = $opts->{data_prefix_url}.$file_info->{file_sublocation} if(defined($opts->{data_prefix_url}) && $opts->{data_prefix_url} ne "");
-	return $file_info;
+	return $file_info,$opts->{in};
 }
 sub create_dev {
 	my($self,$in,$out,$type)=@_;
@@ -285,7 +246,8 @@ sub handle {
 		$self->err("invalid master");
 		return undef;
 	}
-	my $file_info = $self->create_file($opts);
+	my($file_info,$new_start) = $self->create_file($opts);
+	$opts->{in} = $new_start;
 	if($self->err){
 		$self->print($self->err);
 		return undef;

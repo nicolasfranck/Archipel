@@ -1,0 +1,71 @@
+[% data = "data/" _ args.language _ "/search/record.tt" %]
+[% PROCESS $data %]
+[% PROCESS inc/html.tt %]
+	<head>
+	[% PROCESS inc/search/record/head.tt %]	
+	</head>
+<body>
+	[% PROCESS inc/common_header.tt %]
+	<div id="main">
+		<!-- search box -->		
+		[% metadata = conf.language.${args.language}.Record %]
+		[% PROCESS inc/form.tt %]	
+		[% IF args.hit %]
+			[% poster_index = args.hit.poster_item_id - 1 %]
+			[% PROCESS inc/search/perm.tt %]
+			[% IF params.q %]
+				[% PROCESS inc/search/results_short.tt %]
+				<div class="band" style="margin-bottom:10px;padding-left:0px">
+					[% PROCESS inc/search/paging_prevnext.tt %]					 
+                                        [% PROCESS inc/cart_link.tt %]
+					<div style="clear:both"></div>
+				</div>			
+			[% END %]
+			[% PROCESS inc/search/tabs.tt %]
+			<table id="record">
+				<tr>
+					<th class="title" colspan="2">[% args.hit.${metadata.header.key}.0 %]</th>						
+				</tr>
+				<tr>
+					<td style="padding:0px;">
+					[% PROCESS inc/search/record_mapping.tt %]
+					</td>
+					<td style="padding:0px;">
+						<table class="example">
+							<tr>
+								<td>
+								[% q = params.q | url %]
+								[% link = conf.all.rooturl _ '/view?q=' _ q _ '&amp;start=' _ params.start _ '&amp;sort=' _ args.s _ '&amp;sort_dir=' _ params.sort_dir %]
+								[% IF ((args.hit.access.defined && args.hit.access.services.carousel == 1) || (args.is_local)) && args.hit.media.${poster_index}.services.grep('carousel').size > 0 %]
+									[% link = link _ '&amp;view=carousel' %]
+								[% ELSE %]
+									[% link = link _ '&amp;view=pages' %]
+								[% END %]
+								[% svc_id = args.hit.media.0.devs.small.url ? "small":"thumbnail" %]
+									<img alt="loading" onclick="window.location='[% link %]'" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% args.hit.poster_item_id %]&amp;svc_id=[% svc_id %]&amp;url_ver=[% conf.app.openURL.version %]" id="example" class="shadow" />
+								</td>								
+							</tr>
+							<tr>
+								<td style="padding:5px;">
+									[% FOREACH key IN conf.context.keys %]
+										[% IF context.${key} && context.${key} > 0 %]
+										<img alt="loading" src="[% conf.all.rooturl %]/images/icons/[% key %].png" />&nbsp;([% context.${key} %])&nbsp;&nbsp;
+										[% END %]
+									[% END %]	
+								</td>								
+							</tr>						
+							 <tr>
+                                                                <td>[% tt_title_add_to_cart %]<input type="checkbox" class="rft" rft_id="[% args.rft_id %]" _id="[% args.rft_id %]" [% 'CHECKED' IF sess.devs.${args.rft_id} %] /></td>
+                                                        </tr>
+						</table>
+					</td>
+				</tr>
+			</table>			
+			[% PROCESS inc/id.tt %]
+		[% ELSE %]
+		<div class="error">[% args.errmsg %]</div>
+		[% END %]	
+	</div>		
+        [% PROCESS inc/common_footer.tt %]
+</body>
+</html>

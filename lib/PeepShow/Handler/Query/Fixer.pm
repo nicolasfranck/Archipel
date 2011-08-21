@@ -4,7 +4,7 @@ use Plack::Util;
 
 sub new {
 	bless {
-		_conf => Catmandu->conf->{Query}->{Fixer},
+		_conf => Catmandu->conf->{package}->{Query}->{Fixer},
 		_stash => {}
 	},shift;
 }

@@ -9,33 +9,13 @@ extends qw(Catmandu::Cmd::Command);
 use Catmandu::Store::Simple;
 use Catmandu::Index::Solr;
 
-has dba => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'a',
-    documentation => "Parameters for the meta database [required]",
-    required => 1
+with qw(
+	Catmandu::Cmd::Opts::Grim::Index::Solr
+	Catmandu::Cmd::Opts::Grim::Store::Metadata
+	Catmandu::Cmd::Opts::Grim::Store::Media
+	Catmandu::Cmd::Opts::Grim::Store::Merge
 );
-has dbb => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'b',
-    documentation => "Parameters for the media database [required]",
-    required => 1
-);
-has index => (
-	traits => ['Getopt'],
-	is => 'rw',
-	isa => 'HashRef',
-	cmd_aliases => 'i',
-	documentation => "Parameters for the index (has default)",
-	required => 0,
-	default => sub{
-		{url => "http://localhost:8983/solr",id_field=>'id'};
-	}
-);
+
 has reference => (
     traits => ['Getopt'],
     is => 'rw',
@@ -44,28 +24,26 @@ has reference => (
     documentation => "id | file [required]",
     required => 1
 );
-has _dba => (
+has _metadata => (
 	is => 'rw',
 	isa => 'Ref',
 	default => sub{
 		my $self = shift;
-		Catmandu::Store::Simple->new(%{$self->dba});
+		Catmandu::Store::Simple->new(%{$self->metadata_arg});
 	}
 );
-has _dbb => (
+has _media => (
         is => 'rw',
         isa => 'Ref',
         default => sub{
-		my $self = shift;
-                Catmandu::Store::Simple->new(%{$self->dbb});
+                Catmandu::Store::Simple->new(%{shift->media_arg});
         }
 );
 has _index => (
         is => 'rw',
         isa => 'Ref',
         default => sub{
-		my $self = shift;
-                Catmandu::Index::Solr->new(%{$self->index});
+                Catmandu::Index::Solr->new(%{shift->index_arg});
         }
 );
 sub delete_files{
@@ -111,16 +89,16 @@ sub execute{
 		die("reference must be id or file\n");
 	}
 	foreach my $id(@ids){
-		my $ra = $self->_dba->load($id);
-		my $rb = $self->_dbb->load($id);
+		my $ra = $self->_metadata->load($id);
+		my $rb = $self->_media->load($id);
 		if(defined($ra) && defined($rb)){
 			print "$id\n";
 			print "deleting files\n";
 			$self->delete_files($rb);
 			print "deleting media-record\n";
-			$self->_dbb->delete($id);
+			$self->_media->delete($id);
 			print "deleting metadata-record\n";
-			$self->_dba->delete($id);
+			$self->_metadata->delete($id);
 			print "deleting index-document\n";
 			$self->_index->delete($id);
 		}

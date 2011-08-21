@@ -1,0 +1,56 @@
+[% data = "data/" _ args.language _ "/search/all.tt" %]
+[% PROCESS $data %]
+[% USE Math %]
+[% PROCESS inc/html.tt %]
+	<head>
+	[% PROCESS inc/search/all/head.tt %]
+	</head>
+<body>
+	[% PROCESS inc/common_header.tt %]
+	<!--start-main-->
+	<div id="main">
+		<!-- search box -->
+		[% PROCESS inc/form.tt %]				
+		<!--suggestion-->
+		[% PROCESS inc/search/all/suggestion.tt %]
+		<!--list hits-start-->
+		[% IF args.hits && args.hits.size > 0 %]
+			<div class="band">
+				<div class="left">
+				[% tt_search_all_results %]
+				</div>
+				[% PROCESS inc/bookmark_link.tt %]
+				[% PROCESS inc/rss_link.tt %]
+                                [% PROCESS inc/cart_link.tt %]
+				<div style="clear:both"></div>
+			</div>
+			<div class="band">
+				[% PROCESS inc/search/all/paging.tt %]
+				[% PROCESS inc/search/all/manip.tt %]	
+				<div style="clear:both"></div>			
+			</div>
+		[% END %]
+    		<div id="raster">
+			[% IF params.confirm_search || params.search_type != 'advanced' %]
+				[% IF args.errmsg || args.hits.size == 0 %]
+					[% PROCESS inc/search/all/help.tt %]
+				[% END %]
+			 [% END %]
+			<div id="raster_inside">
+				[% PROCESS inc/search/all/hits.tt %]
+				<div style="clear:both"></div>							
+			</div>		
+		</div>
+		<!--list-hits-end-->					
+	<!--paging-same-as-top-->
+	[% IF args.hits && args.hits.size > 0 %]
+		<div class="band">
+			[% PROCESS inc/search/all/paging.tt %]
+			<div style="clear:both"></div>			
+		</div>
+	[% END %]
+	</div>	
+	<!--end-main-->
+        [% PROCESS inc/common_footer.tt %]
+</body>
+</html>

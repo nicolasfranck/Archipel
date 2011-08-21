@@ -1,0 +1,103 @@
+[% tt_text_help_opensearch = BLOCK %]
+
+[% metadata = conf.language.${args.language}.Record %]
+
+<h1><a name="opensearch"></a>Open Search</h1>
+<p>
+Om de zoekresultaten van de beelddatabank in uw eigen webpagina op te nemen, kunt u gebruik maken van onze opensearch faciliteit. 
+In tegenstelling tot openURL, is deze faciliteit louter bedoeld voor externe sites. 
+De portaalsite gebruikt immers haar eigen weergave. Voeg deze HTML-code toe aan uw webpagina:
+</p>
+<!-- code formatter: http://xzfv.appspot.com/s/format.html -->
+<div class="code">
+	<div><span style="color: #008000; font-weight: bold">&lt;iframe</span> <span style="color: #7D9029">width=</span><span style="color: #BA2121">&quot;564&quot;</span> <span style="color: #7D9029">height=</span><span style="color: #BA2121">&quot;1120&quot;</span> <span style="color: #7D9029">style=</span><span style="color: #BA2121">&quot;border:none&quot;</span> <span style="color: #7D9029">src=</span><span style="color: #BA2121">&quot;[% conf.all.rooturl %]/opensearch?q=cambron-casteau&amp;cols=2&amp;num=2&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/iframe&gt;</span>
+</div>
+</div>			
+<p>
+Wat betekent deze code?
+De enthousiaste lezer zal waarschijnlijk al gemerkt hebben dat de URL in het attribuut 'src' een lijst van thumbnails oplevert. 
+Iframes zijn een handig middel om andere webpagina's in te voegen als onderdeel van de eigen webpagina. 
+Een iframe is als het ware een 'venster' naar een andere website, die wordt ingevoegd in een groter 'venster', nl. de eigen webpagina.
+Als de boorden van deze frame niet zichtbaar zijn, dan lijkt het alsof dat de inhoud aan de hosting site zelf toebehoort. 
+De stijl kan naar wens worden aangepast. Houd er echter rekening mee dat een iframe niet automatisch uittrekt om de inhoud te bevatten. 
+Daarom moeten de attributen 'width' en 'height' manueel (of via CSS) worden ingesteld.
+</p>
+<table>
+	<tr>
+		<th colspan="3" class="title">&lt;iframe&gt;</th>
+	</tr>
+	<tr>
+		<th>attribuut</th>
+		<th>betekenis</th>
+		<th>default</th>
+	</tr>
+	<tr>
+		<td>src</td>
+		<td>De basis-url van opensearch is <b>[% conf.all.rooturl %]/opensearch</b>. Aan deze url moeten beneden vermelde parameters toegevoegd worden</td>
+		<td>&lt;geen&gt;</td>
+	</tr>
+	<tr>
+                <td>width</td>
+                <td>Breedte van de iframe, uitgedrukt in pixels. Bij overflow worden automatisch scrollbars toegevoegd</td>
+                <td>&lt;geen&gt;</td>
+        </tr>
+	<tr>
+                <td>height</td>
+                <td>Hoogte van de iframe, uitgedrukt in pixels. Bij overflow worden automatisch scrollbars toegevoegd</td>
+                <td>&lt;geen&gt;</td>
+        </tr>
+	<tr>
+                <th colspan="3" class="title">&lt;iframe src="opensearch?param1=value1&amp;param2=value2"&gt;</th>
+        </tr>
+	<tr>
+		<th>parameter</th>
+		<th>betekenis</th>
+		<th>voorbeeld</th>
+	</tr>
+	<tr>
+		<td>q</td>
+		<td>
+			<a href="http://lucene.apache.org/solr/"><img src="[% conf.all.rooturl %]/images/icons/solr.gif" style="width:120px;padding:0px 10px 10px 0px;display:block;float:left;" /></a>
+                        Zoekquery.
+			Deze queries worden uitgevoerd door Solr 3.1.
+			Voor voorbeelden zie <a href="http://lib.ugent.be/en/zoektips">http://lib.ugent.be/en/zoektips</a>.
+		</td>
+		<td><a href="[% conf.all.rooturl %]/opensearch?q=subject:cambron-casteau">subject:cambron-casteau</a></td>
+	</tr>					
+	[% my_sorts = [] %]
+	[% my_sorts.push(sort.key) FOREACH sort IN metadata.sort_fields %]
+	<tr>
+                <td>sort</td>
+                <td>
+			Veld waarop Solr moet sorteren. 
+			Sorteervelden mogen in Solr enkel alfanumerieke tekens bevatten. 
+			Maar populaire sorteervelden zoals 'title' en 'subject' bevatten vaak diakritische tekens. 
+			Daarom werden extra velden in de index opgenomen, die een 'opgekuiste' versie zijn van het veld waarop men wil sorteren. <br/> Ondersteund: <b>[% my_sorts.join(", ") _ ', score' %]</b> (default:score).
+			The Solr API voorziet de mogelijkheid om op <a href="http://lucene.apache.org/solr/tutorial.html#Sorting">meerdere velden</a> te sorteren. 
+			Door gebruik van een beperkte implementatie van de <a href="http://search.cpan.org/dist/WebService-Solr/lib/WebService/Solr.pm">perl API voor Solr</a>, kan slechts één veld worden opgegeven.
+		</td>
+		<td><a href="[% conf.all.rooturl %]/opensearch?q=subject:cambron-casteau&amp;sort=title_sort">subject:cambron-casteau</a></td>
+        </tr>
+	<tr>
+                <td>sort_dir</td>
+                <td>Sorteerrichting.<br/> Ondersteund: <b>asc, desc</b> (default: asc)</td>
+                <td><a href="[% conf.all.rooturl %]/opensearch?q=subject:cambron-casteau&amp;sort=title_sort&amp;sort_dir=desc">subject:cambron-casteau</a></td>
+        </tr>
+	<tr>
+		<td>num</td>
+                <td>Aantal resultaten per pagina.<br/>Ondersteund:<b>[% conf.app.search.minresults %]-[% conf.app.search.maxresults %]</b> (default:[% conf.app.search.num_default %])</td>
+                <td><a href="[% conf.all.rooturl %]/opensearch?q=subject:cambron-casteau&num=25">subject:cambron-casteau</a></td>
+	</tr>				
+	<tr>
+                <td>cols</td>
+                <td>Aantal kolommen.<br/>Ondersteund:<b>1-5</b> (default:2)</td>
+                <td><a href="[% conf.all.rooturl %]/opensearch?q=subject:cambron-casteau&cols=3">subject:cambron-casteau</a></td>
+        </tr>
+	 <tr>
+                <td>language</td>
+                <td>taal<br/>Ondersteund:<b>[% app.languages.join(", ") %]</b> (default:nl)</td>
+                <td><a href="[% conf.all.rooturl %]/opensearch?q=subject:cambron-casteau&language=en">subject:cambron-casteau</a></td>
+        </tr>
+</table>
+
+[% END %]

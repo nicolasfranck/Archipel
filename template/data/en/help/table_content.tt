@@ -1,0 +1,20 @@
+[% tt_text_help_table_content = BLOCK %]
+
+<div id="table_content">
+	<ol>
+		<li><a href="#meaning">What is GRIM?</a></li>
+		<li><a href="#openurl">openURL</a></li>
+		<li><a href="#opensearch">Open Search</a></li>
+		<li><a href="#admin">For administrators</a>
+			<ol>
+				<li><a href="#admin_location">How can you access the administration of GRIM?</a></li>
+				<li><a href="#admin_add">Add columns</a></li>
+				<li><a href="#admin_remove">Remove columns</a></li>
+				<li><a href="#admin_edit">Edit columns</a></li>
+				<li><a href="#admin_order">Change the order columns</a></li>
+			</ol>
+		</li>
+	</ol>
+</div>
+
+[% END %]

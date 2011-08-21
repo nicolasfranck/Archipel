@@ -1,0 +1,97 @@
+[% data = "data/" _ args.language _ "/mycart.tt" %]
+[% PROCESS $data %]
+[% PROCESS inc/html.tt %]
+<head>
+	[% PROCESS inc/mycart/head.tt %]
+</head>
+<body>
+	[% PROCESS inc/common_header.tt %]
+	<div id="main">
+		<!-- search box -->
+		[% PROCESS inc/form.tt %]
+		<div class="page_title">[% tt_title_mycart %]</div>		
+		[% IF params.action == 'mail' %]
+			<div class="band" id="mail">
+				<form method="post" action="[% conf.all.rooturl %]/mycart" accept-charset="UTF-8">
+					<table>
+					[% FOREACH message IN args.messages %]
+						[% IF message.msg == 'SENDMAIL_SUCCESS' %]
+						<tr><th colspan="2">[% tt_title_mycart_mail_send_to %][% message.to %]!</th></tr>
+						[% END %]
+					[% END %]
+					[% FOREACH error IN args.errors %]
+						<div class="band">
+							<tr><th colspan="2">
+								[% IF error.errmsg == 'SENDMAIL_TO_NOT_VALID' %]
+								[% tt_error_mycart_sendmail_to_not_valid %]
+								[% ELSIF error.errmsg == 'SENDMAIL_FAILED' %]
+								[% tt_error_mycart_sendmail_failed %]
+								[% ELSE %]
+								[% tt_error_mycart_sendmail_rejected %]
+								[% END %]
+							</th></tr>
+						</div>
+					[% END %]
+						<tr>
+							<td>[% tt_title_mycart_form_to %]:</td><td><input type="text" name="to" /></td>
+						</tr>
+						<tr>
+							<td>[% tt_title_mycart_form_message %]:</td>
+							<td>
+								<textarea cols="50" rows="6" name="message"></textarea>
+							</td>
+						</tr>
+						<tr>
+                                                        <td colspan="2">[% args.captcha_html %]</td>
+                                                </tr>
+						<tr>
+							<td colspan="2">
+								<input type="hidden" name="action" value="mail" />								<input type="hidden" name="language" value="[% args.language %]" />
+			                                        <input type="hidden" name="mailconfirm" value="1" />
+                        			 		<input type="submit" name="submit" value="[% tt_title_mycart_form_submit %]" />									
+								<input type="button" name="cancel" value="[% tt_title_mycart_form_cancel %]" onclick="cancelAction('mail')"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+                [% END %]
+		[% PROCESS inc/mycart/paging.tt %]
+		[% IF args.records && args.records.size > 0 %]
+			<div id="mycart">
+				<div id="dashboard">
+					<ul> 
+						<li><a href="[% conf.all.rooturl %]/mycart?action=clear&amp;language=[% args.language %]" onclick="return confirm_delete_cart()">[% tt_title_mycart_empty_cart %]</a></li>
+						<li><a href="[% conf.all.rooturl %]/mycart?action=mail&amp;language=[% args.language %]">[% tt_title_mycart_mail_cart %]</a></li>
+					</ul>
+				</div>
+				<div id="media">
+					[% FOREACH record IN args.records %]
+					<div class="block shadow">
+						<div class="imgholder" onclick="window.location.href='[% conf.all.rooturl %]/view?q=[% record.rft_id  %]&amp;language=[% args.language %]'">
+							[% wratio = 1 %]
+							[% hratio = 1 %]
+							[% IF record.posterwidth > 160 %][% wratio = 160 / record.posterwidth %][% END %]
+							[% IF record.posterheight > 110 %][% hratio = 110 / record.posterheight %][% END %]
+							[% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
+							[% rwidth = record.posterwidth * ratio %]
+							[% rheight = record.posterheight * ratio %]
+							<img alt="loading" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% record.rft_id %]:[% record.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" width="[% rwidth %]" height="[% rheight %]" />
+						</div>
+						<div class="caption">[% record.title.join('') %]</div>	
+						<a href="?action=remove&id=[% record.rft_id %]&amp;language=[% args.language %]" title="[% tt_title_mycart_empty_cart %]">
+							<img src="[% conf.all.rooturl %]/images/icons/remove.gif" class="remove" />
+						</a>
+					</div>
+					[% END %]
+					<div style="clear:both"></div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+		[% ELSE %]
+			[% tt_title_mycart_is_empty %]
+		[% END %]
+	</div>	
+        [% PROCESS inc/common_footer.tt %]
+</body>
+</html>

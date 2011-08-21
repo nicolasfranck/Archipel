@@ -1,0 +1,92 @@
+[% PROCESS inc/html.tt %]
+	<head>
+		[% PROCESS new_column/head.tt %]
+		<script type="text/javascript">
+		var this_url = '[% conf.all.rooturl %]';
+		function switch_lang(lang){
+			this_url += '/admin?action=edit&language='+lang;
+			var input_id = $('input[name=id]');
+			var id = input_id ? $(input_id).attr('value'):undefined;
+			if(id)this_url += '&id='+id;
+			window.location.href = this_url;
+		}
+		function params(){
+			var url = window.location.href;
+			var d = url.split('?');
+			var strings = d[1].split('&');
+			var params = [];
+			for(var i = 0;i < strings.length;i++){
+				var duo = strings[i].split('=');
+				params[duo[0]]=duo[1];
+			}
+			return params;
+		}
+		</script>
+	</head>
+<body>
+	[% PROCESS inc/common_header.tt %]
+	<div id="main">
+		[% FOREACH err IN args.errs %]
+		<div class="error">[% err %]</div>
+		[% END %]
+		[% FOREACH msg IN args.msgs %]
+                <div class="msg">[% msg %]</div>
+                [% END %]
+		<form method="post" action="" accept-charset="UTF-8">
+			<table>	
+				<tr>
+					<td>
+						<a href="[% conf.all.rooturl %]/admin">terug naar overzicht</a>
+					</td>
+				</tr>
+				<tr>
+					<th>Taal:</th>
+					<td>
+					[% IF args.column %]
+						[% FOREACH lang IN app.languages %]
+						<input type="radio" onclick="switch_lang('[% lang %]')" name="language" value="[% lang | html %]" [% IF args.language == lang %]CHECKED[% END %]/>[% lang %]
+						[% END %]
+					[% ELSE %]
+						&lt;default versie:nederlands&gt;
+					[% END %]
+					</td>
+				</tr>
+				<tr>
+					<th>Titel</th><td><input type="text" value="[% args.column.title.${args.language} || args.column.title.${conf.language.default} | html %]" name="title" size="[% conf.app.admin.title.maxchars %]" /></td>
+				</tr>
+				<tr>
+					<th>Beschrijving</th>
+					<td><textarea rows="20" cols="50" name="desc" size="[% conf.app.admin.desc.maxchars %]">[% args.column.desc.${args.language} || args.column.desc.${conf.language.default} | html %]</textarea>
+				</tr>
+				<tr>
+					<th>record-id</th>
+					<td><input type="text" name="rft_id" value="[% args.column.rft_id | html %]" /></td>
+				</tr>
+				<tr>
+					<th>nummer item binnen dat record</th>
+					<td><input type="text" name="item_id" value="[% args.column.item_id | html %]" /></td>
+				</tr>
+				<tr>
+					<th>Query</th>
+                                        <td><input type="text" name="query" value="[% args.column.query | html %]" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="submit" name="submit" />
+						<input type="reset" value="reset" name="reset" />
+						[% IF args.column %]
+							<input type="hidden" value="[% args.column.id | html %]" name="id" />
+							<input type="hidden" value="[% args.column.added | html %]" name="added" />
+							<input type="hidden" value="edit" name="action" />
+							<input type="hidden" value="1" name="edit_confirm" />
+						[% ELSE %]
+							<input type="hidden" value="add" name="action" />
+						[% END %]
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>	
+	[% PROCESS inc/common_footer.tt %]		
+</body>
+</html>

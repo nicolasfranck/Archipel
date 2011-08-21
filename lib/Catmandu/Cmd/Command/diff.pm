@@ -11,16 +11,20 @@ extends qw(Catmandu::Cmd::Command);
 #nodig voor dit commando
 use Array::Diff;
 use List::MoreUtils qw(first_index);
-use Catmandu::Store::Simple;
+with qw(Catmandu::Cmd::Opts::Grim::Store);
 
-has dbin => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]",
-        required => 1
+has _store => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                my $self = shift;
+                my $class = "Catmandu::Store::Simple";
+                Plack::Util::load_class($class);
+                $class->new(%{$self->store_arg});
+        }
 );
+
 has file => (
 	traits => ['Getopt'],
 	is => 'rw',
@@ -37,14 +41,6 @@ has kind => (
 	documentation => "Kind of difference [default:id, others:files,devs]",
 	default => sub{
 		"id";	
-	}
-);
-has _dbin => (
-	is => 'rw',
-	isa => 'Ref',
-	lazy => 1,
-	default => sub{
-		Catmandu::Store::Simple->new(%{shift->dbin});
 	}
 );
 has _kinds => (
@@ -64,7 +60,7 @@ sub list{
 	my $list = [];
 	my $index = first_index {$_ eq $self->kind} @{$self->_kinds};
 	$index = 0 if $index == -1;
-        $self->_dbin->each(sub{
+        $self->_store->each(sub{
 		my $record = shift;
 		if($index == 0){
 			push @$list,$record->{_id};

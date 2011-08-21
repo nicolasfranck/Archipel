@@ -1,0 +1,7 @@
+[% PROCESS data/nl/common.tt %]
+[%
+tt_title_googlemaps = "Selecteer een gemeente op de landkaart om alle afbeeldingen in de UB beeldbank te vinden."
+tt_term_googlemaps_only_belgium = "Enkel plaatsen in België komen voor in de databank"
+tt_term_googlemaps_no_places_found = "Sorry, geen plaatsen gevonden. Probeer opnieuw."
+tt_term_googlemaps_search_for = "Zoek naar de volgende locaties"
+%]

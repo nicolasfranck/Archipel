@@ -1,4 +1,5 @@
 package PeepShow::Handler::Query::Parse;
+use strict;
 use Catmandu;
 use Query::Fix::Simple;
 use Query::Fix::Advanced;
@@ -9,9 +10,9 @@ sub new {
 	bless {
 		_query_fix_simple => Query::Fix::Simple->new(),
 		_query_fix_advanced => Query::Fix::Advanced->new(),
-		_sort_fields => Catmandu->conf->{DB}->{index}->{sort_fields} || [],
+		_sort_fields => Catmandu->conf->{app}->{search}->{sort_fields} || [],
 		error => undef,
-		_allowed => glob_to_regex(Catmandu->conf->{allowed})
+		_allowed => glob_to_regex(Catmandu->conf->{all}->{allowed_range})
 	},shift;
 }
 sub _query_fix_simple {
@@ -52,13 +53,15 @@ sub sort {
         }elsif($sort eq "score" || $sort eq ""){
                 $sort="score";
         }
-	return $sort;
+	$params->add(sort=>$sort);
+	return $params->{sort};
 }
 sub sort_dir {
 	my($self,$params)=@_;
 	my $sort_dir = $params->{sort_dir};
 	$sort_dir = (defined($sort_dir) && ($sort_dir eq "asc" || $sort_dir eq "desc"))? $sort_dir:"asc";
-	return $sort_dir;
+	$params->add(sort_dir=>$sort_dir);
+	return $params->{sort_dir};
 }
 sub has_error {
         shift->error;
@@ -69,15 +72,18 @@ sub is_local {
 }
 sub num {
         my($self,$params)=@_;
-	my $maxresults= Catmandu->conf->{DB}->{index}->{maxresults};
-	my $num_default = Catmandu->conf->{DB}->{index}->{num_default};
-	$params->{num} = $params->{num} || $num_default;
-	$params->{num} = $params->{num} > $maxresults ? $maxresults:$params->{num};
+	my $maxresults= Catmandu->conf->{app}->{search}->{maxresults};
+	my $num_default = Catmandu->conf->{app}->{search}->{num_default};
+	my $num = $params->{num};
+	$num = $num || $num_default;
+	$num = $num > $maxresults ? $maxresults:$num;
+	$params->add(num => $num);
 	return $params->{num};
 }
 sub page {
 	my($self,$params)=@_;
-	$params->{page} = ($params->{page} && $params->{page} > 0 && $params->{page} =~ /^\d+$/)? $params->{page} : 1;
+	my $page = ($params->{page} && $params->{page} > 0 && $params->{page} =~ /^\d+$/)? $params->{page} : 1;
+	$params->add(page => $page);
 	return $params->{page};
 }
 

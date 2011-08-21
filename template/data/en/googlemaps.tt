@@ -1,0 +1,7 @@
+[% PROCESS data/en/common.tt %]
+[%
+tt_title_googlemaps = "Select a city on the map to view all images in that area."
+tt_term_googlemaps_only_belgium = "Only places in Belgium are available in this database."
+tt_term_googlemaps_no_places_found = "Sorry, no places could be found. Please try again."
+tt_term_googlemaps_search_for = "Search for records related to this locations"
+%]

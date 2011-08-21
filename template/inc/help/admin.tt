@@ -1,0 +1,48 @@
+<h1><a name="admin"></a>Voor administrators</h1>
+<div class="sub">
+	<h1><a name="admin_location"></a>Hoe bereik je administratie van GRIM?</h1>
+	<p>
+		Surf naar [% conf.all.rooturl %]/admin. De locatie is beveiligd met een paswoord. De locatie bevat een verkorte lijst van alle rubrieken, die op de hme-pagina van GRIM worden getoond. Enkel de nederlandse versie wordt weergegeven.
+	</p>
+	<h1><a name="admin_add"></a>Rubrieken toevoegen</h1>
+	<p>
+		<ol>
+			<li>Klik op de link <i>nieuwe rubriek</i></li>
+			<li>Geef aan in welke <i>taal</i> de rubriek wordt geschreven. U kunt meerdere malen dezelfde rubriek maken in verschillende talen.</li>
+			<li>Geef de <i>titel</i> en <i>beschrijving</i> op</li>
+			<li>Bij elke rubriek wordt een foto getoond, die dient als aankleefbord voor de rubriek. Om ervoor te zorgen dat geen externe foto's worden ingevoegd, moet men de locatie opgeven via het record-id (rft_id) en het item-id (item_id) van de foto. GRIM gebruikt dan de <i>small</i>-versie van de foto. </li>
+			<li>Elke rubriek wordt gelinkt met één of meerdere bibliografische records. Dat kan je bepalen door het opstellen van zoekquery.<br/> vb. <i>subject:cambron-casteau</i> geeft alle records met als onderwerp 'cambron-casteau'.</li>
+			<li>Klik op <i>submit</i> om de rubriek te bewaren. Een bevestiging verschijnt dan bovenaan het formulier. De rubriek krijgt een unieke identifier die later kan opgegeven worden om de rubriek te wijzigen of te verwijderen. Voor rubrieken in meerdere talen zie <a href="#admin_edit">rubrieken aanpassen</a></li>
+			<li>Om dezelfde rubriek in een andere taal te creëren: 
+				<ol>
+					<li>Ga terug naar [% conf.all.rooturl %]/admin</li>
+					<li>In de de kolom <i>acties</i> van uw rubriek onder <i>nieuw</i> klik op bijvoorbeeld op <i>en</i> (english). Enkel talen waarin de rubriek nog niet bestaat worden hier getoond.</li>
+					<li>Volg dezelfde richtlijnen van vooraf aan</li>
+				</ol>
+			</li>
+		</ol>	
+	</p>
+	<h1><a name="admin_remove"></a>Rubrieken verwijderen</h1>
+	<p>
+		<ol>
+			<li>Ga terug naar [% conf.all.rooturl %]/admin</li>
+			<li>In de kolom <i>acties</i> vindt u een link <i>verwijder nl</i>. Daarmee verwijdert u enkel de nederlandstalige versie van de rubriek. Indien er geen versies van de rubriek meer overschieten, dan wordt de rubriek in zijn geheel verwijderd - en dat is hier het geval aangezien u enkel de nederlandstalige versie heeft gemaakt.</li>
+		</ol>
+	</p>
+	<h1><a name="admin_edit"></a>Rubrieken aanpassen</h1>
+	<p>
+		<ol>
+			<li>Ga terug naar [% conf.all.rooturl %]/admin</li>
+                        <li>In de kolom <i>acties</i>, onder <i>wijzig</i>, klik op de versie van de rubriek die wilt aanpassen</li>
+                        <li>Volg dezelfde richtlijnen als voor het toevoegen van een nieuw record</li>
+		</ol>
+	</p>
+	<h1><a name="admin_order"></a>Volgorde rubrieken wijzigen</h1>
+	<p>
+		<ol>
+			<li>Ga terug naar [% conf.all.rooturl %]/admin</li>
+			<li>Vink exact twee rubrieken aan</li>
+			<li>Klik op de link <i>verwissel selecties</i></li>
+		</ol>	
+	</p>
+</div>

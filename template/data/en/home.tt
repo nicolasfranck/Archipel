@@ -1,0 +1,5 @@
+[% PROCESS data/en/common.tt %]
+[%
+tt_title_home = "Grim database - collections"
+tt_title_home_inspect_results = "inspect"
+%]

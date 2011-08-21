@@ -10,7 +10,7 @@ use List::Util qw(min max sum);
 use IO::CaptureOutput qw(capture_exec);
 use Video::FFmpeg;
 use FFmpeg::Command;
-use Data::Dumper;
+
 my $config = {
 	options => {
 		'-f' => 'mp4',

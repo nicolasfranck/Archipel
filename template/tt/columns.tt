@@ -1,0 +1,107 @@
+[% PROCESS inc/html.tt %]
+	<head>
+	[% PROCESS inc/columns/head.tt %]
+	<script type="text/javascript">
+		function confirm_id(id){
+			return confirm("Hiermee verwijdert u column "+id+"! Bent u zeker?");
+		}
+		function confirm_language(id,language){
+			return confirm("Hiermee verwijdert u de taal "+language+" uit de column "+id+"! Indien er geen talen meer overschieten wordt de column verwijderd.");
+		}
+		function switch_ids(){
+			//get selected ids
+			var ids = [];
+			var boxes = $(':checked');
+			if(boxes.length == 2){
+				var id_a = $(boxes.get(0)).attr('id');
+				var id_b = $(boxes.get(1)).attr('id');
+				window.location.href = '?action=switch&id_a='+id_a+'&id_b='+id_b;
+			}
+		}
+        </script>
+	</head>
+<body>
+	[% PROCESS inc/common_header.tt %]
+	<div id="main">
+		[% FOREACH err IN args.errs %]
+		<div class="error">[% err %]</div>
+		[% END %]
+		[% FOREACH msg IN args.msgs %]
+                <div class="msg">[% msg %]</div>
+                [% END %]
+		<table>
+			<tr>
+				<td colspan="5">
+					<a href="?action=add"><img src="[% conf.all.rooturl %]/images/icons/new.gif" />&nbsp;nieuwe rubriek</a>
+					<a href="#" onclick="return switch_ids();return false;"><img src="[% conf.all.rooturl %]/images/icons/exchange.gif" />&nbsp;verwissel selecties</a>
+				</td>
+			</tr>
+			<tr class="title">
+				<th>Rft_id</th>
+				<th></th>
+				<th>Titel</th>
+				<th>Talen</th>
+				<th></th>
+			</tr>
+		[% i = 0 %]
+		[% FOREACH column IN args.columns %]
+			[% tr_class = (i % 2 == 0)? 'even':'odd' %]
+			<tr class="[% tr_class %]">
+				<td>
+					<input type="checkbox" name="switch_column" id="[% column.id | html %]" />&nbsp;
+					[% column.rft_id %]
+				</td>
+				<td>
+					[% link = conf.all.rooturl _ conf.app.openURL.path _ "?rft_id=" _ column.rft_id _ ":" _ column.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.app.openURL.version %]
+					<img src="[% link | url %]" width="100" />
+				</td>
+                                <td>[% column.title.nl %]</td>
+                                <td>											
+					[% FOREACH lang IN app.languages %]
+						[% IF NOT column.title.${lang} %]
+						<div>
+							[% link = "?action=edit&amp;id=" _ column.id _ "&amp;language=" _ lang %]
+							<a href="[% link | url %]">
+								<img src="[% conf.all.rooturl %]/images/icons/new.gif" style="float:left;"/>
+								[% lang %]
+							</a>
+						</div>
+						[% END %]
+					[% END %]
+					[% FOREACH lang IN app.languages %]
+						[% IF column.title.${lang} %]
+						<div>
+							[% link = "?action=edit&amp;id=" _ column.id _ "&amp;language=" _ lang %]
+							<a href="[% link | url %]">
+								<img src="[% conf.all.rooturl %]/images/icons/update.gif" style="float:left;" />
+								[% lang %]
+							</a>
+						</div>
+						[% END %]
+					[% END %]
+					[% FOREACH lang IN app.languages %]
+						[% IF column.title.${lang} %]
+						<div>
+							[% link = "?action=remove&amp;id=" _ column.id _ "&amp;language=" _ lang %]
+							<a onclick="return confirm_language('[% column.rft_id %]','[% language %]');" href="[% link | url %]">
+								<img src="[% conf.all.rooturl %]/images/icons/remove.gif" style="float:left;"/>
+								[% lang %]
+							</a>
+						</div>
+						[% END %]
+					[% END %]
+				</td>
+				<td>
+					[% link = "?action=remove&amp;id=" _ column.id %]
+					<a onclick="return confirm_id('[% column.id %]');" href="[% link | url %]">
+						<img src="[% conf.all.rooturl %]/images/icons/remove.gif"/>
+					</a>
+				</td>
+				[% i = i + 1 %]
+			</tr>
+		[% END %]		
+		</table>
+	</div>	
+	[% PROCESS inc/common_footer.tt %]		
+</body>
+</html>

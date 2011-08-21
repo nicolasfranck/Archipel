@@ -1,0 +1,38 @@
+[% tt_text_help_meaning_grim = BLOCK %]
+
+<h1><a name="meaning"></a>Wat is GRIM?</h1>
+
+<p>
+GRIM staat voor <i>Ghent Repository for Images and Multimedia</i>. 
+GRIM is een website die opgericht werd om een waaier aan multimedia-collecties, die toebehoren aan de Universiteitsbibliotheek van Gent, te ontsluiten voor het grote publiek. 
+De website heeft niet de intensie om de reeds bestaande te vervangen, maar eerder om diens mogelijkheden uit te breiden door nieuwe features en content te voorzien. 
+Op het eerste gezicht verschilt de site dus niet van de reeds bestaande. 
+Men kan nog steeds in de zoekbox hierboven zoeken naar bibliografische gegevens - want wat zou je anders verwachten van een bibliotheektoepassing? 
+GRIM voegt ondersteuning toe om media, wanneer die gekoppeld is aan een bibliografisch record, te visualiseren.
+</p>
+
+<p>
+Om deze nieuwe inhoud te ondersteunen was een nieuwe architectuur vereist achter de scenes van de website. Terwijl de visuele representatie globaal gezien dezelfde blijft, kan men nu de media bekijken vanuit dezelfde zoekinterface.
+</p>
+
+<p>Een eenvoudige <a href="[% conf.all.rooturl %]?q=cambron+casteau">zoekvraag</a> geeft al vlug de volgende resultaten:</p>
+<p><img class="screenshot" src="[% conf.all.rooturl %]/images/screenshots/nl/search-all/search_normal_cropped.png" /></p>
+<p>
+Het resultaat is een lijst van thumbnails. 
+Elke thumbnail representeert een bibliografisch record. 
+In geval van een boek, zal diens eerste pagina worden getoond. 
+Wanneer u klikt op een van de thumbnails in de zoekweergave komt u terecht op de vertrouwde weergave van het bibliografische record. 
+Vertrouwd? Enkele tabs zijn toegevoegd om de verschillende onderdelen aan te geven waaruit zo'n record kan bestaan. 
+Aan één dergelijk record kunnen namelijk meerdere media verbonden zijn. Men kan bladeren doorheen de media op twee verschillende manieren.
+</p>
+<p>Via de <a href="[% conf.all.rooturl %]/view?q=cambron+casteau&amp;view=pages&amp;start=0">overzichtsweergave..</a></p>
+<p><img class="screenshot" src="[% conf.all.rooturl %]/images/screenshots/nl/search-view/pages_cropped.png" /></p>
+<p>of via de <a href="[% conf.all.rooturl %]/view?q=cambron+casteau&amp;view=carousel&amp;start=0">carousel-weergave</a>:</p>
+<p><img class="screenshot" src="[% conf.all.rooturl %]/images/screenshots/nl/search-view/carousel_cropped.png" /></p>
+<p>
+Met behulp van de carousel kan u bladeren doorheen alle media van het record in kwestie. 
+Wat u te zien krijgt, hangt af van de aard van de media. Bij foto's krijgt u een zoomer te zien, bij video's een videoplayer. 
+De carousel biedt ook de mogelijkheid om afgeleiden op te slaan. Zo staan bij foto's steeds de links 'thumbnail', 'small', 'medium' en 'large' bovenaan de zoomer.
+</p>
+
+[% END %]

@@ -6,11 +6,11 @@ use parent qw(Query::Fix);
 sub fix{
         my($self,$params)=@_;
 
-        my $search_and = $self->unaccent($params->{search_and});
-        my $search_or = $self->unaccent($params->{search_or});
-        my $search_exact = $self->unaccent($params->{search_exact});
-        my $search_negative = $self->unaccent($params->{search_negative});
-	my $context = $self->unaccent($params->{context});
+        my $search_and = $params->{search_and};
+        my $search_or = $params->{search_or};
+        my $search_exact = $params->{search_exact};
+        my $search_negative = $params->{search_negative};
+	my $context = $params->{context};
 
 	#alle woorden
         my $str_and;

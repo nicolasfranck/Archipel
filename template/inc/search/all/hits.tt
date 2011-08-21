@@ -1,0 +1,25 @@
+[% IF args.hits && args.hits.size > 0 %]
+	[% i = args.begin_item - 1  %]
+	[% FOREACH hit IN args.hits  %]
+		<div class="block shadow">
+			<div class="imgholder" onclick="window.location.href='[% conf.all.rooturl %]/view?q=[% params.q | url -%]&amp;start=[% i %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&language=[% args.language %]'">
+				[% poster_index = hit.poster_item_id - 1 %]
+				[% thumb = hit.media.${poster_index}.devs.thumbnail %]
+				[% width = thumb.width %]
+				[% height = thumb.height %]
+				[% wratio = 1 %][% hratio = 1 %]
+				[% IF width > 160 %][% wratio = 160 / width %][% END %]
+				[% IF height > 110 %][% hratio = 110 / height %][% END %]
+				[% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
+				[% rwidth = width * ratio %]
+				[% rheight = height * ratio %]
+				<img alt="loading" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% hit.id %]:[% hit.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" width="[% rwidth %]" height="[% rheight %]" />
+			</div>
+			<div class="caption">
+				[% hit.title.join('') %]
+			</div>
+			<input title="[% tt_title_add_to_cart %]" type="checkbox" _id="[% hit.id %]" rft_id="[% hit.id %]" class="rft checkbox_cart" [% 'CHECKED' IF sess.devs.${hit.id} %] />			
+		</div>
+		[% i = i + 1 %]
+	[% END %]
+[% END %]

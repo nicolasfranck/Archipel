@@ -1,4 +1,5 @@
 package PeepShow::Handler::Service::Image::Djatoka;
+use strict;
 use Catmandu;
 
 sub new {
@@ -6,12 +7,12 @@ sub new {
 }
 sub handle{
 	my($self,$opts,$record)=@_;
-	my $server = Catmandu->conf->{rooturl}.Catmandu->conf->{Service}->{Image}->{zoomer}->{Server};
+	my $server = Catmandu->conf->{all}->{rooturl}.Catmandu->conf->{context}->{Image}->{zoomer}->{Server};
 	my $code = $record->{access}->{services}->{zoomer}? 200:201;
 	return {
 		path => $record->{media}->[$opts->{item_id} - 1]->{file}->[0]->{url},
 		server => $server,
-		rooturl => Catmandu->conf->{rooturl}
+		rooturl => Catmandu->conf->{all}->{rooturl}
 	},$code,undef;
 }
 

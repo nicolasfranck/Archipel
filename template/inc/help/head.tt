@@ -1,0 +1,2 @@
+[% PROCESS inc/head.tt %]
+<link rel="stylesheet" href="[% conf.all.rooturl %]/css/help.css" type="text/css" media="screen" />

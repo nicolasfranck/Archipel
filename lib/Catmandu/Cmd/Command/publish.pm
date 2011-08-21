@@ -4,50 +4,43 @@ our $VERSION = 0.01;# VERSION
 use Moose;
 use Catmandu;
 use Plack::Runner;
-use Catmandu::Store::Simple;
-use Catmandu::Index::Solr;
 use Clone qw(clone);
 extends qw(Catmandu::Cmd::Command);
 
-has db => (
+
+with qw(
+	Catmandu::Cmd::Opts::Grim::Index::Solr
+);
+use Catmandu::Store::Simple;
+use Catmandu::Index::Solr;
+has media_arg => (
 	traits => ['Getopt'],
 	is => 'rw',
 	isa => 'HashRef',
 	cmd_aliases => 'd',
-	documentation => "Parameters for the database [required]",
+	documentation => "Parameters for the media database [required]",
 	required => 0,
 	default => sub{
 		{path => $ENV{HOME}."/data/media.db"};
 	}
 );
-has _db => (
+has _media => (
 	is => 'ro',
 	isa => 'Ref',
 	lazy => 1,
 	default => sub{
-		Catmandu::Store::Simple->new(%{shift->db});
+		Catmandu::Store::Simple->new(%{shift->media_arg});
 	}
-);
-has index => (
-        traits => ['Getopt'],
-        is => 'rw',
-        isa => 'HashRef',
-        cmd_aliases => 'i',
-        documentation => "Parameters for the index [required]",
-        required => 0,
-        default => sub{
-	       {url => "http://localhost:8983/solr",id_field=>"id"};
-        }
 );
 has _index => (
         is => 'ro',
         isa => 'Ref',
         lazy => 1,
         default => sub{
-                Catmandu::Index::Solr->new(%{shift->index});
+                Catmandu::Index::Solr->new(%{shift->index_arg});
         }
 );
-
+# public="thumbnail small" private="zoomer"
 has level => (
         traits => ['Getopt'],
         is => 'rw',
@@ -118,9 +111,9 @@ sub execute{
 		#itereer over hits
 		foreach my $hit(@$hits){
 			print $hit->{id}."\n";
-			my $record = $self->_db->load($hit->{id});			
+			my $record = $self->_media->load($hit->{id});			
 			$record = $self->publish_record($record);
-			$self->_db->save($record);
+			$self->_media->save($record);
 		}
 		$start += $limit;
 	}

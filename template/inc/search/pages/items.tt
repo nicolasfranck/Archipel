@@ -1,0 +1,50 @@
+[% poster_index = args.hit.poster_item_id - 1 %]
+[% FOREACH item IN args.hit.media %]
+	<div class="block_normal shadow">
+	        <div class="imgholder">
+
+	                [% thumb = item.devs.thumbnail %]
+	                [% width = thumb.width %]
+	                [% height = thumb.height %]
+	                [% wratio = 1 %][% hratio = 1 %]
+	                [% IF width > 110 %][% wratio = 110 / width %][% END %]
+	                [% IF height > 110 %][% hratio = 110 / height %][% END %]
+	                [% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
+	                [% rwidth = width * ratio %]
+	                [% rheight = height * ratio %]
+
+			[% IF ((args.hit.access.defined && args.hit.access.services.carousel == 1) || (args.is_local)) && args.hit.media.${poster_index}.services.grep('carousel').size > 0 %]				
+
+				<a href="[% conf.all.rooturl %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;item_id=[% item.item_id %]&amp;view=carousel&amp;language=[% args.language %]">
+					<img alt="loading" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% item.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" width="[% rwidth %]" height="[% rheight %]" /> 
+				</a>
+			[% ELSE %]
+				<img alt="loading" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% item.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" width="[% rwidth %]" height="[% rheight %]" />
+			[% END %]
+	        </div>
+		<div class="caption_item">
+	        [% IF item.context == "Image" %]
+	                [% IF ((args.hit.access.services.thumbnail == 1) || args.is_local) && args.hit.media.${poster_index}.services.grep('thumbnail').size > 0 %]
+	                <a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% item.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" title="thumbnail" target="_BLANK">
+	                        <img src="[% conf.all.rooturl %]/images/icons/thumbnail.png" height="12" />
+	                </a>
+	                [% END %]
+	                [% IF ((args.hit.access.services.small == 1) || args.is_local) && args.hit.media.${poster_index}.services.grep('small').size > 0 %]
+	                <a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% item.item_id %]&amp;svc_id=small&amp;url_ver=[% conf.app.openURL.version %]" title="small" target="_BLANK">
+	                        <img src="[% conf.all.rooturl %]/images/icons/thumbnail.png" height="16" />
+	                </a>
+	                [% END %]
+	                [% IF ((args.hit.access.services.medium == 1) || args.is_local) && args.hit.media.${poster_index}.services.grep('medium').size > 0 %]
+	                <a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% item.item_id %]&amp;svc_id=medium&amp;url_ver=[% conf.app.openURL.version %]" title="medium" target="_BLANK">
+	                        <img src="[% conf.all.rooturl %]/images/icons/thumbnail.png" height="20" />
+	                </a>
+	                [% END %]
+	                [% IF ((args.hit.access.services.large == 1) || args.is_local) && args.hit.media.${poster_index}.services.grep('large').size > 0 %]
+	                <a href="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% item.item_id %]&amp;svc_id=large&amp;url_ver=[% conf.app.openURL.version %]" title="large" target="_BLANK">
+	                        <img src="[% conf.all.rooturl %]/images/icons/thumbnail.png" height="24" />
+	                </a>
+	                [% END %]
+	        [% END %]
+	        </div>
+	</div>
+[% END %]

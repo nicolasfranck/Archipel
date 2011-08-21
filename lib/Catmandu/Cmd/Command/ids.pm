@@ -10,32 +10,21 @@ extends qw(Catmandu::Cmd::Command);
 
 #nodig voor dit commando
 
-has storetype => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'Str',
-    cmd_aliases => 's',
-    documentation => "Type of store [default:Simple]",
-        default => sub{"Simple";}
+with qw(Catmandu::Cmd::Opts::Grim::Store);
+has _store => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                my $self = shift;
+                my $class = "Catmandu::Store::Simple";
+                Plack::Util::load_class($class);
+                $class->new(%{$self->store_arg});
+        }
 );
-
-has db_args => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]",
-        required => 1
-);
-
 sub execute{
         my($self,$opts,$args)=@_;
-
-	#databank
-	my $class = "Catmandu::Store::".$self->storetype;
-        Plack::Util::load_class($class) or die();
-        my $store = $class->new(%{$self->db_args});
-	$store->each(sub{
+	$self->_store->each(sub{
                 print shift->{_id}."\n";
         });
 }

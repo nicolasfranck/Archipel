@@ -7,12 +7,19 @@ use Plack::Util;
 extends qw(Catmandu::Cmd::Command);
 
 with qw(
-    Catmandu::Cmd::Opts::Fix
+	Catmandu::Cmd::Opts::Fix
+	Catmandu::Cmd::Opts::Grim::Store::Metadata	
 );
-
-
 use Catmandu::Store::Simple;
 
+has _metadata => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                Catmandu::Store::Simple->new(%{shift->metadata_arg});
+        }
+);
 has map => (
 	traits => ['Getopt'],
 	is => 'rw',
@@ -36,46 +43,6 @@ has interface => (
 	documentation => "Interface class to import (default: Aleph).",
 	default => sub{'Aleph'}
 );
-has dbout => (
-        traits => ['Getopt'],
-	is => 'rw',
-	isa => 'HashRef',
-        cmd_aliases => 'o',
-        documentation => "Database arguments to the temporary metadata database.",
-	required => 1
-);
-has _dbout => (
-	is => 'rw',
-	isa => 'Ref',
-	lazy => 1,
-	default => sub {
-		Catmandu::Store::Simple->new(%{shift->dbout});
-	}
-);
-sub date2year {
-        my($self,$date)=@_;
-        $date = substr($date,7,4);
-        my $year;
-	if($date =~ /^(\d{4})$/){
-                $year = $1;
-        }
-	elsif($date =~ /^(\d{3})\?$/){
-                $year = $1*10;
-        }
-	elsif($date =~ /^(\d{2})\?\?$/){
-                $year = $1*100;
-        }
-        else{
-                $year = 0;
-        }
-        return $year;
-}
-sub localfix {
-	my($self,$record)=@_;
-	$record->{year} = [$self->date2year($record->{date}->[0])];
-	delete $record->{date};
-	return $record;
-}
 sub execute{
         my($self,$opts,$args)=@_;
 	$self->map("../maps/aleph.map") if not defined($self->map);
@@ -92,8 +59,7 @@ sub execute{
 	$interface->each(sub{
 		my $record = shift;
 		print $record->{_id}."\n";
-		$record = $self->localfix($record);
-		$self->_dbout->save($record);
+		$self->_metadata->save($record);
 		$count++;
 	});
 	print "imported $count records\n";

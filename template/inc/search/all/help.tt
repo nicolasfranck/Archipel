@@ -1,0 +1,3 @@
+<div id="search_help">
+	[% PROCESS tt_text_search_help %]
+</div>

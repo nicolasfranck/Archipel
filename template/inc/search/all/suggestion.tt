@@ -1,0 +1,10 @@
+[% IF args.restfields.spellcheck.defined && args.restfields.spellcheck.suggestions.defined && args.restfields.spellcheck.suggestions.keys.size > 0 %]
+        <div class="band">
+                <span style="color: #900;">[% tt_search_all_suggestion_title %]</span>
+		[% FOREACH term IN args.restfields.spellcheck.suggestions.keys %]
+			[% FOREACH sugg IN args.restfields.spellcheck.suggestions.${term}.suggestion %]
+				<a href="[% conf.all.rooturl %]?q=[% sugg | url %]&language=[% args.language %]">[% sugg %]</a>
+			[% END %]
+		[% END %]
+        </div>
+[% END %]

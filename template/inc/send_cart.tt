@@ -1,0 +1,42 @@
+<script type="text/javascript" src="[% conf.all.rooturl %]/js/cart.peepshow.js"></script>
+<script type="text/javascript">
+        var messages=[];
+        var rooturl = "[% conf.all.rooturl %]";
+        var locked = false;
+        var msg_elements_in_cart = "[% tt_title_elements_in_cart %]";
+	function unlock(){
+		locked = false;
+	}
+        $(document).ready(function(){
+                $('.rft').cart({
+                        messages:messages,
+                        method:["ajax","post"],
+                        event:"change",
+                        attributes:["rft_id"],
+                        dest_url:rooturl+"/cart",
+                        args:{getnum:"1",getsize:"1",getstash:"1"}
+                });
+                $('#cart').hover(function(e){
+                        if(locked){
+                                return;
+                        }
+                        locked = true;
+                        $.ajax({
+                                type:'post',
+                                url:rooturl+'/cart',
+                                data:{"getnum":"1"},
+                                dataType:'json',
+                                ifModified:true,
+                                success:function(response){
+                                        $('#cart a').attr('title',msg_elements_in_cart+": "+response.num);
+                                },
+                                complete:(function(){
+                                        setTimeout("unlock()",10000);
+                                })
+                        });
+                },
+                function(){
+                        //deze functie wordt opgegeven, omdat anders de bovenliggende functie wordt uitgevoerd voor zowel de mouseover als de mouseleave!
+                });
+        });
+</script>

@@ -37,7 +37,7 @@ sub handle{
 	my $self = shift;	
 
 	#configuratie
-	my $id_field = Catmandu->conf->{DB}->{index}->{args}->{id_field};
+	my $id_field = Catmandu->conf->{index}->{core}->{args}->{id_field};
 	
 	#request-parameters
 	my $action = $self->params->{action} // "";		
@@ -127,8 +127,8 @@ sub handle{
 sub handleRecord{
 	my($self,$action,$hit,$objects)=@_;
 	#conf	
-	my $default_service = Catmandu->conf->{Cart}->{default_service};
-	my $max = Catmandu->conf->{Cart}->{max};
+	my $default_service = Catmandu->conf->{app}->{cart}->{default_service};
+	my $max = Catmandu->conf->{app}->{cart}->{max};
 	my $response = {action=>$action};
 	my $rft_id = $hit->{_id};
 	my $msg="";

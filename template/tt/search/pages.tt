@@ -1,0 +1,49 @@
+[% data = "data/" _ args.language _ "/search/pages.tt" %]
+[% PROCESS $data %]
+[% PROCESS inc/html.tt %]
+	<head>
+	[% PROCESS inc/search/pages/head.tt %]
+	</head>
+<body>	
+	[% PROCESS inc/common_header.tt %]
+	<div id="main">
+		<!-- search box -->
+		[% metadata = conf.language.${args.language}.Record %]
+		[% PROCESS inc/form.tt %]
+		[% IF args.hit %]	
+			[% poster_index = args.hit.poster_item_id - 1 %]
+			[% PROCESS inc/search/perm.tt %]	
+			[% IF params.q %]
+				[% PROCESS inc/search/results_short.tt %]
+				<div class="band" style="margin-bottom:10px;padding-left:0px">
+					[% PROCESS inc/search/paging_prevnext.tt %]
+                                        [% PROCESS inc/cart_link.tt %]
+					<div style="clear:both"></div>
+				</div>		
+			[% END %]                       	
+			[% PROCESS inc/search/tabs.tt %]
+			<table id="record">
+				<tr>
+					<th class="title" colspan="2">[% args.hit.${metadata.header.key}.0 %]</th>		
+				</tr>
+			</table>		
+			[% PROCESS inc/search/pages/items_paging_prevnext.tt %]
+			<div id="raster">
+				<div id="raster_items">
+					[% PROCESS inc/search/pages/items.tt %]
+					<div style="clear:both"></div>
+				</div>				
+				<div style="clear:both"></div>
+			</div>
+			[% PROCESS inc/id.tt %]
+		[% ELSE %]
+			[% IF args.errmsg %]
+			<div class="error">[% args.errmsg %]</div>
+			[% ELSE %]
+			<div class="error">not found</div>
+			[% END %]
+		[% END %]
+	</div>	
+        [% PROCESS inc/common_footer.tt %]
+</body>
+</html>

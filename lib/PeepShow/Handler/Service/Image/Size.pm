@@ -1,8 +1,9 @@
 package PeepShow::Handler::Service::Image::Size;
+use strict;
 use Data::Validate::URI qw(is_web_uri);
 use Catmandu;
 
-my $ip = Catmandu->conf->{ip};
+my $ip = Catmandu->conf->{all}->{ip};
 my $rootexp = qr/^http:\/\/$ip(.*)/;
 
 sub new {

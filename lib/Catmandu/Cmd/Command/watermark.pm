@@ -13,6 +13,8 @@ use File::Basename;
 use Image::Magick;
 use File::Temp qw(tmpnam);
 use File::Copy;
+use Image::Magick::Thumbnail::Simple;
+use Data::UUID;
 
 extends qw(Catmandu::Cmd::Command);
 
@@ -79,11 +81,37 @@ has gravity => (
     documentation => "Place on the image where the watermark is placed [default:'center']. This option does not help when using --tile (-t).",
 	default => sub{"center";}		
 );
-
-
+has watermark_resize => (
+	traits => ['Getopt'],
+	is => 'rw',
+	isa => 'Int',
+	cmd_aliases => 'wr',
+	documentation => "Resize watermark source to this axis",
+        default => sub{0;}
+);
+has _thumber => (
+	is => 'rw',
+	isa => 'Ref',
+	default => sub{
+		Image::Magick::Thumbnail::Simple->new;
+	}
+);
 
 sub execute{
 	my($self,$opts,$args)=@_;	
+	my $temp_watermark = "/tmp/".Data::UUID->new->create_str;
+	if($self->watermark_resize){
+		my $success = $self->_thumber->thumbnail(
+			input => $self->watermark,
+			output => $temp_watermark,
+			size => $self->watermark_resize
+		);
+		if(!$success){
+			print $self->_thumber->error;
+			exit(1);
+		}
+		$self->watermark($temp_watermark);
+	}
 	my $watermark = Image::Magick->new();
 	my $result = $watermark->ReadImage($self->watermark);		
 	my $filter = $self->filter;
@@ -120,11 +148,12 @@ sub execute{
                                 if("$res"){
                                 	warn "$res";
                                 }else{
-                                	print "$tempfile -> $file\n";
+                                	print "overwriting $file\n";
                                         move($tempfile,$file) or die($!);
                                 }
                         }else{
                         	my $res = $image->Write($self->dest."/$base.$ext");
+				print "$file -> ".$self->dest."/$base.$ext\n";
                                 warn "$res" if "$res";
                         }
 

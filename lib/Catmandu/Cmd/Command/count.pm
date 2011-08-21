@@ -9,27 +9,23 @@ use Plack::Util;
 extends qw(Catmandu::Cmd::Command);
 
 #nodig voor dit commando
-use Catmandu::Store::Simple;
+with qw(Catmandu::Cmd::Opts::Grim::Store);
 
-has dbin => (
-    traits => ['Getopt'],
-    is => 'rw',
-    isa => 'HashRef',
-    cmd_aliases => 'i',
-    documentation => "Parameters for the database [required]",
-        required => 1
+has _store => (
+        is => 'rw',
+        isa => 'Ref',
+        lazy => 1,
+        default => sub{
+                my $self = shift;
+                my $class = "Catmandu::Store::Simple";
+                Plack::Util::load_class($class);
+                $class->new(%{$self->store_arg});
+        }
 );
-has _dbin => (
-	is => 'rw',
-	isa => 'Ref',
-	lazy => 1,
-	default => sub{
-		Catmandu::Store::Simple->new(%{shift->dbin});
-	}
-);
+
 sub execute{
         my($self,$opts,$args)=@_;
-	my $sth = $self->_dbin->_dbh->prepare("select count(*) from objects");
+	my $sth = $self->_store->_dbh->prepare("select count(*) from objects");
 	$sth->execute;
 	my $count = $sth->fetchrow;
 	print "$count\n";
