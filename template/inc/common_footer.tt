@@ -1,4 +1,4 @@
 <div id="footer">
-	<p style="float:left;"><img src="[% rooturl %]/images/icons/logo-ugent.png" width="83" height="60" /></p>
+	<p style="float:left;"><img src="[% conf.all.rooturl %]/images/icons/logo-ugent.png" width="83" height="60" /></p>
 	<p style="float:right;">&copy; 2009 Universiteitsbibliotheek Gent</p>
 </div>
