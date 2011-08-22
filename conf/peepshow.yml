@@ -47,9 +47,9 @@ app:
      args:
       allowed_range: "127.0.0.*"
  search:
-  permroot: "http://search.ugent.be/meercat/x/view"
-  minresults: 10
-  maxresults: 200
+  meercat_x_view: "http://search.ugent.be/meercat/x/view"
+  min_results: 10
+  max_results: 200
   pages_per_set: 8
   num_default: 20
   sort_fields:
@@ -80,12 +80,25 @@ app:
    params:
     - smtp
     - localhost:25
+templates:
+ home: "tt/home"
+ search: "tt/search/all"
+ record_simple: "tt/search/record"
+ record_pages: "tt/search/pages"
+ record_carousel: "tt/search/carousel"
+ opensearch: "tt/opensearch"
+ opensearch_view: "tt/opensearch/view"
+ help: "tt/help"
+ mycart: "tt/mycart"
+ googlemaps: "tt/googlemaps"
+ columns: "tt/columns"
+ new_column: "tt/new_column"
 language:
  default: "nl"
  en:
-  Context:
+  context:
    Image: "image"
-  Record:
+  record:
    header:
     key: "title"
     map: "title" 
@@ -117,23 +130,10 @@ language:
       map: "title"
     - key: "subject_sort"
       map: "subject"
-  Templates:
-   home: "tt/home"
-   search: "tt/search/all"   
-   record_simple: "tt/search/record"
-   record_pages: "tt/search/pages"
-   record_carousel: "tt/search/carousel"
-   opensearch: "tt/opensearch"
-   opensearch_view: "tt/opensearch/view"
-   help: "tt/help"
-   mycart: "tt/mycart"
-   googlemaps: "tt/googlemaps"
-   columns: "tt/columns"
-   new_column: "tt/new_column"
  nl:
-  Context:
+  context:
    Image: "foto"
-  Record:
+  record:
    header:
     key: "title"
     map: "title"   
@@ -165,19 +165,6 @@ language:
       map: "titel"
     - key: "subject_sort"
       map: "onderwerp"
-  Templates:
-   home: "tt/home"
-   search: "tt/search/all"
-   record_simple: "tt/search/record"
-   record_pages: "tt/search/pages"
-   record_carousel: "tt/search/carousel"
-   opensearch: "tt/opensearch"
-   opensearch_view: "tt/opensearch/view"
-   help: "tt/help"
-   mycart: "tt/mycart"
-   googlemaps: "tt/googlemaps"
-   columns: "tt/columns"
-   new_column: "tt/new_column"
 package:
  Marc:
   Transformations:
@@ -265,22 +252,8 @@ context:
 # Doc:
 #  viewer:
 #   HandlingPackage: "PeepShow::Handler::Service::Doc::Google" 
-#   Server:
-#   ServerType:
 #   Template: "tt/viewerGoogle"
 #  thumbnail:
 #   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-#   Server:
-#   ServerType:
-#   Template:
-#   Options: 
-#    Size: 150
-#   download: 1
 #  small:
 #   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-#   Server:
-#   ServerType:
-#   Template:
-#   Options: 
-#    Size: 300
-#   download: 1

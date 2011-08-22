@@ -2,6 +2,7 @@ package PeepShow::App::Common;
 use utf8;
 use Catmandu::App;
 use Captcha::reCAPTCHA;
+use Try::Tiny;
 
 sub db{
         my $self = shift;
@@ -58,7 +59,7 @@ sub page_args {
 sub template{
         my($self,$template) = @_;
         my $language = $self->language;
-        Catmandu->conf->{language}->{$language}->{Templates}->{$template};
+        Catmandu->conf->{templates}->{$template};
 }
 sub language{
         my $self = shift;

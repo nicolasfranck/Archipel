@@ -1,1 +1,4 @@
-<div class="left" style="margin-top: 20px; margin-bottom: 2px; font-size: 80%;">[% args.rft_id %]</div>
+<div class="left" style="margin-top: 20px; margin-bottom: 2px; font-size: 80%;">
+[% index_item = (params.item_id || 1) - 1 %]
+[% args.hit.media.${index_item}.context | lower %]&nbsp;-&nbsp;[% args.rft_id %]
+</div>
