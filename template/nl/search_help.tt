@@ -1,9 +1,0 @@
-<div id="search_help">
-	<p>Uw zoekvraag - <i>"[% q %]"</i> - leverde geen resultaten op</p>
-	<ul>
-		<li>Alle woorden correct spellen a.u.b.</li>
-		<li>Probeer andere zoektermen.</li>
-		<li>Probeer meer algemene termen.</li>
-	</ul>
-	<p></p>
-</div>

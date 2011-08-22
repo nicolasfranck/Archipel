@@ -1,3 +1,0 @@
-<div id="choose">	
-	<a href="[% rooturl %]?q=[% q | $uri_escape %]&amp;page=[% sess_page %]&amp;num=[% sess_num %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">terug naar overzicht ([% total_hits %])</a>  
-</div>

@@ -1,9 +1,0 @@
-<div class="paging">
-	<a href="[% rooturl %]?q=[% q | uri %]&amp;page=[% sess_page %]&amp;num=[% sess_num %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]">&lt;&lt;Terug naar resultaten</a>&nbsp;
-	[% IF prev != "" %]
-	<a href="[% rooturl %]/view?q=[% q | uri %]&amp;start=[% prev %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]&amp;view=[% view %]">&lt;Vorige</a>&nbsp;&nbsp;
-	[% END %]
-	[% IF next %]
-	<a href="[% rooturl %]/view?q=[% q | uri %]&amp;start=[% next %]&amp;sort=[% sort %]&amp;sort_dir=[% sort_dir %]&amp;view=[% view %]">Volgende&gt;</a>&nbsp;&nbsp;
-	[% END %]
-</div>

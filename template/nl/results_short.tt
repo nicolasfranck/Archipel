@@ -1,4 +1,0 @@
-<div class="band" style="padding-left:0px;">
-	<div class="left">Resultaten <b>[% start + 1 %]-[% start + 1 %]</b> van <b>[% total_hits %]</b> voor <b>[% q %]</b></div>
-   	<div style="clear:both"></div>
-</div>

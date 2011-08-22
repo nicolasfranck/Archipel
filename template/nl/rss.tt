@@ -1,6 +1,0 @@
-<script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
-<div class="left">
-	<a href="[% rooturl %]/rss?q=[% q | url %]" onclick="javascript: pageTracker._trackPageview('[% rooturl %]?q=[% q | uri %]');">
-		<img alt="loading" src="[% rooturl %]/images/icons/sm-rss-en.gif" align="bottom" title="RSS Feed">
-	</a>
-</div>
