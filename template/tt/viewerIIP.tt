@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="[% hash.rooturl %]/js/iip/mootools-core-1.3-full-compat-min.js"></script>
 		<script type="text/javascript" src="[% hash.rooturl %]/js/iip/mootools-1.2-more-compressed.js"></script>
 		<script type="text/javascript" src="[% hash.rooturl %]/js/iip/iipmooviewer-1.1_works.js"></script>	
-		<script type="text/javascript" src="[% hash.rooturl %]/js/urlvars-min.js"></script>
+		<script type="text/javascript" src="[% hash.rooturl %]/js/urlvars.js"></script>
 		<script type="text/javascript">
 			var params = getUrlVars();
 			var controls = (params['controls'] == undefined || params['controls'] == "")? true:((params['controls'] == 1)? true:false);

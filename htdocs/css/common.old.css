@@ -1,17 +1,7 @@
-#main table td,#main table th{
+table td,table th{
 	vertical-align:top;
 	margin:0px;
 	padding:10px;
-}
-#main table td table{
-	margin:0px;padding:0px;
-}
-#main table td table td,#main table td table th{
-	margin:0px;padding:0px;
-}
-
-img{
-	border:none;
 }
 table#tabs {
 	border-collapse:collapse;
@@ -52,7 +42,7 @@ table#record table.rft td{
 	padding:2px 30px 2px 0px;
 }
 img#example{
-	width:180px;
+	width:200px;
 }
 div#imgwrapper{
 	display:block;
@@ -85,12 +75,12 @@ div.prevnext{
     position: relative;
     text-align: center;
 }
-div.prevnext a {margin-right:5px;}
+/*div.prevnext a{padding:5px;}*/
 div.prevnext .first{position:absolute;left:0px;top:8px;}
 div.prevnext .prev{position:absolute;left:80px;top:8px;}
 div.prevnext .next{position:absolute;right:80px;top:8px;}
 div.prevnext .last{position:absolute;right:0px;top:8px;}
-span.current{border-bottom:1px solid #8D0E3A;color:#8D0E3A;font-family: 'Consolas', 'Courier', "Courier New", monospace;font-weight:bold;padding:4px;font-size:12px;}
+span.current{color:inherit;border-bottom-width:1px;border-bottom-style:solid;padding:5px;}
 div.results{	    
     clear: both;
     margin: 0px 0;
@@ -100,14 +90,13 @@ div.results{
 	font-size:9pt;color:#666666;
 	
 }
-#main div.results a {
+div.results a {
 	font-weight:normal;font-size:9pt;
 }
 #raster{
 	display:block;
 	margin:0px;padding:0px;margin-top:10px;
 	background-color:#FFFFFF;margin-bottom:10px;
-	/*border:1px solid black;*/
 }
 #raster #raster_inside{
 	display:block;
@@ -131,11 +120,11 @@ div.results{
 .block:hover {
 	border:1px solid #a2b548;
 }
-#raster_items {
+#small_raster{
 	display:block;
 	width:660px;
 	margin:0px;
-	padding:0px;
+	margin-top:10px;padding:0px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -151,21 +140,6 @@ div.results{
 	overflow:hidden;
 	border:1px solid gray;
 	background-color:white;
-}
-.block_normal img.add_tag {
-	position:absolute;
-	z-index:1;
-	right:5px;	
-	top:5px;
-	color:black;
-	font-weight:normal;
-	text-decoration:none;
-}
-img#tagged_image {
-	width:150px;
-}
-.block_normal a.add_tag:hover {
-	text-decoration:underline;
 }
 .block .info{
 	position:absolute;
@@ -193,9 +167,8 @@ img#tagged_image {
 	top:120px;
 	left:5px;
 	right:5px;
-	/*width:150px;*/
 	font-size:9pt;
-	padding:5px;margin:0;
+	padding:5px;margin:0px;
 	height:32px;overflow:hidden;
 }
 .caption_item {
@@ -215,25 +188,12 @@ img#tagged_image {
 	z-index:1;
 	top:0px;
 	right:0px;
-	width:25px;height:25px;
+}
+table#filter td{
+	padding:10px;margin:0px;background-color:#1F5A7A;color:white;
+	font-size:12pt;text-align:center;
 }
 
-.error{
-	border:none;
-	color:#940721;
-	text-align:center;
-	font-size:11pt;	
-	padding:10px;margin:0px;background-color:white;
-	width:98%;
-}
-.msg{
-	border:none;
-	color:#4E8544;
-	text-align:center;
-	font-size:11pt;	
-	padding:10px;background-color:white;margin:0px;
-	width:98%;
-}
 ul#tabnav { /* general settings */
     text-align: left; /* set to left, right or center */
     margin: 1em 0 1em 0; /* set margins as desired */
@@ -267,15 +227,49 @@ ul#tabnav li.selected_tab a { /* settings for selected tab link */
     top: 1px;
     padding-top: 4px; /* must change with respect to padding (X) above and below */
 }
+.search_block {
+	display:block;
+	padding:5px;
+}
+#display{
+	display:block;
+	float:left;
+	position:relative;
+	width:100%;
+	height:28px;
+	/*background-color:#F5F5F5;*/
+}
+#display #choose{
+	position:absolute;
+	left:0px;
+	top:0px;padding:4px;padding-left:0px;
+}
+#display #nav{
+	position:absolute;
+	right:0px;
+	top:0px;padding:4px;padding-right:0px;
+}
+.filtercontext{
+	background-color:#6583B5;
+	color:white;
+	font-size:12pt;
+}
+.filtercontext a{
+	color:white;
+}
+
 input#query {
 	border: 1px solid #BFBFBF;
+	/*background: url(../images/icons/search.png) no-repeat 10px 2px;*/
 	padding-left: 30px;
 	height: 20px;
 	width: 150px;
 }
+
 #search {
 	display:block;
 	width:100%;
+	/*height:40px;*/
 	margin-bottom:25px;
 	text-align:center;
 }
@@ -304,6 +298,7 @@ div#search_advanced th.title{
 	text-align:center;
 	vertical-align:middle;
 	padding:8px;
+	/*background: url(../images/icons/search.png) no-repeat 10px 10px;*/
 }
 div#search_advanced th.foot {
 	text-align:left;
@@ -344,7 +339,7 @@ table#columns td.image {
 table#columns td.image img {
 	width:150px;
 }
-#main .page_title {
+.page_title {
         margin:0px;padding:20px;
         font-size:15pt;font-weight:bold;vertical-align:middle;text-align:center;
 	color:#121D22;
@@ -359,14 +354,14 @@ table#columns td.image img {
 	display:block;
 	padding:5px;
 	position:relative;
-	/*vertical-align:middle;*/
+	vertical-align:middle;
+}
+.band a {
+	padding:5px;
 }
 .paging {
 	display:block;
 	float:left;
-}
-.paging a {
-	padding:4px;
 }
 .manip {
 	display:block;
@@ -405,6 +400,7 @@ table#columns td.image img {
 .column_txt_block * {
 	padding:0px 20px 20px 10px;
 }
+
 div#sub_main{
         display:block;margin-top:5px;
         width:100%;
@@ -413,6 +409,7 @@ div#sub_main{
         margin-right:auto;
         position:relative;border:none;
 }
+
 #car_nav{
         position:absolute;
         width:10%;
@@ -426,7 +423,30 @@ div#sub_main{
         height:400px;
         bottom:0px;right:0px;border-left:1px solid white;
 }
-#zoomer_iframe {
+#car_nav #navigator{
+        position:absolute;
+        width:100%;
+        height:69px;
+        top:0px;left:0px;
+        background-color:black;
+        color:#999999;text-align:center;
+
+}
+#car_nav #navigator a{
+        text-decoration:none;
+        color:#DDDDDD;
+        font-size:11pt;
+        font-style:normal;font-weight:normal;border:none;
+        padding-right:11px;padding:5px;
+}
+#car_nav #navigator a:hover {
+        text-decoration:underline;border:none;
+}
+#car_nav #navigator a:visited {
+        color:#DDDDDD;border:none;
+}
+
+#zoomer_iframe{
         display:block;
         position:relative;
         width:90%;
@@ -434,14 +454,7 @@ div#sub_main{
         margin:0px;
         padding:0px;border:1px solid black;
 }
-.selected_image {
-        background-color:#111111 !important;
-        border-top:1px solid #000000 !important;
-        border-left:1px solid #000000 !important;
-        border-right:1px solid #AAAAAA !important;
-        border-bottom:1px solid #AAAAAA !important;
-}
-#mycarousel a.changeItem {
+#mycarousel a.changeItem{
         text-decoration:none;
         color:white;
         font-size:10pt;
@@ -457,25 +470,4 @@ div#sub_main{
 #mycarousel a.changeItem:visited {
         border:none;
 }
-/*
-	tags
-*/
-#tags {
-	border:1px solid black;
-}
-#tags #add {
-	display:block;
-	float:left;
-	width:350px;
-	border:1px solid black;
-	padding:10px;
-}
-#tags #add #captcha_html {
-	display:none;
-}
-#tags #values {
-	display:block;
-        float:right;
-        width:500px;
-        border:1px solid black;
-}
+  

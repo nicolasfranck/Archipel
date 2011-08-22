@@ -24,6 +24,7 @@ body {
 	background-repeat: repeat-x;
 	font-family: Verdana, Arial, sans-serif;
         font-size: .8em;
+	line-height: 18px;
 }
 
 p {
@@ -88,11 +89,13 @@ ul, ol {
 
 
 #top {
-	width: 100%;
+	width:945px;
 	height: 88px;
 	color: #fff;
 	background: #000 url(../images/top_bg.gif);
 	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 #top h2 {
@@ -283,10 +286,22 @@ ul, ol {
 	text-align: center;
 	border-top: dotted 1px gray;
 	padding: 20px 0 20px 0;
-	width: 100%;
+	width:945px;
 }
 
 #footer p {
 	margin: 0px;
 	padding: 0;
+}
+/*
+	aanpassing
+*/
+#main {
+	position: relative;
+	overflow: hidden;
+	margin-left:  auto;
+	margin-right: auto;width: 945px
+}
+h1{
+        padding:20px;padding-left:0px;margin:0px;color:black;font-weight:bold;font-size:14pt;
 }
