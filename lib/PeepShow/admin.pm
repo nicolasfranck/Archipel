@@ -49,7 +49,7 @@ any([qw(get post)],'',sub{
 		$args->{column} = $new;
 		$args->{errs}=\@errs;	
 		$page_args->{args} = {%{$page_args->{args}},%$args};
-		$self->print_template('new_column',$page_args);
+		$self->print_template($self->template('new_column'),$page_args);
 	}elsif($action eq "edit"){
 		my $edit_confirm = ($params->{edit_confirm} && $params->{edit_confirm} eq "1")? 1:0;
 		if($edit_confirm){
@@ -80,7 +80,7 @@ any([qw(get post)],'',sub{
 			}
 		}
 		$page_args->{args} = {%{$page_args->{args}},%$args};
-		$self->print_template('new_column',$page_args);
+		$self->print_template($self->template('new_column'),$page_args);
 	}elsif($action eq "remove"){
 		my $record = $self->columns->load($id);
                 if(!defined($record)){
@@ -149,7 +149,7 @@ sub print_columns {
         }
 	$columns = [sort {$a->{added} <=> $b->{added}} @$columns];
 	$page_args->{args}->{columns}=$columns;
-        $self->print_template('columns',$page_args);
+        $self->print_template($self->template('columns'),$page_args);
 }
 sub check_params_new {
 	my $self = shift;	

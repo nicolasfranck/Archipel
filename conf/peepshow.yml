@@ -128,6 +128,8 @@ language:
    help: "tt/help"
    mycart: "tt/mycart"
    googlemaps: "tt/googlemaps"
+   columns: "tt/columns"
+   new_column: "tt/new_column"
  nl:
   Context:
    Image: "foto"
@@ -174,6 +176,8 @@ language:
    help: "tt/help"
    mycart: "tt/mycart"
    googlemaps: "tt/googlemaps"
+   columns: "tt/columns"
+   new_column: "tt/new_column"
 package:
  Marc:
   Transformations:

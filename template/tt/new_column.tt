@@ -1,3 +1,5 @@
+[% data = "data/" _ args.language _ "/new_column.tt" %]
+[% PROCESS $data %]
 [% PROCESS inc/html.tt %]
 	<head>
 		[% PROCESS new_column/head.tt %]
