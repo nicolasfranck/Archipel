@@ -4,7 +4,7 @@
 [% END %]
 <table class="rft">							
 	[% i = 1 %]
-	[% metadata = conf.language.${args.language}.Record %]
+	[% metadata = conf.language.${args.language}.record %]
 	[% WHILE i < args.hit.${metadata.header.key}.size %]
 		<tr>
 			<th>[% metadata.header.map %]</th>

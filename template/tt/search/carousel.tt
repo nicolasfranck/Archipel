@@ -7,7 +7,7 @@
 <body>
 	[% PROCESS inc/common_header.tt %]
 	<div id="main">
-		[% metadata = conf.language.${args.language}.Record %]
+		[% metadata = conf.language.${args.language}.record %]
 		<!-- search box -->
 		[% PROCESS inc/form.tt %]		
 		[% IF args.hit %]

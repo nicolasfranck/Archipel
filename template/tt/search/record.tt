@@ -8,7 +8,7 @@
 	[% PROCESS inc/common_header.tt %]
 	<div id="main">
 		<!-- search box -->		
-		[% metadata = conf.language.${args.language}.Record %]
+		[% metadata = conf.language.${args.language}.record %]
 		[% PROCESS inc/form.tt %]	
 		[% IF args.hit %]
 			[% poster_index = args.hit.poster_item_id - 1 %]

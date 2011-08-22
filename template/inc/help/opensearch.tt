@@ -1,4 +1,4 @@
-[% metadata = conf.language.${args.language}.Record %]
+[% metadata = conf.language.${args.language}.record %]
 
 <h1><a name="opensearch"></a>Open Search</h1>
 <p>

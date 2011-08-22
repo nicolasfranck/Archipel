@@ -31,7 +31,7 @@ sub parse {
 	#q en opts zijn de return-waarden
 	my $opts = {};
 	#conf
-	my $maxresults= Catmandu->conf->{app}->{search}->{maxresults};
+	my $maxresults= Catmandu->conf->{app}->{search}->{max_results};
         my $num_default = Catmandu->conf->{app}->{search}->{num_default};
         my $pages_per_set = Catmandu->conf->{app}->{search}->{pages_per_set};
 	

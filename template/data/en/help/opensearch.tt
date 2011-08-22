@@ -1,6 +1,6 @@
 [% tt_text_help_opensearch = BLOCK %]
 
-[% metadata = conf.language.${args.language}.Record %]
+[% metadata = conf.language.${args.language}.record %]
 
 <h1><a name="opensearch"></a>Open Search</h1>
 <p>Search results can also be embedded in your own webpage by use of our opensearch facility. Apart from the openURL, this facility is not used by GRIM itself, which uses its own representation. Add this HTML code into your webpage:

@@ -1,4 +1,4 @@
-[% metadata = conf.language.${args.language}.Record %]
+[% metadata = conf.language.${args.language}.record %]
 <div class="manip">
 	<form method="get" id="manip_form" action="" accept-charset="UTF-8">
 		[% tt_title_search_manip_sort %]:&nbsp;
