@@ -72,7 +72,7 @@ sub is_local {
 }
 sub num {
         my($self,$params)=@_;
-	my $maxresults= Catmandu->conf->{app}->{search}->{maxresults};
+	my $maxresults= Catmandu->conf->{app}->{search}->{max_results};
 	my $num_default = Catmandu->conf->{app}->{search}->{num_default};
 	my $num = $params->{num};
 	$num = $num || $num_default;

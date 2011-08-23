@@ -76,7 +76,7 @@ app:
   max: 30
   max_age: "30d"
   email:
-   from: "nicolas.franck@ugent.be"
+   realfrom: "nicolas.franck@ugent.be"
    params:
     - smtp
     - localhost:25
@@ -93,6 +93,7 @@ templates:
  googlemaps: "tt/googlemaps"
  columns: "tt/columns"
  new_column: "tt/new_column"
+ sendmail_mycart: "tt/sendmail_mycart.tt"
 language:
  default: "nl"
  en:
@@ -136,7 +137,7 @@ language:
   record:
    header:
     key: "title"
-    map: "title"   
+    map: "titel"   
     search: 1
    subfields:
     - key: "title"

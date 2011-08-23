@@ -1,0 +1,13 @@
+[% PROCESS inc/html.tt %]
+	<body>
+		<table>
+			<tr>
+				<td>
+					[% from %] stuurde u een link naar deze <a href="[% link | url %]">foto's</a>
+				</td>
+			</tr>
+			<tr>
+				<td>[% message %]</td>
+			</tr>
+	</body>
+</html>

@@ -5,7 +5,6 @@ use parent qw(PeepShow::App::Common);
 
 use PeepShow::Tools::Record;
 use Data::Pageset;
-use Digest::MD5 qw(md5_hex);
 use JSON;
 use MIME::Lite::TT::HTML;
 use Email::Valid;
@@ -24,8 +23,9 @@ any([qw(get post)],'',sub{
 	my $offset = ($page - 1)*$num;		
 	#mailen
 	my $mailconfirm = $params->{mailconfirm} || 0; 
-	my $from = Catmandu->conf->{app}->{cart}->{email}->{from};
+	my $from = $params->{from};
 	my $to = $params->{to};
+	my $realfrom = Catmandu->conf->{app}->{cart}->{email}->{realfrom};#werkelijk email-adres van waaruit wordt gestuurd
 	my $message = $params->{message};
 	my $captcha_html;
 	#(fout)boodschappen
@@ -51,30 +51,32 @@ any([qw(get post)],'',sub{
 			if(defined($mailconfirm) && $mailconfirm eq "1"){
 				my($success,$errors) = $self->validate_captcha($params);
 				push @errors,@$errors if !$success;
+				push @errors,{err=>1,errmsg=>"SENDMAIL_REALFROM_NOT_VALID"} if !Email::Valid->address($realfrom);
 				push @errors,{err=>1,errmsg=>"SENDMAIL_FROM_NOT_VALID"} if !Email::Valid->address($from);
 				push @errors,{err=>1,errmsg=>"SENDMAIL_TO_NOT_VALID"} if !Email::Valid->address($to);
+				
 				if(scalar(@errors)==0){
 					if(defined($sess->{devs}) && scalar(keys %{$sess->{devs}}) > 0){
 						#opslaan voor later gebruik..
-						$newid = md5_hex($self->request->session_options->{id}.JSON::encode_json($sess->{devs}));
+						$newid = Data::UUID->new->create_str();
 						$self->snapshots->save({_id=>$newid,timestamp=>time,devs=>$sess->{devs}});
-						#..en een link opsturen naar kameraad naar deze snapshot
+						#..en een link opsturen naar kameraad voor deze snapshot
 						my $mime = MIME::Lite::TT::HTML->new(
-							From => $from,
+							From => $realfrom,
 							To => $to,
 							Subject => "beeldmateriaal peepshow",
 							Template => {
-								html => $self->template('sendmail_cart')
+								html => $self->template('sendmail_mycart')
 							},
 							Charset     => 'utf8',
 							TmplOptions => {INCLUDE_PATH=>Catmandu->home."/template"},
-							TmplParams  =>  {from=>$from,to=>$to,link=>$self->rooturl."/mycart?action=load&id=$newid",message=>$message}
+							TmplParams  =>  {from=>$from,to=>$to,link=>Catmandu->conf->{all}->{rooturl}."/mycart?action=load&id=$newid",message=>$message}
 						);
 						my $success = $mime->send(@{Catmandu->conf->{app}->{cart}->{email}->{params}});
 						if(not $success){
-							push @errors,{err=>1,errmsg=>'SENDMAIL_FAILED',from=>$from,to=>$to};
+							push @errors,{err=>1,errmsg=>'SENDMAIL_FAILED',from=>$realfrom,to=>$to};
 						}else{
-							push @messages,{success=>1,msg=>'SENDMAIL_SUCCESS',from=>$from,to=>$to};
+							push @messages,{success=>1,msg=>'SENDMAIL_SUCCESS',from=>$realfrom,to=>$to};
 						}
 					}
 				}else{

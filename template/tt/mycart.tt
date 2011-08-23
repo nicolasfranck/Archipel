@@ -16,13 +16,15 @@
 					<table>
 					[% FOREACH message IN args.messages %]
 						[% IF message.msg == 'SENDMAIL_SUCCESS' %]
-						<tr><th colspan="2">[% tt_title_mycart_mail_send_to %][% message.to %]!</th></tr>
+						<tr><th colspan="2">[% tt_title_mycart_mail_send_to %]&nbsp;[% message.to %]!</th></tr>
 						[% END %]
 					[% END %]
 					[% FOREACH error IN args.errors %]
 						<div class="band">
 							<tr><th colspan="2">
-								[% IF error.errmsg == 'SENDMAIL_TO_NOT_VALID' %]
+								[% IF error.errmsg == 'SENDMAIL_FROM_NOT_VALID' %]
+								[% tt_error_mycart_sendmail_from_not_valid %]
+								[% ELSIF error.errmsg == 'SENDMAIL_TO_NOT_VALID' %]
 								[% tt_error_mycart_sendmail_to_not_valid %]
 								[% ELSIF error.errmsg == 'SENDMAIL_FAILED' %]
 								[% tt_error_mycart_sendmail_failed %]
@@ -33,12 +35,15 @@
 						</div>
 					[% END %]
 						<tr>
-							<td>[% tt_title_mycart_form_to %]:</td><td><input type="text" name="to" /></td>
+                                                        <td>[% tt_title_mycart_form_from %]:</td><td><input type="text" name="from" value="[% params.from %]"/></td>
+                                                </tr>
+						<tr>
+							<td>[% tt_title_mycart_form_to %]:</td><td><input type="text" name="to" value="[% params.to %]" /></td>
 						</tr>
 						<tr>
 							<td>[% tt_title_mycart_form_message %]:</td>
 							<td>
-								<textarea cols="50" rows="6" name="message"></textarea>
+								<textarea cols="50" rows="6" name="message">[% params.message %]</textarea>
 							</td>
 						</tr>
 						<tr>
