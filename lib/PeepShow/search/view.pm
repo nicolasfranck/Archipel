@@ -7,7 +7,6 @@ use PeepShow::Handler::Query::Parse::View;
 use PeepShow::Handler::Query::Register;
 use PeepShow::Handler::Record::View;
 use PeepShow::Tools::Record;
-use Data::Pageset;
 use List::MoreUtils qw(first_index);
 use Try::Tiny;
 
@@ -15,7 +14,7 @@ any([qw(get post)],'',sub{
 	my $self = shift;
 	#conf
 	my $pages_per_set = Catmandu->conf->{app}->{search}->{pages_per_set};
-	#parameters (add hoc)
+	#parameters
 	my $params = $self->request->parameters;
 	my $display = $params->{display};
 	#parse
@@ -40,22 +39,10 @@ any([qw(get post)],'',sub{
 			$args->{next} = ($totalhits - 1 > $opts->{start})? $opts->{start} + 1:undef;
 			$args->{total_hits}=$totalhits;
 			$args->{start}=$opts->{start};
-			$args->{s} = $params->{sort};
 			$params->add(start=>$opts->{start});
 			my $view = $params->{view};
 			$view = (defined($view) && defined(Catmandu->conf->{package}->{Record}->{View}->{$view}))? $view:Catmandu->conf->{package}->{Record}->{View}->{default};
 			$params->add(view=>$view);
-			#security check
-			if(defined($params->{view}) && $params->{view} eq "carousel"){	
-				my $poster_item_id = $hits->[0]->{poster_item_id};
-				my $has_carousel = ((first_index {$_ eq "carousel"} @{$hits->[0]->{media}->[$poster_item_id - 1]->{services}}) > -1 );
-				if(!$has_carousel){
-					$params->add( view => "record");
-				}elsif(!$self->is_local && !$hits->[0]->{access}->{services}->{carousel}){
-					$params->add(view => "record");
-				}
-			}
-			$args->{captcha_html} = $self->captcha_html;
 			my $page_args = $self->page_args;
 			$page_args->{args}->{is_local} = $self->is_local;
 			$page_args->{args} = {%{$page_args->{args}},%$args};

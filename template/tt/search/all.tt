@@ -24,11 +24,14 @@
                                 [% PROCESS inc/cart_link.tt %]
 				<div style="clear:both"></div>
 			</div>
+			[%# PROCESS inc/search/all/external_libraries.tt %]
+			[% IF args.pages_in_set && args.pages_in_set.size > 1 %]
 			<div class="band">
 				[% PROCESS inc/search/all/paging.tt %]
 				[% PROCESS inc/search/all/manip.tt %]	
 				<div style="clear:both"></div>			
 			</div>
+			[% END %]
 		[% END %]
     		<div id="raster">
 			[% IF params.confirm_search || params.search_type != 'advanced' %]
@@ -43,7 +46,7 @@
 		</div>
 		<!--list-hits-end-->					
 	<!--paging-same-as-top-->
-	[% IF args.hits && args.hits.size > 0 %]
+	[% IF args.pages_in_set && args.pages_in_set.size > 1 %]
 		<div class="band">
 			[% PROCESS inc/search/all/paging.tt %]
 			<div style="clear:both"></div>			

@@ -73,7 +73,8 @@
 				<div id="media">
 					[% FOREACH record IN args.records %]
 					<div class="block shadow">
-						<div class="imgholder" onclick="window.location.href='[% conf.all.rooturl %]/view?q=[% record.rft_id  %]&amp;language=[% args.language %]'">
+						[% SET u = conf.all.rooturl _ "/view?q=id:\"" _ record.rft_id _ "\"&amp;language=" _ args.language %]
+						<div class="imgholder" onclick="window.location.href='[% u | url %]'">
 							[% wratio = 1 %]
 							[% hratio = 1 %]
 							[% IF record.posterwidth > 160 %][% wratio = 160 / record.posterwidth %][% END %]

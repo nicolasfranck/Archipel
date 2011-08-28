@@ -1,7 +1,0 @@
-[% PROCESS data/nl/common.tt %]
-[% PROCESS data/nl/paging_terms.tt %]
-[% q = params.q | url %]
-[% start = args.start || 1 %]
-[%
-tt_title_opensearch_view_results = "Resultaten <b>" _ start _ "</b> - <b>" _ start _ "</b> van <b>" _ args.total_hits _ "</b> voor <b>" _ q _ "</b>"
-%]

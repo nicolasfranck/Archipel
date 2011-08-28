@@ -30,6 +30,7 @@ tt_title_form_advanced_sort_default = "relevantie (default)"
 tt_title_form_advanced_sort_dir = "oplopend"
 tt_title_form_advanced_submit = "zoek" 
 tt_title_form_advanced_reset = "leeg"
+tt_title_search_external_libraries = "Externe bibliotheken"
 %]
 [% q = params.q | html %]
 [%

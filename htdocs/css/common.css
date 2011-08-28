@@ -23,12 +23,15 @@ table#tabs th, table#tabs td {
 	margin:0px;
         padding:0px;
 }
-
+table#record a {
+	margin-right:5px;
+}
 table#record table.rft th{
 	text-align:left;
 	font-weight:bold;
 	padding:2px 30px 2px 0px;
 	margin:0px;
+	width:100px;
 	
 }
 table#record table.rft th {
@@ -47,9 +50,11 @@ table#record th.subtitle{
 	background-color:white;
 }
 table#record table.rft td{
-	text-align:justify;
 	margin:0px;
 	padding:2px 30px 2px 0px;
+}
+table#record table.example td{
+	text-align:right;
 }
 img#example{
 	width:180px;
@@ -90,7 +95,7 @@ div.prevnext .first{position:absolute;left:0px;top:8px;}
 div.prevnext .prev{position:absolute;left:80px;top:8px;}
 div.prevnext .next{position:absolute;right:80px;top:8px;}
 div.prevnext .last{position:absolute;right:0px;top:8px;}
-span.current{border-bottom:1px solid #8D0E3A;color:#8D0E3A;font-family: 'Consolas', 'Courier', "Courier New", monospace;font-weight:bold;padding:4px;font-size:12px;}
+span.current{border-bottom:1px solid #B80707;color:#B80707;padding:4px;}
 div.results{	    
     clear: both;
     margin: 0px 0;
@@ -279,9 +284,6 @@ input#query {
 	margin-bottom:25px;
 	text-align:center;
 }
-#search a {
-	font-size:9pt;font-weight:normal;
-}
 div#search_advanced {
 	display:block;
 	margin:10px 0px 10px 0px;
@@ -359,7 +361,7 @@ table#columns td.image img {
 	display:block;
 	padding:5px;
 	position:relative;
-	/*vertical-align:middle;*/
+	/*border:1px solid black;*/
 }
 .paging {
 	display:block;
@@ -456,26 +458,4 @@ div#sub_main{
 }
 #mycarousel a.changeItem:visited {
         border:none;
-}
-/*
-	tags
-*/
-#tags {
-	border:1px solid black;
-}
-#tags #add {
-	display:block;
-	float:left;
-	width:350px;
-	border:1px solid black;
-	padding:10px;
-}
-#tags #add #captcha_html {
-	display:none;
-}
-#tags #values {
-	display:block;
-        float:right;
-        width:500px;
-        border:1px solid black;
 }

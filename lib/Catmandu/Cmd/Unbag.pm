@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use IO::Tee;
 use Image::ExifTool;
+use parent qw(Catmandu::Cmd::Stats);
 
 sub new {
 	my($class,%opts)=@_;

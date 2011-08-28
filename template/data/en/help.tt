@@ -1,6 +1,0 @@
-[% PROCESS data/en/common.tt %]
-[% PROCESS data/en/help/meaning_grim.tt %]
-[% PROCESS data/en/help/openurl.tt %]
-[% PROCESS data/en/help/opensearch.tt %]
-[% PROCESS data/en/help/table_content.tt %]
-[% PROCESS data/en/help/admin.tt %]

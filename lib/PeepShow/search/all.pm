@@ -54,7 +54,6 @@ any([qw(get post)],'/',sub{
 				#alles geïnitialiseerd? -> verzamel alles
 				my $page_args = $self->page_args;
 				my $args = {			
-					s => $params->{sort}, #omdat params.sort in TT als vmethod gezien wordt
 					hits => $hits,		
 					restfields => $rest,
 					total_hits => $totalhits,

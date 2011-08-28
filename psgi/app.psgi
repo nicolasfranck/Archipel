@@ -1,21 +1,24 @@
 #!/usr/bin/perl
 use Plack::Builder;
+use Plack::Session::Store::File;
 use PeepShow::search::all;
 use PeepShow::search::view;
 use PeepShow::admin;
 use PeepShow::rss;
 use PeepShow::xml;
+use PeepShow::json;
 use PeepShow::mycart;
 use PeepShow::cart;
 use PeepShow::googlemaps;
-use PeepShow::tag;
+use PeepShow::facet;
+use PeepShow::videostreaming::external;
 use Catmandu;
 
 use Digest::MD5 qw(md5_hex);
 
 builder{
 	#middleware
-	enable 'Session';
+	enable 'Session',store=>Plack::Session::Store::File->new(dir=> '/tmp/peepshow-sessions');
 	enable "Static", path => qr{^/(images|js|css|flash)/} , root => 'htdocs/';
 	enable 'openURL';
 	#routes
@@ -23,10 +26,12 @@ builder{
 	mount "/view",PeepShow::search::view->to_app;
 	mount "/rss",PeepShow::rss->to_app;
 	mount "/xml",PeepShow::xml->to_app;
+	mount "/json",PeepShow::json->to_app;
 	mount "/mycart",PeepShow::mycart->to_app;
 	mount "/cart",PeepShow::cart->to_app;
 	mount "/googlemaps",PeepShow::googlemaps->to_app;
-	mount "/tag",PeepShow::tag->to_app;
+	mount "/facet",PeepShow::facet->to_app;
+	mount "/videostreaming/external",PeepShow::videostreaming::external->to_app;
 	mount "/admin" => builder {
 		enable 'Auth::Basic',authenticator=>sub{
 			my($username,$password)=@_;

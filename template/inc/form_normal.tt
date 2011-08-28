@@ -6,6 +6,5 @@
 		<input type="hidden" name="language" value="[% args.language %]" />
 		&nbsp;<a href="[% conf.all.rooturl %]?search_type=advanced&amp;language=[% args.language %]">[% tt_title_form_normal_search_advanced %]</a>
 		<a href="[% conf.all.rooturl %]/googlemaps?language=[% args.language %]">[% tt_title_form_normal_googlemaps %]</a>
-		<a href="[% conf.all.rooturl %]/help?language=[% args.language %]">[% tt_title_form_normal_help %]</a>
 	</form>
 </div>

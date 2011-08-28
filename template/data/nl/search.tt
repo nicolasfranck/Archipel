@@ -2,8 +2,11 @@
 [% 
 start = args.start || 0
 tt_search_results_short = "Resultaten <b>" _ (start + 1) _ "-" _ (start + 1) _ "</b> van <b>" _ args.total_hits _ "</b> voor <b>" _ q
-tt_title_search_tabs_record = "record"
-tt_title_search_tabs_pages = "overzicht"
-tt_title_search_tabs_carousel = "blader"
+tt_title_search_tabs = {
+	"simple" => "record",
+	"pages" => "overzicht"
+}
 tt_title_this_record_in_xml = "Dit record in XML"
+tt_title_this_record_in_json =  "Dit record in JSON"
+tt_prefix_other_header = "Andere"
 %]

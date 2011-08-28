@@ -5,7 +5,7 @@
 		<select name="sort" onchange="document.getElementById('manip_form').submit();">
 			<option value="">[% tt_title_search_manip_sort_default %]</option>
 			[% FOREACH csort IN metadata.sort_fields %]					
-			<option value="[% csort.key %]" [% 'SELECTED' IF args.s == csort.key %]>[% csort.map %]</option>
+			<option value="[% csort.key %]" [% 'SELECTED' IF params.item("sort") == csort.key %]>[% csort.map %]</option>
 			[% END %]
 		</select>	
 		&nbsp;

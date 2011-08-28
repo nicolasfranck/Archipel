@@ -261,12 +261,12 @@ sub create_devs {
 }
 sub make_item {
 	my($self,$file_info,$devs_info)=@_;
+	my $stat_properties = $self->stat_properties($file_info->{file});
 	my $item = {
 		file => [{
-                        path => $file_info->{file},
+			%$stat_properties,
                         url => $file_info->{url},
                         content_type => $file_info->{info}->{MIMEType},
-                        size => -s $file_info->{file},
                         width => $file_info->{info}->{ImageWidth},
                         height => $file_info->{info}->{ImageHeight},
                         tmp_sublocation => $file_info->{file_sublocation}
@@ -279,11 +279,11 @@ sub make_item {
                 ]
 	};
 	foreach my $type(keys %$devs_info){
+		$stat_properties = $self->stat_properties($devs_info->{$type}->{file});
 		$item->{devs}->{$type} = {
-                        path => $devs_info->{$type}->{file},
+			%$stat_properties,
                         url => $devs_info->{$type}->{url},
                         content_type => $devs_info->{$type}->{info}->{MIMEType},
-                        size => -s $devs_info->{$type}->{file},
                         width => $devs_info->{$type}->{info}->{ImageWidth},
                         height => $devs_info->{$type}->{info}->{ImageHeigth},
                         tmp_sublocation => $devs_info->{$type}->{file_sublocation}

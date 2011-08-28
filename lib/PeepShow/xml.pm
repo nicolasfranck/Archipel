@@ -1,11 +1,11 @@
 package PeepShow::xml;
 use Catmandu::App;
 
-use parent qw(PeepShow::App::Common);
+use parent qw(PeepShow::App::Common PeepShow::App::Marc);
 
 use Plack::Util;
 
-any([qw(get post)],'',sub{
+any([qw(get post head)],'',sub{
 	my $self = shift;
 	my $params = $self->request->parameters;
 	my $rft_id = $params->{rft_id};
@@ -17,31 +17,26 @@ any([qw(get post)],'',sub{
 		return if !(defined($xml) && $xml ne "");
 		$format = (defined($format) && defined($self->marc_transformations->{$format}))? $format:undef;
 		if(!defined($format)){
-			$self->response->content_type('application/xml');
-			$self->print($xml);
+			$xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>".$xml;
+			$self->send(\$xml);
 		}else{
 			my $formatted_xml = $self->marc_transformations->{$format}->transform($xml);
 			my $content_type = $self->marc_transformations->{$format}->content_type;
-			$self->response->content_type($content_type);
-			$self->print($formatted_xml);
+			$self->send(\$formatted_xml);
+			#hier wordt wél print gebruikt omdat text geflagged is door Perl als utf-8 en niet als dusdanig naar buiten
+			#mag vooraleer $self->print die als echte utf-8 heeft geëncodeerd!
+			#error: body must be bytes and should not contain wide characters! 
+			# -> wegens perl-utf8!
 		}
 	}
 });
 
-sub marc_transformations {
-        my $self = shift;
-        $self->stash->{marc_transformations}||=$self->load_transformations;
-}
-sub load_transformations{
-        my $self = shift;
-        my $hash = {};
-        my $t = Catmandu->conf->{package}->{Marc}->{Transformations};
-        foreach my $key(keys %$t){
-                my $class=$t->{$key};
-                Plack::Util::load_class($class);
-                $hash->{$key}=$class->new();
-        }
-        $hash || {};
+sub send {
+	my($self,$xml)=@_;
+	my $params = $self->request->parameters;
+	$self->response->content_type('application/xml; charset=utf-8');
+	$self->response->header("Content-Disposition" => "attachment; filename='".$params->{rft_id}.".xml'") if $params->{download};
+	$self->print($$xml);
 }
 
 __PACKAGE__->meta->make_immutable;

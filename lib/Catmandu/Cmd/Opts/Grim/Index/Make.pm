@@ -8,8 +8,6 @@ use YAML;
 use File::Basename;
 use Try::Tiny;
 
-binmode(STDOUT,":encoding(UTF-8)");
-
 has yaml_index_arg => (
         traits => ['Getopt'],
         is => 'rw',
@@ -114,7 +112,7 @@ sub make_index_merge {
         $i->{content_type}=join(' ',$content_types->elements);
         #verwijder alles dat leeg of undefined is
         foreach my $key(keys %$i){
-                $i->{$key} =~ s/\s\s+//g;
+                $i->{$key} =~ s/\s\s+/ /g;
                 $i->{$key} =~ s/^\s//;
                 $i->{$key} =~ s/\s$//;
                 delete $i->{$key} if not defined($i->{$key}) or $i->{$key} eq "";

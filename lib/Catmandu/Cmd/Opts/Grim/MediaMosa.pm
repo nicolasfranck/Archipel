@@ -10,8 +10,6 @@ use Data::UUID;
 use URI::Escape;
 use Term::ReadKey;
 
-use Data::Dumper;
-
 has yaml_mediamosa_arg => (
 	traits => ['Getopt'],
 	is => 'rw',

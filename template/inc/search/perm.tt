@@ -3,10 +3,11 @@
     	<b>Permalink:</b>&nbsp;
 	[% r = args.rft_id %]
 	[% r = r.replace(':','/') %]
-    	<input type="text" size="55" readonly="readonly" value="[% conf.app.search.permroot %]/[% r %]" />
+    	<input type="text" size="55" readonly="readonly" value="[% conf.app.search.meercat_x_view %]/[% r %]" />
     </div>
 	[% PROCESS inc/bookmark_link.tt %]
         [% PROCESS inc/xml_link.tt %]
+	[% PROCESS inc/json_link.tt %]
 	<div class="left">
                 <!-- Place this tag in your head or just before your close body tag -->
                 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>

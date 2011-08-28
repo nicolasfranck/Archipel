@@ -1,0 +1,242 @@
+[% BLOCK get_raw_sparql_base_q %]
+        SELECT DISTINCT ?doc ?lit ?title ?image ?av ?format
+        {
+                {(?lit ?score) pf:textMatch '"%lucene_query"~10' . } . 
+                ?doc rdf:type oai:Record . 
+                ?doc dcterms:title ?title . 
+                ?doc owl:sameAs ?or . 
+                ?concept ?p2 ?lit . 
+		?doc ?p1 ?concept . 
+		?doc dcterms:relation ?image . FILTER regex(str(?image), "still")
+		?doc dcterms:format ?format . FILTER regex(str(?format),"Video") .
+		?doc dcterms:relation ?av . FILTER regex(str(?av),"media") . 
+
+       } ORDER BY DESC(?score) LIMIT %limit OFFSET %offset
+[% END %]
+[% BLOCK get_raw_sparql_base_q_count %]
+	SELECT count(*)
+        {
+                {(?lit ?score) pf:textMatch '"%lucene_query"~10' . } .
+                ?doc rdf:type oai:Record .
+                ?doc dcterms:title ?title .
+                ?doc owl:sameAs ?or .
+                ?concept ?p2 ?lit .
+                ?doc ?p1 ?concept .
+                ?doc dcterms:relation ?image . FILTER regex(str(?image), "still")
+                ?doc dcterms:format ?format . FILTER regex(str(?format),"Video") .
+                ?doc dcterms:relation ?av . FILTER regex(str(?av),"media") .
+
+       }
+[% END %]
+[% MACRO get_sparql_base_q BLOCK %]
+	[% PROCESS get_raw_sparql_base_q | collapse %]
+[% END %]
+[% MACRO get_sparql_base_q_count BLOCK %]
+        [% PROCESS get_raw_sparql_base_q_count | collapse %]
+[% END %]
+[% queries = {} %]
+[% fields = [] %]
+[% FOREACH field IN conf.app.search.external_metadata_fields %]
+        [% NEXT IF !args.hit.${field}.defined %]
+        [% fields.push(field) %]
+        [% queries.${field} = args.hit.${field}.0.to_external_query(field,{"num"=>2,"minlength"=>2}) %]
+[% END %]
+
+[% sparql_base_q = get_sparql_base_q.escape_quotes() %]
+[% sparql_base_q_count = get_sparql_base_q_count.escape_quotes() %]
+
+<script type="text/javascript">
+var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes() %]");
+</script>
+<link rel="stylesheet" href="[% conf.all.rooturl %]/css/sparql.css" type="text/css" media="screen" />
+<script type="text/javascript" src="[% conf.all.rooturl %]/js/sparql.js"></script>
+<script type="text/javascript">
+
+	//variabelen
+	var fields = JSON.parse("[% fields.to_json().escape_quotes() %]");
+        var queries = JSON.parse("[% queries.to_json().escape_quotes() %]");
+        var rooturl = "[% conf.all.rooturl %]";
+	var sparql_base_q = "[% sparql_base_q %]";
+	var sparql_base_q_count = "[% sparql_base_q_count %]";
+	var sparql_q;
+	var sparql_base_url = rooturl+"/sparql-archipel";
+	var sparql;
+	var sparql_div_id = "sparql_div";
+	var sparql_count_results = 0;
+	var offset = 0;
+	var limit = 1;
+	
+	//sparql
+	function init_sparql(url){
+		sparql = new SPARQL.Service(url);
+	}
+	function get_sparql_results(q,prefixes,callback_success,callback_failure,transform){
+                sparql.setOutput("json");
+                var query = sparql.createQuery();
+                for(key in prefixes){
+                        query.setPrefix(key,prefixes[key]);
+                }
+                if(transform == "selectValueArrays"){
+                        query.selectValueArrays(q,{
+                                failure:callback_failure,
+                                success:callback_success
+                        });
+                }else if(transform == "selectValueHashes"){
+                        query.selectValueHashes(q,{
+                                failure:callback_failure,
+                                success:callback_success
+                        });
+                }else{
+                        query.selectSingleValue(q,{
+                                failure:callback_failure,
+                                success:callback_success
+                        });
+                }
+        }
+	//helper functies
+	function escape_query (s){
+		s = s.replace(/('|")/g,"\\$1");
+		return s.replace("\\\\","\\\\\\\\");
+	}
+	//set variabelen
+	function set_sparql_q(q_string){
+		sparql_q = sparql_base_q.replace('%offset',offset);
+		sparql_q = sparql_q.replace('%limit',limit);
+		sparql_q = sparql_q.replace("%lucene_query",escape_query(q_string));
+		console.log(sparql_q);
+	}
+	function set_sparql_q_count(q_string){
+                sparql_q_count = sparql_base_q_count.replace('%lucene_query',escape_query(q_string));
+        }
+	//paging
+	function prev(){
+		if(offset - limit < 0)return;
+		offset-=limit;
+		set_sparql_div(sparql_q);
+	}
+	function next(){
+		if(offset + limit >= sparql_count_results)return;
+		offset+=limit;
+		set_sparql_div(sparql_q);
+	}
+	//callbacks
+	function sparql_q_count_callback_failure(data){
+                console.log(data);
+        }
+	function sparql_q_count_callback_success(num){
+                console.log(num);
+                sparql_count_results = num;
+        }
+	function sparql_q_callback_failure(data){
+                document.getElementById(sparql_div_id).innerHTML = data;
+        }
+        function sparql_q_callback_success(json){
+		add_sparqle_div_images(json);
+	}
+	//set divs
+	function add_sparql_paging_div(q){
+		get_sparql_results(q,xml_namespaces,sparql_q_count_callback_success,sparql_q_count_callback_failure,"selectSingleValue");
+		if(sparql_count_results > limit){
+			var paging = document.createElement("div");
+			paging.setAttribute("id","paging");
+			if(start >= limit){
+				var prev = document.createElement("a");
+				prev.innerHTML = "previous";	
+				prev.setAttribute("onclick","prev();");
+				paging.appendChild(prev);
+			}
+			if(start + limit <= sparql_count_results){
+				var next = document.createElement("a");
+				next.innerHTML = "next";
+				next.setAttribute("onclick","next();");
+				paging.appendChild(next);
+			}
+			document.getElementById(sparql_div_id).appendChild(paging);
+		}
+	}
+	function add_sparqle_div_images(json){
+		console.log(json);
+		var sd = document.getElementById(sparql_div_id);
+		sd.innerHTML="";
+		if(json["image"].length==0)return;
+
+		var div_images = document.getElementById("images");
+		if(div_images)div_images=null;
+		div_images = document.createElement("div");
+		div_images.setAttribute("id","images");
+
+		for(var i = 0;i<json["doc"].length;i++){
+			if(!json["image"][i])continue;
+			var div_block = document.createElement("div");
+			div_block.setAttribute("class","bl");
+			var div_imgholder = document.createElement("div");
+			div_imgholder.setAttribute("class","imgh");
+
+			var img = document.createElement("img");
+			img.setAttribute("src",json["image"][i]);
+			img.setAttribute("title",json["title"][i]);
+			img.setAttribute("width",80);
+		
+			var av_icon = document.createElement("img");
+			av_icon.setAttribute("class","av_icon");
+			av_icon.setAttribute("src",rooturl+"/images/icons/Video.png");
+			av_icon.setAttribute("title","watch");
+
+			var av_media_link = document.createElement("a");
+			var video_player_url = rooturl+"/videostreaming/external?";
+			video_player_url+="&thumbnail_url="+json["image"][i];
+			video_player_url+="&video_url="+json["av"][i];
+			av_media_link.setAttribute("href",video_player_url);
+			av_media_link.setAttribute("target","_blank");
+
+			av_media_link.appendChild(av_icon);				
+			div_imgholder.appendChild(av_media_link);
+
+			var a = document.createElement("a");
+			a.setAttribute("href",json["doc"][i]);
+			a.setAttribute("title",json["doc"][i]);
+			a.setAttribute("target","_blank");
+			a.appendChild(img);
+		
+			div_imgholder.appendChild(a.cloneNode(true));
+			div_block.appendChild(div_imgholder);
+
+
+			var caption = document.createElement("div");
+			caption.setAttribute("class","cp");
+			var a_title = document.createElement("a");
+			a_title.setAttribute("href",json["doc"][i]);
+                        a_title.setAttribute("title",json["doc"][i]);
+                        a_title.setAttribute("target","_blank");
+			a_title.innerHTML = json["title"][i];
+			caption.appendChild(a_title);
+
+			div_block.appendChild(caption);
+
+			div_images.appendChild(div_block);
+
+		}
+		
+		var clear = document.createElement("div");
+		clear.setAttribute("style","clear:both");
+		div_images.appendChild(clear);
+		
+		//en nu alles in de div stoppen!
+		sd.appendChild(div_images);
+
+	}
+	function set_sparql_div(q){
+		get_sparql_results(q,xml_namespaces,sparql_q_callback_success,sparql_q_callback_failure,"selectValueArrays");
+	}
+	
+	$(document).ready(function(){
+		init_sparql(sparql_base_url);
+
+		set_sparql_q(queries[fields[0]]);
+		set_sparql_div(sparql_q);
+
+		set_sparql_q_count(queries[fields[0]]);
+		add_sparql_paging_div(sparql_q_count);
+	});
+</script>
+<div class="band" id="sparql_div"></div>

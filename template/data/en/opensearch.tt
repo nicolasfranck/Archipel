@@ -1,8 +1,0 @@
-[% PROCESS data/en/common.tt %]
-[% PROCESS data/en/paging_terms.tt %]
-[% q = params.q | url %]
-[% start = args.begin_item || 1 %]
-[% end = args.end_item || start %]
-[%
-tt_text_opensearch_results = "Results <b>" _ start _ "</b> to <b>" _ end _ "</b> out of <b>" _ args.total_hits _ "</b> for <b>" _ q _ "</b>"
-%]

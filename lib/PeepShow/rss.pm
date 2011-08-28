@@ -52,7 +52,7 @@ any([qw(get post )],'',sub{
 				description => $context_description
 			);
 		}
-		$self->response->content_type("application/xml");
+		$self->response->content_type("application/xml; charset=utf-8");
 		$self->print($rss->as_string);
 	}
 });

@@ -15,16 +15,30 @@ with qw(
 	Catmandu::Cmd::Opts::Grim::Index::Solr
 	Catmandu::Cmd::Opts::Grim::Index::Make
 	Catmandu::Cmd::Opts::Grim::Harvester
-	Catmandu::Cmd::Opts::Grim::MediaMosa
 );
-use Net::OAI::Harvester;
 use Catmandu::Store::Simple;
 use Catmandu::Index::Solr;
 use File::Temp;
 use Image::ExifTool;
 use Clone qw(clone);
-use Data::Dumper;
 
+our @OAI_DC_ELEMENTS = qw(
+    title 
+    creator 
+    subject 
+    description 
+    publisher 
+    contributor 
+    date
+    type
+    format
+    identifier
+    source
+    language
+    relation
+    coverage
+    rights
+);
 
 has _metadata => (
         is => 'rw',
@@ -57,21 +71,18 @@ has _exif => (
 		Image::ExifTool->new;
 	}
 );
+has _ua => (
+        is => 'rw',
+        isa => 'Ref',
+        default => sub{
+                LWP::UserAgent->new(cookie_jar=>{});
+        }
+);
 sub make_metadata_record {
 	my($self,$oai_record)=@_;
 	my $new_metadata_record = {};
-	foreach my $fobject(@{$self->_yaml_mediamosa->{fields}}){
-		next if $fobject->{mappings}->{oai_dc}->{present} eq "false";
-		if(defined($fobject->{mappings}->{oai_dc}->{identifier}) && $fobject->{mappings}->{oai_dc}->{identifier} eq "true"){
-			$new_metadata_record->{_id} = $oai_record->header->identifier;
-			next;
-		}
-		my $aleph_metadata_key = $fobject->{key};
-		my $oai_metadata_key = $fobject->{mappings}->{oai_dc}->{key};
-		my @data = $oai_record->metadata->$oai_metadata_key() || ();
-		next if scalar(@data)==0;
-		$new_metadata_record->{$aleph_metadata_key} = \@data;
-	}
+	$new_metadata_record->{$_} = $oai_record->metadata->{$_} foreach(@OAI_DC_ELEMENTS);
+	$new_metadata_record->{_id} = $oai_record->header->identifier;
 	return $new_metadata_record;
 }
 sub make_media_record {
@@ -96,22 +107,18 @@ sub make_media_record {
 	foreach my $relation(@{$oai_record->metadata->{relation}}){
 		if($relation =~ /\/still/){
 			$still_url = $relation;
-			print "\tstill_url: $still_url\n";
 		}elsif($relation =~ /\/media/){
 			$media_url = $relation;
-			print "\tmedia_url: $media_url\n";
 		}
 	}
 
 	#file downloaden en inspecteren
-	print "\tdownloading media_url..\n";
 	my $response = $self->_ua->get($media_url);
         return undef,$response->content if not $response->is_success;
         my $tempfile = tmpnam();
         open FILE,">$tempfile" or return undef,$!;
         print FILE $response->content;
         close FILE;
-        print "\tinspecting media_url..\n";
 	my $media_info = $self->_exif->ImageInfo($tempfile);
 	$files->[0]->{url} = $media_url;
 	$files->[0]->{streaming_provider} = "http";
@@ -124,14 +131,12 @@ sub make_media_record {
 
 	#haal still op en inspecteer (want bestaat geen metadata over)
 	my $thumbnail = {};
-	print "\tdownloading still_url..\n";
         $response = $self->_ua->get($still_url);
         return undef,$response->content if not $response->is_success;
         $tempfile = tmpnam();
         open FILE,">$tempfile" or return undef,$!;
         print FILE $response->content;
         close FILE;
-        print "\tinspecting still_url..\n";
         my $still_info = $self->_exif->ImageInfo($tempfile);
 
 	$thumbnail->{url} = $still_url;	
@@ -161,12 +166,17 @@ sub confirm {
 }
 sub execute{
         my($self,$opts,$args)=@_;
-
 	#harvest
-	my $records = $self->_harvester->listAllRecords(metadataPrefix=>'oai_dc');
-	$self->cancel if(!$self->confirm($records->resumptionToken->completeListSize));
-	while(my $record = $records->next){
+	my $iterator = $self->_harvester->listAllRecords(metadataPrefix=>'oai_dc');	
+	if($iterator->errorCode){
+		printf STDERR "%15s : %s\n","errorCode",$iterator->errorCode;
+		printf STDERR "%15s : %s\n","errorCode",$iterator->errorString;
+		exit(1);
+	}
+	$self->cancel if(!$self->confirm($iterator->resumptionToken->completeListSize));
+	while(my $record = $iterator->next){
 		print $record->header->identifier."\n";
+		next if $self->_media->load($record->header->identifier);
 		my $new_metadata_record = $self->make_metadata_record($record);
 		my($new_media_record,$errmsg) = $self->make_media_record($record);
 		if(defined($errmsg)){
@@ -175,7 +185,6 @@ sub execute{
 		}
 		$self->_metadata->save($new_metadata_record);
 		$self->_media->save($new_media_record);
-		print "\tsaving to index\n";
 		$self->_index->save($self->make_index_merge($new_metadata_record,$new_media_record));
 	}
 }

@@ -19,11 +19,6 @@ index:
   args:
    url: "http://localhost:8983/solr/core0"
    id_field: "id"
- tags:
-  class: "Catmandu::Index::Solr"
-  args:
-   url: "http://localhost:8983/solr/core1"
-   id_field: "id"
 all:
  allowed_range: "127.0.0.*"
  rooturl: "http://localhost"
@@ -33,6 +28,9 @@ all:
   public_key: "6Le1AscSAAAAAOx0zhOwFfpRsVg2aV7UP7nDMbsT"
   private_key: "6Le1AscSAAAAAC05iC30xJUA5gPovEsD0y-2yjjt"
 app:
+ facet:
+  index:
+   default: "core"
  openURL:
   version: "Z39.88-2004"
   path: "/OpenURL/resolve"
@@ -47,6 +45,13 @@ app:
      args:
       allowed_range: "127.0.0.*"
  search:
+  record:
+   view:
+    - simple
+    - pages
+  external_metadata_fields:
+   - "title"
+   - "author"   
   meercat_x_view: "http://search.ugent.be/meercat/x/view"
   min_results: 10
   max_results: 200
@@ -56,11 +61,6 @@ app:
    - "author_sort"
    - "title_sort"
    - "subject_sort"
-  service_order:
-   - thumbnail
-   - small
-   - medium
-   - large
  admin:
   desc:
    maxchars: 2000
@@ -85,15 +85,12 @@ templates:
  search: "tt/search/all"
  record_simple: "tt/search/record"
  record_pages: "tt/search/pages"
- record_carousel: "tt/search/carousel"
- opensearch: "tt/opensearch"
- opensearch_view: "tt/opensearch/view"
- help: "tt/help"
  mycart: "tt/mycart"
  googlemaps: "tt/googlemaps"
  columns: "tt/columns"
  new_column: "tt/new_column"
  sendmail_mycart: "tt/sendmail_mycart.tt"
+ videostreaming_external: "tt/videostreaming/external"
 language:
  default: "nl"
  en:
@@ -111,7 +108,19 @@ language:
       map: "author"     
       search: 1
     - key: "publisher"
-      map: "publisher"   
+      map: "publisher" 
+    - key: "contributor"
+      map: "contributor"
+    - key: "type"
+      map: "type"
+    - key: "format"
+      map: "format"
+    - key: "source"
+      map: "source"
+    - key: "language"
+      map: "language"
+    - key: "date"
+      map: "date"  
     - key: "description"
       map: "description"  
     - key: "note"
@@ -143,22 +152,34 @@ language:
     - key: "title"
       map: "titel"
     - key: "author"
-      map: "auteur"     
+      map: "auteur"
       search: 1
     - key: "publisher"
-      map: "uitgever"      
+      map: "uitgever"
+    - key: "contributor"
+      map: "medewerker"
+    - key: "type"
+      map: "type"
+    - key: "format"
+      map: "formaat"
+    - key: "source"
+      map: "bron"
+    - key: "language"
+      map: "taal"
+    - key: "date"
+      map: "datum"
     - key: "description"
-      map: "beschrijving"     
+      map: "beschrijving"
     - key: "note"
       map: "nota"
     - key: "subject"
-      map: "onderwerp"     
+      map: "onderwerp"
       search: 1
       subarray: 1
     - key: "location"
-      map: "plaatsnummer"     
+      map: "locatie"
     - key: "rights"
-      map: "rechten"     
+      map: "rechten"
    sort_fields:
     - key: "author_sort"
       map: "auteur"
@@ -166,6 +187,15 @@ language:
       map: "titel"
     - key: "subject_sort"
       map: "onderwerp"
+xml:
+ namespace:
+  opensearch: "http://a9.com/-/spec/opensearch/1.1/"
+  atom: "http://www.w3.org/2005/Atom"
+  oai: "http://www.mediaspaces.info/vocab/oai-pmh.rdf#"
+  owl: "http://www.w3.org/2002/07/owl#"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  dcterms: "http://purl.org/dc/terms/"
+  pf: "http://jena.hpl.hp.com/ARQ/property#"
 package:
  Marc:
   Transformations:
@@ -186,7 +216,6 @@ package:
    default: "simple"
    simple: "Simple"
    pages: "Pages"
-   carousel: "Carousel"
  Query:
   Store:
    simple:
@@ -215,6 +244,17 @@ package:
   Fixer:
    default: "Query::Fix::Simple"
    advanced: "Query::Fix::Advanced"
+devs_order:
+ Image:
+  - thumbnail
+  - small
+  - medium
+  - large
+ Video:
+  - thumbnail
+  - small
+  - medium
+  - large
 service_aggregate:
  carousel: 
   HandlingPackage: "PeepShow::Handler::Service::Image::Carousel"

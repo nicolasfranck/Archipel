@@ -1,0 +1,58 @@
+<script type="text/javascript">
+	var external_libraries = JSON.parse("[% conf.app.search.external_libraries.to_json().escape_quotes() %]");
+	[% default_external_metadata_field = conf.app.search.external_metadata_fields.0 %]
+	[% queries = {} %]
+	[% FOREACH field IN conf.app.search.external_metadata_fields %]
+		[% NEXT IF !args.hit.${field}.defined %]
+		[% queries.${field} = args.hit.${field}.0.to_external_query(field) %]
+	[% END %]
+	var queries = JSON.parse("[% queries.to_json().escape_quotes() %]");
+	var related_links_initialized = false;
+	var external_metadata_fields = JSON.parse("[% conf.app.search.external_metadata_fields.to_json().escape_quotes() %]");
+	function set_query_external_libraries(key){
+		var ext = document.getElementById("related_links");
+                if(!ext)return;
+		ext.innerHTML="";
+		var query = queries[key];
+                for(var i = 0;i<external_libraries.length;i++){
+                        (function(index){
+                                $.ajax({
+                                        url:external_libraries[index].facet_url+"?q="+query,
+                                        success:function(response){
+                                                if(!related_links_initialized){
+                                                        ext.innerHTML = "";
+                                                        related_links_initialized=true;
+                                                }
+                                                var num = response || 0;
+                                                var search = [];
+                                                for(var key in external_libraries[index].params)search.push(key+"="+external_libraries[index].params[key]);
+                                                search.push(external_libraries[index].query_field+"="+query);
+                                                var url = external_libraries[index].base_url+"?"+search.join("&");                                              
+                                                ext.innerHTML+= "<a href=\""+url+"\">"+external_libraries[index].name+"</a> ("+num+")&nbsp;";
+                                        }
+                                });
+                        })(i);
+                }
+		
+	}
+	function set_key_query(){
+		var kqe = document.getElementById("key_query_external_libraries");
+                if(!kqe)return;
+		var selected_index = kqe.selectedIndex;
+		var key = kqe.options[selected_index].value;
+		set_query_external_libraries(key);
+	}
+	$(document).ready(function(){
+		set_query_external_libraries(external_metadata_fields[0]);
+	});
+</script>
+<div class="band">
+<h1>[% tt_title_search_record_related_links %]:</h1>
+<select name="key_query_external_libraries" id="key_query_external_libraries" onchange="set_key_query()">
+[% FOREACH key IN conf.app.search.external_metadata_fields %]
+	[% NEXT IF !args.hit.${key}.defined %]
+	<option value="[% key %]">--[% key %]--</option>
+[% END %]
+</select>
+<span id="related_links"></span>
+</div>

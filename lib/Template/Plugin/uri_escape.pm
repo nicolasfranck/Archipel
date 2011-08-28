@@ -8,7 +8,7 @@ use utf8;
 use URI::Escape;
 
 sub filter {
-    my ($self,$text) = @_;
+ 	my ($self,$text) = @_;
 	return uri_escape($text);
 }
 

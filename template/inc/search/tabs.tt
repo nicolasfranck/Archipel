@@ -2,17 +2,11 @@
         <tr>
                 <td style="padding:0px;" colspan="2">
                 <ul id="tabnav">
-                        <li class="[% params.view == 'simple' ? 'selected_tab':'' %]">
-                                <a href="[% conf.all.rooturl %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]">[% tt_title_search_tabs_record %]</a>
+		[% FOREACH view IN conf.app.search.record.view %]
+                        <li class="[% params.view == view ? 'selected_tab':'' %]">
+                                <a href="[% conf.all.rooturl %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]&amp;view=[% view %]">[% tt_title_search_tabs.${view} %]</a>
                         </li>
-                        <li class="[% params.view == 'pages' ? 'selected_tab':'' %]">
-                                <a href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;view=pages&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]">[% tt_title_search_tabs_pages %]&nbsp;([% args.total_items %])</a>
-                        </li>
-                        [% IF ((args.hit.access.defined && args.hit.access.services.carousel == 1) || (args.is_local)) && args.hit.media.${poster_index}.services.grep('carousel').size > 0 %]
-                        <li class="[% params.view == 'carousel' ? 'selected_tab':'' %]">
-                                <a href="[% conf.all.rooturl | url %]/view?q=[% params.q | url %]&amp;view=carousel&amp;start=[% params.start %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]">[% tt_title_search_tabs_carousel %]&nbsp;([% args.total_items %])</a>
-                        </li>
-                        [% END %]
+		[% END %]
                 </ul>
                 </td>
         </tr>

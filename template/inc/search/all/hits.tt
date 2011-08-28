@@ -1,8 +1,12 @@
+[% params_q_url_encoded = params.q | url %]
+[% link_base = conf.all.rooturl _ "/view?q=" _ params_q_url_encoded _ "&amp;sort=" _ params.item('sort') _ "&amp;sort_dir=" _ params.sort_dir _ "&amp;language=" _ args.language _ "&amp;start=" %]
+[% link_base = link_base.escape_quotes() %]
+
 [% IF args.hits && args.hits.size > 0 %]
 	[% i = args.begin_item - 1  %]
 	[% FOREACH hit IN args.hits  %]
 		<div class="block shadow">
-			<div class="imgholder" onclick="window.location.href='[% conf.all.rooturl %]/view?q=[% params.q | url -%]&amp;start=[% i %]&amp;sort=[% args.s %]&amp;sort_dir=[% params.sort_dir %]&language=[% args.language %]'">
+			<div class="imgholder" onclick="window.location.href='[% link_base _ i %]'">
 				[% poster_index = hit.poster_item_id - 1 %]
 				[% thumb = hit.media.${poster_index}.devs.thumbnail %]
 				[% width = thumb.width %]
@@ -16,7 +20,7 @@
 				<img alt="loading" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% hit.id %]:[% hit.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" width="[% rwidth %]" height="[% rheight %]" />
 			</div>
 			<div class="caption">
-				[% hit.title.join('') %]
+				[% hit.title.0 %]
 			</div>
 			<input title="[% tt_title_add_to_cart %]" type="checkbox" _id="[% hit.id %]" rft_id="[% hit.id %]" class="rft checkbox_cart" [% 'CHECKED' IF sess.devs.${hit.id} %] />			
 		</div>

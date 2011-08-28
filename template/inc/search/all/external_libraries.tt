@@ -1,0 +1,28 @@
+<script type="text/javascript">
+	var external_libraries = JSON.parse("[% conf.app.search.external_libraries.to_json().replace('"','\"') %]");
+	var query = "[% params.q | url %]";
+	var loading_external_libraries = "loading external libraries..";
+	var rooturl = "[% conf.all.rooturl %]";
+	$(document).ready(function(){
+		var ext = document.getElementById("external_libraries");
+		if(!ext)return;
+		for(var i = 0;i<external_libraries.length;i++){
+			(function(index){
+				$.ajax({
+					url:external_libraries[index].facet_url+"?q="+query,
+					success:function(response){
+						var num = response || 0;
+						var search = [];
+						for(var key in external_libraries[index].params)search.push(key+"="+external_libraries[index].params[key]);
+						search.push(external_libraries[index].query_field+"="+query);
+						var url = external_libraries[index].base_url+"?"+search.join("&");						
+						ext.innerHTML+= "<a href=\""+url+"\">"+external_libraries[index].name+"</a> ("+num+")&nbsp;";
+					}
+				});
+			})(i);
+		}
+	});
+</script>
+<div class="band">
+[% tt_title_search_external_libraries %]:&nbsp;<span id="external_libraries"></span>
+</div>

@@ -6,7 +6,7 @@ use parent qw(Query::Fix);
 sub fix{
 	my($self,$params)=@_;
 	my $q = $params->{q} || "";
-	$q = $self->double_quotes($q);
+	#$q = $self->double_quotes($q);
 	$q = $self->fix_id($q);
 	return $q;
 }

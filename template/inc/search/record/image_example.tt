@@ -1,0 +1,25 @@
+<table class="example">
+	<tr>
+		<td>
+		[% q = params.q | url %]
+		[% link = conf.all.rooturl _ '/view?q=' _ q _ '&amp;start=' _ params.start _ '&amp;sort=' _ params.item("sort") _ '&amp;sort_dir=' _ params.sort_dir _ '&amp;view=pages' %]
+		[% link = link.escape_quotes() %]
+		<img alt="loading" onclick="window.location='[% link %]'" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% args.hit.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" id="example" class="shadow" />
+		</td>                                                         
+	</tr>
+	<tr>
+		<td style="padding:5px;">
+		[% FOREACH key IN args.contexts.keys %]
+			[% IF args.contexts.${key} && args.contexts.${key} > 0 %]
+				<img alt="loading" src="[% conf.all.rooturl %]/images/icons/[% key %].png" />&nbsp;([% args.contexts.${key} || 0 %])&nbsp;&nbsp;
+			[% END %]
+		[% END %]
+		</td>                                                         
+	</tr>
+	<tr>
+		<td>
+		[% tt_title_add_to_cart %]
+		<input type="checkbox" class="rft" rft_id="[% args.rft_id %]" _id="[% args.rft_id %]" [% 'CHECKED' IF sess.devs.${args.rft_id} %] />
+		</td>
+	</tr>
+</table>

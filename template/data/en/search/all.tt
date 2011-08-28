@@ -30,6 +30,7 @@ tt_title_form_advanced_sort_default = "relevance (default)"
 tt_title_form_advanced_sort_dir = "Descending"
 tt_title_form_advanced_submit = "search" 
 tt_title_form_advanced_reset = "reset"
+tt_title_search_external_libraries = "External libraries"
 %]
 [% q = params.q | html %]
 [%
