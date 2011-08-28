@@ -27,6 +27,61 @@ all:
  captcha:
   public_key: "6Le1AscSAAAAAOx0zhOwFfpRsVg2aV7UP7nDMbsT"
   private_key: "6Le1AscSAAAAAC05iC30xJUA5gPovEsD0y-2yjjt"
+middleware:
+ openURL:
+  path: "/OpenURL"
+  resolve:
+   version: "Z39.88-2004"
+   path: "/resolve"
+   rft_id:
+    formats:
+     - class: "Rft::Common"
+       args: {}
+     - class: "Rft::Fedora"
+       args: {}
+   acls:
+    - class: "Acl::VPN"
+      args:
+       allowed_range: "127.0.0.*"
+   context:
+    Image:
+     thumbnail:
+      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+     small:
+      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+     medium:
+      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+     large:
+      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+     zoomer:
+      HandlingPackage: "PeepShow::Handler::Service::Image::IIP"
+      Server: "/iip"
+      Template: "tt/viewerIIP"
+    Video:
+     thumbnail:
+      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+     small:
+      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+     videolink:
+      HandlingPackage: "PeepShow::Handler::Service::Video::Link"
+      Template: "tt/videolink"
+     videostreaming:
+      HandlingPackage: "PeepShow::Handler::Service::Video::Streaming"
+      Template: "tt/videostreaming"
+  app:
+   path: "/app"
+   version: "Z39.88-2004"
+   rft_id:
+    formats:
+     - class: "Rft::Full"
+       args: {}
+   types:
+    carousel:
+     HandlingPackage: "PeepShow::Handler::Service::Image::Carousel"
+     Template: "tt/carousel"
+     mapping:
+      Image: "zoomer"
+      Video: "videolink"
 app:
  facet:
   index:
