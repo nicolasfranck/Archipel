@@ -1,5 +1,5 @@
 [% BLOCK get_raw_sparql_base_q %]
-        SELECT DISTINCT ?doc ?lit ?title ?image ?av ?format ?score
+        SELECT DISTINCT ?doc ?lit ?title ?image ?av ?format ?score ?or
 	WHERE
         {
                 {(?lit ?score) pf:textMatch '"%lucene_query"~10' . } . 
@@ -19,6 +19,28 @@
 		?doc dcterms:relation ?av . FILTER regex(str(?av),"media") . 
 
        } ORDER BY DESC(?score) LIMIT %limit OFFSET %offset
+[% END %]
+[% BLOCK get_raw_test_q %]
+        SELECT ?doc ?lit ?title ?image ?av ?format ?score ?or
+        WHERE
+        {
+                {(?lit ?score) pf:textMatch '"hugo greef"~10' . } .
+                ?doc rdf:type oai:Record .
+                ?doc dcterms:title ?title .
+                ?doc owl:sameAs ?or .
+                {
+                        ?doc ?p0 ?lit .
+                }
+                UNION
+                {
+                        ?concept ?p2 ?lit .
+                        ?doc ?p1 ?concept .
+                } .
+                ?doc dcterms:relation ?image . FILTER regex(str(?image), "still")
+                ?doc dcterms:format ?format . FILTER regex(str(?format),"Video") .
+                ?doc dcterms:relation ?av . FILTER regex(str(?av),"media") .
+
+       } ORDER BY DESC(?score) LIMIT 10 OFFSET 0
 [% END %]
 [% BLOCK get_raw_sparql_base_q_count %]
 	SELECT count(*)
@@ -46,6 +68,9 @@
 [% MACRO get_sparql_base_q_count BLOCK %]
         [% PROCESS get_raw_sparql_base_q_count | collapse %]
 [% END %]
+[% MACRO get_test_q BLOCK %]
+        [% PROCESS get_raw_test_q | collapse %]
+[% END %]
 [% queries = {} %]
 [% fields = [] %]
 [% FOREACH field IN conf.app.search.external_metadata_fields %]
@@ -72,15 +97,17 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	var sparql_base_q = "[% sparql_base_q %]";
 	var sparql_base_q_count = "[% sparql_base_q_count %]";
 	var sparql_q;
-	var sparql_base_url = rooturl+"/sparql-archipel";
+	var sparql_base_url = "[% conf.app.search.sparql.server %]";
 	var sparql;
 	var sparql_div_id = "#sparql_div";
 	var sparql_images_div_id = sparql_div_id+" #images";
 	var sparql_paging_div_id = sparql_div_id+" #paging";
 	var sparql_count_results = 0;
 	var offset = 0;
-	var limit = 2;
+	var limit = 20;
 	var no_related_media_found = "no related media found";
+
+	var test_q = "[% get_test_q.escape_quotes() %]";
 	
 	//sparql
 	function init_sparql(url){
@@ -248,6 +275,13 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 		set_sparql_paging(sparql_q_count);
 		set_sparql_q(queries[fields[field_index_selected]]);
 		set_sparql_images(sparql_q);
+		//test 
+		console.log(test_q);
+		get_sparql_results(test_q,xml_namespaces,function(json){
+			console.log(json);
+		},function(data){
+			console.log(data);
+		},"selectValueArrays");		
 
 	});
 </script>

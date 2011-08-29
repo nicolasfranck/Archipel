@@ -72,8 +72,9 @@
 		}
 		$(document).ready(function(){
 			//resizable -> afmetingen kunnen 0 geven indien nog niet alles geïnitialiseerd
-			var carousel_height = $('#carousel').height();
-			var carousel_width = $('#carousel').width();
+			var carousel_jquery = $('#carousel');
+			var carousel_height = carousel_jquery.height();
+			var carousel_width = carousel_jquery.width();
 			console.log("height:"+carousel_height+", width:"+carousel_width);
 			//scrollpane
 			$('#content').jScrollPane({

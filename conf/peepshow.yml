@@ -88,6 +88,8 @@ app:
    view:
     - simple
     - pages
+  sparql:
+   server: "/sparql-archipel"
   external_metadata_fields:
    - "title"
    - "author"   
