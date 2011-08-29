@@ -1,4 +1,4 @@
-package PeepShow::Handler::Service::Video::Link;
+package openURL::Service::Video::Link;
 use strict;
 
 sub new {

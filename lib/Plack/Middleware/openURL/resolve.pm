@@ -1,21 +1,24 @@
-package Plack::Middleware::openURL;
+package Plack::Middleware::openURL::resolve;
+use strict;
 use parent qw(Plack::Middleware);
 use Plack::App::Proxy;
-use PeepShow::Handler::Service::Simple;
+use openURL::resolve;
 use Try::Tiny;
 use Catmandu;
 use HTTP::Date;
 
 my $proxy = Plack::App::Proxy->new->to_app;
-my $handler = PeepShow::Handler::Service::Simple->new();
-my $openurl_path = Catmandu->conf->{app}->{openURL}->{path} || "/openURL";
-my $x_send_expire = Catmandu->conf->{app}->{openURL}->{expire} || 3600;
+my $handler = openURL::resolve->new();
+my $openurl_path = Catmandu->conf->{middleware}->{openURL}->{path} || "/openURL";
+my $resolve_path = Catmandu->conf->{middleware}->{openURL}->{resolve}->{path} || "/resolve";
+my $openurl_resolve_path = $openurl_path.$resolve_path;
+my $x_send_expire = Catmandu->conf->{middleware}->{openURL}->{resolve}->{expire} || 3600;
 
 sub call {
         my($self,$env)=@_;
         my $path = $env->{PATH_INFO};
         my $res;
-        if($path eq $openurl_path){
+        if($path eq $openurl_resolve_path){
                 my %params = map {split '=',$_} split /&(amp;)?/,$env->{QUERY_STRING};
                 my $rft_id = $params{rft_id};
                 my $svc_id = lc $params{svc_id};

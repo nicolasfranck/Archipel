@@ -20,7 +20,7 @@ index:
    url: "http://localhost:8983/solr/core0"
    id_field: "id"
 all:
- allowed_range: "127.0.0.*"
+ allowed_range: "129.0.0.*"
  rooturl: "http://localhost"
  ip: "127.0.0.1"
  logfile: "/tmp/peepshow.log"
@@ -42,63 +42,47 @@ middleware:
    acls:
     - class: "Acl::VPN"
       args:
-       allowed_range: "127.0.0.*"
+       allowed_range: "129.0.0.*"
+   aliases:
+    zoomer_fullscreen: "zoomer"
    context:
     Image:
      thumbnail:
-      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+      HandlingPackage: "openURL::Service::Image::Size"
      small:
-      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+      HandlingPackage: "openURL::Service::Image::Size"
      medium:
-      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+      HandlingPackage: "openURL::Service::Image::Size"
      large:
-      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+      HandlingPackage: "openURL::Service::Image::Size"
      zoomer:
-      HandlingPackage: "PeepShow::Handler::Service::Image::IIP"
+      HandlingPackage: "openURL::Service::Image::IIP"
       Server: "/iip"
       Template: "tt/viewerIIP"
     Video:
      thumbnail:
-      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+      HandlingPackage: "openURL::Service::Image::Size"
      small:
-      HandlingPackage: "PeepShow::Handler::Service::Image::Size"
+      HandlingPackage: "openURL::Service::Image::Size"
      videolink:
-      HandlingPackage: "PeepShow::Handler::Service::Video::Link"
+      HandlingPackage: "openURL::Service::Video::Link"
       Template: "tt/videolink"
      videostreaming:
-      HandlingPackage: "PeepShow::Handler::Service::Video::Streaming"
+      HandlingPackage: "openURL::Service::Video::Streaming"
       Template: "tt/videostreaming"
   app:
    path: "/app"
-   version: "Z39.88-2004"
-   rft_id:
-    formats:
-     - class: "Rft::Full"
-       args: {}
    types:
     carousel:
-     HandlingPackage: "PeepShow::Handler::Service::Image::Carousel"
-     Template: "tt/carousel"
+     HandlingPackage: "openURL::App::Carousel"
+     Template: "tt/carousel2"
      mapping:
       Image: "zoomer"
-      Video: "videolink"
+      Video: "videostreaming"
 app:
  facet:
   index:
    default: "core"
- openURL:
-  version: "Z39.88-2004"
-  path: "/OpenURL/resolve"
-  rft_id:
-   formats:
-    - class: "Rft::Common"
-      args: {}
-    - class: "Rft::Fedora"
-      args: {}
-  acls:
-   - class: "Acl::VPN"
-     args:
-      allowed_range: "127.0.0.*"
  search:
   record:
    view:
@@ -310,46 +294,3 @@ devs_order:
   - small
   - medium
   - large
-service_aggregate:
- carousel: 
-  HandlingPackage: "PeepShow::Handler::Service::Image::Carousel"
-  Template: "tt/carousel"
-  mapping:
-    Image: "zoomer"
-    Video: "videolink"
-service:
- aliases:
-  zoomer_fullscreen: "zoomer"
-context:
- Image:
-  thumbnail:
-   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-  small:
-   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-  medium:
-   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-  large:
-   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-  zoomer:
-   HandlingPackage: "PeepShow::Handler::Service::Image::IIP"
-   Server: "/iip"
-   Template: "tt/viewerIIP"
- Video:
-  thumbnail:
-   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-  small:
-   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-  videolink:
-   HandlingPackage: "PeepShow::Handler::Service::Video::Link"
-   Template: "tt/videolink"
-  videostreaming:
-   HandlingPackage: "PeepShow::Handler::Service::Video::Streaming"
-   Template: "tt/videostreaming"
-# Doc:
-#  viewer:
-#   HandlingPackage: "PeepShow::Handler::Service::Doc::Google" 
-#   Template: "tt/viewerGoogle"
-#  thumbnail:
-#   HandlingPackage: "PeepShow::Handler::Service::Image::Size"
-#  small:
-#   HandlingPackage: "PeepShow::Handler::Service::Image::Size"

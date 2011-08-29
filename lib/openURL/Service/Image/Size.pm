@@ -1,4 +1,4 @@
-package PeepShow::Handler::Service::Image::Size;
+package openURL::Service::Image::Size;
 use strict;
 use Data::Validate::URI qw(is_web_uri);
 use Catmandu;

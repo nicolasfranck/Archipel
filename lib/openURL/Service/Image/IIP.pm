@@ -1,4 +1,4 @@
-package PeepShow::Handler::Service::Image::IIP;
+package openURL::Service::Image::IIP;
 use strict;
 use Catmandu;
 
@@ -8,7 +8,7 @@ sub new {
 sub handle{
 	my($self,$opts,$record)=@_;	
 	my $item = $record->{media}->[$opts->{item_id} - 1];
-	my $server = Catmandu->conf->{all}->{rooturl}.Catmandu->conf->{context}->{Image}->{zoomer}->{Server};
+	my $server = Catmandu->conf->{all}->{rooturl}.Catmandu->conf->{middleware}->{openURL}->{resolve}->{context}->{Image}->{zoomer}->{Server};
 	my $code = $record->{access}->{services}->{zoomer}? 200:201;
 	return {
 		path => $item->{file}->[0]->{path},

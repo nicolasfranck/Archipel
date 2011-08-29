@@ -1,4 +1,4 @@
-package PeepShow::Handler::Service::Doc::Google;
+package openURL::Service::Doc::Google;
 use URI::Escape;
 use Moose;
 

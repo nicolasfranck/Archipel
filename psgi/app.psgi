@@ -20,7 +20,9 @@ builder{
 	#middleware
 	enable 'Session',store=>Plack::Session::Store::File->new(dir=> '/tmp/peepshow-sessions');
 	enable "Static", path => qr{^/(images|js|css|flash)/} , root => 'htdocs/';
-	enable 'openURL';
+	#enable 'openURL';
+	enable 'openURL::resolve';
+	enable 'openURL::app';
 	#routes
 	mount "/",PeepShow::search::all->to_app;
 	mount "/view",PeepShow::search::view->to_app;

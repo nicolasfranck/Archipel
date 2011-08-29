@@ -1,6 +1,8 @@
 [% USE ToJSON %]
 [% USE Quote %]
 [% USE Aleph %]
+[% openurl_resolve_path = conf.middleware.openURL.path _ conf.middleware.openURL.resolve.path %]
+[% openurl_app_path = conf.middleware.openURL.path _ conf.middleware.openURL.app.path %]
 <title>[% tt_title %]</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 <meta http-equiv="Cache-Control" content="public" />

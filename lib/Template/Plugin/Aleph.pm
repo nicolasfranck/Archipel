@@ -1,18 +1,18 @@
 package Template::Plugin::Aleph;
+use strict;
 use parent qw(Template::Plugin);
-use Data::Dumper;
 
 my $filter_mapping = {
-	title => "filter_title",
-	author => "filter_author"
+	title => \&filter_title,
+	author => \&filter_author
 };
 sub new {
 	my ($class, $context) = @_;
 	$context->define_vmethod($_, to_external_query => sub {
 		my($val,$key,$opts)=@_;
-		return "" if !defined($filter_mapping->{$key});
-		my $sub = "filter_${key}";
-		$val = &$sub($val,$opts);
+		my $sub = $filter_mapping->{$key};
+		return "" if !defined($sub);
+		$val = $sub->($val,$opts);
 		return $val;
 	}) for qw(scalar);
 	bless {}, $class;
@@ -32,7 +32,7 @@ sub filter_author {
 }
 sub finish {
 	my($val,$opts) = @_;
-	$opts{minlength} ||=0;
+	$opts->{minlength} ||=0;
 	#lowercase
 	$val = lc($val);
 	#punctuatie verwijderen
@@ -50,10 +50,10 @@ sub finish {
         my @values = split(' ',$val);
 	my @newvalues = ();
 	#duplicaten+minimum lengte
-	my %uniq = ();
+	my %unique = ();
 	foreach(@values){
-		if(length($_)>$opts->{minlength}){
-			if(!$unique{$_}){
+		if(length($_)>=$opts->{minlength}){
+			if(!defined($unique{$_})){
 				push @newvalues,$_;
 				$unique{$_}=1;
 			}

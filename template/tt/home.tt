@@ -15,7 +15,7 @@
 			[% FOREACH column IN args.columns %]
 				[% NEXT IF NOT column.desc.${args.language}.defined %]
 				<tr>
-				[% link = conf.all.rooturl _ conf.app.openURL.path _ "?rft_id=" _ column.rft_id _ ":" _ column.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.app.openURL.version %]
+				[% link = conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ column.rft_id _ ":" _ column.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]
 					<td class="image"><img alt="loading" src="[% link | url %]" onclick="window.location='[% conf.all.rooturl | url %]?q=[% column.query | url %]&language=[% args.language | url %]'" /></td>
 					<td>
 						<h1>[% column.title.${args.language} %]</h1>

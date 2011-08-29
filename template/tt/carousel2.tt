@@ -15,7 +15,7 @@
 	<!--jScrollpage-end-->
 	<script type="text/javascript">
 		//variables
-		var item_id_selected = [% hash.item_id || '1' %];
+		var item_id_selected = 1;
 		var selected_class = 'selected_image';
 		var content_hidden = false;
 		var width_li = 0;
@@ -119,15 +119,17 @@
 	</script>
 </head>
 <body>
+[% IF hash.rels.size > 0 %]
+	[% hash.item_id = 1 %]
 	[% item_index = hash.item_id - 1 %]
 	[% rel = hash.rels.${item_index} %]
-	[% service = hash.mapping.${rel.context} %]
+	[% service = hash.openURL.app.types.carousel.mapping.${rel.context} %]
 	<div id="overlay" style="position:fixed;z-index:200;background-color:black;width:100%;height:100%;">
                 <img src="[% hash.rooturl %]/images/icons/logo-boekentoren-invert.png" style="position: absolute;top: 50%; left: 50%;margin-left:-61px;margin-top:-50px" alt="loading"/>
                 <div style="position:absolute;top:50%;left:50%;margin-top:65px;margin-left:-61px;color:#DDDDDD;text-align:center;width:122px;">loading..</div>
         </div>
 	<div id="main">
-		<iframe frameborder="0" id="zoomer" name="zoomer" src="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% hash.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.version %]"></iframe>
+		<iframe frameborder="0" id="zoomer" name="zoomer" src="[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% hash.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.resolve.version %]"></iframe>
 		<div id="carousel">
 			<div id="head">
 				<div id="bg" class="opaque70"></div>
@@ -170,7 +172,7 @@
 			<div id="content" style="filter:alpha(opacity=50)">
 				<ul style="width:[% hash.rels.size * 115 + 6 %]px;">
 				[% FOREACH rel IN hash.rels %]
-					[% service = hash.mapping.${rel.context} %]
+					[% service = hash.openURL.app.types.carousel.mapping.${rel.context} %]
 					[% thumb = rel.thumbnail %]
 					[% width = thumb.width %]
 					[% height = thumb.height %]
@@ -180,9 +182,9 @@
 					[% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
 					[% rwidth = width * ratio %]
 					[% rheight = height * ratio %]
-					<li item_id="[% rel.item_id %]" class="" onclick="document.getElementById('zoomer').src='[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% rel.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.version %]'">
+					<li item_id="[% rel.item_id %]" class="" onclick="document.getElementById('zoomer').src='[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% rel.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.resolve.version %]'">
 						<div class="imgholder">
-							<a target="zoomer" href="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% rel.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.version %]"><img src="[% hash.rooturl %]/images/icons/loading.png" original="[% hash.rooturl %]/OpenURL/resolve?rft_id=[% hash.rft_id %]:[% rel.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% hash.openURL.version %]" alt="[% rel.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% rel.title %]" alt="[% rel.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% rel.title %]" /></a>
+							<a target="zoomer" href="[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% rel.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.resolve.version %]"><img src="[% hash.rooturl %]/images/icons/loading.png" original="[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% rel.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% hash.openURL.resolve.version %]" alt="[% rel.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% rel.title %]" alt="[% rel.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% rel.title %]" /></a>
 						</div>
 						<div class="textholder">[% rel.item_id %].&nbsp;[% rel.title %]</div>
 					</li>
@@ -192,5 +194,8 @@
 			</div> 
 		</div>
 	</div>
+[% ELSE %]
+	Filter resulted in an empty list
+[% END %]
 </body>
 </html>

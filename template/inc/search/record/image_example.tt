@@ -4,7 +4,7 @@
 		[% q = params.q | url %]
 		[% link = conf.all.rooturl _ '/view?q=' _ q _ '&amp;start=' _ params.start _ '&amp;sort=' _ params.item("sort") _ '&amp;sort_dir=' _ params.sort_dir _ '&amp;view=pages' %]
 		[% link = link.escape_quotes() %]
-		<img alt="loading" onclick="window.location='[% link %]'" src="[% conf.all.rooturl %]/OpenURL/resolve?rft_id=[% args.rft_id %]:[% args.hit.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.app.openURL.version %]" id="example" class="shadow" />
+		<img alt="loading" onclick="window.location='[% link %]'" src="[% conf.all.rooturl _ openurl_resolve_path %]?rft_id=[% args.rft_id %]:[% args.hit.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.middleware.openURL.resolve.version %]" id="example" class="shadow" />
 		</td>                                                         
 	</tr>
 	<tr>

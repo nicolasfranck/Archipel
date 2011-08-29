@@ -142,11 +142,11 @@ sub get_handling_package {
 	my $package;
 	my $template;
 	my $args;
-	my $context = Catmandu->conf->{middleware}->{openURL}->{resolve}->{context};
-	if(defined($context->{$context}) && defined($context->{$context}->{$svc_id})){
-		$package = $context->{$context}->{$svc_id}->{HandlingPackage};
-		$args = $context->{$context}->{$svc_id}->{args} || {};
-		$template = $context->{$context}->{$svc_id}->{Template};
+	my $contexts = Catmandu->conf->{middleware}->{openURL}->{resolve}->{context};
+	if(defined($contexts->{$context}) && defined($contexts->{$context}->{$svc_id})){
+		$package = $contexts->{$context}->{$svc_id}->{HandlingPackage};
+		$args = $contexts->{$context}->{$svc_id}->{args} || {};
+		$template = $contexts->{$context}->{$svc_id}->{Template};
 	}
 	return $package,$args,$template;
 }

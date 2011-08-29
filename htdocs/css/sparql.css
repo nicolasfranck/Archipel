@@ -1,18 +1,20 @@
 #sparql_div {
-	border:1px solid black;
+	/*border:1px solid black;*/
 }
 #sparql_div a {
         font-size:10px;
 }
 #sparql_div h1 {
-
 }
 #sparql_div #paging {
-	border:1px solid black;
+	/*border:1px solid black;*/
+}
+#sparql_div #paging a {
+	margin:5px;
 }
 #sparql_div #images {
 	display:block;
-	border:1px solid black;	
+	/*border:1px solid black;*/
 }
 #sparql_div #images .bl {
 	display:block;
@@ -23,7 +25,7 @@
 	overflow:hidden;
 	position:relative;
 	text-align:center;/*zowel foto als tekst worden nu gecentreerd*/
-	border:1px solid black;
+	/*border:1px solid black;*/
 }
 #sparql_div #images .bl .imgh {
 	position:absolute;
@@ -31,7 +33,7 @@
 	top:5px;
 	width:90px;
 	height:60px;
-	border:1px solid black;
+	/*border:1px solid black;*/
 	overflow:hidden;
 }
 #sparql_div #images .bl .imgh img.av_icon {
@@ -42,7 +44,7 @@
 }
 #sparql_div #images .bl .cp {
 	position:absolute;
-	border:1px solid black;
+	/*border:1px solid black;*/
 	left:5px;
 	bottom:5px;
 	width:90px;

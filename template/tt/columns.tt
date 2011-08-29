@@ -54,7 +54,7 @@
 					[% column.rft_id %]
 				</td>
 				<td>
-					[% link = conf.all.rooturl _ conf.app.openURL.path _ "?rft_id=" _ column.rft_id _ ":" _ column.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.app.openURL.version %]
+					[% link = conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ column.rft_id _ ":" _ column.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]
 					<img src="[% link | url %]" width="100" />
 				</td>
                                 <td>[% column.title.nl %]</td>

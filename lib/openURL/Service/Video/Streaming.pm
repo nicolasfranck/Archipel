@@ -1,4 +1,4 @@
-package PeepShow::Handler::Service::Video::Streaming;
+package openURL::Service::Video::Streaming;
 use strict;
 use Catmandu;
 

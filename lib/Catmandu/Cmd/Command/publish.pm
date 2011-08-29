@@ -13,6 +13,7 @@ with qw(
 );
 use Catmandu::Store::Simple;
 use Catmandu::Index::Solr;
+
 has media_arg => (
 	traits => ['Getopt'],
 	is => 'rw',
@@ -61,7 +62,7 @@ has _services => (
 	is => 'ro',
 	isa => 'HashRef',
 	default => sub{
-		{'thumbnail'=>1,'small'=>1,'medium'=>0,'large'=>0,'zoomer'=>0,'carousel'=>0};
+		{'thumbnail'=>1,'small'=>1,'medium'=>0,'large'=>0,'zoomer'=>0,'videostreaming'=>0,'videolink'=>0};
 	}
 );
 sub level_valid {
