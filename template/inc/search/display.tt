@@ -1,3 +1,0 @@
-<div id="choose">	
-	<a href="[% conf.all.rooturl %]?q=[% params.q | url %]&amp;page=[% sess.page %]&amp;num=[% sess.num %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&language=[% args.language %]">[% tt_title_back_to_results %] ([% args.total_hits %])</a>  
-</div>

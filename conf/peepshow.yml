@@ -75,7 +75,7 @@ middleware:
    types:
     carousel:
      HandlingPackage: "openURL::App::Carousel"
-     Template: "tt/carousel2"
+     Template: "tt/carousel"
      mapping:
       Image: "zoomer"
       Video: "videostreaming"

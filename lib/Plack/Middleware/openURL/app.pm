@@ -1,5 +1,6 @@
 package Plack::Middleware::openURL::app;
 use strict;
+use utf8;
 use parent qw(Plack::Middleware);
 use openURL::app;
 use Try::Tiny;
@@ -16,11 +17,12 @@ sub call {
         my $res;
         if($path eq $openurl_app_path){
                 my %params = map {split '=',$_} split /&(amp;)?/,$env->{QUERY_STRING};
+		utf8::decode($params{$_}) foreach(keys %params);
                 my $id = $params{id};
                 my $type = lc $params{type};
                 delete $params{id};
                 delete $params{type};
-
+	
                 my($hash,$template,$code,$err)=$handler->handle({id => $id,type=>$type},$env);
                 if(defined($err)){
                         $res = $self->response_error($code,$err);
@@ -30,6 +32,7 @@ sub call {
                         my $e;
                         try{
                                 Catmandu->print_template($template,{hash=>$hash},\$body);
+				utf8::encode($body);
                         }catch{
                                 $e = $_;
                         };

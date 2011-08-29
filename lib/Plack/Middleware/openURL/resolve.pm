@@ -1,5 +1,6 @@
 package Plack::Middleware::openURL::resolve;
 use strict;
+use utf8;
 use parent qw(Plack::Middleware);
 use Plack::App::Proxy;
 use openURL::resolve;
@@ -20,6 +21,7 @@ sub call {
         my $res;
         if($path eq $openurl_resolve_path){
                 my %params = map {split '=',$_} split /&(amp;)?/,$env->{QUERY_STRING};
+		utf8::decode($params{$_}) foreach(keys %params);
                 my $rft_id = $params{rft_id};
                 my $svc_id = lc $params{svc_id};
                 delete $params{rft_id};
@@ -34,6 +36,7 @@ sub call {
                         my $e;
                         try{
                                 Catmandu->print_template($template,{hash=>$hash},\$body);
+				utf8::encode($body);
                         }catch{
                                 $e = $_;
                         };
