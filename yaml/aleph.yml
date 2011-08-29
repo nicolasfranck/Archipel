@@ -1,0 +1,14 @@
+---
+exclude:
+ fXML: 1
+rename:
+ _id: 'id'
+sort:
+ id: "id_sort"
+ title: "title_sort"
+ author: "author_sort"
+ subject: "subject_sort"
+type:
+ year: 'int'
+subarray:
+ subject: 1

@@ -18,9 +18,9 @@ use Digest::MD5 qw(md5_hex);
 
 builder{
 	#middleware
-	enable 'Session',store=>Plack::Session::Store::File->new(dir=> '/tmp/peepshow-sessions');
+	#enable 'Session',store=>Plack::Session::Store::File->new(dir=> '/tmp/peepshow-sessions');
+	enable 'Session';
 	enable "Static", path => qr{^/(images|js|css|flash)/} , root => 'htdocs/';
-	#enable 'openURL';
 	enable 'openURL::resolve';
 	enable 'openURL::app';
 	#routes

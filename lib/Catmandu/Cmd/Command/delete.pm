@@ -8,12 +8,12 @@ use Plack::Runner;
 extends qw(Catmandu::Cmd::Command);
 use Catmandu::Store::Simple;
 use Catmandu::Index::Solr;
+use Data::Dumper;
 
 with qw(
 	Catmandu::Cmd::Opts::Grim::Index::Solr
 	Catmandu::Cmd::Opts::Grim::Store::Metadata
 	Catmandu::Cmd::Opts::Grim::Store::Media
-	Catmandu::Cmd::Opts::Grim::Store::Merge
 );
 
 has reference => (
@@ -27,14 +27,15 @@ has reference => (
 has _metadata => (
 	is => 'rw',
 	isa => 'Ref',
+	lazy => 1,
 	default => sub{
-		my $self = shift;
-		Catmandu::Store::Simple->new(%{$self->metadata_arg});
+		Catmandu::Store::Simple->new(%{shift->metadata_arg});
 	}
 );
 has _media => (
         is => 'rw',
         isa => 'Ref',
+	lazy => 1,
         default => sub{
                 Catmandu::Store::Simple->new(%{shift->media_arg});
         }
@@ -42,6 +43,7 @@ has _media => (
 has _index => (
         is => 'rw',
         isa => 'Ref',
+	lazy => 1,
         default => sub{
                 Catmandu::Index::Solr->new(%{shift->index_arg});
         }
@@ -74,19 +76,16 @@ sub delete{
 
 sub execute{
         my($self,$opts,$args)=@_;
-	my $re = qr/rug01:\d{9}/;
 	my @ids = ();
-	if($self->reference =~ $re){
+	if(!-r $self->reference){
 		push @ids,$self->reference;
-	}elsif(-r $self->reference){
+	}else{
 		open FILE,$self->reference or die($!);
 		while(<FILE>){
 			chomp;
-			push @ids,$_ if $_ =~ $re;
+			push @ids,$_;
 		}
 		close FILE;
-	}else{
-		die("reference must be id or file\n");
 	}
 	foreach my $id(@ids){
 		my $ra = $self->_metadata->load($id);
