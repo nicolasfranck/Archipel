@@ -207,3 +207,17 @@ div#main #carousel #content {
         border-right:1px solid #AAAAAA !important;
         border-bottom:1px solid #AAAAAA !important;
 }
+#list_empty {
+	position:fixed;
+	left:50%;
+	top:50%;
+	width:200px;
+	height:50px;
+	margin-top:-25px;
+	margin-left:-100px;
+	z-index:300;
+	color:white;
+	text-align:center;
+	vertical-align:middle;
+	font-size:14pt;
+}

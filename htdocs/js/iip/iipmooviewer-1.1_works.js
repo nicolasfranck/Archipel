@@ -226,16 +226,6 @@ var IIP = new Class({
      */	
     window.addEvent( 'domready', function(){ 
 		this.load();
-		/*console.log(this);
-		var height = document.getElementById(main_id).offsetHeight;
-		var width = document.getElementById(main_id).offsetWidth;
-		console.log("height:"+height);
-		console.log("width:"+width);
-		if(height && width) this.load();
-		else{
-			if(!height)alert('height of '+main_id+' is not set ('+height+')');
-			if(!width)alert('width of '+main_id+' is not set ('+width+')');
-		}*/
 	}.bind(this) );
   },
 

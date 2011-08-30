@@ -53,15 +53,18 @@ any([qw(get post)],'',sub{
 	}elsif($action eq "edit"){
 		my $edit_confirm = ($params->{edit_confirm} && $params->{edit_confirm} eq "1")? 1:0;
 		if($edit_confirm){
-			my($merge,$errs)=$self->check_params_edit;
-			if(scalar(@$errs)==0){
-				$self->columns->save($merge);
-				$args->{msgs}=["record $id is aangepast"];
-			}else{
-				$args->{errs} = $errs;				
-			}
-	                $merge->{id}=$merge->{_id};
-                        $args->{column}=$merge;
+			#merge kan namelijk vreemde effecten krijgen, indien je met twee tegelijk aan een sessie werkt..
+			$self->columns->transaction(sub{
+				my($merge,$errs)=$self->check_params_edit;
+				if(scalar(@$errs)==0){
+					$self->columns->save($merge);
+					$args->{msgs}=["record $id is aangepast"];
+				}else{
+					$args->{errs} = $errs;				
+				}
+				$merge->{id}=$merge->{_id};
+				$args->{column}=$merge;
+			});
 		}else{
 			my $record;
 			if(!defined($id)){
@@ -82,45 +85,50 @@ any([qw(get post)],'',sub{
 		$page_args->{args} = {%{$page_args->{args}},%$args};
 		$self->print_template($self->template('new_column'),$page_args);
 	}elsif($action eq "remove"){
-		my $record = $self->columns->load($id);
-                if(!defined($record)){
-                        push @errs,"id $id komt niet voor in de databank";
-                }elsif(defined($params->{language})){
-			if($language && defined($record->{title}->{$language})){
-				delete $record->{title}->{$language};
-				delete $record->{desc}->{$language};
-			}
-			$self->columns->delete($id) if(scalar(keys %{$record->{title}}) == 0);
-			if(scalar(keys %{$record->{title}}) == 0){
-				$self->columns->delete($id);
+		#ook hier is een merge mogelijk, dus opgeletten geblazen..
+		$self->columns->transaction(sub{
+			my $record = $self->columns->load($id);
+			if(!defined($record)){
+				push @errs,"id $id komt niet voor in de databank";
+			}elsif(defined($params->{language})){
+				if($language && defined($record->{title}->{$language})){
+					delete $record->{title}->{$language};
+					delete $record->{desc}->{$language};
+				}
+				$self->columns->delete($id) if(scalar(keys %{$record->{title}}) == 0);
+				if(scalar(keys %{$record->{title}}) == 0){
+					$self->columns->delete($id);
+				}else{
+					$self->columns->save($record);
+				}
 			}else{
-				$self->columns->save($record);
+				$self->columns->delete($id);
 			}
-		}else{
-			$self->columns->delete($id);
-		}
+		});
 		$args->{errs}=\@errs;
 		$page_args->{args} = {%{$page_args->{args}},%$args};
 		$self->print_columns($page_args);
 	}elsif($action eq "switch"){
-		my $a = $self->columns->load($id_a);
-		my $b = $self->columns->load($id_b);
-		if(!defined($a)){
-			push @errs,"record $id_a bestaat niet";
-		}
-		if(!defined($b)){
-                        push @errs,"record $id_b bestaat niet";
-                }
-		if(scalar(@errs)==0){
-			my $temp = $a->{added};
-			$a->{added} = $b->{added};
-			$b->{added} = $temp;
-			$self->columns->save($a);
-			$self->columns->save($b);
-			$args->{msgs}=["records $id_a en $id_b zijn omgewisseld!"];			
-		}else{
-			$args->{errs} = \@errs;
-		}
+		$self->columns->transaction(sub{
+			my $a = $self->columns->load($id_a);
+			my $b = $self->columns->load($id_b);
+			if(!defined($a)){
+				push @errs,"record $id_a bestaat niet";
+			}
+			if(!defined($b)){
+				push @errs,"record $id_b bestaat niet";
+			}
+			if(scalar(@errs)==0){
+				my $temp = $a->{added};
+				$a->{added} = $b->{added};
+				$b->{added} = $temp;
+				$self->columns->save($a);
+				$self->columns->save($b);
+				$args->{msgs}=["records $id_a en $id_b zijn omgewisseld!"];			
+			}else{
+				$args->{errs} = \@errs;
+			}
+		});
 		$page_args->{args} = {%{$page_args->{args}},%$args};
 		$self->print_columns($page_args);
 	}else{

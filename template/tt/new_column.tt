@@ -2,7 +2,7 @@
 [% PROCESS $data %]
 [% PROCESS inc/html.tt %]
 	<head>
-		[% PROCESS new_column/head.tt %]
+		[% PROCESS inc/new_column/head.tt %]
 		<script type="text/javascript">
 		var this_url = '[% conf.all.rooturl %]';
 		function switch_lang(lang){
