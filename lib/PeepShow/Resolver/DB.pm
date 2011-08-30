@@ -34,7 +34,7 @@ sub load{
 
 sub query_store{
 	my($self,$query,%args)=@_;	
-	$args{reify} = $self->store;
+	$args{reify} = ($args{dba})? $self->store->dba:($args{dbb})? $self->store->dbb:$self->store;
 	my $hits;my $totalhits;my $err;my $rest_fields;
 	try{
 		($hits,$totalhits,$rest_fields)=$self->index->search($query,%args);
@@ -46,7 +46,7 @@ sub query_store{
 }
 sub query_index{
 	my($self,$query,%args)=@_;
-	delete $args{reify} if defined($args{reify});
+	delete $args{reify};
 	my $hits;my $totalhits;my $err;my $rest_fields;
 	try{
 		($hits,$totalhits,$rest_fields)=$self->index->search($query,%args);

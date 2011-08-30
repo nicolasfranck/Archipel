@@ -70,16 +70,27 @@ sub execute{
 	}
 	#verzamel tweelingen
 	try{
+		my $i = 0;
 		$self->_metadata->each(sub{
 			my $a = shift;
 			my $b = $self->_media->load($a->{_id});
 			if(defined($b) && defined($b->{media}) && scalar(@{$b->{media}} > 0)){
 				print $a->{_id}."\n";
 				$self->_index->save($self->make_index_merge($a,$b));
+				$i++;
+				if($i>1000){
+					$i = 0;
+					$self->_index->commit;
+					print "committing work\n";
+				}
 			}else{
 				return;
 			}
 		});
+		$self->_index->commit;
+		print "committing work\n";
+		$self->_index->optimize;
+		print "optimizing work\n";
 	}catch{
 		print $_;
 	};

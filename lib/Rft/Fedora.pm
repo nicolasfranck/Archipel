@@ -5,6 +5,7 @@ sub new {
 	my($class)=@_;
 	my $self = $class->SUPER::new;
 	$self->{_re} = qr/^([\w_\-]+_AC)$/;
+	$self->is_id(0);
 	bless $self,$class;
 }
 sub parse {

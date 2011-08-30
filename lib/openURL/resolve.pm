@@ -4,6 +4,8 @@ use PeepShow::Resolver::DB;
 use List::MoreUtils qw(first_index);
 use Catmandu;
 use Plack::Util;
+use Cache::FastMmap;
+use Data::Dumper;
 
 sub new {
 	my $class = shift;
@@ -22,12 +24,16 @@ sub new {
 		Plack::Util::load_class($class);
                 push @acls,$class->new(%$args);
 	}
+	my $cache = Cache::FastMmap->new(
+		cache_size => '50m'
+	);	
 	return bless {
 		db => PeepShow::Resolver::DB->new,
 		stash => {},
 		aliases => $openURL->{aliases},
 		rft_id_parsers => \@rft_parsers,
-		acls => \@acls 
+		acls => \@acls,
+		cache => $cache
 	},$class;
 }
 sub alias {
@@ -35,10 +41,10 @@ sub alias {
 	defined($self->{aliases}->{$name}) ? $self->{aliases}->{$name} : $name;
 }
 sub rft_id_parsers {
-	shift->{rft_id_parsers};
+	$_[0]->{rft_id_parsers};
 }
 sub acls {
-	shift->{acls};
+	$_[0]->{acls};
 }
 sub stash {
 	my $self = shift;
@@ -49,6 +55,34 @@ sub db {
 	my $self = shift;
 	if(@_){$self->{db}=shift;}
 	$self->{db};
+}
+sub cache {
+	$_[0]->{cache};
+}
+sub get_record {
+	my($self,$key,$is_id)=@_;
+	#key -> query of gewoon record_id
+	my $record = $self->cache->get($key);
+	if(!defined($record)){
+		if($is_id){
+			print STDERR "key $key retrieving from database\n";
+			$record = $self->db->store->dbb->load($key);
+		}else{
+			print STDERR "key $key retrieving from index\n";
+			my($hits,$totalhits,$err) = $self->db->query_store($key,dbb=>1);
+			$record = $hits->[0] if !defined($err) && $totalhits > 0;
+		}
+		if(defined($record)){
+			print "record is defined now\n";
+			print Dumper($self->cache);
+			my $is_saved = $self->cache->set($key,$record);
+			print $is_saved?"was saved\n":"was not saved\n";
+		}
+		print Dumper($self->cache->get($key));
+	}else{
+		print STDERR "key $key found in cache\n";
+	}
+	return $record;
 }
 sub handle{
 	my($self,$opts,$env)=@_;
@@ -62,22 +96,30 @@ sub handle{
 	#syntactische controle van rft_id
 		#parse rft_id
 		my $success = 0;
+		my $record_id;
+		my $is_id = 0;
+		
 		foreach my $rft_id_parser(@{$self->rft_id_parsers}){
 			$success = $rft_id_parser->parse($opts->{rft_id});
 			if($success){
 				$query = $rft_id_parser->query;
 				$item_id = $rft_id_parser->item_id;			
+				$is_id = $rft_id_parser->is_id;
+				$record_id = $rft_id_parser->record_id;
 				last;
 			}
 		}
 		if(!$success){
 			return undef,undef,500,"rft_id ".$opts->{rft_id}." invalid";
 		}
-	
+	my $record = $self->get_record($is_id ? $record_id : $query,$is_id);
 	#bestaat record?
-	my($hits,$totalhits,$err) = $self->db->query_store($query);	
-	my $record;
-	$record = $hits->[0] if !defined($err) && $totalhits > 0;
+#	if($is_id){
+#		$record = $self->db->store->dbb->load($record_id);
+#	}else{
+#		my($hits,$totalhits,$err) = $self->db->query_store($query,dbb=>1);	
+#		$record = $hits->[0] if !defined($err) && $totalhits > 0;
+#	}
 	if(not defined($record)){
 		return undef,undef,500,"$query does not exist";
 	}

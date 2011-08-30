@@ -6,7 +6,8 @@ sub new {
 		_record_id => undef,
 		_item_id => 0,
 		_error => undef,
-		_query => undef
+		_query => undef,
+		_is_id => 1
 	},shift;
 }
 sub record_id {
@@ -28,6 +29,11 @@ sub query {
 	my $self = shift;
         if(@_){$self->{_query} = shift;}
         return $self->{_query};
+}
+sub is_id {
+	my $self = shift;
+	if(@_){$self->{_is_id} = shift;}
+	$self->{_is_id};
 }
 
 1;

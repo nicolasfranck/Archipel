@@ -69,6 +69,7 @@ has _index => (
 sub execute{
         my($self,$opts,$args)=@_;
 	my $i = 0;
+	my $count = 0;
 	$self->_temp->each(sub{
 		$i++;
 		my $newmetarecord = shift;
@@ -79,8 +80,15 @@ sub execute{
 			print $newmetarecord->{_id}."\n";
 			$self->_metadata->save($newmetarecord);
 			$self->_index->save($self->make_index_merge($newmetarecord,$mediarecord));
+			$count++;
+			if($count>1000){
+				$self->_index->commit;
+				$count = 0;
+			}
 		}
 	});
+	$self->_index->commit;
+	$self->_index->optimize;
 	print "$i records updated\n";
 }
 
