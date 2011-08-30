@@ -56,14 +56,15 @@ sub delete {
 
 sub commit {
     my ($self) = @_;
-
     $self->_indexer->commit;
 }
-
+sub optimize {
+	shift->_indexer->optimize(@_);
+}
 sub search {
     my ($self,$query,%opts) = @_;
 
-    $self->commit;
+    $self->commit if $opts{commit};
 
     my $start = $opts{start};delete $opts{start};
     my $limit = $opts{limit};delete $opts{limit};

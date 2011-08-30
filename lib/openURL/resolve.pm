@@ -75,8 +75,9 @@ sub handle{
 		}
 	
 	#bestaat record?
-	my($hits,$totalhits,$err) = $self->db->query_store($query);
-	my $record = $hits->[0] if !defined($err) && $totalhits > 0;
+	my($hits,$totalhits,$err) = $self->db->query_store($query);	
+	my $record;
+	$record = $hits->[0] if !defined($err) && $totalhits > 0;
 	if(not defined($record)){
 		return undef,undef,500,"$query does not exist";
 	}

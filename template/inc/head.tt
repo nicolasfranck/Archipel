@@ -24,7 +24,7 @@
 	});
 </script>
 <!--demo-start-->
-<link type="image/x-icon" href="[% rooturl %]/images/favicon.ico" rel="shortcut icon">
-<script type="text/javascript" src="[% rooturl %]/js/textsizer.js"></script>
-<script type="text/javascript" src="[% rooturl %]/js/rel.js"></script>
+<link type="image/x-icon" href="[% conf.all.rooturl %]/images/favicon.ico" rel="shortcut icon">
+<script type="text/javascript" src="[% conf.all.rooturl %]/js/textsizer.js"></script>
+<script type="text/javascript" src="[% conf.all.rooturl %]/js/rel.js"></script>
 <!--demo-end-->
