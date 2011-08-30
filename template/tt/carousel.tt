@@ -83,12 +83,12 @@
                 }
 		function collapse_carousel(){
 			$('#carousel').css('bottom',"-"+($('#carousel').outerHeight() - $('#carousel #head').outerHeight())+"px");
-			$(this).html("<img alt='up' src='"+rooturl+"/images/icons/up_small.png' />");
+			$('#hide').html("<img alt='up' src='"+rooturl+"/images/icons/up_small.png' />");
                         carousel_collapsed = true;
 		}
 		function open_carousel(){
 			$('#carousel').css('bottom',0);
-  			$(this).html("<img alt='down' src='"+rooturl+"/images/icons/down_small.png' />");
+  			$('#hide').html("<img alt='down' src='"+rooturl+"/images/icons/down_small.png' />");
                         carousel_collapsed = false;
 		}
 		$(document).ready(function(){

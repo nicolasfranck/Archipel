@@ -220,7 +220,7 @@ img#tagged_image {
 	z-index:1;
 	top:0px;
 	right:0px;
-	width:25px;height:25px;
+	/*width:25px;height:25px;*/
 }
 
 .error{
