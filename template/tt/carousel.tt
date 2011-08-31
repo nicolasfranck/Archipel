@@ -134,7 +134,7 @@
 			//als je in- uitgezoomed start; de timeout is belangrijk!
 			setTimeout('init();',10);
 			//vang keydown op om carousel te verbergen en te openen
-			$(window).keydown(function(ev){
+			$(top.document).keydown(function(ev){
 				switch(ev.which){
 					//'h'
 					case 72:

@@ -5,12 +5,10 @@ use Captcha::reCAPTCHA;
 use Try::Tiny;
 
 sub db{
-        my $self = shift;
-        $self->stash->{db}||=PeepShow::Resolver::DB->new();
+	$_[0]->stash->{db} ||= PeepShow::Resolver::DB->new();
 }
 sub tag_index {
-        my $self = shift;
-        $self->stash->{tags} ||= Plack::Util::load_class(Catmandu->conf->{index}->{tags}->{class})->new(%{Catmandu->conf->{index}->{tags}->{args}});
+        $_[0]->stash->{tags} ||= Plack::Util::load_class(Catmandu->conf->{index}->{tags}->{class})->new(%{Catmandu->conf->{index}->{tags}->{args}});
 }
 sub source_ip {
         my $self = shift;
@@ -39,11 +37,10 @@ sub validate_captcha {
 	return $success,\@errors;
 }
 sub captcha_html {
-	my $self = shift;
-	$self->captcha->get_html(Catmandu->conf->{all}->{captcha}->{public_key});
+	$_[0]->captcha->get_html(Catmandu->conf->{all}->{captcha}->{public_key});
 }
 sub captcha {
-	shift->stash->{captcha} ||= Captcha::reCAPTCHA->new;
+	$_[0]->stash->{captcha} ||= Captcha::reCAPTCHA->new;
 }
 sub page_args {
 	my $self = shift;
@@ -58,7 +55,6 @@ sub page_args {
 }
 sub template{
         my($self,$template) = @_;
-        my $language = $self->language;
         Catmandu->conf->{templates}->{$template};
 }
 sub language{

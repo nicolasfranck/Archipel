@@ -5,7 +5,6 @@ use List::MoreUtils qw(first_index);
 use Catmandu;
 use Plack::Util;
 use Cache::FastMmap;
-use Data::Dumper;
 
 sub new {
 	my $class = shift;

@@ -1,9 +1,25 @@
 package Record::View::Pages;
+use Plack::Util;
 use Catmandu;
 use PeepShow::Tools::Record;
 use Data::Pageset;
 use POSIX qw(ceil floor);
 use parent qw(Record::View);
+
+sub new {
+	my($class,%opts) = @_;
+	my $self = $class->SUPER::new(%opts);
+	my $openURL = Catmandu->conf->{middleware}->{openURL}->{resolve};
+        my @acls = ();
+        foreach my $acl(@{$openURL->{acls}}){
+                my $class = $acl->{class};
+                my $args = $acl->{args};
+                Plack::Util::load_class($class);
+                push @acls,$class->new(%$args);
+        }
+	$self->{acls} = \@acls;
+	bless $self,$class;
+}
 
 sub prepare{
 	my $self = shift;
@@ -14,6 +30,9 @@ sub prepare{
         my $start = (defined($self->params->{start}) && $self->params->{start} ne "")? $self->params->{start} : 0;
         $self->sess->{page} = floor($start / $num) + 1;
         $self->sess->{num} = $num;
+	
+	#aantal items waarop we kunnen "bladeren" de moeite ?
+	$self->args->{carousel_num_items_allowed} = $self->carousel_num_items_allowed;
 
 	#pagineren van items op view 'pages'
 	$self->args->{pages_per_set}=Catmandu->conf->{app}->{search}->{pages_per_set};
@@ -60,6 +79,26 @@ sub prepare{
         $self->args->{previous_page}=$page_info->previous_page;
         $self->args->{next_page}=$page_info->next_page;
         $self->args->{pages_in_set}=$page_info->pages_in_set;
+}
+sub carousel_mapping {
+        Catmandu->conf->{middleware}->{openURL}->{app}->{types}->{carousel}->{mapping};
+}
+sub acls {
+	$_[0]->{acls};
+}
+sub carousel_num_items_allowed {
+	my $self = shift;	
+	my $num_items = 0;
+	my $mapping = $self->carousel_mapping;
+	foreach my $item(@{$self->args->{hit}->{media}}){
+                my $svc_id = $mapping->{$item->{context}};
+                foreach my $acl(@{$self->acls}){
+                        if($acl->is_allowed($self->env,$self->args->{hit},$item->{item_id},$svc_id)){
+				$num_items++;
+                        }
+                }
+	}
+	$num_items;
 }
 
 1;

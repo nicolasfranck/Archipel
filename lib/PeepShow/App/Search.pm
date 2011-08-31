@@ -3,7 +3,6 @@ use Catmandu::App;
 use Text::Glob qw(glob_to_regex);
 
 sub allowed_range {
-        my $self = shift;
         Catmandu->stash->{allowed_range} ||= glob_to_regex(Catmandu->conf->{all}->{allowed_range});
 }
 sub is_local {

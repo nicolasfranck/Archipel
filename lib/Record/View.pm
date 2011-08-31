@@ -9,6 +9,7 @@ sub new {
 		args => $opts{args} || {},
 		sess => $opts{sess} || {},
 		params => $opts{params} || {},
+		env => $opts{env} || {},
 		err => undef,
 		errmsg => undef
 	},$class;
@@ -32,6 +33,9 @@ sub sess {
         my $self = shift;
         if(@_){$self->{sess}=shift;}
         $self->{sess};
+}
+sub env {
+	$_[0]->{env};
 }
 sub err {
         my $self = shift;
