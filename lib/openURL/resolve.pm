@@ -5,6 +5,7 @@ use List::MoreUtils qw(first_index);
 use Catmandu;
 use Plack::Util;
 use Cache::FastMmap;
+use Data::Dumper;
 
 sub new {
 	my $class = shift;
@@ -86,12 +87,17 @@ sub get_record {
 				}
 			}
 			if($search_index){
+				#opgelet bij dummy-records: als je bags kopiëert en record_id wijzigt,
+				#wijzig dan ook de bestandsnamen mee, want slechts 1ste hit wordt
+				#gebruikt..
 				#print STDERR "key $key retrieving from index\n";
-				my($hits,$totalhits,$err) = $self->db->query_store($key,dbb=>1);
+				my($hits,$totalhits,$err) = $self->db->query_store($key,dbb=>1,limit=>1);
 				if(!defined($err) && $totalhits > 0){
 					$record = $hits->[0];
 					#plaats de mapping BHSL -> rug01:000000001
-					$self->cache->set($hint,\$record->{_id});
+					my $is_saved = $self->cache->set($hint,\$record->{_id});
+					#print "mapping $hint => $record->{_id} ";
+					#print $is_saved ? "was saved\n":"was not saved\n";
 					$key = $record->{_id};
 					#print "mapping placed from $hint => ".${$self->cache->get($hint)}."\n";
 				}
@@ -144,20 +150,21 @@ sub handle{
 	if(not defined($record)){
 		return undef,undef,404,"$query does not exist";
 	}
-	$rft_id = $record->{_id};#want bij file-item moet je dit nog neerschrijven..
+	$record_id = $record->{_id};#want bij Rft::Fedora moet je dit nog neerschrijven..
 	#zoek item in record
 	my $index_item = $item_id - 1;
-	my $item = $record->{media}->[$index_item] if defined($record->{media}->[$index_item]);	
+	my $item;
+	$item = $record->{media}->[$index_item] if defined($record->{media}->[$index_item]);	
 	if(not defined($item)){
 		#item_id_not_found
-		return undef,undef,404,"$rft_id-$item_id does not exist";
+		return undef,undef,404,"$record_id-$item_id does not exist";
 	}	
 	#bestaat svc_id voor deze item_id?
 	my $services = $item->{services};
 	my $index_svc_id=first_index {$_ eq $svc_id} @$services;
 	if($index_svc_id < 0){
 		#svc_id_not_found
-		return undef,undef,404,"$rft_id-$item_id-$svc_id does not exist";
+		return undef,undef,404,"$record_id-$item_id-$svc_id does not exist";
 	}
 	#toegang tot svc_id?
 	my $allowed = 1;
@@ -172,23 +179,23 @@ sub handle{
 	my $context = $item->{context};#Image, Video
 	if(not defined($context)){
 		#context_not_in_database
-		return undef,undef,500,"Technical error. Context of $rft_id-$item_id undefined in database";
+		return undef,undef,500,"Technical error. Context of $record_id-$item_id undefined in database";
 	}
 	#zoek pakket
 	my($package,$args,$template) = $self->get_handling_package($context,$svc_id);
 	if(not defined($package)){
 		#handling_package_undefined
-		return undef,undef,500,"Technical error. Handling package for $rft_id-$item_id-$svc_id not defined in configuration file";
+		return undef,undef,500,"Technical error. Handling package for $record_id-$item_id-$svc_id not defined in configuration file";
 	}
 	#path
 	my $path = $item->{file};
 	if(not defined($path)){
 		#path_undefined
-		return undef,undef,500,"Technical error. Location of $rft_id-$item_id-$svc_id not in database";
+		return undef,undef,500,"Technical error. Location of $record_id-$item_id-$svc_id not in database";
 	}
 	#load class	
 	my($hash,$code,$err)=$self->get_package($package,$args)->handle({
-		rft_id => $rft_id,item_id=>$item_id,svc_id=>$svc_id
+		item_id=>$item_id,svc_id=>$svc_id
 	},$record);
 	return $hash,$template,$code,$err;
 }
