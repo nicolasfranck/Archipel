@@ -7,7 +7,7 @@ sub new {
 		_item_id => 0,
 		_error => undef,
 		_query => undef,
-		_is_id => 1
+		_is_id => 1,
 	},shift;
 }
 sub record_id {

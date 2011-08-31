@@ -31,6 +31,9 @@ middleware:
  openURL:
   path: "/OpenURL"
   resolve:
+   cache:
+    args:
+     cache_size: "32m"
    version: "Z39.88-2004"
    path: "/resolve"
    rft_id:
