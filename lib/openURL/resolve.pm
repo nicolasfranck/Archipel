@@ -5,6 +5,7 @@ use List::MoreUtils qw(first_index);
 use Catmandu;
 use Plack::Util;
 use Cache::FastMmap;
+use Data::Dumper;
 
 sub new {
 	my $class = shift;
@@ -59,7 +60,7 @@ sub cache {
 	$_[0]->{cache};
 }
 sub get_record {
-	my($self,$key,$is_id)=@_;
+	my($self,$key,$hint,$is_id)=@_;
 	#key -> query of gewoon record_id
 	my $record = $self->cache->get($key);
 	if(!defined($record)){
@@ -67,13 +68,41 @@ sub get_record {
 			#print STDERR "key $key retrieving from database\n";
 			$record = $self->db->store->dbb->load($key);
 		}else{
-			#print STDERR "key $key retrieving from index\n";
-			my($hits,$totalhits,$err) = $self->db->query_store($key,dbb=>1);
-			$record = $hits->[0] if !defined($err) && $totalhits > 0;
+			my $search_index = 1;
+			#laatste poging: zit er geen mapping in de cache? vb. BHSL => rug01:000000001
+			if(defined($hint)){
+				#print STDERR "looking for mapped value for hint $hint\n";
+				my $mapping = $self->cache->get($hint);
+				if(defined($mapping)){
+					#print "found mapped value $$mapping\n";
+					$record = $self->cache->get($$mapping);
+					if(defined($record)){
+						$search_index = 0;
+						#print "changing key $key => ";
+						$key = $$mapping;
+						#print "$key\n";
+					}
+				}else{
+					#print "no mapping found\n";
+				}
+			}
+			if($search_index){
+				#print STDERR "key $key retrieving from index\n";
+				my($hits,$totalhits,$err) = $self->db->query_store($key,dbb=>1);
+				if(!defined($err) && $totalhits > 0){
+					$record = $hits->[0];
+					#plaats de mapping BHSL -> rug01:000000001
+					$self->cache->set($hint,\$record->{_id});
+					$key = $record->{_id};
+					#print "mapping placed from $hint => ".${$self->cache->get($hint)}."\n";
+				}
+			}
 		}
 		if(defined($record)){
 			#print STDERR "record is defined now\n";
 			my $is_saved = $self->cache->set($key,$record);
+			
+			#print "setting key $key in cache\n" if $is_saved;
 			#print $is_saved?"was saved\n":"was not saved\n";
 		}
 	}else{
@@ -95,6 +124,7 @@ sub handle{
 	my $success = 0;
 	my $record_id;
 	my $is_id = 0;
+	my $hint;
 	
 	foreach my $rft_id_parser(@{$self->rft_id_parsers}){
 		$success = $rft_id_parser->parse($opts->{rft_id});
@@ -103,6 +133,7 @@ sub handle{
 			$item_id = $rft_id_parser->item_id;			
 			$is_id = $rft_id_parser->is_id;
 			$record_id = $rft_id_parser->record_id;
+			$hint = $rft_id_parser->hint;
 			last;
 		}
 	}
@@ -110,9 +141,9 @@ sub handle{
 		return undef,undef,500,"rft_id ".$opts->{rft_id}." invalid";
 	}
 	#haal record op (1.cache 2. database 3. index en dan databank)
-	my $record = $self->get_record($is_id ? $record_id : $query,$is_id);
+	my $record = $self->get_record($is_id ? $record_id : $query,$hint,$is_id);
 	if(not defined($record)){
-		return undef,undef,500,"$query does not exist";
+		return undef,undef,404,"$query does not exist";
 	}
 	$rft_id = $record->{_id};#want bij file-item moet je dit nog neerschrijven..
 	#zoek item in record
@@ -120,14 +151,14 @@ sub handle{
 	my $item = $record->{media}->[$index_item] if defined($record->{media}->[$index_item]);	
 	if(not defined($item)){
 		#item_id_not_found
-		return undef,undef,500,"$rft_id-$item_id does not exist";
+		return undef,undef,404,"$rft_id-$item_id does not exist";
 	}	
 	#bestaat svc_id voor deze item_id?
 	my $services = $item->{services};
 	my $index_svc_id=first_index {$_ eq $svc_id} @$services;
 	if($index_svc_id < 0){
 		#svc_id_not_found
-		return undef,undef,500,"$rft_id-$item_id-$svc_id does not exist";
+		return undef,undef,404,"$rft_id-$item_id-$svc_id does not exist";
 	}
 	#toegang tot svc_id?
 	my $allowed = 1;

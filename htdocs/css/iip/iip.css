@@ -184,7 +184,10 @@ div#navbuttons img#shiftLeft, div#navbuttons img#shiftRight { top: 18px; margin-
 div#navbuttons img#shiftUp { margin-left: 0px; margin-right: 0px; }
 div#navbuttons img#shiftDown { margin-top: 10px; }
 
-img#info, div.tip img, div#navbuttons img { behavior: url(images/iip/iepngfix.htc) } /*Fix IE PNG transparency */
+/*
+	dit kan in IE ertoe leiden dat de parent webpage naar 404 wordt omgeleid indien deze url niet wordt gevonden
+*/	
+/*img#info, div.tip img, div#navbuttons img { behavior: url(images/iip/iepngfix.htc) }*/ /*Fix IE PNG transparency */
 
 #alt_image {
 	width:100%;

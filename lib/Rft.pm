@@ -8,6 +8,7 @@ sub new {
 		_error => undef,
 		_query => undef,
 		_is_id => 1,
+		_hint => undef
 	},shift;
 }
 sub record_id {
@@ -19,6 +20,13 @@ sub item_id {
 	my $self = shift;
         if(@_){$self->{_item_id} = shift;}
         return $self->{_item_id};
+}
+#meestal hetzelfde als record_id. 
+#van belang wanneer query niets van doen heeft met het record_id. Vb. BHSL_????_0001_AC => hint is "BHSL", en dat kan je dan in je cache linken aan het record dat je achteraf vindt
+sub hint {
+	my $self = shift;
+	if(@_){$self->{_hint} = shift;}
+        return $self->{_hint};
 }
 sub error {
 	my $self = shift;

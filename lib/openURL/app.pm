@@ -38,7 +38,7 @@ sub handle{
 	#bestaat record?
 	my $record = $self->db->load($id);
 	if(!(defined($record) && defined($record->{media}))){
-		return undef,undef,500,"$id does not exist";
+		return undef,undef,404,"$id does not exist";
 	}
 	#zoek pakket
 	my($package,$args,$template) = $self->get_handling_package($type);

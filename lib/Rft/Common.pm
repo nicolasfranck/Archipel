@@ -20,6 +20,7 @@ sub parse {
 		return 0;
 	}
 	$self->record_id($1);
+	$self->record_id($1);
 	$self->item_id($2);
 	$self->query("id:\"$1\"");
 	return 1;

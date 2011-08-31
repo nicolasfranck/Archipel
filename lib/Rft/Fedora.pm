@@ -20,10 +20,12 @@ sub parse {
 		$self->error("FORMAT_ERROR");
 		return 0;
 	}
+	#BHSL_2009_0001_AC => BHSL_????_0001_AC
 	my $catch = $1;
-	$catch =~ s/\d{4}_((\d{4})_AC)/????_\1/;
+	$catch =~ s/^([\w_\-]+)_\d{4}_(\d{4})_AC$/\1_????_\2_AC/;
+	$self->hint($1);
+	$self->item_id(int($2));
         $self->query("files:$catch");
-        $self->item_id(int($2));
 	return 1;
 }
 

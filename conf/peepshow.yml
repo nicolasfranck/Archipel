@@ -33,7 +33,8 @@ middleware:
   resolve:
    cache:
     args:
-     cache_size: "32m"
+     cache_size: "64m"
+     empty_on_exit: 1
    version: "Z39.88-2004"
    path: "/resolve"
    rft_id:
