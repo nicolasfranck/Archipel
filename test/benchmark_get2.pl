@@ -30,6 +30,7 @@ try{
 			my $start = Time::HiRes::time();
 			my $response = $ua->head($url);
 			if($response->is_error){
+				next;
 				print "status code:".$response->code."\n";
 				logger($response->content_ref);
 				die("error in ".$hit->{id}.", see benchmark.log\n");
