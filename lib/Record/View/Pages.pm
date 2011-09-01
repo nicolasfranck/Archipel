@@ -1,4 +1,6 @@
 package Record::View::Pages;
+use strict;
+use utf8;
 use Plack::Util;
 use Catmandu;
 use PeepShow::Tools::Record;

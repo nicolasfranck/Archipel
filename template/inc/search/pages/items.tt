@@ -1,5 +1,15 @@
 [% FOREACH item IN args.hit.media %]
+	[% mapped_service = conf.middleware.openURL.app.types.carousel.mapping.${item.context} %]
+	[% mapped_service_allowed = 0 %]
+	[% IF ((args.hit.access.defined && args.hit.access.services.${mapped_service} == 1) || (args.is_local)) && args.hit.media.${poster_index}.services.grep(mapped_service).size > 0 %]
+		[% mapped_service_allowed = 1 %]
+	[% END %]
 	<div class="block_normal shadow">
+		[% IF mapped_service_allowed %]
+			<a href="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.rft_id _ ":" _ item.item_id _ "&amp;svc_id=" _ mapped_service _ "&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" target="_BLANK">
+				<img class="show" src="[% conf.all.rooturl %]/images/icons/zoom.png" />
+			</a>
+		[% END %]
 	        <div class="imgholder">
 
 	                [% thumb = item.devs.thumbnail %]
@@ -11,9 +21,7 @@
 	                [% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
 	                [% rwidth = width * ratio %]
 	                [% rheight = height * ratio %]
-			[% mapped_service = conf.middleware.openURL.app.types.carousel.mapping.${item.context} %]
-			[% IF ((args.hit.access.defined && args.hit.access.services.${mapped_service} == 1) || (args.is_local)) && args.hit.media.${poster_index}.services.grep(mapped_service).size > 0 %]				
-
+			[% IF mapped_service_allowed %]				
 				<a href="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.rft_id _ ":" _ item.item_id _ "&amp;svc_id=" _ mapped_service _ "&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" target="_BLANK">
 					<img alt="loading" src="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.rft_id _ ":" _ item.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" width="[% rwidth %]" height="[% rheight %]" /> 
 				</a>

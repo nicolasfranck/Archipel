@@ -85,7 +85,6 @@
 						maintainAtBottom = false, maintainAtRight = false;
 
 				settings = s;
-
 				if (pane === undefined) {
 					originalScrollTop = elem.scrollTop();
 					originalScrollLeft = elem.scrollLeft();
@@ -99,6 +98,11 @@
 					// TODO: Deal with where width/ height is 0 as it probably means the element is hidden and we should
 					// come back to it later and check once it is unhidden...
 					paneWidth = elem.innerWidth() + originalPaddingTotalWidth;
+					/*
+					console.log("paneWidth initiated:"+paneWidth);
+					console.log("elem.innerWidth():"+elem.innerWidth());
+					console.log("originalPaddingTotalWidth:"+originalPaddingTotalWidth);
+					*/
 					paneHeight = elem.innerHeight();
 
 					elem.width(paneWidth);
@@ -324,6 +328,8 @@
 				// Make the pane thinner to allow for the vertical scrollbar
 				pane.width(paneWidth - scrollbarWidth - originalPaddingTotalWidth);
 
+
+				//console.log("scrollbarWidth:"+scrollbarWidth);
 				/*
 					uitgecommentarieerd: 'soms' creëert dit een irritante margin-left op de jspPane zodat die verderop begint
 				*/
@@ -724,7 +730,7 @@
 				} else if (destX > dragMaxX) {
 					destX = dragMaxX;
 				}
-
+				//console.log("destX:"+destX);
 				if (animate === undefined) {
 					animate = settings.animateScroll;
 				}
@@ -738,6 +744,7 @@
 
 			function _positionDragX(destX)
 			{
+				//console.log(pane);
 				if (destX === undefined) {
 					destX = horizontalDrag.position().left;
 				}
@@ -755,10 +762,12 @@
 					wasAtRight = isAtRight;
 					elem.trigger('jsp-arrow-change', [wasAtTop, wasAtBottom, wasAtLeft, wasAtRight]);
 				}
-				
+				pane.css('left', destLeft);
 				updateHorizontalArrows(isAtLeft, isAtRight);
+				//console.log("pane left:"+destLeft);
 				pane.css('left', destLeft);
 				elem.trigger('jsp-scroll-x', [-destLeft, isAtLeft, isAtRight]).trigger('scroll');
+				//console.log(pane);
 			}
 
 			function updateVerticalArrows(isAtTop, isAtBottom)
@@ -785,7 +794,13 @@
 
 			function scrollToX(destX, animate)
 			{
+				/*
+				console.log("destX:"+destX);
+				console.log("contentWidth:"+contentWidth);
+				console.log("paneWidth:"+paneWidth);
+				*/
 				var percentScrolled = destX / (contentWidth - paneWidth);
+				//console.log("percentScrolled:"+percentScrolled);
 				positionDragX(percentScrolled * dragMaxX, animate);
 			}
 
@@ -810,6 +825,8 @@
 				// the focused element and the jspPane so we can get the true distance from the top
 				// of the focused element to the top of the scrollpane...
 				while (!e.is('.jspPane')) {
+					//console.log ("e.position().top:"+e.position().top);
+					//console.log("e.position().left:"+e.position().left);
 					eleTop += e.position().top;
 					eleLeft += e.position().left;
 					e = e.offsetParent();
@@ -832,11 +849,14 @@
 				
 				viewportLeft = contentPositionX();
 	            maxVisibleEleLeft = viewportLeft + paneWidth;
+			//console.log("scroll to element destX-pré:"+destX);
 	            if (eleLeft < viewportLeft || stickToTop) { // element is to the left of viewport
+			
 	                destX = eleLeft - settings.horizontalGutter;
 	            } else if (eleLeft + eleWidth > maxVisibleEleLeft) { // element is to the right viewport
 	                destX = eleLeft - paneWidth + eleWidth + settings.horizontalGutter;
 	            }
+			//console.log("scroll to element destX-post:"+destX);
 	            if (destX) {
 	                scrollToX(destX, animate);
 	            }

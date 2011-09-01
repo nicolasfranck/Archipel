@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="[% hash.rooturl %]/js/jquery.lazyload-min.js"></script>
 	<!--jScrollpane-start-->
 	<script type="text/javascript" src="[% hash.rooturl %]/js/jquery.em-min.js"></script>
-	<script type="text/javascript" src="[% hash.rooturl %]/js/jScrollpane/jquery.jscrollpane.min.js"></script>
+	<script type="text/javascript" src="[% hash.rooturl %]/js/jScrollpane/jquery.jscrollpane.js"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="[% hash.rooturl %]/css/jScrollpane/jquery.jscrollpane-min.css" />
 	<!--jScrollpage-end-->
 	<script type="text/javascript">
@@ -19,7 +19,7 @@
 		var item_id_selected = 1;
 		var selected_class = 'selected_image';
 		var carousel_hidden_on_init = false;
-		var carousel_collapsed_on_init = true;
+		var carousel_collapsed_on_init = false;
 		var carousel_hidden = false;
 		var carousel_collapsed = false;
 		var width_li = 0;
@@ -99,8 +99,6 @@
 			});
 			scroller = $('#content').data('jsp');
 			width_li = $('li').width() + parseInt($('li').css('margin-right'));
-			scrollTo(item_id_selected);
-			highlight(item_id_selected);
 			$('#content img').lazyload({
 				placeholder : rooturl+"/images/icons/loading.png",
 				container: $('#content'),
@@ -146,6 +144,9 @@
 						break;	
 				}
 			});
+			//scroll hier pas!
+			scrollTo(item_id_selected);
+			highlight(item_id_selected);
 		});
 	</script>
 </head>

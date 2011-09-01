@@ -5,7 +5,6 @@ use List::MoreUtils qw(first_index);
 use Catmandu;
 use Plack::Util;
 use Cache::FastMmap;
-use Data::Dumper;
 
 sub new {
 	my $class = shift;
@@ -52,9 +51,7 @@ sub stash {
 	$self->{stash};
 }
 sub db {
-	my $self = shift;
-	if(@_){$self->{db}=shift;}
-	$self->{db};
+	$_[0]->{db};
 }
 sub cache {
 	$_[0]->{cache};

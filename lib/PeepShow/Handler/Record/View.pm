@@ -1,4 +1,6 @@
 package PeepShow::Handler::Record::View;
+use strict;
+use utf8;
 use Catmandu;
 use Plack::Util;
 
@@ -9,7 +11,7 @@ sub new {
 	},shift;
 }
 sub _conf {
-	shift->{_conf}
+	$_[0]->{_conf}
 }
 sub _stash {
 	my $self = shift;
@@ -21,11 +23,7 @@ sub handle{
 	my $view = (defined($page_args->{params}->{view}) && defined($self->_conf->{$page_args->{params}->{view}}))? $page_args->{params}->{view}:$self->_conf->{default};
 	my $package = "Record::View::".$self->_conf->{$view};
 	$self->check_package($package) or croak("cannot find $package");
-	my $v =	$package->new(
-		args => $page_args->{args},
-		params => $page_args->{params},
-		sess => $page_args->{sess}
-	);
+	my $v =	$package->new(%$page_args);
 	$v->prepare;
 	my $hash = {
 		template_key => lc($view) ,

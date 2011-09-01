@@ -5,7 +5,6 @@ use Benchmark;
 use Catmandu::Index::Solr;
 use Time::HiRes;
 use Try::Tiny;
-use Data::Dumper;
 use strict;
 
 sub logger {

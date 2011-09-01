@@ -1,4 +1,6 @@
 package PeepShow::Handler::Query::Parser;
+use strict;
+use utf8;
 use Catmandu;
 use PeepShow::Handler::Query::Fixer;
 use List::MoreUtils qw(first_index);

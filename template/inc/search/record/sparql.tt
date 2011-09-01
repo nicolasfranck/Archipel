@@ -79,7 +79,7 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	var sparql_paging_div_id = sparql_div_id+" #paging";
 	var sparql_count_results = 0;
 	var offset = 0;
-	var limit = 2;
+	var limit = 5;
 	var no_related_media_found = "no related media found";
 
 	//sparql

@@ -6,7 +6,6 @@ use LWP::UserAgent;
 use Benchmark;
 use Catmandu::Store::Simple;
 use Time::HiRes;
-use Data::Dumper;
 use strict;
 
 sub logger {
@@ -24,7 +23,7 @@ $db->each(sub{
 	my $record = shift;
 	foreach my $item(@{$record->{media}}){
 		foreach my $file(@{$item->{file}}){
-			my $url = "$baseurl?rft_id=".$record->{_id}.":".$item->{item_id}."&svc_id=large";
+			my $url = "$baseurl?rft_id=".$record->{_id}.":".$item->{item_id}."&svc_id=thumbnail";
 			my $start = Time::HiRes::time();
 			my $response = $ua->head($url);
 			if($response->is_error){

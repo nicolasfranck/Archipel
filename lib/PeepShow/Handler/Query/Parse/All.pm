@@ -1,4 +1,6 @@
 package PeepShow::Handler::Query::Parse::All;
+use strict;
+use utf8;
 use Catmandu;
 use parent qw(PeepShow::Handler::Query::Parse);
 

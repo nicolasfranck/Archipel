@@ -1,4 +1,6 @@
 package PeepShow::Handler::Query::Parse::View;
+use strict;
+use utf8;
 use parent qw(PeepShow::Handler::Query::Parse);
 
 sub parse{

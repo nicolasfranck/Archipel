@@ -20,7 +20,7 @@ index:
    url: "http://localhost:8983/solr/core0"
    id_field: "id"
 all:
- allowed_range: "129.0.0.*"
+ allowed_range: "127.0.0.*"
  rooturl: "http://localhost"
  ip: "127.0.0.1"
  logfile: "/tmp/peepshow.log"
@@ -33,9 +33,9 @@ middleware:
   resolve:
    cache:
     args:
-     #share_file: "/tmp/cache/openurl/archipel/mycache"
-     #cache_size: "64m"
-     #empty_on_exit: 1
+     share_file: "/tmp/cache/openurl/archipel/mycache"
+     cache_size: "64m"
+     empty_on_exit: 1
    version: "Z39.88-2004"
    path: "/resolve"
    rft_id:
@@ -47,7 +47,7 @@ middleware:
    acls:
     - class: "Acl::VPN"
       args:
-       allowed_range: "129.0.0.*"
+       allowed_range: "127.0.0.*"
    aliases:
     zoomer_fullscreen: "zoomer"
    context:

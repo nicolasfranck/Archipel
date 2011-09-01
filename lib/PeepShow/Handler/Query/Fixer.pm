@@ -1,4 +1,6 @@
 package PeepShow::Handler::Query::Fixer;
+use strict;
+use utf8;
 use Catmandu;
 use Plack::Util;
 

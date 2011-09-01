@@ -166,6 +166,15 @@ div.results{
 	font-weight:normal;
 	text-decoration:none;
 }
+.block_normal img.show {
+        position:absolute;
+        z-index:1;
+        right:5px;
+        top:5px;
+        color:black;
+        font-weight:normal;
+        text-decoration:none;
+}
 img#tagged_image {
 	width:150px;
 }

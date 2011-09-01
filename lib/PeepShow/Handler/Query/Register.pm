@@ -1,4 +1,6 @@
 package PeepShow::Handler::Query::Register;
+use strict;
+use utf8;
 use Catmandu;
 
 sub new {

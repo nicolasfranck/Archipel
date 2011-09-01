@@ -1,4 +1,6 @@
 package Record::View::Simple;
+use strict;
+use utf8;
 use Catmandu;
 use POSIX qw(ceil floor);
 use parent qw(Record::View);
