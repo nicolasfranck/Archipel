@@ -134,7 +134,8 @@ templates:
  mycart: "tt/mycart"
  googlemaps: "tt/googlemaps"
  columns: "tt/columns"
- new_column: "tt/new_column"
+ add_column: "tt/add_column"
+ edit_column: "tt/edit_column"
  sendmail_mycart: "tt/sendmail_mycart.tt"
  videostreaming_external: "tt/videostreaming/external"
 language:

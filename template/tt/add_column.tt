@@ -43,15 +43,7 @@
 				</tr>
 				<tr>
 					<th>Taal:</th>
-					<td>
-					[% IF args.column %]
-						[% FOREACH lang IN app.languages %]
-						<input type="radio" onclick="switch_lang('[% lang %]')" name="language" value="[% lang | html %]" [% IF args.language == lang %]CHECKED[% END %]/>[% lang %]
-						[% END %]
-					[% ELSE %]
-						&lt;default versie:nederlands&gt;
-					[% END %]
-					</td>
+					<td>&lt;default versie:nederlands&gt;</td>
 				</tr>
 				<tr>
 					<th>Titel</th><td><input type="text" value="[% args.column.title.${args.language} || args.column.title.${conf.language.default} | html %]" name="title" size="[% conf.app.admin.title.maxchars %]" /></td>
@@ -76,14 +68,7 @@
 					<td colspan="2">
 						<input type="submit" value="submit" name="submit" />
 						<input type="reset" value="reset" name="reset" />
-						[% IF args.column %]
-							<input type="hidden" value="[% args.column.id | html %]" name="id" />
-							<input type="hidden" value="[% args.column.added | html %]" name="added" />
-							<input type="hidden" value="edit" name="action" />
-							<input type="hidden" value="1" name="edit_confirm" />
-						[% ELSE %]
-							<input type="hidden" value="add" name="action" />
-						[% END %]
+						<input type="hidden" value="add" name="action" />
 					</td>
 				</tr>
 			</table>
