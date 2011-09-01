@@ -34,7 +34,7 @@
 		items&nbsp;[% args.begin_item %]-[% args.end_item %]&nbsp;([% args.total_items %])
 		[% IF args.hit.media.size > 1 && args.carousel_num_items_allowed > 1 %]
 			<div class="band">
-				<a href="[% conf.all.rooturl _ openurl_app_path %]?id=[% args.rft_id %]&amp;type=carousel" target="_BLANK">blader..</a>
+				<a href="[% conf.all.rooturl _ openurl_app_path %]?id=[% args.hit.item("_id") %]&amp;type=carousel" target="_BLANK">blader..</a>
 			</div>
 		[% END %]
 	</div>

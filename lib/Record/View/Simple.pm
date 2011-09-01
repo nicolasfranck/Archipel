@@ -22,7 +22,6 @@ sub prepare{
                 $contexts->{$item->{context}}++;
         }
         $self->args->{contexts} = $contexts;
-        $self->args->{rft_id} = $self->args->{hit}->{_id};
 }
 
 1;

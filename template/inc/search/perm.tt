@@ -1,7 +1,7 @@
 <div class="band" style="background-color:#F3F3F3">
 	<div class="left">
     	<b>Permalink:</b>&nbsp;
-	[% r = args.rft_id %]
+	[% r = args.hit.item("_id") %]
 	[% r = r.replace(':','/') %]
     	<input type="text" size="55" readonly="readonly" value="[% conf.app.search.meercat_x_view %]/[% r %]" />
     </div>

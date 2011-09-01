@@ -52,7 +52,6 @@ sub prepare{
                 $contexts->{$item->{context}}++;
         }
         $self->args->{contexts} = $contexts;
-        $self->args->{rft_id} = $self->args->{hit}->{_id};
 
 	#filter op context
 	if($self->args->{context}){

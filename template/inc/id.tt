@@ -1,4 +1,4 @@
 <div class="band" style="font-size: 80%;">
 [% index_item = (params.item_id || 1) - 1 %]
-[% args.hit.media.${index_item}.context | lower %]&nbsp;-&nbsp;[% args.rft_id %]
+[% args.hit.media.${index_item}.context | lower %]&nbsp;-&nbsp;[% args.hit.item("_id") %]
 </div>

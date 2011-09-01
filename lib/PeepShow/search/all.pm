@@ -39,7 +39,6 @@ any([qw(get post)],'/',sub{
 				$self->store_param($hash->{params});
 				#toon hits, in overzicht
 				for(my $i=0;$i<scalar(@$hits);$i++){
-					$hits->[$i]->{id}=$hits->[$i]->{_id};
 					$hits->[$i]->{numitems}=scalar(@{$hits->[$i]->{media}});
 					$hits->[$i]->{media}=slice($hits->[$i]->{media},0,1);
 				}
