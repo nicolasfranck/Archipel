@@ -46,23 +46,23 @@
 					<td>&lt;default versie:nederlands&gt;</td>
 				</tr>
 				<tr>
-					<th>Titel</th><td><input type="text" value="[% args.column.title.${args.language} || args.column.title.${conf.language.default} | html %]" name="title" size="[% conf.app.admin.title.maxchars %]" /></td>
+					<th>Titel</th><td><input type="text" value="[% params.title | html %]" name="title" size="[% conf.app.admin.title.maxchars %]" /></td>
 				</tr>
 				<tr>
 					<th>Beschrijving</th>
-					<td><textarea rows="20" cols="50" name="desc" size="[% conf.app.admin.desc.maxchars %]">[% args.column.desc.${args.language} || args.column.desc.${conf.language.default} | html %]</textarea>
+					<td><textarea rows="20" cols="50" name="desc" size="[% conf.app.admin.desc.maxchars %]">[% params.desc | html %]</textarea>
 				</tr>
 				<tr>
 					<th>record-id</th>
-					<td><input type="text" name="rft_id" value="[% args.column.rft_id | html %]" /></td>
+					<td><input type="text" name="rft_id" value="[% params.rft_id | html %]" /></td>
 				</tr>
 				<tr>
 					<th>nummer item binnen dat record</th>
-					<td><input type="text" name="item_id" value="[% args.column.item_id | html %]" /></td>
+					<td><input type="text" name="item_id" value="[% params.item_id | html %]" /></td>
 				</tr>
 				<tr>
 					<th>Query</th>
-                                        <td><input type="text" name="query" value="[% args.column.query | html %]" /></td>
+                                        <td><input type="text" name="query" value="[% params.query | html %]" /></td>
 				</tr>
 				<tr>
 					<td colspan="2">
