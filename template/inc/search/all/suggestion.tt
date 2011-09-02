@@ -3,7 +3,7 @@
                 <span style="color: #900;">[% tt_search_all_suggestion_title %]:</span>
 		[% FOREACH term IN args.restfields.spellcheck.suggestions.keys %]
 			[% FOREACH sugg IN args.restfields.spellcheck.suggestions.${term}.suggestion %]
-				&nbsp;<a href="[% conf.all.rooturl %]?q=[% sugg | url %]&language=[% args.language %]">[% sugg %]</a>
+				&nbsp;<a href="[% conf.all.rooturl %]?q=[% sugg | url %]&amp;num=[% params.num %]&amp;sort=[% params.item("sort") %]&amp;sort_dir=[% params.sort_dir %]&amp;page=[% params.page %]&amp;language=[% args.language %]">[% sugg %]</a>
 			[% END %]
 		[% END %]
         </div>
