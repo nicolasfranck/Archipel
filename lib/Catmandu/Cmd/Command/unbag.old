@@ -46,6 +46,13 @@ has datadir => (
     documentation => "Temporary directory to store the originals [required]",
     required => 1
 );
+has data_prefix_url => (
+    traits => ['Getopt'],
+    is => 'rw',
+    isa => 'Str',
+    cmd_aliases => 'dp',
+    documentation => "prefix url for the pyramid tiff (default:location on disk)"
+);
 has thumbdir => (
     traits => ['Getopt'],
     is => 'rw',
@@ -53,6 +60,22 @@ has thumbdir => (
     cmd_aliases => 't',
     documentation => "Temporary directory to store the thumbs [required]",
     required => 1
+);
+has thumb_prefix_url => (
+    traits => ['Getopt'],
+    is => 'rw',
+    isa => 'Str',
+    cmd_aliases => 'tp',
+    documentation => "prefix url for the thumbnail",
+    required => 1
+);
+has dbcheck => (
+	traits => ['Getopt'],
+	is => 'rw',
+	isa => 'HashRef',
+	cmd_aliases => 'cd',
+	documentation => "if supplied, records that already exist in this database are skipped\n",
+	required => 0
 );
 has tempdir => (
 	traits => ['Getopt'],
@@ -111,7 +134,10 @@ has _mapping => (
 	default => sub{
 		{
 			"tif"=>"JPEG2000",
-			"tiff"=>"JPEG2000"
+			"tiff"=>"JPEG2000",
+			"mov" =>"Video",
+			"VOB" =>"Video",
+			"vob" => "Video"
 		}
 	}
 );
@@ -199,6 +225,7 @@ sub process_bag{
 		my $handler = $self->get_package("Catmandu::Cmd::Unbag::".$self->_mapping->{$extension});
 		my $item = $handler->handle({
 			in => $ma,outname=>$ac,datadir => $self->datadir,thumbdir=>$self->thumbdir,
+			thumb_prefix_url=>$self->thumb_prefix_url,data_prefix_url=>$self->data_prefix_url
 		});
 		if($handler->err){
 			$self->tee->print($handler->err."\n");
@@ -213,11 +240,13 @@ sub process_bag{
 		_id => $_id,
 		access => {
 			services => {
-				thumbnail => 1,small=>1,medium=>1,large=>1,zoomer=>1
+				thumbnail => 1,small=>1,medium=>1,large=>1,zoomer=>1,carousel=>1
 			}
 		},
 		media => $media,
 		poster_item_id => 1,
+		tmp_datadir => $self->datadir,
+		tmp_thumbdir => $self->thumbdir
 	};
 	$self->_dbout->save($record);	
 	$self->tee->print("\n\nRECORD $_id STORED TO DATABASE\n");
@@ -296,6 +325,8 @@ sub rm_slashes{
 	$self->dir($self->rm_slash($self->dir));
 	$self->datadir($self->rm_slash($self->datadir));
 	$self->thumbdir($self->rm_slash($self->thumbdir));
+	$self->data_prefix_url($self->rm_slash($self->data_prefix_url));
+	$self->thumb_prefix_url($self->rm_slash($self->thumb_prefix_url));
 	$self->tempdir($self->rm_slash($self->tempdir));
 }
 sub check_new_dirs {
@@ -333,7 +364,9 @@ sub execute{
 	$self->make_new_dirs;
 	#en doe je werk
 	$self->filter_list;
-	$self->process_list;
+	$self->_dbout->transaction(sub{
+		$self->process_list;
+	});
 }
 
 __PACKAGE__->meta->make_immutable;

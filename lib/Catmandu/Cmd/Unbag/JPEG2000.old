@@ -69,6 +69,14 @@ sub test_devs {
 	return 1;
 }
 #create-functie
+#sub unsharp {
+#	my($self,$in,$out)=@_;
+#	@{$self->magick} = ();
+#        $self->magick->Read($in);
+#        $self->magick->UnsharpMask(radius=>6,sigma=>3,amount=>1,threshold=>0);
+#        $self->magick->Write($out);
+#	return 1;
+#}
 sub to_rgb {
         my($self,$in,$out)=@_;
         @{$self->magick} = ();
@@ -159,6 +167,17 @@ sub create_file {
 		$copy=$temp;
 		$self->print("--> copy is now $copy\n");
         }
+	#unsharp mask
+#	$temp = $self->tempdir."/".Data::UUID->new->create_str.'.tif';
+#	$self->print("--> applying unsharp mask: $copy -> $temp\n");
+#	if(!$self->unsharp($copy,$temp)){
+#		unlink($temp) if -f $temp;
+#                unlink($copy) if -f $copy;
+#                return undef;
+#	}
+#	unlink($copy);
+#	$copy = $temp;
+#	$self->print("--> copy is now $copy\n");
 	#jpeg2000
 	$self->print("[MA TIFF] $copy -> $out [JPEG2000]\n");
         if(not $self->create_jp2k($copy,$info,$out)){
@@ -168,8 +187,10 @@ sub create_file {
 		return undef;	
         }
 	my $file_info= {
-		file=>$out,info=>$self->exif->ImageInfo($out)
+		file=>$out,info=>$self->exif->ImageInfo($out),
+		file_sublocation => "$sublocation/".$opts->{outname}.".jp2"
 	};
+	$file_info->{url} = $opts->{data_prefix_url}.$file_info->{file_sublocation} if($opts->{data_prefix_url});
 	return $file_info,$copy;
 }
 sub create_dev {
@@ -197,6 +218,8 @@ sub create_devs {
 		$self->print("[TIFF] $opts->{in} -> $out [JPEG $type]\n");
 		my $i = $self->create_dev($opts->{in},$out,$type);
 		return undef if $self->err;
+		$i->{file_sublocation} = "$sublocation/".$opts->{outname}."_$type.jpeg";
+		$i->{url} = $opts->{thumb_prefix_url}."/".$i->{file_sublocation} if defined($opts->{thumb_prefix_url});
 		$devs_info->{$type}=$i;
 	}
 	return $devs_info;
@@ -207,9 +230,11 @@ sub make_item {
 	my $item = {
 		file => [{
 			%$stat_properties,
+                        url => $file_info->{url},
                         content_type => $file_info->{info}->{MIMEType},
                         width => $file_info->{info}->{ImageWidth},
                         height => $file_info->{info}->{ImageHeight},
+                        tmp_sublocation => $file_info->{file_sublocation}
                 }],
                 context => 'Image',
 		services => [
@@ -218,15 +243,18 @@ sub make_item {
                         "medium",
                         "large",
                         "zoomer",
+			"carousel"
                 ]
 	};
 	foreach my $type(keys %$devs_info){
 		$stat_properties = $self->stat_properties($devs_info->{$type}->{file});
 		$item->{devs}->{$type} = {
 			%$stat_properties,
+                        url => $devs_info->{$type}->{url},
                         content_type => $devs_info->{$type}->{info}->{MIMEType},
                         width => $devs_info->{$type}->{info}->{ImageWidth},
                         height => $devs_info->{$type}->{info}->{ImageHeight},
+                        tmp_sublocation => $devs_info->{$type}->{file_sublocation}
                 };
 	}
 	return $item;
