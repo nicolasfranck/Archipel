@@ -20,6 +20,9 @@ index:
    url: "http://localhost:8983/solr/core0"
    id_field: "id"
 all:
+ session:
+  store:
+   dir: "/tmp/sessions/archipel"
  allowed_range: "127.0.0.*"
  rooturl: "http://localhost"
  ip: "127.0.0.1"
