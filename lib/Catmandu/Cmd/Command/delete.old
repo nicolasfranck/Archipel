@@ -8,6 +8,7 @@ use Plack::Runner;
 extends qw(Catmandu::Cmd::Command);
 use Catmandu::Store::Simple;
 use Catmandu::Index::Solr;
+use Data::Dumper;
 
 with qw(
 	Catmandu::Cmd::Opts::Grim::Index::Solr
@@ -86,33 +87,21 @@ sub execute{
 		}
 		close FILE;
 	}
-	my $i = 0;
 	foreach my $id(@ids){
 		my $ra = $self->_metadata->load($id);
 		my $rb = $self->_media->load($id);
 		if(defined($ra) && defined($rb)){
 			print "$id\n";
-			#eerst deleten uit de index, zodat de zoekmachine ze niet meer kan vinden en fouten maken..
-			print "deleting index-document\n";
-			$self->_index->delete($id);
-			$i++;
-			if($i>1000){
-				$i = 0;
-				print "committing work\n";
-				$self->_index->commit;
-			}
 			print "deleting files\n";
 			$self->delete_files($rb);
 			print "deleting media-record\n";
 			$self->_media->delete($id);
 			print "deleting metadata-record\n";
 			$self->_metadata->delete($id);
+			print "deleting index-document\n";
+			$self->_index->delete($id);
 		}
 	}
-	print "committing work\n";
-	$self->_index->commit;
-	print "optimizing work\n";
-	$self->_index->optimize;
 }
 
 __PACKAGE__->meta->make_immutable;
