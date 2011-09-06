@@ -19,6 +19,12 @@ sub handle{
 			env => [{key=>'plack.xsend.url',value=>'/notfound/image_not_available.jpg'}]
 		},200,undef;
         }
+	if($file->{no_proxy}){
+		return {env=>[{
+			key => 'plack.redirect.url',
+			value => $file->{url}
+		}]},302,undef;
+	}
 	$file->{url} =~ s/localhost/127.0.0.1/;
 	# http://50.17.222.182/thumbies/mijnfoto.jpeg
         if(is_web_uri($file->{url})){

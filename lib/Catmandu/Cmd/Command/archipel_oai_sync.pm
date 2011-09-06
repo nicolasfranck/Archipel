@@ -1,4 +1,4 @@
-package Catmandu::Cmd::Command::mediamosa_sync;
+package Catmandu::Cmd::Command::archipel_oai_sync;
 our $VERSION = 0.01;# VERSION
 #nodig voor cmd::command
 use Moose;
@@ -113,6 +113,10 @@ sub make_media_record {
 	}
 
 	#file downloaden en inspecteren
+	if(!defined($media_url)){
+		print "\tno url found\n";
+		return;
+	}
 	my $response = $self->_ua->get($media_url);
         return undef,$response->content if not $response->is_success;
         my $tempfile = tmpnam();

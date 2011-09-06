@@ -4,7 +4,7 @@ database:
   class: "Catmandu::Store::Merge"
   args:
    patha: "../data/metadata.db"
-   pathb: "../data/media.db"
+   pathb: "/tmp/media-out.db"
  columns:
   class: "Catmandu::Store::Simple"
   args:

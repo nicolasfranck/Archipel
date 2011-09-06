@@ -22,7 +22,7 @@ jQuery(document).ready(function(){
                 /*
                         niet automatisch starten
                 */
-                /*"autostart": false,*/
+                "autostart": true,
                 /*
                         JW-Logo verbergen -> lukt enkel voor licensie-kopieën!
                 "logo.hide":true,

@@ -7,6 +7,7 @@ use Encode;
 use YAML;
 use File::Basename;
 use Try::Tiny;
+use Data::Dumper;
 
 has yaml_index_arg => (
         traits => ['Getopt'],
@@ -73,6 +74,7 @@ sub make_index_merge {
                 #yaml rename
                 if(defined($self->_yaml_index->{rename}) && defined($self->_yaml_index->{rename}->{$key})){
                         $a->{$self->_yaml_index->{rename}->{$key}} = [];
+			print "key => $key\n";
                         if(ref $a->{$key} eq "ARRAY"){
                                 push @{$a->{$self->_yaml_index->{rename}->{$key}}},$_ foreach(@{$a->{$key}});
                         }elsif(ref $a->{$key} eq "HASH"){

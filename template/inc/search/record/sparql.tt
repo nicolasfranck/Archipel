@@ -51,7 +51,7 @@
 [% FOREACH field IN conf.app.search.external_metadata_fields %]
         [% NEXT IF !args.hit.${field}.defined %]
         [% fields.push(field) %]
-        [% queries.${field} = args.hit.${field}.0.to_external_query(field,{"num"=>2,"minlength"=>3}) %]
+        [% queries.${field} = args.hit.${field}.0.to_external_query(field,{"num"=>4,"minlength"=>3}) %]
 [% END %]
 
 [% sparql_base_q = get_sparql_base_q.escape_quotes() %]
