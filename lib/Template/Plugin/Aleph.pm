@@ -33,35 +33,31 @@ sub filter_author {
 sub finish {
 	my($val,$opts) = @_;
 	$opts->{minlength} ||=0;
-	#lowercase
-	$val = lc($val);
-	#punctuatie verwijderen
-        $val =~ s/[[:punct:]]//g;
-	#aanhalingstekens verwijderen
-        $val =~ s/('|")//g;
-	#alle decimalen en wat daaraan vasthangt verwijderen
-        $val =~ s/\d+\w+//g;
-        $val =~ s/\w+\d+//g;
-        $val =~ s/\d+//g;
-	#teveel aan witte ruimte-tekens verwijderen
+        #lowercase
+        $val = lc($val);
+        #punctuatie verwijderen
+        $val =~ s/[[:punct:]]/ /g;
+        #aanhalingstekens verwijderen
+        $val =~ s/('|")/ /g;
+        #teveel aan witte ruimte-tekens verwijderen
         $val =~ s/\s\s+/ /g;
         $val =~ s/^\s//g;
         $val =~ s/\s$//g;
         my @values = split(' ',$val);
-	my @newvalues = ();
-	#duplicaten+minimum lengte
-	my %unique = ();
-	foreach(@values){
-		if(length($_)>=$opts->{minlength}){
-			if(!defined($unique{$_})){
-				push @newvalues,$_;
-				$unique{$_}=1;
-			}
-		}
-	}
-	#aantal
-	$opts->{num} = ($opts->{num} && $opts->{num} > 1)? $opts->{num}:scalar(@newvalues);
-	splice(@newvalues,$opts->{num});
+        my @newvalues = ();
+        #duplicaten+minimum lengte
+        my %unique = ();
+        foreach(@values){
+                if(length($_)>=$opts->{minlength}){
+                        if(!defined($unique{$_})){
+                                push @newvalues,$_;
+                                $unique{$_}=1;
+                        }
+                }
+        }
+        #aantal
+        $opts->{num} = ($opts->{num} && $opts->{num} > 1)? $opts->{num}:scalar(@newvalues);
+        splice(@newvalues,$opts->{num});
         return join(' ',@newvalues);
 }
 
