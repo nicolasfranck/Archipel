@@ -20,9 +20,9 @@ sub new {
 sub filter_title {
 	my($title,$opts) = @_;
 	#<a> : <b> / <c> [<h>] -> <a> <b>
-	$title =~ s/\[.*\]$//g;
-	$title =~ s/\/.*$//g;
-	$title =~ s/://g;
+	$title =~s/\[[^\[\]]*?\]$//;
+        $title =~ s/\/.*$//;
+        $title =~ s/://g;
 	finish($title,$opts);
 }
 sub filter_author {
