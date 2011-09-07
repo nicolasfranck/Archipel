@@ -2,6 +2,9 @@
 [% link_base = conf.all.rooturl _ "/view?q=" _ params_q_url_encoded _ "&amp;sort=" _ params.item('sort') _ "&amp;sort_dir=" _ params.sort_dir _ "&amp;language=" _ args.language _ "&amp;start=" %]
 [% link_base = link_base.escape_quotes() %]
 
+[% USE Dumper %]
+
+
 [% IF args.hits && args.hits.size > 0 %]
 	[% i = args.begin_item - 1  %]
 	[% FOREACH hit IN args.hits  %]
@@ -9,6 +12,9 @@
 			<div class="imgholder" onclick="window.location.href='[% link_base _ i %]'">
 				[% poster_index = hit.poster_item_id - 1 %]
 				[% thumb = hit.media.${poster_index}.devs.thumbnail %]
+				[% IF !(thumb.defined && thumb != "") %]
+					[% thumb = conf.middleware.openURL.resolve.context.${hit.media.${poster_index}.context}.thumbnail.MissingImage %]
+				[% END %]
 				[% width = thumb.width %]
 				[% height = thumb.height %]
 				[% wratio = 1 %][% hratio = 1 %]

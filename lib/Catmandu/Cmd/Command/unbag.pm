@@ -43,7 +43,7 @@ has datadir => (
     is => 'rw',
     isa => 'Str',
     cmd_aliases => 'd',
-    documentation => "Temporary directory to store the originals [required]",
+    documentation => "Temporary directory to store non-requestable originals [required]",
     required => 1
 );
 has thumbdir => (
@@ -59,7 +59,7 @@ has tempdir => (
         is => 'rw',
         isa => 'Str',
         cmd_aliases => 'tempdir',
-        documentation => "Used instead of /tmp to store temporary files\n",
+        documentation => "Used instead of /tmp to store temporary files",
         required => 1
 );
 
@@ -98,6 +98,14 @@ has tee => (
 		);
 	}
 );
+has allowed_extensions => (
+	traits => ['Getopt'],
+	is => 'rw',
+	isa => 'Str',
+	cmd_aliases => 'e',
+	documentation => "Pattern to recognize master files",
+	required => 0
+);
 has _stash => (
 	is => 'rw',
 	isa => 'HashRef',
@@ -111,7 +119,8 @@ has _mapping => (
 	default => sub{
 		{
 			"tif"=>"JPEG2000",
-			"tiff"=>"JPEG2000"
+			"tiff"=>"JPEG2000",
+			"mp3"=>"Audio::MP3"
 		}
 	}
 );
@@ -121,7 +130,13 @@ has _allowed_extensions => (
 	lazy => 1,
 	default => sub{
 		my $self = shift;
-		my $r = '_MA.('.join('|',keys %{$self->_mapping}).')$';
+		my $r;
+		if(!$self->allowed_extensions){
+			$r = '_MA';
+		}else{
+			$r = $self->allowed_extensions;
+		}
+		$r.= '.('.join('|',keys %{$self->_mapping}).')$';
 		qr/$r/i;
 	}
 );
@@ -189,8 +204,8 @@ sub process_bag{
 		$item_id++;
 		my $ma = "$dir/data/".$payload->name;
 		my $ac = $payload->name;
-		$ac =~ s/(.+)_MA\.(.+)$/$1_AC/i;			
-		my $extension = lc $2;
+		$ac =~ s/(.+)_MA\.(.+)$/$1_AC/i;
+		my $extension = lc substr($ma,rindex($ma,'.') + 1);
 		$self->tee->print("payload [MA] $ma\n");
 		if(!defined($self->_mapping->{$extension})){
 			$self->tee->print("no handler defined for extension $extension\n");
@@ -206,14 +221,13 @@ sub process_bag{
 		}
 		$item->{item_id} = $item_id;
 		push @$media,$item;
-		print("\n");
 	}
 	#opslaan	
 	my $record = {
 		_id => $_id,
 		access => {
 			services => {
-				thumbnail => 1,small=>1,medium=>1,large=>1,zoomer=>1
+				thumbnail => 1,small=>1,medium=>1,large=>1,zoomer=>1,videostreaming=>1,audiostreaming=>1
 			}
 		},
 		media => $media,

@@ -209,6 +209,7 @@ sub make_item {
                         content_type => $file_info->{info}->{MIMEType},
                         width => $file_info->{info}->{ImageWidth},
                         height => $file_info->{info}->{ImageHeight},
+			access => 1
                 }],
                 context => 'Image',
 		services => [
@@ -226,13 +227,14 @@ sub make_item {
                         content_type => $devs_info->{$type}->{info}->{MIMEType},
                         width => $devs_info->{$type}->{info}->{ImageWidth},
                         height => $devs_info->{$type}->{info}->{ImageHeight},
+			access => 1
                 };
 	}
 	return $item;
 }
 sub handle {
 	my($self,$opts)=@_;
-	$self->print("HANDLER PYRAMID TIFF REACHED\n");
+	$self->print("HANDLER ".__PACKAGE__." REACHED\n");
 	if(!$self->is_ma($opts->{in})){
 		$self->err("invalid master");
 		return undef;

@@ -25,6 +25,6 @@
 		var url = "[% hash.url %]";
 		var flashplayer = "[% hash.rooturl %]/flash/jwplayer/player.swf";				
 	</script>
-	<script type="text/javascript" src="[% hash.rooturl %]/js/videostreaming.js"></script>
+	<script type="text/javascript" src="[% hash.rooturl %]/js/audiostreaming.js"></script>
 </body>
 </html>

@@ -90,6 +90,14 @@ has thumb_prefix_url => (
     documentation => "prefix url for the thumbnail",
     required => 1
 );
+has file_prefix_url => (
+    traits => ['Getopt'],
+    is => 'rw',
+    isa => 'Str',
+    cmd_aliases => 'fp',
+    documentation => "prefix url for the file",
+    required => 0
+);
 has existing_records => (
 	is => 'rw',
 	isa => 'IO::File',
@@ -122,6 +130,7 @@ sub execute{
 			$self->existing_records->print($record->{_id}."\n");
 			return;
 		}
+		
 		#wijzig en verwijder extra info
 		foreach my $item(@{$record->{media}}){
 			for(my $i = 0;$i<scalar(@{$item->{file}});$i++){
@@ -132,6 +141,10 @@ sub execute{
 				print "\tcopying $item->{file}->[$i]->{path} to $newpath\n";
 				copy($item->{file}->[$i]->{path},$newpath);
 				$item->{file}->[$i]->{path}=$newpath;
+				if($self->file_prefix_url){
+					$item->{file}->[$i]->{url} = $self->file_prefix_url."/$subpath";
+					print "\t url is $item->{file}->[$i]->{url}\n";
+				}
 			}
 			foreach my $key(keys %{$item->{devs}}){
 				my $subpath = $self->choose_path."/".basename($item->{devs}->{$key}->{path});

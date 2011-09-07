@@ -4,7 +4,7 @@ database:
   class: "Catmandu::Store::Merge"
   args:
    patha: "../data/metadata.db"
-   pathb: "/tmp/media-out.db"
+   pathb: "../data/media.db"
  columns:
   class: "Catmandu::Store::Simple"
   args:
@@ -57,12 +57,32 @@ middleware:
     Image:
      thumbnail:
       HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_thumbnail.jpg"
+       url: "/images/icons/image_not_available_thumbnail.jpg"
+       width: 150
+       height: 113
      small:
       HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_small.jpg"
+       url: "/images/icons/image_not_available_small.jpg"
+       width: 300 
+       height: 225
      medium:
       HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_medium.jpg"
+       url: "/images/icons/image_not_available_medium.jpg"
+       width: 400
+       height: 300
      large:
       HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_medium.jpg"
+       url: "/images/icons/image_not_available_medium.jpg"
+       width: 400
+       height: 300
      zoomer:
       HandlingPackage: "openURL::Service::Image::IIP"
       Server: "/iip"
@@ -70,14 +90,29 @@ middleware:
     Video:
      thumbnail:
       HandlingPackage: "openURL::Service::Image::Size"
-     small:
-      HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_thumbnail.jpg"
+       url: "/images/icons/image_not_available_thumbnail.jpg"
+       width: 150
+       height: 113
      videolink:
       HandlingPackage: "openURL::Service::Video::Link"
       Template: "tt/videolink"
      videostreaming:
       HandlingPackage: "openURL::Service::Video::Streaming"
       Template: "tt/videostreaming"
+    Audio:
+     thumbnail:
+      HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_thumbnail.jpg"
+       url: "/images/icons/image_not_available_thumbnail.jpg"
+       width: 150
+       height: 113
+     audiostreaming: 
+      HandlingPackage: "openURL::Service::Audio::Streaming"
+      Template: "tt/audiostreaming2"
+      Streamer: 'rtmp://localhost:1935/flvplayback'
   app:
    path: "/app"
    types:

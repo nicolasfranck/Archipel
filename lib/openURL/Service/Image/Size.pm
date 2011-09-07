@@ -14,10 +14,14 @@ sub handle{
         my $file = $record->{media}->[$opts->{item_id} - 1]->{devs}->{$opts->{svc_id}};
         my $key;
         my $value;
+	my $context = $record->{media}->[$opts->{item_id} - 1]->{context};
         if(not defined($file)){
 		return {
-			env => [{key=>'plack.xsend.url',value=>'/notfound/image_not_available.jpg'}]
-		},200,undef;
+			env => [{
+				key => 'plack.xsend.url',
+				value=> Catmandu->conf->{middleware}->{openURL}->{resolve}->{context}->{$context}->{$opts->{svc_id}}->{MissingImage}->{url}
+			}]
+		},302,undef;
         }
 	if($file->{no_proxy}){
 		return {env=>[{

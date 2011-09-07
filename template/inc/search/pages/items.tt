@@ -11,8 +11,10 @@
 			</a>
 		[% END %]
 	        <div class="imgholder">
-
 	                [% thumb = item.devs.thumbnail %]
+			[% IF !(thumb.defined && thumb.path.defined) %]
+                        	[% thumb = conf.middleware.openURL.resolve.context.${item.context}.thumbnail.MissingImage %]
+                        [% END %]
 	                [% width = thumb.width %]
 	                [% height = thumb.height %]
 	                [% wratio = 1 %][% hratio = 1 %]

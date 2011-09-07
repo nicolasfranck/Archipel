@@ -1,4 +1,4 @@
-package Catmandu::Cmd::Unbag::Video;
+package Catmandu::Cmd::Unbag::Video::MP4;
 use strict;
 use parent qw(Catmandu::Cmd::Unbag);
 
@@ -25,7 +25,7 @@ my $config = {
 		'-r' => 25,
 		'-g' => 50,
 		'-s' => '640x480',
-		'-acodec' => 'libfaac',
+		'-acodec' => 'libmp3lame',
 		'-ab' => 64000,
 		'-ac' => 1		
 	},
@@ -33,7 +33,7 @@ my $config = {
 		codec => 'h264',fps => 25,width=>640,height=>480
 	},
 	check_audio => {
-                codec => 'aac',bit_rate => 64000,channels => 1
+                codec => 'mp3',bit_rate => 64000,channels => 1
         }
 };
 #attributen
@@ -223,9 +223,7 @@ sub create_file {
         }
 	my $file_info= {
 		file=>$out,info=>$self->exif->ImageInfo($out),
-		file_sublocation => "$sublocation/".$opts->{outname}.".mp4"
 	};
-	$file_info->{url} = $opts->{data_prefix_url}.$file_info->{file_sublocation} if($opts->{data_prefix_url});
 	return $file_info;
 }
 sub create_dev {
@@ -253,8 +251,6 @@ sub create_devs {
 		$self->print("[VIDEO] $opts->{in} -> $out [JPEG $type]\n");
 		my $i = $self->create_dev($opts->{in},$out,$type);
 		return undef if $self->err;
-		$i->{file_sublocation} = "$sublocation/".$opts->{outname}."_$type.jpeg";
-		$i->{url} = $opts->{thumb_prefix_url}."/".$i->{file_sublocation} if defined($opts->{thumb_prefix_url});
 		$devs_info->{$type}=$i;
 	}
 	return $devs_info;
@@ -265,28 +261,24 @@ sub make_item {
 	my $item = {
 		file => [{
 			%$stat_properties,
-                        url => $file_info->{url},
                         content_type => $file_info->{info}->{MIMEType},
                         width => $file_info->{info}->{ImageWidth},
                         height => $file_info->{info}->{ImageHeight},
-                        tmp_sublocation => $file_info->{file_sublocation}
                 }],
                 context => 'Video',
 		services => [
                         "thumbnail",
                         "small",
-                        "stream"
+                        "videostreaming"
                 ]
 	};
 	foreach my $type(keys %$devs_info){
 		$stat_properties = $self->stat_properties($devs_info->{$type}->{file});
 		$item->{devs}->{$type} = {
 			%$stat_properties,
-                        url => $devs_info->{$type}->{url},
                         content_type => $devs_info->{$type}->{info}->{MIMEType},
                         width => $devs_info->{$type}->{info}->{ImageWidth},
                         height => $devs_info->{$type}->{info}->{ImageHeigth},
-                        tmp_sublocation => $devs_info->{$type}->{file_sublocation}
                 };
 	}
 	return $item;
