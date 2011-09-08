@@ -1,5 +1,6 @@
 package PeepShow::xml;
 use Catmandu::App;
+use XML::Simple;
 
 use parent qw(PeepShow::App::Common PeepShow::App::Marc);
 

@@ -4,12 +4,12 @@ use strict;
 use Catmandu::Store::Simple;
 
 my $re = qr/^oai\:archipel\-project\.be\:/;
-my $in = Catmandu::Store::Simple->new(path=>$ENV{HOME}."/data/media.db.has.vti");
-my $out = Catmandu::Store::Simple->new(path=>$ENV{HOME}."/data/media.db");
+my $in = Catmandu::Store::Simple->new(path=>$ENV{HOME}."/input_metadata.db");
+my $out = Catmandu::Store::Simple->new(path=>$ENV{HOME}."/data/metadata.db");
 $in->each(sub{
 	my $record = shift;
 	if($record->{_id} =~ $re){
 		print $record->{_id}."\n";
-		$out->save($record) if defined($record->{media});
+		$out->save($record);
 	}
 });
