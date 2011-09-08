@@ -181,9 +181,10 @@ sub execute{
 	$self->cancel if(!$self->confirm($iterator->resumptionToken->completeListSize));
 	while(my $record = $iterator->next){
 		print $record->header->identifier."\n";
-		next if $self->_media->load($record->header->identifier);
-		my $new_metadata_record = $self->make_metadata_record($record);
-		print Dumper($new_metadata_record);
+		print Dumper($record->metadata);
+		#next if $self->_media->load($record->header->identifier);
+		#my $new_metadata_record = $self->make_metadata_record($record);
+		#print Dumper($new_metadata_record);
 		#my($new_media_record,$errmsg) = $self->make_media_record($record);
 		#if(defined($errmsg)){
 		#	print "\terror:$errmsg\n";

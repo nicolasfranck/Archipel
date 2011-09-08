@@ -18,7 +18,7 @@ any([qw(get post)],'',sub{
 	}
 });
 sub json {
-	shift->stash->{json} ||= JSON->new->pretty(1);
+	$_[0]->stash->{json} ||= JSON->new->pretty(1);
 }
 
 __PACKAGE__->meta->make_immutable;

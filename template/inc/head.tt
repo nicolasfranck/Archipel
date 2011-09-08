@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
 <meta http-equiv="Cache-Control" content="public" />
 <link type="image/x-icon" href="[% conf.all.rooturl %]/images/icons/ugent_theme_favicon.png" rel="shortcut icon">
+<script type="text/javascript" src="[% conf.all.rooturl %]/js/array.prototypes.js"></script>
 <script type="text/javascript" src="[% conf.all.rooturl %]/js/json.js"></script>
 <script type="text/javascript" src="[% conf.all.rooturl %]/js/jquery-1.4.4-min.js"></script>
 <script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>

@@ -74,9 +74,9 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	var sparql_q;
 	var sparql_base_url = "[% conf.app.search.sparql.server %]";
 	var sparql;
-	var sparql_div_id = "#sparql_div";
-	var sparql_images_div_id = sparql_div_id+" #images";
-	var sparql_paging_div_id = sparql_div_id+" #paging";
+	var sparql_div_id = "sparql_div";
+	var sparql_images_div_id = "#"+ sparql_div_id+" #images";
+	var sparql_paging_div_id = "#"+ sparql_div_id+" #paging";
 	var sparql_count_results = 0;
 	var offset = 0;
 	var limit = 5;
@@ -141,13 +141,14 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	}
 	//callbacks
 	function sparql_q_count_callback_failure(data){
+		$(sparql_images_div_id).html("Could not retrieve information from the sparql-server");
         }
 	function sparql_q_count_callback_success(num){
                 sparql_count_results = num;
 		set_sparqle_paging_div();
         }
 	function sparql_q_callback_failure(data){
-                document.getElementById(sparql_div_id).innerHTML = data;
+		 $(sparql_images_div_id).html("Could not retrieve information from the sparql-server");
         }
         function sparql_q_callback_success(json){
 		set_sparqle_images_div(json);
@@ -243,7 +244,8 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	//functie op te laden
 	$(document).ready(function(){
 		init_sparql(sparql_base_url);
-
+		if(!sparql)return;
+		console.log(sparql);
 		set_sparql_q_count(queries[fields[field_index_selected]]);
 		set_sparql_paging(sparql_q_count);
 		set_sparql_q(queries[fields[field_index_selected]]);

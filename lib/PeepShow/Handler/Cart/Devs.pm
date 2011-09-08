@@ -7,6 +7,7 @@ use Try::Tiny;
 use PeepShow::Resolver::DB;
 use List::MoreUtils qw(first_index indexes);
 
+
 sub new {
 	my($class,%opts)=@_;
 	my $stash = $opts{stash};
@@ -153,8 +154,13 @@ sub handleRecord{
 					$newobj->{marked}=0;
 					$newobj->{title}=$hit->{title};
 					$newobj->{poster_item_id} = $hit->{poster_item_id};
-					$newobj->{posterwidth}=$hit->{media}->[$hit->{poster_item_id} - 1]->{devs}->{thumbnail}->{width};
-					$newobj->{posterheight}=$hit->{media}->[$hit->{poster_item_id} - 1]->{devs}->{thumbnail}->{height};
+					my $thumb = $hit->{media}->[$hit->{poster_item_id} - 1]->{devs}->{thumbnail};
+					if(!(defined($thumb) && defined($thumb->{path}))){
+						my $context = $hit->{media}->[$hit->{poster_item_id} - 1]->{context};
+						$thumb = Catmandu->conf->{middleware}->{openURL}->{resolve}->{context}->{$context}->{thumbnail}->{MissingImage}; 
+					}
+					$newobj->{posterwidth}=$thumb->{width};
+					$newobj->{posterheight}=$thumb->{height};
 					$newobj->{added}=time;
 					$newobj->{numitems}=scalar(@{$hit->{media}});
 				}else{

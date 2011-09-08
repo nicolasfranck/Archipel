@@ -122,6 +122,7 @@ middleware:
      mapping:
       Image: "zoomer"
       Video: "videostreaming"
+      Audio: "audiostreaming"
 app:
  facet:
   index:
