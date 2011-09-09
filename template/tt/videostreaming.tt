@@ -18,6 +18,7 @@
 	<div id="player">
 		<img src="[% hash.thumbnail.url %]" />
 	</div>
+	<script type="text/javascript" src="[% hash.rooturl %]/js/array.prototypes.js"></script>
 	<script type="text/javascript" src="[% hash.rooturl %]/js/jquery-1.4.4-min.js"></script>
 	<script type="text/javascript" src="[% hash.rooturl %]/js/jwplayer/jwplayer.js"></script>
 	<script type="text/javascript">

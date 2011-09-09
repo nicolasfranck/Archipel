@@ -4,3 +4,5 @@ template:
  PRE_CHOMP: 3
  POST_CHOMP: 3
  PRIVATE: 0
+ TRIM: 1
+ CACHE_SIZE: 64

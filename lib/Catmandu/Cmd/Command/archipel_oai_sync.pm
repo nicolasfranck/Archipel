@@ -178,19 +178,34 @@ sub execute{
 		exit(1);
 	}
 	$self->cancel if(!$self->confirm($iterator->resumptionToken->completeListSize));
+	my $found = 0;
+	my $imported = 0;
+	my $num_errs = 0;
 	while(my $record = $iterator->next){
-		print $record->header->identifier."\n";
-		next if $self->_media->load($record->header->identifier);
+		print $record->header->identifier;
+		$found++;
+                if($record->header->status eq "deleted"){
+                        print " marked as deleted, skipping\n";
+                        next;
+                }
+		if($self->_media->load($record->header->identifier)){
+			print " already in media database, skipping\n";
+			next;
+		}
+		print "\n";
 		my $new_metadata_record = $self->make_metadata_record($record);
 		my($new_media_record,$errmsg) = $self->make_media_record($record);
 		if(defined($errmsg)){
+			$num_errs++;
 			print "\terror:$errmsg\n";
 			print "\tskipping this record\n";
 		}
 		$self->_metadata->save($new_metadata_record);
 		$self->_media->save($new_media_record);
 		$self->_index->save($self->make_index_merge($new_metadata_record,$new_media_record));
+                $imported++;
 	}
+	print "$found records found, $imported records imported, $num_errs errors\n";
 }
 sub cancel {
 	my $self = shift;
