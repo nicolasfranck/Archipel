@@ -1,11 +1,13 @@
 //This prototype is provided by the Mozilla foundation and
 //is distributed under the MIT license.
 //http://www.ibiblio.org/pub/Linux/LICENSES/mit.license
-if(typeof Array.prototype.map !== 'function') {
-	Array.prototype.map = function(fn) {
-		for(i=0, r=[], l = this.length; i < l; r.push(fn(this[i++])));
-		return r;
-	};
+if(!Array.prototype.map) {
+        Array.prototype.map= function(mapper, that /*opt*/) {
+                var other= new Array(this.length);
+                for (var i= 0, n= this.length; i<n; i++)if (i in this)other[i]= mapper.call(that, this[i], i, this);
+                return other;
+        };
+
 }
 if (!Array.prototype.some)
 {

@@ -4,7 +4,7 @@ use parent qw(Rft);
 sub new {
 	my($class)=@_;
 	my $self = $class->SUPER::new;
-	$self->{_re} = qr/^([\w_\-]+_AC)$/;
+	$self->{_re} = qr/^([\w_\-]+(\.\w+)?)$/;
 	$self->is_id(0);
 	bless $self,$class;
 }
@@ -20,9 +20,12 @@ sub parse {
 		$self->error("FORMAT_ERROR");
 		return 0;
 	}
-	#BHSL_2009_0001_AC => BHSL_????_0001_AC
+	#BHSL_2009_0001_AC(.ext) => BHSL_????_0001_AC
+	#hint => BHSL
+	#item_id => 1
+	#query => files: BHSL_????_0001_AC*
 	my $catch = $1;
-	$catch =~ s/^([\w_\-]+)_\d{4}_(\d{4})_AC$/\1_????_\2_AC/;
+	$catch =~ s/^([\w_\-]+)_\d{4}_(\d{4})_AC(?:\.\w+)?$/\1_????_\2_AC*/;
 	$self->hint($1);
 	$self->item_id(int($2));
         $self->query("files:$catch");

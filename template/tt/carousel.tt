@@ -152,10 +152,12 @@
 </head>
 <body>
 [% IF hash.rels.size > 0 %]
-	[% hash.item_id = 1 %]
-	[% item_index = hash.item_id - 1 %]
-	[% rel = hash.rels.${item_index} %]
-	[% service = hash.openURL.app.types.carousel.mapping.${rel.context} %]
+	[% 
+		hash.item_id = 1;
+		item_index = hash.item_id - 1;
+		rel = hash.rels.${item_index};
+		service = hash.openURL.app.types.carousel.mapping.${rel.context} 
+	%]
 	<div id="overlay" style="position:fixed;z-index:200;background-color:black;width:100%;height:100%;">
                 <img src="[% hash.rooturl %]/images/icons/logo-boekentoren-invert.png" style="position: absolute;top: 50%; left: 50%;margin-left:-61px;margin-top:-50px" alt="loading"/>
                 <div style="position:absolute;top:50%;left:50%;margin-top:65px;margin-left:-61px;color:#DDDDDD;text-align:center;width:122px;">loading..</div>

@@ -5,4 +5,6 @@ template:
  POST_CHOMP: 3
  PRIVATE: 0
  TRIM: 1
- CACHE_SIZE: 64
+ #CACHE_SIZE: 64
+ #COMPILE_DIR: "/tmp/templates"
+ #COMPILE_EXT: ".ttc"
