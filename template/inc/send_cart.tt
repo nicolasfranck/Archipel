@@ -1,7 +1,7 @@
 <script type="text/javascript" src="[% conf.all.rooturl %]/js/cart.peepshow.js"></script>
 <script type="text/javascript">
         var messages=[];
-        var rooturl = "[% conf.all.rooturl %]";
+        var originurl = "[% conf.all.originurl %]";
         var locked = false;
         var msg_elements_in_cart = "[% tt_title_elements_in_cart %]";
 	function unlock(){
@@ -13,7 +13,7 @@
                         method:["ajax","post"],
                         event:"change",
                         attributes:["rft_id"],
-                        dest_url:rooturl+"/cart",
+                        dest_url:originurl+"/cart",
                         args:{getnum:"1",getsize:"1",getstash:"1"}
                 });
                 $('#cart').hover(function(e){
@@ -23,7 +23,7 @@
                         locked = true;
                         $.ajax({
                                 type:'post',
-                                url:rooturl+'/cart',
+                                url:originurl+'/cart',
                                 data:{"getnum":"1"},
                                 dataType:'json',
                                 ifModified:true,

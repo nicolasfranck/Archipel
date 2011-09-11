@@ -69,10 +69,11 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
         var queries = JSON.parse("[% queries.to_json().escape_quotes() %]");
 	var field_index_selected = 0;
         var rooturl = "[% conf.all.rooturl %]";
+	var originurl = "[% conf.all.originurl %]";
 	var sparql_base_q = "[% sparql_base_q %]";
 	var sparql_base_q_count = "[% sparql_base_q_count %]";
 	var sparql_q;
-	var sparql_base_url = "[% conf.app.search.sparql.server %]";
+	var sparql_base_url = "[% conf.all.originurl _ conf.app.search.sparql.server %]";
 	var sparql;
 	var sparql_div_id = "sparql_div";
 	var sparql_images_div_id = "#"+ sparql_div_id+" #images";
@@ -201,8 +202,8 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 			av_icon.setAttribute("title","watch");
 
 			var av_media_link = document.createElement("a");
-			var video_player_url = rooturl+"/videostreaming/external?";
-			video_player_url+="&thumbnail_url="+encodeURIComponent(json["image"][i]);
+			var video_player_url = originurl+"/videostreaming/external?";
+			video_player_url+="thumbnail_url="+encodeURIComponent(json["image"][i]);
 			video_player_url+="&video_url="+encodeURIComponent(json["av"][i]);
 			av_media_link.setAttribute("href",video_player_url);
 			av_media_link.setAttribute("target","_blank");

@@ -1,4 +1,4 @@
-package Catmandu::Cmd::Unbag::Video::MP4;
+package Catmandu::Cmd::Unbag::MP4;
 use strict;
 use parent qw(Catmandu::Cmd::Unbag);
 
@@ -25,7 +25,7 @@ my $config = {
 		'-r' => 25,
 		'-g' => 50,
 		'-s' => '640x480',
-		'-acodec' => 'libmp3lame',
+		'-acodec' => 'libfaac',
 		'-ab' => 64000,
 		'-ac' => 1		
 	},
@@ -33,7 +33,7 @@ my $config = {
 		codec => 'h264',fps => 25,width=>640,height=>480
 	},
 	check_audio => {
-                codec => 'mp3',bit_rate => 64000,channels => 1
+                codec => 'aac',bit_rate => 64000,channels => 1
         }
 };
 #attributen

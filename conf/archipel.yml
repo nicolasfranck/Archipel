@@ -24,7 +24,8 @@ all:
   store:
    dir: "/tmp/sessions/archipel"
  allowed_range: "127.0.0.*"
- rooturl: "http://localhost"
+ rooturl: "http://localhost:81"
+ originurl: "http://localhost/meercat/x/images"
  ip: "127.0.0.1"
  logfile: "/tmp/peepshow.log"
  captcha:
@@ -95,12 +96,34 @@ middleware:
        url: "/images/icons/image_not_available_thumbnail.jpg"
        width: 150
        height: 113
+     small:
+      HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_small.jpg"
+       url: "/images/icons/image_not_available_small.jpg"
+       width: 300
+       height: 225
+     medium:
+      HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_medium.jpg"
+       url: "/images/icons/image_not_available_medium.jpg"
+       width: 400
+       height: 300
+     large:
+      HandlingPackage: "openURL::Service::Image::Size"
+      MissingImage:
+       path: "htdocs/images/icons/image_not_available_medium.jpg"
+       url: "/images/icons/image_not_available_medium.jpg"
+       width: 400
+       height: 300
      videolink:
       HandlingPackage: "openURL::Service::Video::Link"
       Template: "tt/videolink"
      videostreaming:
       HandlingPackage: "openURL::Service::Video::Streaming"
       Template: "tt/videostreaming"
+      Streamer: 'rtmp://localhost:1935/flvplayback'
     Audio:
      thumbnail:
       HandlingPackage: "openURL::Service::Image::Size"

@@ -1,10 +1,7 @@
 jQuery(document).ready(function(){
-	var options = {
-                "flashplayer": flashplayer,
+	var default_options = {
                 "width": "400",
                 "height": "300",
-                "provider": streaming_provider,
-                "file": url,
                 /*
                         controlbar wordt enkel getoond in de volgende situaties: gebruiker beweegt met muis over de video
                         andere situaties: 
@@ -33,8 +30,6 @@ jQuery(document).ready(function(){
                         Javascript API
                 */
         };
-        jwplayer("player").setup(options);
+	jQuery.extend(default_options,options);
+        jwplayer("player").setup(default_options);
 });
-function getPlayer(){
-        //return player;
-}

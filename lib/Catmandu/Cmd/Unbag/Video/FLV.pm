@@ -278,7 +278,7 @@ sub make_item {
 			%$stat_properties,
                         content_type => $devs_info->{$type}->{info}->{MIMEType},
                         width => $devs_info->{$type}->{info}->{ImageWidth},
-                        height => $devs_info->{$type}->{info}->{ImageHeigth},
+                        height => $devs_info->{$type}->{info}->{ImageHeight},
                 };
 	}
 	return $item;

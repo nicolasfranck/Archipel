@@ -1,10 +1,10 @@
 <div id="search">
-	<form method="get" action="[% conf.all.rooturl %]" accept-charset="UTF-8">			
+	<form method="get" action="[% conf.all.originurl %]" accept-charset="UTF-8">			
 		<input type="text" id="q" name="q" size="50" value="[% params.q | html %]" />
 		<input type="submit" name="submit" value="zoek" />
 		<input type="hidden" name="confirm_search" value="1" />
 		<input type="hidden" name="language" value="[% args.language %]" />
-		&nbsp;<a href="[% conf.all.rooturl %]?search_type=advanced&amp;language=[% args.language %]">[% tt_title_form_normal_search_advanced %]</a>
-		<a href="[% conf.all.rooturl %]/googlemaps?language=[% args.language %]">[% tt_title_form_normal_googlemaps %]</a>
+		&nbsp;<a href="[% conf.all.originurl %]?search_type=advanced&amp;language=[% args.language %]">[% tt_title_form_normal_search_advanced %]</a>
+		<a href="[% conf.all.originurl %]/googlemaps?language=[% args.language %]">[% tt_title_form_normal_googlemaps %]</a>
 	</form>
 </div>

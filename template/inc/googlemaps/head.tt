@@ -2,7 +2,7 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="[% conf.all.rooturl %]/js/array.prototypes.js"></script>
 <script type="text/javascript">
-	var url = "[% conf.all.rooturl %]?q=";
+	var url = "[% conf.all.originurl %]?q=";
 	var only_belgium = "[% tt_term_googlemaps_only_belgium %]";
 	var no_places_found = "[% tt_term_googlemaps_no_places_found %]";
 	var search_for = "[% tt_term_googlemaps_search_for %]";

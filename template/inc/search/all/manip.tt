@@ -1,6 +1,6 @@
 [% metadata = conf.language.${args.language}.record %]
 <div class="manip">
-	<form method="get" id="manip_form" action="" accept-charset="UTF-8">
+	<form method="get" id="manip_form" action="[% conf.all.originurl %]" accept-charset="UTF-8">
 		[% tt_title_search_manip_sort %]:&nbsp;
 		<select name="sort" onchange="document.getElementById('manip_form').submit();">
 			<option value="">[% tt_title_search_manip_sort_default %]</option>

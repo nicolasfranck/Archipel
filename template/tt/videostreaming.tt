@@ -15,17 +15,28 @@
 		</style>
 	</head>
 <body>
-	<div id="player">
-		<img src="[% hash.thumbnail.url %]" />
-	</div>
+	<div id="player"></div>
 	<script type="text/javascript" src="[% hash.rooturl %]/js/array.prototypes.js"></script>
 	<script type="text/javascript" src="[% hash.rooturl %]/js/jquery-1.4.4-min.js"></script>
 	<script type="text/javascript" src="[% hash.rooturl %]/js/jwplayer/jwplayer.js"></script>
 	<script type="text/javascript">
-		var streaming_provider = "[% hash.streaming_provider %]";
-		var url = "[% hash.url %]";
-		var flashplayer = "[% hash.rooturl %]/flash/jwplayer/player.swf";				
-	</script>
+		[% 
+			IF hash.file.0.url.defined && hash.file.0.url.grep('^http:\/\/').size > 0;
+				provider = "http";	
+				file = hash.file.0.url;
+			ELSE;
+				provider = "rtmp";
+				file = hash.file.0.path;
+				streamer = hash.streamer;
+			END;
+		%]
+                var options = {
+                        "provider":"[% provider %]",
+                        "file":"[% file %]",
+                        "streamer":"[% streamer %]",
+                        "flashplayer":"[% hash.rooturl %]/flash/jwplayer/player.swf"
+                };
+        </script>
 	<script type="text/javascript" src="[% hash.rooturl %]/js/videostreaming.js"></script>
 </body>
 </html>

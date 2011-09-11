@@ -1,6 +1,6 @@
 [% metadata = conf.language.${args.language}.record %]
 <div id="search_advanced">
-	<form method="get" action="[% conf.all.rooturl %]" accept-charset="UTF-8">
+	<form method="get" action="[% conf.all.originurl %]" accept-charset="UTF-8">
 	<table>	
 		<tr>
 			<th class="title" colspan="3">

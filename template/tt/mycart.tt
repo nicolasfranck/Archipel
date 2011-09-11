@@ -12,7 +12,7 @@
 		<div class="page_title">[% tt_title_mycart %]</div>		
 		[% IF params.action == 'mail' %]
 			<div class="band" id="mail">
-				<form method="post" action="[% conf.all.rooturl %]/mycart" accept-charset="UTF-8">
+				<form method="post" action="[% conf.all.originurl %]/mycart" accept-charset="UTF-8">
 					<table>
 					[% FOREACH message IN args.messages %]
 						[% IF message.msg == 'SENDMAIL_SUCCESS' %]
@@ -66,14 +66,14 @@
 			<div id="mycart">
 				<div id="dashboard">
 					<ul> 
-						<li><a href="[% conf.all.rooturl %]/mycart?action=clear&amp;language=[% args.language %]" onclick="return confirm_delete_cart()">[% tt_title_mycart_empty_cart %]</a></li>
-						<li><a href="[% conf.all.rooturl %]/mycart?action=mail&amp;language=[% args.language %]">[% tt_title_mycart_mail_cart %]</a></li>
+						<li><a href="[% conf.all.originurl %]/mycart?action=clear&amp;language=[% args.language %]" onclick="return confirm_delete_cart()">[% tt_title_mycart_empty_cart %]</a></li>
+						<li><a href="[% conf.all.originurl %]/mycart?action=mail&amp;language=[% args.language %]">[% tt_title_mycart_mail_cart %]</a></li>
 					</ul>
 				</div>
 				<div id="media">
 					[% FOREACH record IN args.records %]
 					<div class="block shadow">
-						[% SET u = conf.all.rooturl _ "/view?q=id:\"" _ record.rft_id _ "\"&amp;language=" _ args.language %]
+						[% SET u = conf.all.originurl _ "/view?q=id:\"" _ record.rft_id _ "\"&amp;language=" _ args.language %]
 						<div class="imgholder" onclick="window.location.href='[% u | url %]'">
 							[% wratio = 1 %]
 							[% hratio = 1 %]

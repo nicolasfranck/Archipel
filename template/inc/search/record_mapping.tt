@@ -1,5 +1,5 @@
 [% BLOCK print_link %]
-	[% link = conf.all.rooturl _ "?q=" _ q_key _ ":\"" _ q_val _ "\"&amp;language=" _ args.language %]
+	[% link = conf.all.originurl _ "?q=" _ q_key _ ":\"" _ q_val _ "\"&amp;language=" _ args.language %]
 	<a href="[% link | url %]">[% link_val %]</a>
 [% END %]
 <table class="rft">							

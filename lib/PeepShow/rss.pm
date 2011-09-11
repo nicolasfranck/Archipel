@@ -8,6 +8,11 @@ use XML::RSS;
 use List::MoreUtils qw(first_index);
 use PeepShow::Handler::Query::Parser;
 
+my $openurl_path = Catmandu->conf->{middleware}->{openURL}->{path} || "/openURL";
+my $resolve_path = Catmandu->conf->{middleware}->{openURL}->{resolve}->{path} || "/resolve";
+my $openurl_resolve_path = $openurl_path.$resolve_path;
+my $openurl_resolve_version = Catmandu->conf->{middleware}->{openURL}->{resolve}->{version};
+
 any([qw(get post )],'',sub{
 	my $self = shift;
 	my $params = $self->request->parameters;
@@ -25,7 +30,7 @@ any([qw(get post )],'',sub{
         	#channel
 	        $rss->channel(
         	        title => "$q - Universiteitsbibliotheek - GRIM",
-                	link => Catmandu->conf->{all}->{rooturl}."?q=$q",
+                	link => Catmandu->conf->{all}->{originurl}."?q=$q",
 	                description => "Zoekresultaten voor \"$q\" in de GRIM",
 			"opensearch" => {
         	        	"totalResults" => $totalhits,
@@ -39,13 +44,13 @@ any([qw(get post )],'',sub{
 			foreach my $item(@{$hit->{media}}){
         	 	       $contexts->{$item->{context}}++;
 	        	}
-			my $context_description = join ',',map {lc($_)."s (".lc($contexts->{$_}).")"} keys %$contexts;
+			my $context_description = join(',',map { lc($_)."s (".$contexts->{$_}.")" } keys %$contexts);
 			$rss->add_item(
 				title=> $hit->{title}->[0],
-				link => Catmandu->conf->{all}->{rooturl}."/view?q=".$hit->{_id},
+				link => Catmandu->conf->{all}->{originurl}."/view?q=".$hit->{_id},
 				guid => $hit->{_id},
 				enclosure => {
-					url => Catmandu->conf->{all}->{rooturl}."/OpenURL/resolve?rft_id=".$hit->{_id}.":1&svc_id=thumbnail&url_ver=".Catmandu->conf->{app}->{openURL}->{version},
+					url => Catmandu->conf->{all}->{rooturl}."${openurl_resolve_path}?rft_id=".$hit->{_id}.":1&svc_id=thumbnail&url_ver=$openurl_resolve_version",
 					length => $hit->{media}->[0]->{devs}->{thumbnail}->{size},
 					type => $hit->{media}->[0]->{devs}->{thumbnail}->{content_type}
 				},
