@@ -120,7 +120,6 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 		sparql_q = sparql_base_q.replace('%offset',offset);
 		sparql_q = sparql_q.replace('%limit',limit);
 		sparql_q = sparql_q.replace("%lucene_query",escape_query(q_string));
-		console.log(sparql_q);
 	}
 	function set_sparql_q_count(q_string){
                 sparql_q_count = sparql_base_q_count.replace('%lucene_query',escape_query(q_string));
@@ -176,7 +175,6 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
                 }
 	}
 	function set_sparqle_images_div(json){
-		console.log(json);
 		var div_images = $(sparql_images_div_id);
 		div_images.html("");
 		if(json["image"].length==0){
@@ -246,7 +244,6 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	$(document).ready(function(){
 		init_sparql(sparql_base_url);
 		if(!sparql)return;
-		console.log(sparql);
 		set_sparql_q_count(queries[fields[field_index_selected]]);
 		set_sparql_paging(sparql_q_count);
 		set_sparql_q(queries[fields[field_index_selected]]);
