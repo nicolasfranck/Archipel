@@ -23,7 +23,7 @@ all:
  session:
   store:
    dir: "/tmp/sessions/archipel"
- allowed_range: "127.0.0.*"
+ allowed_range: "127.0.*.*"
  rooturl: "http://localhost:81"
  originurl: "http://localhost/meercat/x/images"
  ip: "127.0.0.1"
@@ -51,7 +51,7 @@ middleware:
    acls:
     - class: "Acl::VPN"
       args:
-       allowed_range: "127.0.0.*"
+       allowed_range: "127.0.*.*"
    aliases:
     zoomer_fullscreen: "zoomer"
    context:

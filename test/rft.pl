@@ -12,11 +12,3 @@ $parser->parse($rft_id);
 print "query => ".$parser->query."\n";
 print "item_id => ".$parser->item_id."\n";
 print "hint => ".$parser->hint."\n";
-
-my $a = {
-	a => 1,
-	b => 2
-};
-my $ref = \$a->{a};
-print "$ref\n";
-print "$$ref\n";

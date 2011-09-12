@@ -70,7 +70,7 @@ any([qw(get post)],'',sub{
 							},
 							Charset     => 'utf8',
 							TmplOptions => {INCLUDE_PATH=>Catmandu->home."/template"},
-							TmplParams  =>  {from=>$from,to=>$to,link=>Catmandu->conf->{all}->{rooturl}."/mycart?action=load&id=$newid",message=>$message}
+							TmplParams  =>  {from=>$from,to=>$to,link=>Catmandu->conf->{all}->{originurl}."/mycart?action=load&id=$newid",message=>$message}
 						);
 						my $success = $mime->send(@{Catmandu->conf->{app}->{cart}->{email}->{params}});
 						if(not $success){
