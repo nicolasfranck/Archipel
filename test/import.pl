@@ -4,7 +4,7 @@ use strict;
 use Catmandu::Store::Simple;
 
 my $re = qr/^oai\:archipel\-project\.be\:/;
-my $in = Catmandu::Store::Simple->new(path=>$ENV{HOME}."/input_metadata.db");
+my $in = Catmandu::Store::Simple->new(path=>$ENV{HOME}."/data/metadata.db.has.vti");
 my $out = Catmandu::Store::Simple->new(path=>$ENV{HOME}."/data/metadata.db");
 $in->each(sub{
 	my $record = shift;
