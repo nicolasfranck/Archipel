@@ -15,9 +15,8 @@
 		</style>
 	</head>
 <body>
-	<div id="player">
-		<img src="[% params.thumbnail_url %]" />
-	</div>
+	<div id="player"></div>
+	<script type="text/javascript" src="[% conf.all.rooturl %]/js/array.prototypes.js"></script>
 	<script type="text/javascript" src="[% conf.all.rooturl %]/js/jquery-1.4.4-min.js"></script>
 	<script type="text/javascript" src="[% conf.all.rooturl %]/js/jwplayer/jwplayer.js"></script>
 	<script type="text/javascript">
@@ -28,6 +27,5 @@
                 };
 	</script>
 	<script type="text/javascript" src="[% conf.all.rooturl %]/js/videostreaming.js"></script>
-	<a href="#" onclick="jwplayer();return false;" style="position:absolute;z-index:1;right:10px;top:10px;color:black;">play</a>
 </body>
 </html>

@@ -79,7 +79,6 @@ var TargetDrag = new Class({
       this.value = {'start': {}, 'now': {}};
 
       this.selection = (Browser.Engine.trident) ? 'selectstart' : 'mousedown';
-	console.log(this);
       this.bound = {
 	start: this.start.bind(this),
 	check: this.check.bind(this),

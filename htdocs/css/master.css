@@ -26,7 +26,9 @@ body {
         font-size: .8em;
 	line-height: 18px;
 }
-
+img {
+	-ms-interpolation-mode: bicubic;
+}
 p {
 	line-height: 17px;
 	margin: 11px 0 10px 0;

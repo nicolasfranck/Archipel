@@ -36,6 +36,9 @@
 	/*border:1px solid black;*/
 	overflow:hidden;
 }
+#sparql_div #images .bl .imgh img.related_image {
+	width:80px;
+}
 #sparql_div #images .bl .imgh img.av_icon {
 	position:absolute;
 	z-index:1;

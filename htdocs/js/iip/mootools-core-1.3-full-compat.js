@@ -4455,7 +4455,6 @@ var Fx = this.Fx = new Class({
 	},
 
 	step: function(){
-		console.log("in function Fx::step");
 		var time = Date.now();
 		if (time < this.time + this.options.duration){
 			var delta = this.transition((time - this.time) / this.options.duration);
@@ -4484,7 +4483,6 @@ var Fx = this.Fx = new Class({
 	},
 
 	start: function(from, to){
-		console.log("in function Fx::start");
 		if (!this.check(from, to)) return this;
 		var duration = this.options.duration;
 		this.options.duration = Fx.Durations[duration] || duration.toInt();
@@ -4538,7 +4536,6 @@ var Fx = this.Fx = new Class({
 	},
 
 	startTimer: function(){
-		console.log("in function Fx::startTimer");
 		if (this.timer) return false;
 		this.time = Date.now() - this.time;
 		this.timer = addInstance(this);
@@ -4558,14 +4555,12 @@ Fx.Durations = {'short': 250, 'normal': 500, 'long': 1000};
 var instances = {}, timers = {};
 
 var loop = function(){
-	console.log("in function loop");
 	for (var i = this.length; i--;){
 		if (this[i]) this[i].step();
 	}
 };
 
 var addInstance = function(instance){
-	console.log("in function addInstance");
 	var fps = instance.options.fps,
 		list = instances[fps] || (instances[fps] = []);
 	list.push(instance);
@@ -4637,7 +4632,6 @@ Fx.CSS = new Class({
 	//computes by a from and to prepared objects, using their parsers.
 
 	compute: function(from, to, delta){
-		console.log("in function \"compute\"");
 		var computed = [];
 		(Math.min(from.length, to.length)).times(function(i){
 			computed.push({value: from[i].parser.compute(from[i].value, to[i].value, delta), parser: from[i].parser});
@@ -4700,7 +4694,6 @@ Fx.CSS.Parsers = {
 			return ((value = value.match(/(\d+),\s*(\d+),\s*(\d+)/))) ? [value[1], value[2], value[3]] : false;
 		},
 		compute: function(from, to, delta){
-			console.log("in function Color::compute");
 			return from.map(function(value, i){
 				return Math.round(Fx.compute(from[i], to[i], delta));
 			});

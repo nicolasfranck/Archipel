@@ -73,7 +73,7 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	var sparql_base_q = "[% sparql_base_q %]";
 	var sparql_base_q_count = "[% sparql_base_q_count %]";
 	var sparql_q;
-	var sparql_base_url = "[% conf.all.originurl _ conf.app.search.sparql.server %]";
+	var sparql_base_url = "[% conf.app.search.sparql.server %]";
 	var sparql;
 	var sparql_div_id = "sparql_div";
 	var sparql_images_div_id = "#"+ sparql_div_id+" #images";
@@ -186,16 +186,30 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 			if(!json["image"][i])continue;
 			var div_block = document.createElement("div");
 			div_block.setAttribute("class","bl");
+			div_block.setAttribute("className","bl");
 			var div_imgholder = document.createElement("div");
 			div_imgholder.setAttribute("class","imgh");
-
-			var img = document.createElement("img");
-			img.setAttribute("src",json["image"][i]);
+			div_imgholder.setAttribute("className","imgh");
+			
+			var img = new Image();
+			img.src = json["image"][i];
 			img.setAttribute("title",json["title"][i]);
-			img.setAttribute("width",80);
+			if(img.width){
+				var wratio = 1;
+				var hratio = 1;
+				if(img.width > 90)wratio = 90 / img.width;
+				if(img.height > 60)hratio = 60 / img.height;
+				var ratio = hratio < wratio ? hratio:wratio;
+				img.height = img.height * ratio;
+				img.width = img.width * ratio;
+				$(img).css({"width":img.width,"height":img.height});
+			}else{
+				img.width = 80;
+			}
 		
 			var av_icon = document.createElement("img");
 			av_icon.setAttribute("class","av_icon");
+			av_icon.setAttribute("className","av_icon");
 			av_icon.setAttribute("src",rooturl+"/images/icons/Video.png");
 			av_icon.setAttribute("title","watch");
 
@@ -221,6 +235,7 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 
 			var caption = document.createElement("div");
 			caption.setAttribute("class","cp");
+			caption.setAttribute("className","cp");
 			var a_title = document.createElement("a");
 			a_title.setAttribute("href",json["doc"][i]);
                         a_title.setAttribute("title",json["doc"][i]);
@@ -232,6 +247,10 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 
 			div_images.append(div_block);
 		}
+		var clearall = document.createElement("div");
+		clearall.setAttribute("style","clear:both");
+		clearall.style.cssText = "clear:both";//voor IE
+		div_images.append(clearall);
 	}
 	//haal resultaten op voor divs
 	function set_sparql_images(q){
