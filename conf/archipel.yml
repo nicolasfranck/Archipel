@@ -156,7 +156,7 @@ app:
     - simple
     - pages
   sparql:
-   server: "/sparql-archipel"
+   server: "/meercat/x/images/sparql-archipel"
   external_metadata_fields:
    - "title"
    - "author"   

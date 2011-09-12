@@ -209,8 +209,7 @@ sub make_item {
 			%$stat_properties,
                         content_type => $file_info->{info}->{MIMEType},
                         width => $file_info->{info}->{ImageWidth},
-                        height => $file_info->{info}->{ImageHeight},
-			access => 1
+                        height => $file_info->{info}->{ImageHeight}
                 }],
                 context => 'Image',
 		services => [

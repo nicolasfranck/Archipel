@@ -12,8 +12,6 @@ extends qw(Catmandu::Cmd::Command);
 with qw(
 	Catmandu::Cmd::Opts::Grim::Store::Media
 	Catmandu::Cmd::Opts::Grim::Store::Metadata
-	Catmandu::Cmd::Opts::Grim::Index::Solr
-	Catmandu::Cmd::Opts::Grim::Index::Make
 	Catmandu::Cmd::Opts::Grim::Harvester
 );
 use Catmandu::Store::Simple;
@@ -21,6 +19,9 @@ use Catmandu::Index::Solr;
 use File::Temp;
 use Image::ExifTool;
 use Clone qw(clone);
+use Image::Magick::Thumbnail::Simple;
+use Data::UUID;
+use parent qw(Catmandu::Cmd::Stats);
 
 our @OAI_DC_ELEMENTS = qw(
     title 
@@ -39,7 +40,12 @@ our @OAI_DC_ELEMENTS = qw(
     coverage
     rights
 );
-
+my @sizes = (
+        { key => "large",min => 601,max=>10000 },
+        { key => "medium",min => 301,max => 600 },
+        { key => "small",min => 151,max=>300 },
+        { key => "thumbnail",min => 1,max => 150 }
+);
 has _metadata => (
         is => 'rw',
         isa => 'Ref',
@@ -56,14 +62,6 @@ has _media => (
                 Catmandu::Store::Simple->new(%{shift->media_arg});
         }
 );
-has _index => (
-        is => 'rw',
-        isa => 'Ref',
-        lazy => 1,
-        default => sub{
-                Catmandu::Index::Solr->new(%{shift->index_arg});
-        }
-);
 has _exif => (
 	is => 'rw',
 	isa => 'Ref',
@@ -78,6 +76,19 @@ has _ua => (
                 LWP::UserAgent->new(cookie_jar=>{});
         }
 );
+has _thumber => (
+	is => 'rw',
+	isa => 'Ref',
+	default => sub { Image::Magick::Thumbnail::Simple->new; }
+);
+sub choose_path{
+        my $self = shift;
+        my $addpath;
+        my($second,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime time;
+        $year += 1900;
+        $addpath = "$year/$mon/$mday/$hour/$min/$second";
+        return $addpath;
+}
 sub make_metadata_record {
 	my($self,$oai_record)=@_;
 	my $new_metadata_record = {};
@@ -88,19 +99,6 @@ sub make_metadata_record {
 sub make_media_record {
 	my($self,$oai_record)=@_;
 
-	my $context = ucfirst(lc($oai_record->metadata->{type}));
-	my $services = {"thumbnail"=>1,"videostreaming"=>1};
-	my $files = [];
-	my $item = {item_id=>1,context=>"Video",services=>[keys %$services]};
-
-	my $media_record= {
-		_id => $oai_record->header->identifier,
-		access => {
-			services => clone($services)
-		},
-		poster_item_id => 1,
-		media => []
-	};
 	my $still_url;
 	my $media_url;
 	#afleiden van still en media
@@ -112,47 +110,87 @@ sub make_media_record {
 		}
 	}
 
+	my $services = {"thumbnail"=>1};
+	$services->{video} = 1 if $media_url;
+	my $item = {item_id=>1,context=>"Video",services=>[keys %$services]};
+
+	my $media_record= {
+		_id => $oai_record->header->identifier,
+		access => {
+			services => clone($services)
+		},
+		poster_item_id => 1,
+		media => []
+	};
+
+	my $files = [];
 	#file downloaden en inspecteren
-	if(!defined($media_url)){
-		print "\tno url found\n";
-		return;
+	if($media_url){
+		my $response = $self->_ua->get($media_url);
+		return undef,$response->content if not $response->is_success;
+		my $tempfile = tmpnam();
+		open FILE,">$tempfile" or return undef,$!;
+		print FILE $response->content;
+		close FILE;
+		my $media_info = $self->_exif->ImageInfo($tempfile);
+		$files->[0]->{url} = $media_url;
+		$files->[0]->{width} = $media_info->{ImageWidth};
+		$files->[0]->{height} = $media_info->{ImageHeight};
+		$files->[0]->{size} = -s $tempfile;
+		$files->[0]->{content_type} = $media_info->{MIMEType};
+		unlink($tempfile) if -w $tempfile;
 	}
-	my $response = $self->_ua->get($media_url);
-        return undef,$response->content if not $response->is_success;
-        my $tempfile = tmpnam();
-        open FILE,">$tempfile" or return undef,$!;
-        print FILE $response->content;
-        close FILE;
-	my $media_info = $self->_exif->ImageInfo($tempfile);
-	$files->[0]->{url} = $media_url;
-	$files->[0]->{streaming_provider} = "http";
-	$files->[0]->{width} = $media_info->{ImageWidth};
-	$files->[0]->{height} = $media_info->{ImageHeight};
-	$files->[0]->{size} = -s $tempfile;
-	$files->[0]->{content_type} = $media_info->{MIMEType};
-	unlink($tempfile) if -w $tempfile;
 	$item->{file} = $files;
 
 	#haal still op en inspecteer (want bestaat geen metadata over)
-	my $thumbnail = {};
-        $response = $self->_ua->get($still_url);
-        return undef,$response->content if not $response->is_success;
-        $tempfile = tmpnam();
-        open FILE,">$tempfile" or return undef,$!;
-        print FILE $response->content;
-        close FILE;
-        my $still_info = $self->_exif->ImageInfo($tempfile);
+	if($still_url){
+		my $thumbnail = {};
+		my $response = $self->_ua->get($still_url);
+		return undef,$response->content if not $response->is_success;
+		my $tempfile = tmpnam();
+		open FILE,">$tempfile" or return undef,$!;
+		print FILE $response->content;
+		close FILE;
+		my $still_info = $self->_exif->ImageInfo($tempfile);
 
-	$thumbnail->{url} = $still_url;	
-	$thumbnail->{width} = $still_info->{ImageWidth};
-	$thumbnail->{height} = $still_info->{ImageHeight};
-	$thumbnail->{size} = -s $tempfile;
-        $thumbnail->{content_type} = $still_info->{MIMEType};
-	
-	$item->{devs}->{thumbnail} = $thumbnail;
-	unlink($tempfile) if -w $tempfile;
-
-
+		#welke afgeleiden kun je hieruit halen? (aanmaken of bewaren..)
+		my $devs = {};
+		my $maxlat = $still_info->{ImageWidth} > $still_info->{ImageHeight} ? $still_info->{ImageWidth} : $still_info->{ImageHeight};
+		foreach my $size(@sizes){
+			my $dev = {};
+			if($maxlat >= $size->{min} && $maxlat <= $size->{max}){
+				print "\tkeeping this for $size->{key}\n";
+				$dev->{url} = $still_url;
+				$dev->{width} = $still_info->{ImageWidth};
+				$dev->{height} = $still_info->{ImageHeight};
+				$dev->{size} = -s $tempfile;
+				$dev->{content_type} = $still_info->{MIMEType};
+			}elsif($maxlat > $size->{max}){
+				print "\tmaking $size->{key}\n";
+				my $added_path = $self->choose_path;
+				my $basename = Data::UUID->new->create_str.".jpeg";
+				my $output = "/data/thumbies/$added_path/$basename";
+				my $success = $self->_thumber->thumbnail(
+					size => $size->{max},
+					input => $tempfile,
+					output => $output
+				);	
+				if(!$success){
+					die($self->_thumber->error."\n");
+				}		
+				my $dev_info = $self->_exif->ImageInfo($output);			
+				$dev = {
+					%{$self->stat_properties($output)},
+					content_type => $dev_info->{MIMEType},
+					width => $dev_info->{ImageWidth},
+					height => $dev_info->{ImageHeight},
+					url => "http://localhost/thumbies/$added_path/$basename"
+				};
+			}
+			$item->{devs}->{$size->{key}} = $dev;
+		}
+		unlink($tempfile) if -w $tempfile;
+	}
 
 	push @{$media_record->{media}},$item;
 
@@ -177,7 +215,6 @@ sub execute{
 		printf STDERR "%15s : %s\n","errorCode",$iterator->errorString;
 		exit(1);
 	}
-	$self->cancel if(!$self->confirm($iterator->resumptionToken->completeListSize));
 	my $found = 0;
 	my $imported = 0;
 	my $num_errs = 0;
@@ -202,7 +239,6 @@ sub execute{
 		}
 		$self->_metadata->save($new_metadata_record);
 		$self->_media->save($new_media_record);
-		$self->_index->save($self->make_index_merge($new_metadata_record,$new_media_record));
                 $imported++;
 	}
 	print "$found records found, $imported records imported, $num_errs errors\n";
