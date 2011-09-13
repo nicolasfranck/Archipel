@@ -47,7 +47,7 @@ any([qw(get post )],'',sub{
 			my $context_description = join(',',map { lc($_)."s (".$contexts->{$_}.")" } keys %$contexts);
 			$rss->add_item(
 				title=> $hit->{title}->[0] || "",
-				link => Catmandu->conf->{all}->{originurl}."/view?q=".$hit->{_id},
+				link => Catmandu->conf->{all}->{originurl}."/view?q=id:\"".$hit->{_id}."\"",
 				guid => $hit->{_id},
 				enclosure => {
 					url => Catmandu->conf->{all}->{rooturl}."${openurl_resolve_path}?rft_id=".$hit->{_id}.":1&svc_id=thumbnail&url_ver=$openurl_resolve_version",

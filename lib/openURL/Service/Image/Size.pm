@@ -5,6 +5,7 @@ use Catmandu;
 
 my $ip = Catmandu->conf->{all}->{ip};
 my $rootexp = qr/^http:\/\/$ip(.*)/;
+my $localhost = qr/^http:\/\/127\.0\.0\.1(.*)/;
 
 sub new {
 	bless {},shift;
@@ -32,7 +33,7 @@ sub handle{
 	$file->{url} =~ s/localhost/127.0.0.1/;
 	# http://50.17.222.182/thumbies/mijnfoto.jpeg
         if(is_web_uri($file->{url})){
-                if($file->{url} !~ $rootexp){
+                if($file->{url} !~ $rootexp && $file->{url} !~ $localhost){
                         $key = 'plack.xsend.url';
                         $value = '/external/'.$file->{url};
                 }else{
