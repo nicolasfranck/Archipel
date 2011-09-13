@@ -34,7 +34,7 @@ sub print_files{
 	my($self,$record)=@_;
 	foreach my $item(@{$record->{media}}){
 		foreach my $file(@{$item->{file}}){
-        		print $file->{path}."\n";
+        		print $file->{path}."\n" if $file->{path};
 	       	}
 	}
 }

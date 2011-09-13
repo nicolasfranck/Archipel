@@ -134,6 +134,11 @@ sub execute{
 		#wijzig en verwijder extra info
 		foreach my $item(@{$record->{media}}){
 			for(my $i = 0;$i<scalar(@{$item->{file}});$i++){
+
+				#externe files
+				next if !$item->{file}->[$i]->{path};
+		
+				#lokale files
 				my $subpath = $self->choose_path."/".basename($item->{file}->[$i]->{path});
 				my $newpath = $self->datadir."/$subpath";
 				my $dirname = dirname($newpath);
@@ -147,6 +152,11 @@ sub execute{
 				}
 			}
 			foreach my $key(keys %{$item->{devs}}){
+
+				#externe afgeleiden
+				next if !$item->{devs}->{$key}->{path};
+
+				#lokale afgeleiden
 				my $subpath = $self->choose_path."/".basename($item->{devs}->{$key}->{path});
 				my $newpath = $self->thumbdir."/$subpath";
 				my $dirname = dirname($newpath);

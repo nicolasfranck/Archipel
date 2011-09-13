@@ -57,7 +57,7 @@ table#record table.example td{
 	text-align:right;
 }
 img#example{
-	width:180px;
+	max-width:150px;
 }
 div#imgwrapper{
 	display:block;

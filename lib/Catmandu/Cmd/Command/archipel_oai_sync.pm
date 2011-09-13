@@ -17,6 +17,7 @@ with qw(
 use Catmandu::Store::Simple;
 use Catmandu::Index::Solr;
 use File::Temp;
+use File::Path qw(mkpath);
 use Image::ExifTool;
 use Clone qw(clone);
 use Image::Magick::Thumbnail::Simple;
@@ -81,6 +82,14 @@ has _thumber => (
 	isa => 'Ref',
 	default => sub { Image::Magick::Thumbnail::Simple->new; }
 );
+has thumbdir => (
+	traits => ['Getopt'],
+        is => 'rw',
+        isa => 'Str',
+        cmd_aliases => 't',
+        documentation => "thumbdir",
+        required => 0
+);
 sub choose_path{
         my $self = shift;
         my $addpath;
@@ -101,6 +110,8 @@ sub make_media_record {
 
 	my $still_url;
 	my $media_url;
+	my $context;
+
 	#afleiden van still en media
 	foreach my $relation(@{$oai_record->metadata->{relation}}){
 		if($relation =~ /\/still/){
@@ -111,8 +122,13 @@ sub make_media_record {
 	}
 
 	my $services = {"thumbnail"=>1};
-	$services->{video} = 1 if $media_url;
-	my $item = {item_id=>1,context=>"Video",services=>[keys %$services]};
+	if($media_url){
+		$services->{videostreaming} = 1;
+		$context = "Video";
+	}else{
+		$context = "Image";
+	}
+	my $item = {item_id=>1,context=>$context,services=>[keys %$services]};
 
 	my $media_record= {
 		_id => $oai_record->header->identifier,
@@ -168,8 +184,10 @@ sub make_media_record {
 			}elsif($maxlat > $size->{max}){
 				print "\tmaking $size->{key}\n";
 				my $added_path = $self->choose_path;
-				my $basename = Data::UUID->new->create_str.".jpeg";
-				my $output = "/data/thumbies/$added_path/$basename";
+				my $basename = Data::UUID->new->create_str."_".$size->{key}.".jpeg";
+				my $thumbdir = $self->thumbdir;
+				my $output = "$thumbdir/$added_path/$basename";
+				mkpath("$thumbdir/$added_path");
 				my $success = $self->_thumber->thumbnail(
 					size => $size->{max},
 					input => $tempfile,
@@ -184,12 +202,13 @@ sub make_media_record {
 					content_type => $dev_info->{MIMEType},
 					width => $dev_info->{ImageWidth},
 					height => $dev_info->{ImageHeight},
-					url => "http://localhost/thumbies/$added_path/$basename"
 				};
 			}
 			$item->{devs}->{$size->{key}} = $dev;
 		}
 		unlink($tempfile) if -w $tempfile;
+	}else{
+		$item->{devs} = {};
 	}
 
 	push @{$media_record->{media}},$item;
@@ -208,6 +227,9 @@ sub confirm {
 }
 sub execute{
         my($self,$opts,$args)=@_;
+	if(!-d $self->thumbdir){
+		die($self->thumbdir." does not exist!\n");
+	}
 	#harvest
 	my $iterator = $self->_harvester->listAllRecords(metadataPrefix=>'oai_dc');	
 	if($iterator->errorCode){

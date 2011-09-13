@@ -125,9 +125,13 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
                 sparql_q_count = sparql_base_q_count.replace('%lucene_query',escape_query(q_string));
         }
 	//paging
+	function is_loading(){
+		$(sparql_images_div_id).html(" loading content.. ");
+	}
 	function prev(){
 		if(offset - limit < 0)return;
 		offset-=limit;
+		is_loading();
 		set_sparqle_paging_div();
 		set_sparql_q(queries[fields[field_index_selected]]);
 		set_sparql_images(sparql_q);
@@ -135,7 +139,8 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	function next(){
 		if(offset + limit >= sparql_count_results)return;
 		offset+=limit;
-		set_sparqle_paging_div();
+		is_loading();
+		set_sparqle_paging_div();	
 		set_sparql_q(queries[fields[field_index_selected]]);
 		set_sparql_images(sparql_q);
 	}
@@ -263,6 +268,7 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 	$(document).ready(function(){
 		init_sparql(sparql_base_url);
 		if(!sparql)return;
+		is_loading();
 		set_sparql_q_count(queries[fields[field_index_selected]]);
 		set_sparql_paging(sparql_q_count);
 		set_sparql_q(queries[fields[field_index_selected]]);

@@ -46,15 +46,15 @@ any([qw(get post )],'',sub{
 	        	}
 			my $context_description = join(',',map { lc($_)."s (".$contexts->{$_}.")" } keys %$contexts);
 			$rss->add_item(
-				title=> $hit->{title}->[0],
+				title=> $hit->{title}->[0] || "",
 				link => Catmandu->conf->{all}->{originurl}."/view?q=".$hit->{_id},
 				guid => $hit->{_id},
 				enclosure => {
 					url => Catmandu->conf->{all}->{rooturl}."${openurl_resolve_path}?rft_id=".$hit->{_id}.":1&svc_id=thumbnail&url_ver=$openurl_resolve_version",
-					length => $hit->{media}->[0]->{devs}->{thumbnail}->{size},
-					type => $hit->{media}->[0]->{devs}->{thumbnail}->{content_type}
+					length => $hit->{media}->[0]->{devs}->{thumbnail}->{size} || 0,
+					type => $hit->{media}->[0]->{devs}->{thumbnail}->{content_type} || "image/jpeg"
 				},
-				description => $context_description
+				description => $context_description || ""
 			);
 		}
 		$self->response->content_type("application/xml; charset=utf-8");
