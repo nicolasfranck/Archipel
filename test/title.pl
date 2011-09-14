@@ -2,14 +2,11 @@
 use strict;
 use utf8;
 
+binmode(STDOUT,":encoding(utf8)");
+
 my $title = "test[CHÂTEAUX.] [graphic material]";
 print "title => $title\n";
-$title =~ /(\[[^\[\]]*?\])$/;
-print "catch => $1\n";
-$title =~ s/\[[^\[\]]*?\]$//;
+$title =~ s/\[(?:graphic material)\]$//gi;
+        $title =~ s/\/.*$//;
+        $title =~ s/://g;
 print "title => $title\n";
-$title =~ s/\/.*$//;
-print "title => $title\n";
-$title =~ s/://g;
-print "title => $title\n";
-

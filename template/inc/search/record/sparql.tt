@@ -14,9 +14,11 @@
 			?concept ?p2 ?lit . 
 			?doc ?p1 ?concept . 
 		} .
-		?doc dcterms:relation ?image . FILTER regex(str(?image), "still")
-		?doc dcterms:format ?format . FILTER regex(str(?format),"Video") .
-		?doc dcterms:relation ?av . FILTER regex(str(?av),"media") . 
+		?doc dcterms:relation ?image . FILTER regex(str(?image), "still") .
+		OPTIONAL {
+			?doc dcterms:format ?format . FILTER regex(str(?format),"Video") .
+			?doc dcterms:relation ?av . FILTER regex(str(?av),"media") . 
+		} .
 
        } ORDER BY DESC(?score) LIMIT %limit OFFSET %offset
 [% END %]
@@ -35,9 +37,11 @@
                         ?concept ?p2 ?lit .
                         ?doc ?p1 ?concept . 
                 } .
-                ?doc dcterms:relation ?image . FILTER regex(str(?image), "still")
-                ?doc dcterms:format ?format . FILTER regex(str(?format),"Video") .
-                ?doc dcterms:relation ?av . FILTER regex(str(?av),"media") .
+                ?doc dcterms:relation ?image . FILTER regex(str(?image), "still") .
+		OPTIONAL {
+	                ?doc dcterms:format ?format . FILTER regex(str(?format),"Video") .
+        	        ?doc dcterms:relation ?av . FILTER regex(str(?av),"media") .
+		} .
        }
 [% END %]
 [% MACRO get_sparql_base_q BLOCK %]
@@ -211,22 +215,24 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 			}else{
 				img.width = 80;
 			}
-		
-			var av_icon = document.createElement("img");
-			av_icon.setAttribute("class","av_icon");
-			av_icon.setAttribute("className","av_icon");
-			av_icon.setAttribute("src",rooturl+"/images/icons/Video.png");
-			av_icon.setAttribute("title","watch");
+			
+			if(json["av"][i]){
+				var av_icon = document.createElement("img");
+				av_icon.setAttribute("class","av_icon");
+				av_icon.setAttribute("className","av_icon");
+				av_icon.setAttribute("src",rooturl+"/images/icons/Video.png");
+				av_icon.setAttribute("title","watch");
 
-			var av_media_link = document.createElement("a");
-			var video_player_url = originurl+"/videostreaming/external?";
-			video_player_url+="thumbnail_url="+encodeURIComponent(json["image"][i]);
-			video_player_url+="&video_url="+encodeURIComponent(json["av"][i]);
-			av_media_link.setAttribute("href",video_player_url);
-			av_media_link.setAttribute("target","_blank");
+				var av_media_link = document.createElement("a");
+				var video_player_url = originurl+"/videostreaming/external?";
+				video_player_url+="thumbnail_url="+encodeURIComponent(json["image"][i]);
+				video_player_url+="&video_url="+encodeURIComponent(json["av"][i]);
+				av_media_link.setAttribute("href",video_player_url);
+				av_media_link.setAttribute("target","_blank");
 
-			av_media_link.appendChild(av_icon);				
-			div_imgholder.appendChild(av_media_link);
+				av_media_link.appendChild(av_icon);				
+				div_imgholder.appendChild(av_media_link);
+			}
 
 			var a = document.createElement("a");
 			a.setAttribute("href",json["doc"][i]);

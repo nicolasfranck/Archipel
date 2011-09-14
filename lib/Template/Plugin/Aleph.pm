@@ -19,8 +19,8 @@ sub new {
 }
 sub filter_title {
 	my($title,$opts) = @_;
-	#<a> : <b> / <c> [<h>] -> <a> <b>
-	$title =~s/\[[^\[\]]*?\]$//;
+	#<a> : <b> / <c> [graphic material] -> <a> <b>
+	$title =~ s/\[(?:graphic material)\]$//gi;
         $title =~ s/\/.*$//;
         $title =~ s/://g;
 	finish($title,$opts);

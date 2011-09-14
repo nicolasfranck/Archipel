@@ -1,6 +1,6 @@
 <script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
 <div class="left">
-	<a href="[% conf.all.originurl %]/rss?q=[% params.q | url %]" onclick="javascript: pageTracker._trackPageview('[% conf.all.originurl %]?q=[% params.q | url %]');">
+	<a href="[% conf.all.originurl %]/rss?q=[% params.q | uri %]" onclick="javascript: pageTracker._trackPageview('[% conf.all.originurl %]?q=[% params.q | uri %]');">
 		<img alt="loading" src="[% conf.all.rooturl %]/images/icons/sm-rss-en.gif" align="bottom" title="RSS Feed">
 	</a>
 </div>

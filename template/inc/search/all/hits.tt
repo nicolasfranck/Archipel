@@ -1,9 +1,6 @@
-[% params_q_url_encoded = params.q | url %]
+[% params_q_url_encoded = params.q | uri %]
 [% link_base = conf.all.originurl _ "/view?q=" _ params_q_url_encoded _ "&amp;sort=" _ params.item('sort') _ "&amp;sort_dir=" _ params.sort_dir _ "&amp;language=" _ args.language _ "&amp;start=" %]
 [% link_base = link_base.escape_quotes() %]
-
-[% USE Dumper %]
-
 
 [% IF args.hits && args.hits.size > 0 %]
 	[% i = args.begin_item - 1  %]

@@ -4,7 +4,7 @@
                 <ul id="tabnav">
 		[% FOREACH view IN conf.app.search.record.view %]
                         <li class="[% params.view == view ? 'selected_tab':'' %]">
-                                <a href="[% conf.all.originurl %]/view?q=[% params.q | url %]&amp;start=[% params.start %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]&amp;view=[% view %]">[% tt_title_search_tabs.${view} %]</a>
+                                <a href="[% conf.all.originurl %]/view?q=[% params.q | uri %]&amp;start=[% params.start %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]&amp;view=[% view %]">[% tt_title_search_tabs.${view} %]</a>
                         </li>
 		[% END %]
                 </ul>

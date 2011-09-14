@@ -1,9 +1,9 @@
 <div class="paging">
-	<a href="[% conf.all.originurl %]?q=[% params.q | url %]&amp;page=[% sess.page %]&amp;num=[% sess.num %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&language=[% args.language %]">&lt;&lt;[% tt_term_paging_back_to_results %]</a>&nbsp;
+	<a href="[% conf.all.originurl %]?q=[% params.q | uri %]&amp;page=[% sess.page %]&amp;num=[% sess.num %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&language=[% args.language %]">&lt;&lt;[% tt_term_paging_back_to_results %]</a>&nbsp;
 	[% IF args.prev != "" %]
-	<a href="[% conf.all.originurl %]/view?q=[% params.q | url %]&amp;start=[% args.prev %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;view=[% params.view %]&language=[% args.language %]">&lt;[% tt_term_paging_previous %]</a>&nbsp;&nbsp;
+	<a href="[% conf.all.originurl %]/view?q=[% params.q | uri %]&amp;start=[% args.prev %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;view=[% params.view %]&language=[% args.language %]">&lt;[% tt_term_paging_previous %]</a>&nbsp;&nbsp;
 	[% END %]
 	[% IF args.next %]
-	<a href="[% conf.all.originurl %]/view?q=[% params.q | url %]&amp;start=[% args.next %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;view=[% params.view %]&language=[% args.language %]">[% tt_term_paging_next %]&gt;</a>&nbsp;&nbsp;
+	<a href="[% conf.all.originurl %]/view?q=[% params.q | uri %]&amp;start=[% args.next %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;view=[% params.view %]&language=[% args.language %]">[% tt_term_paging_next %]&gt;</a>&nbsp;&nbsp;
 	[% END %]
 </div>
