@@ -60,8 +60,7 @@ sub get{
 	return clone($self->stash->{$id});
 }
 sub num{
-	my $self = shift;
-	return scalar(keys %{$self->stash});
+	scalar(keys %{$_[0]->stash});
 }
 
 sub array{
@@ -72,15 +71,15 @@ sub array{
 	}else{
 		@keys=keys %{$self->stash};
 	}
-	return map {$self->stash->{$_}} @keys;		
+	map {$self->stash->{$_}} @keys;		
 }
 sub clear{
-	shift->stash({});
+	$_[0]->stash({});
 }
 sub each{
 	my($self,$func)=@_;
 	foreach(keys %{$self->stash}){
-		&$func($self->stash->{$_});
+		$func->($self->stash->{$_});
 	}
 }
 
