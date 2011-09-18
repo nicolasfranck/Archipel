@@ -13,15 +13,18 @@ any([qw(get post)],'',sub{
 	my $params = $self->request->parameters;
 	my $q = $params->{q};
 	my $index = $params->{index};
-	$params->remove($_) foreach(grep(!/^facet/,keys %$params));
 
-	#opzoeken in index
 	my($hits,$totalhits,$err,$restfields);
-	try{
-		($hits,$totalhits,$restfields)=$self->index($index)->search($q,%$params);
-	}catch{
-		$err = $_;
-	};
+	#opzoeken in index
+	if(defined($q) && $q ne ""){
+		try{
+			($hits,$totalhits,$restfields)=$self->index($index)->search($q,%$params);
+		}catch{
+			$err = $_;
+		};
+	}else{
+		$err = "no query given";
+	}
 	if($err){
 		$self->send({errors=>["$err"]});	
 	}elsif($totalhits==0){
@@ -31,7 +34,7 @@ any([qw(get post)],'',sub{
 	}
 });
 sub json {
-	shift->stash->{json} ||= JSON->new->pretty(1);
+	$_[0]->stash->{json} ||= JSON->new;
 }
 sub index {
 	my($self,$index) = @_;
@@ -45,7 +48,7 @@ sub index {
 sub send {
 	my($self,$response)=@_;
 	$self->response->content_type("application/json; charset=utf-8");
-	$self->print($self->json->encode(fix($response)));
+	$self->print($self->json->encode(fix($response) || {}));
 }
 sub fix {
 	my $hash = shift;
