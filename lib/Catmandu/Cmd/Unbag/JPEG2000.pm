@@ -142,23 +142,23 @@ sub create_file {
 	$self->print("--> copy is now $copy\n");
 	#resize
 	my $info = $self->exif->ImageInfo($copy);
-        my $width = $info->{ImageWidth};
-        my $height = $info->{ImageHeight};
-        my $max = max($width,$height);
-        if($max > 4000){
-                $self->print("--> axis $max is too big, resizing..\n");
-                $temp = $self->tempdir."/".Data::UUID->new->create_str.'.tif';
-                $self->print("[MA TIFF] $copy -> [RESIZED TIFF] $temp\n");
-                my $success = $self->create_thumb($copy,$temp,4000);
-                if(not $success){
-                        unlink($temp) if -f $temp;
-			unlink($copy) if -f $copy;
-                        return undef;
-                }
-		unlink($copy);
-		$copy=$temp;
-		$self->print("--> copy is now $copy\n");
-        }
+#        my $width = $info->{ImageWidth};
+#        my $height = $info->{ImageHeight};
+#        my $max = max($width,$height);
+#        if($max > 4000){
+#                $self->print("--> axis $max is too big, resizing..\n");
+#                $temp = $self->tempdir."/".Data::UUID->new->create_str.'.tif';
+#                $self->print("[MA TIFF] $copy -> [RESIZED TIFF] $temp\n");
+#                my $success = $self->create_thumb($copy,$temp,4000);
+#                if(not $success){
+#                        unlink($temp) if -f $temp;
+#			unlink($copy) if -f $copy;
+#                        return undef;
+#                }
+#		unlink($copy);
+#		$copy=$temp;
+#		$self->print("--> copy is now $copy\n");
+#        }
 	#jpeg2000
 	$self->print("[MA TIFF] $copy -> $out [JPEG2000]\n");
         if(not $self->create_jp2k($copy,$info,$out)){
@@ -192,7 +192,10 @@ sub create_devs {
 		return undef;
 	}
 	my $devs_info = {};
+	my $file_info = $self->exif->ImageInfo($opts->{in});
+	my $max_axis = max($file_info->{ImageHeight},$file_info->{ImageWidth});
 	foreach my $type(keys %{$self->devs}){
+		next if $max_axis < $self->devs->{$type}->{axis};
 		my $out = $opts->{thumbdir}."/$sublocation/".$opts->{outname}."_$type.jpeg";
 		$self->print("[TIFF] $opts->{in} -> $out [JPEG $type]\n");
 		my $i = $self->create_dev($opts->{in},$out,$type);

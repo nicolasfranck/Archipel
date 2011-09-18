@@ -219,7 +219,7 @@
 					[% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
 					[% rwidth = width * ratio %]
 					[% rheight = height * ratio %]
-					<li item_id="[% rel.item_id %]" class="" onclick="document.getElementById('zoomer').src='[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% rel.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.resolve.version %]'">
+					<li item_id="[% rel.item_id %]" index="[% loop.index %]" class="" onclick="document.getElementById('zoomer').src='[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% rel.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.resolve.version %]'">
 						<div class="imgholder">
 							<a target="zoomer" href="[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% rel.item_id %]&amp;svc_id=[% service %]&amp;url_ver=[% hash.openURL.resolve.version %]"><img src="[% hash.rooturl %]/images/icons/loading.png" original="[% hash.rooturl _ hash.openURL.path _ hash.openURL.resolve.path %]?rft_id=[% hash.id %]:[% rel.item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% hash.openURL.resolve.version %]" alt="[% rel.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% rel.title %]" alt="[% rel.title %]" width="[% rwidth %]" height="[% rheight %]" title="[% rel.title %]" /></a>
 						</div>

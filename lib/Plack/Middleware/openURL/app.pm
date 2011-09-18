@@ -22,8 +22,10 @@ sub call {
                 my $type = lc $params{type};
                 delete $params{id};
                 delete $params{type};
+		my $args = {};
+		$args->{$_} = $params->{$_} foreach(keys %$params);
 	
-                my($hash,$template,$code,$err)=$handler->handle({id => $id,type=>$type},$env);
+                my($hash,$template,$code,$err)=$handler->handle({id => $id,type=>$type,args=>$args},$env);
                 if(defined($err)){
                         $res = $self->response_error($code,$err);
                 }

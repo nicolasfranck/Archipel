@@ -1,0 +1,3153 @@
+/home/nicolas/Archipel/.git/objects/80/d2db389e83f44efea4aecf703ac6d8cac9f622
+ <=> /home/nicolas/PeepShow/.git/objects/80/d2db389e83f44efea4aecf703ac6d8cac9f622
+/home/nicolas/Archipel/template/tt/videostreaming.tt
+ <=> /home/nicolas/PeepShow/template/tt/videostreaming.tt
+/home/nicolas/Archipel/htdocs/css/jCarousel/tango/skin-min.css
+ <=> /home/nicolas/PeepShow/htdocs/css/jCarousel/tango/skin-min.css
+/home/nicolas/Archipel/.git/objects/4b/0a02415b99c49747bb40c222c304da65b13730
+ <=> /home/nicolas/PeepShow/.git/objects/4b/0a02415b99c49747bb40c222c304da65b13730
+/home/nicolas/Archipel/lib/PeepShow/videostreaming/external.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/videostreaming/external.pm
+/home/nicolas/Archipel/test/import.pl
+ <=> /home/nicolas/PeepShow/test/import.pl
+/home/nicolas/Archipel/htdocs/images/icons/Image.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/Image.png
+/home/nicolas/Archipel/.git/objects/36/c70755bcfdf3296c1a454e8e3972de5cb6c89b
+ <=> /home/nicolas/PeepShow/.git/objects/36/c70755bcfdf3296c1a454e8e3972de5cb6c89b
+/home/nicolas/Archipel/.git/objects/39/a24b29cd143fb1b7ed09a6c1707390463d3db7
+ <=> /home/nicolas/PeepShow/.git/objects/39/a24b29cd143fb1b7ed09a6c1707390463d3db7
+/home/nicolas/Archipel/.git/objects/bb/157e8cd751f4716345747f56db15124598f79e
+ <=> /home/nicolas/PeepShow/.git/objects/bb/157e8cd751f4716345747f56db15124598f79e
+/home/nicolas/Archipel/lib/PeepShow/admin.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/admin.pm
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/files.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/files.pm
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/MediaMosa.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/MediaMosa.pm
+/home/nicolas/Archipel/.git/objects/25/7268c6371de4380e8658abb2044cbd7d296cec
+ <=> /home/nicolas/PeepShow/.git/objects/25/7268c6371de4380e8658abb2044cbd7d296cec
+/home/nicolas/Archipel/.git/objects/d7/2247248e833969e69a0b9b062856a28d1b9fc9
+ <=> /home/nicolas/PeepShow/.git/objects/d7/2247248e833969e69a0b9b062856a28d1b9fc9
+/home/nicolas/Archipel/template/inc/search/record/sparql.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/record/sparql.tt
+/home/nicolas/Archipel/.git/objects/b5/85fec6fece33553e735f15bfcb7431a137f5e5
+ <=> /home/nicolas/PeepShow/.git/objects/b5/85fec6fece33553e735f15bfcb7431a137f5e5
+/home/nicolas/Archipel/htdocs/images/screenshots/openURL/carousel_cropped.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/openURL/carousel_cropped.png
+/home/nicolas/Archipel/.git/objects/b4/464833bd5e149f09df461b5f1e8b06d563c227
+ <=> /home/nicolas/PeepShow/.git/objects/b4/464833bd5e149f09df461b5f1e8b06d563c227
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/insert2media.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/insert2media.pm
+/home/nicolas/Archipel/.git/objects/4b/8287000e03a9761d8479c184dd31a949c94de3
+ <=> /home/nicolas/PeepShow/.git/objects/4b/8287000e03a9761d8479c184dd31a949c94de3
+/home/nicolas/Archipel/template/tt/viewerIIP.tt
+ <=> /home/nicolas/PeepShow/template/tt/viewerIIP.tt
+/home/nicolas/Archipel/template/data/nl/search/pages.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/search/pages.tt
+/home/nicolas/Archipel/.git/objects/ec/2f37a044f55e40708d9e30e05fa04fa2804c6b
+ <=> /home/nicolas/PeepShow/.git/objects/ec/2f37a044f55e40708d9e30e05fa04fa2804c6b
+/home/nicolas/Archipel/htdocs/images/icons/downloads_black.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/downloads_black.png
+/home/nicolas/Archipel/htdocs/images/icons/pdf.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/pdf.png
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/archipel_oai_sync.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/archipel_oai_sync.pm
+/home/nicolas/Archipel/htdocs/images/icons/thumbnail.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/thumbnail.png
+/home/nicolas/Archipel/htdocs/images/jCarousel/previous_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/previous_disabled.png
+/home/nicolas/Archipel/.git/objects/9b/c9b7f3a7f76bb8973d6ef38e05393b2d991f8e
+ <=> /home/nicolas/PeepShow/.git/objects/9b/c9b7f3a7f76bb8973d6ef38e05393b2d991f8e
+/home/nicolas/Archipel/.git/config
+ <=> /home/nicolas/PeepShow/.git/config
+8c8
+< 	url = git@github.com:nicolasfranck/Archipel.git
+---
+> 	url = git@github.com:nics/PeepShow.git
+/home/nicolas/Archipel/lib/Grim/XML/Media/Record.pm
+ <=> /home/nicolas/PeepShow/lib/Grim/XML/Media/Record.pm
+/home/nicolas/Archipel/.git/objects/4e/46916109b039e03d6566487c77cc834ea779cb
+ <=> /home/nicolas/PeepShow/.git/objects/4e/46916109b039e03d6566487c77cc834ea779cb
+/home/nicolas/Archipel/.git/ORIG_HEAD
+ <=> /home/nicolas/PeepShow/.git/ORIG_HEAD
+1c1
+< 08a57b0e62c03cad2819c604abaed182a4b8c8aa
+---
+> d3a7898f3ccd7904babf04f694da2c74195d5a4f
+/home/nicolas/Archipel/.git/objects/bd/f78f9dff04c09b4104479a4bb4ecf7602835db
+ <=> /home/nicolas/PeepShow/.git/objects/bd/f78f9dff04c09b4104479a4bb4ecf7602835db
+/home/nicolas/Archipel/htdocs/images/jCarousel/previous_enabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/previous_enabled.png
+/home/nicolas/Archipel/.git/objects/f6/971cdbd73b2fa1be0bc1b96494d1fe359a4767
+ <=> /home/nicolas/PeepShow/.git/objects/f6/971cdbd73b2fa1be0bc1b96494d1fe359a4767
+/home/nicolas/Archipel/.git/objects/b5/86e70d0fd9e0b43f6a0db2c5b919205791879d
+ <=> /home/nicolas/PeepShow/.git/objects/b5/86e70d0fd9e0b43f6a0db2c5b919205791879d
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag/JPEG2000.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag/JPEG2000.pm
+/home/nicolas/Archipel/htdocs/images/icons/image_not_available_thumbnail.jpg
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/image_not_available_thumbnail.jpg
+/home/nicolas/Archipel/.git/objects/51/0d44127ff5c80d184e6df305ec5a511a3d6f69
+ <=> /home/nicolas/PeepShow/.git/objects/51/0d44127ff5c80d184e6df305ec5a511a3d6f69
+/home/nicolas/Archipel/.git/objects/c5/e1d0d358022f7b93f9d80d0a4f204a7b54effe
+ <=> /home/nicolas/PeepShow/.git/objects/c5/e1d0d358022f7b93f9d80d0a4f204a7b54effe
+/home/nicolas/Archipel/.git/objects/24/0d8c5ebbb7beb5892c01f1fcac79ba3b087a67
+ <=> /home/nicolas/PeepShow/.git/objects/24/0d8c5ebbb7beb5892c01f1fcac79ba3b087a67
+/home/nicolas/Archipel/.git/objects/79/44fb15b0dcf9f95e37b0e22c5ef06548eee6d6
+ <=> /home/nicolas/PeepShow/.git/objects/79/44fb15b0dcf9f95e37b0e22c5ef06548eee6d6
+/home/nicolas/Archipel/.git/hooks/post-update.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/post-update.sample
+/home/nicolas/Archipel/template/tt/videostreaming/external.tt
+ <=> /home/nicolas/PeepShow/template/tt/videostreaming/external.tt
+/home/nicolas/Archipel/htdocs/images/icons/prev_small_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/prev_small_disabled.png
+/home/nicolas/Archipel/.git/objects/9a/87a2bf4e7f97ee7fb12a9cd66a3ac521a71fa0
+ <=> /home/nicolas/PeepShow/.git/objects/9a/87a2bf4e7f97ee7fb12a9cd66a3ac521a71fa0
+/home/nicolas/Archipel/.git/objects/pack/pack-de8e4420840d5554e3d69d9549ea1a326e1a8941.idx
+ <=> /home/nicolas/PeepShow/.git/objects/pack/pack-de8e4420840d5554e3d69d9549ea1a326e1a8941.idx
+/home/nicolas/Archipel/htdocs/css/jScrollpane/jquery.jscrollpane-min.css
+ <=> /home/nicolas/PeepShow/htdocs/css/jScrollpane/jquery.jscrollpane-min.css
+/home/nicolas/Archipel/htdocs/images/icons/zoom-hover.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/zoom-hover.gif
+/home/nicolas/Archipel/.git/objects/6c/fe15a87549fcaf1103cc991608a1f01cdbea94
+ <=> /home/nicolas/PeepShow/.git/objects/6c/fe15a87549fcaf1103cc991608a1f01cdbea94
+/home/nicolas/Archipel/template/inc/search/pages/items.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/pages/items.tt
+/home/nicolas/Archipel/.git/objects/6e/8d73c74946ea6ed9544b54d40f11a6314abed5
+ <=> /home/nicolas/PeepShow/.git/objects/6e/8d73c74946ea6ed9544b54d40f11a6314abed5
+/home/nicolas/Archipel/.git/objects/e9/d92aefb3a6d1a97c3ba9c110f490cbad449c50
+ <=> /home/nicolas/PeepShow/.git/objects/e9/d92aefb3a6d1a97c3ba9c110f490cbad449c50
+/home/nicolas/Archipel/.git/objects/3a/1b414c219b1cd8f4c02d65794377b883abcf43
+ <=> /home/nicolas/PeepShow/.git/objects/3a/1b414c219b1cd8f4c02d65794377b883abcf43
+/home/nicolas/Archipel/.git/objects/ea/28bb6f0e00a69ba5c488614fa1722b701e57f9
+ <=> /home/nicolas/PeepShow/.git/objects/ea/28bb6f0e00a69ba5c488614fa1722b701e57f9
+/home/nicolas/Archipel/.git/objects/39/7e6bc87bac207e035832721a60a2e6786b190b
+ <=> /home/nicolas/PeepShow/.git/objects/39/7e6bc87bac207e035832721a60a2e6786b190b
+/home/nicolas/Archipel/.git/objects/2b/dc3ca8e860eb4ae104a4a8ee3e2ca981c40d66
+ <=> /home/nicolas/PeepShow/.git/objects/2b/dc3ca8e860eb4ae104a4a8ee3e2ca981c40d66
+/home/nicolas/Archipel/lib/Record/View/Simple.pm
+ <=> /home/nicolas/PeepShow/lib/Record/View/Simple.pm
+/home/nicolas/Archipel/template/data/nl/common.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/common.tt
+/home/nicolas/Archipel/template/inc/new_column/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/new_column/head.tt
+/home/nicolas/Archipel/.git/objects/4c/8ad166e23fd883c12f028ba9daeae352eb5810
+ <=> /home/nicolas/PeepShow/.git/objects/4c/8ad166e23fd883c12f028ba9daeae352eb5810
+/home/nicolas/Archipel/.git/objects/aa/25006227881a5e8b993588472289041e87df32
+ <=> /home/nicolas/PeepShow/.git/objects/aa/25006227881a5e8b993588472289041e87df32
+/home/nicolas/Archipel/.git/objects/62/26d56a72546ea10d3ea5f8782fc2cf0ba9bb07
+ <=> /home/nicolas/PeepShow/.git/objects/62/26d56a72546ea10d3ea5f8782fc2cf0ba9bb07
+/home/nicolas/Archipel/.git/objects/48/75c8b451c86d26dc5695510b4dbf68de57bd9a
+ <=> /home/nicolas/PeepShow/.git/objects/48/75c8b451c86d26dc5695510b4dbf68de57bd9a
+/home/nicolas/Archipel/.git/objects/af/a0b78d6f292dc173eb22f3aa5f865ede060ebb
+ <=> /home/nicolas/PeepShow/.git/objects/af/a0b78d6f292dc173eb22f3aa5f865ede060ebb
+/home/nicolas/Archipel/fix/aleph.fix
+ <=> /home/nicolas/PeepShow/fix/aleph.fix
+/home/nicolas/Archipel/htdocs/images/icons/zoom.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/zoom.gif
+/home/nicolas/Archipel/lib/PeepShow/Handler/Query/Fixer.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Query/Fixer.pm
+/home/nicolas/Archipel/.git/objects/26/08486b9736682c4631d3bc590ce5fdf81c380a
+ <=> /home/nicolas/PeepShow/.git/objects/26/08486b9736682c4631d3bc590ce5fdf81c380a
+/home/nicolas/Archipel/test/title.pl
+ <=> /home/nicolas/PeepShow/test/title.pl
+/home/nicolas/Archipel/htdocs/js/jwplayer/jwplayer.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jwplayer/jwplayer.js
+/home/nicolas/Archipel/.git/objects/5b/1e6881546680ac20057d32717a7dda030fe9a7
+ <=> /home/nicolas/PeepShow/.git/objects/5b/1e6881546680ac20057d32717a7dda030fe9a7
+/home/nicolas/Archipel/template/data/en/columns.tt
+ <=> /home/nicolas/PeepShow/template/data/en/columns.tt
+/home/nicolas/Archipel/.git/objects/3a/c82c829a74d0ee6956e18063fab5b82d1cbc72
+ <=> /home/nicolas/PeepShow/.git/objects/3a/c82c829a74d0ee6956e18063fab5b82d1cbc72
+/home/nicolas/Archipel/.git/objects/49/67151ae4292d7dbfd2cfbf1cb8d0186a1247f9
+ <=> /home/nicolas/PeepShow/.git/objects/49/67151ae4292d7dbfd2cfbf1cb8d0186a1247f9
+/home/nicolas/Archipel/.git/objects/05/c1c74895c732b626e21f55601824437c780973
+ <=> /home/nicolas/PeepShow/.git/objects/05/c1c74895c732b626e21f55601824437c780973
+/home/nicolas/Archipel/.git/objects/50/9a3005aa5c54c9a5d3cc2247d6fcf6093c6ec6
+ <=> /home/nicolas/PeepShow/.git/objects/50/9a3005aa5c54c9a5d3cc2247d6fcf6093c6ec6
+/home/nicolas/Archipel/htdocs/images/icons/sm-rss-en.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/sm-rss-en.gif
+/home/nicolas/Archipel/test/cache.pl
+ <=> /home/nicolas/PeepShow/test/cache.pl
+/home/nicolas/Archipel/lib/PeepShow/json.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/json.pm
+/home/nicolas/Archipel/.git/objects/84/32b79407b5fda12d413ed012b47d27f1199b69
+ <=> /home/nicolas/PeepShow/.git/objects/84/32b79407b5fda12d413ed012b47d27f1199b69
+/home/nicolas/Archipel/.git/objects/ed/d5fbbd727736d83da41b37e583f0a19a43d810
+ <=> /home/nicolas/PeepShow/.git/objects/ed/d5fbbd727736d83da41b37e583f0a19a43d810
+/home/nicolas/Archipel/htdocs/js/jquery.query-2.1.7.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.query-2.1.7.js
+/home/nicolas/Archipel/lib/openURL/Service/Audio/Streaming.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/Service/Audio/Streaming.pm
+/home/nicolas/Archipel/.git/objects/43/9267858efa5d014de60b0b0a461219e5f6c6a2
+ <=> /home/nicolas/PeepShow/.git/objects/43/9267858efa5d014de60b0b0a461219e5f6c6a2
+/home/nicolas/Archipel/.git/objects/bd/4e9baecf6b27e2b81b7ff3f6ca9d1671b8decf
+ <=> /home/nicolas/PeepShow/.git/objects/bd/4e9baecf6b27e2b81b7ff3f6ca9d1671b8decf
+/home/nicolas/Archipel/.git/objects/fb/4b55e8f40a1f5f30091b39f38c1ca86a264519
+ <=> /home/nicolas/PeepShow/.git/objects/fb/4b55e8f40a1f5f30091b39f38c1ca86a264519
+/home/nicolas/Archipel/.git/COMMIT_EDITMSG
+ <=> /home/nicolas/PeepShow/.git/COMMIT_EDITMSG
+1c1
+< slkf
+---
+> mlkjdf
+11,12c11,24
+< #	modified:   lib/Cart/Singleton.pm
+< #	new file:   test/exif.pl
+---
+> #	modified:   template/inc/bookmark_link.tt
+> #	modified:   template/inc/opensearch/cells.tt
+> #	modified:   template/inc/opensearch/results_list.tt
+> #	modified:   template/inc/opensearch/view/results.tt
+> #	modified:   template/inc/opensearch/view/results_list.tt
+> #	modified:   template/inc/rss_link.tt
+> #	modified:   template/inc/search/all/external_libraries.tt
+> #	modified:   template/inc/search/all/hits.tt
+> #	modified:   template/inc/search/all/paging.tt
+> #	modified:   template/inc/search/carousel/paging.tt
+> #	modified:   template/inc/search/pages/items_paging_prevnext.tt
+> #	modified:   template/inc/search/paging_prevnext.tt
+> #	modified:   template/inc/search/record/image_example.tt
+> #	modified:   template/inc/search/tabs.tt
+/home/nicolas/Archipel/.git/objects/8c/aacc6ff8818afec8d6dfa335b7fb0bc2f0eead
+ <=> /home/nicolas/PeepShow/.git/objects/8c/aacc6ff8818afec8d6dfa335b7fb0bc2f0eead
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/updatemeta.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/updatemeta.pm
+/home/nicolas/Archipel/.git/objects/f6/a6c04e51ff9d01db10a741e0408fb3bc56ebc3
+ <=> /home/nicolas/PeepShow/.git/objects/f6/a6c04e51ff9d01db10a741e0408fb3bc56ebc3
+/home/nicolas/Archipel/template/inc/mycart/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/mycart/head.tt
+/home/nicolas/Archipel/.git/objects/a4/978bb38bf9926afb2235088f80f86a2a50e897
+ <=> /home/nicolas/PeepShow/.git/objects/a4/978bb38bf9926afb2235088f80f86a2a50e897
+/home/nicolas/Archipel/.git/objects/f3/e38840ba28706dd3a9e940014096cf4b0bed50
+ <=> /home/nicolas/PeepShow/.git/objects/f3/e38840ba28706dd3a9e940014096cf4b0bed50
+/home/nicolas/Archipel/template/inc/common_header.tt
+ <=> /home/nicolas/PeepShow/template/inc/common_header.tt
+1,10c1,30
+< <div id="top">
+< 	<img src="[% conf.all.rooturl %]/images/icons/archipel.png" style="height:70px;margin-top:5px;"/>
+<         <div id="menu">
+<         	<ul>
+<                         <li><a href="[% conf.all.originurl %]?language=[% args.language %]" class="current">home</a></li>
+<                         <li><a href="#">about</a></li>
+<                         <li><a href="#">portofolio</a></li>
+<                         <li><a href="#">contact</a></li>
+<                 </ul>
+<         </div>
+---
+> <div id="head">
+> 	<div id="site-title">
+> 		<a href="http://lib.ugent.be/[% args.language %]" ><img src="[% conf.all.rooturl %]/images/icons/logo-boekentoren.png" width="122" height="100" alt="Logo Boekentoren" /></a>
+> 		<h1>{[% tt_title_logo %]}</h1>
+> 	</div>
+> 	<div id="menu-utility">
+> 		<a href="http://lib.ugent.be/info/[% args.language %]/inlichtingen.shtml">[% tt_title_information %]</a> |
+> 		<a href="http://lib.ugent.be/aleph">[% tt_title_aleph %]</a> |
+> 		<a href="http://lib.ugent.be/login">[% tt_title_login %]</a> |
+> 		<a href="http://lib.ugent.be/info/[% args.language %]/mobile.shtml">[% tt_title_mobile %]</a> |
+> 		<a href="http://search.ugent.be/meercat/x/api_[% args.language %].html">[% tt_title_download_api %]</a> |
+> 		<a href="http://search.ugent.be/meercat/x/all/feedback">[% tt_title_contact %]</a> |
+> 		<a href="http://lib.ugent.be/info/[% args.language %]/chat.shtml">[% tt_title_chat %]</a> |&nbsp;
+> 		[% FOREACH lang IN conf.language.keys %]
+> 			[% NEXT IF lang == "default" %]
+> 			<a href="[% conf.all.originurl | url %]?language=[% lang %]" onclick="setLanguage('[% lang %]');return false;">[% lang %]</a>
+> 			[% "&nbsp;|&nbsp;" IF loop.count < loop.size %]
+> 		[% END %]
+> 	</div>
+> </div>
+> <div id="menu-main">
+> 	<ul>
+> 	<li><a href="http://lib.ugent.be/[% args.language %]">[% tt_title_home_meercat %]</a></li>
+> 	<li><a href="http://search.ugent.be/meercat/x/all">[% tt_title_books_more %]</a></li>
+> 	<li><a href="http://search.ugent.be/meercat/x/journals">[% tt_title_journals %]</a></li>
+> 	<li><a href="http://search.ugent.be/meercat/x/redirect?q=dbs01:001250739">[% tt_title_e_articles %]</a></li>
+> 	<li><a href="http://search.ugent.be/meercat/x/ebooks" title="">[% tt_title_e_books %]</a></li>
+> 	<li><a href="http://search.ugent.be/meercat/x/databases">[% tt_title_databases %]</a></li>
+> 	<li><a class="current" href="[% conf.all.originurl | url %]/?language=[% args.language %]">[% tt_title_images %]</a></li>
+> 	</ul>		
+/home/nicolas/Archipel/.git/objects/42/a1fe90002d04cd0ac445f23f72ee9c157c607d
+ <=> /home/nicolas/PeepShow/.git/objects/42/a1fe90002d04cd0ac445f23f72ee9c157c607d
+/home/nicolas/Archipel/lib/Template/Plugin/escape.pm
+ <=> /home/nicolas/PeepShow/lib/Template/Plugin/escape.pm
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag/Video/MP4.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag/Video/MP4.pm
+/home/nicolas/Archipel/.git/objects/07/03853d79e77dfba1d319406bb5425864d5b859
+ <=> /home/nicolas/PeepShow/.git/objects/07/03853d79e77dfba1d319406bb5425864d5b859
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Store/Merge.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Store/Merge.pm
+/home/nicolas/Archipel/template/data/nl/mycart.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/mycart.tt
+/home/nicolas/Archipel/.git/objects/8d/7b1133a96712f0702e37d9a99f94ced04e6dce
+ <=> /home/nicolas/PeepShow/.git/objects/8d/7b1133a96712f0702e37d9a99f94ced04e6dce
+/home/nicolas/Archipel/.git/objects/24/97b2a3d3640ef6fd18db84cfdd40597c0f2148
+ <=> /home/nicolas/PeepShow/.git/objects/24/97b2a3d3640ef6fd18db84cfdd40597c0f2148
+/home/nicolas/Archipel/template/inc/search/all/suggestion.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/all/suggestion.tt
+/home/nicolas/Archipel/test/id_oai.pl
+ <=> /home/nicolas/PeepShow/test/id_oai.pl
+/home/nicolas/Archipel/lib/Marc/XSLT/MARC21slim2MARCBIG.xsl
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/MARC21slim2MARCBIG.xsl
+/home/nicolas/Archipel/.git/objects/41/89fffb17e7535058d77242cf04620b7b32847c
+ <=> /home/nicolas/PeepShow/.git/objects/41/89fffb17e7535058d77242cf04620b7b32847c
+/home/nicolas/Archipel/.git/objects/6e/5b59fdeb38e86d1d6961c65e8a9de448a7d81c
+ <=> /home/nicolas/PeepShow/.git/objects/6e/5b59fdeb38e86d1d6961c65e8a9de448a7d81c
+/home/nicolas/Archipel/template/inc/mycart/form.tt
+ <=> /home/nicolas/PeepShow/template/inc/mycart/form.tt
+/home/nicolas/Archipel/htdocs/images/icons/down_small.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/down_small.png
+/home/nicolas/Archipel/lib/openURL/Service/Video/Link.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/Service/Video/Link.pm
+/home/nicolas/Archipel/.git/objects/9b/905bc959e6438f43fed3e1d3c1f26fc1fe883e
+ <=> /home/nicolas/PeepShow/.git/objects/9b/905bc959e6438f43fed3e1d3c1f26fc1fe883e
+/home/nicolas/Archipel/htdocs/images/iip/up.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/up.png
+/home/nicolas/Archipel/.git/objects/aa/6fa30dc2dbe1924f50b454c15627eee980d791
+ <=> /home/nicolas/PeepShow/.git/objects/aa/6fa30dc2dbe1924f50b454c15627eee980d791
+/home/nicolas/Archipel/.git/objects/bd/8db954c039997acd06dc837827313ccab8626e
+ <=> /home/nicolas/PeepShow/.git/objects/bd/8db954c039997acd06dc837827313ccab8626e
+/home/nicolas/Archipel/template/tt/mycart.tt
+ <=> /home/nicolas/PeepShow/template/tt/mycart.tt
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Harvester.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Harvester.pm
+/home/nicolas/Archipel/.git/objects/fa/b5b77fe2485c1619783a74cbcfa28863e8db1d
+ <=> /home/nicolas/PeepShow/.git/objects/fa/b5b77fe2485c1619783a74cbcfa28863e8db1d
+/home/nicolas/Archipel/htdocs/images/icons/PDF.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/PDF.png
+/home/nicolas/Archipel/.git/objects/1c/174947669f2cd102027752f8c91f28726f6822
+ <=> /home/nicolas/PeepShow/.git/objects/1c/174947669f2cd102027752f8c91f28726f6822
+/home/nicolas/Archipel/.git/objects/9a/601cbca3d0a72c31f5a67343063c9468aa9d00
+ <=> /home/nicolas/PeepShow/.git/objects/9a/601cbca3d0a72c31f5a67343063c9468aa9d00
+/home/nicolas/Archipel/htdocs/images/screenshots/openURL/size_cropped.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/openURL/size_cropped.png
+/home/nicolas/Archipel/.git/objects/fc/ccc85663dcda9d831bdbbfb2b6301fa4815267
+ <=> /home/nicolas/PeepShow/.git/objects/fc/ccc85663dcda9d831bdbbfb2b6301fa4815267
+/home/nicolas/Archipel/lib/PeepShow/cart.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/cart.pm
+/home/nicolas/Archipel/.git/objects/c4/54019fb8879b9434119957f83bdfe8aaba0415
+ <=> /home/nicolas/PeepShow/.git/objects/c4/54019fb8879b9434119957f83bdfe8aaba0415
+/home/nicolas/Archipel/template/inc/search/record_mapping.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/record_mapping.tt
+/home/nicolas/Archipel/.git/objects/f7/b825925fb785885550808996e8346462c33232
+ <=> /home/nicolas/PeepShow/.git/objects/f7/b825925fb785885550808996e8346462c33232
+/home/nicolas/Archipel/.git/objects/1c/b891875f10440246825a96d54b0e6ec83eacc8
+ <=> /home/nicolas/PeepShow/.git/objects/1c/b891875f10440246825a96d54b0e6ec83eacc8
+/home/nicolas/Archipel/.git/objects/08/a57b0e62c03cad2819c604abaed182a4b8c8aa
+ <=> /home/nicolas/PeepShow/.git/objects/08/a57b0e62c03cad2819c604abaed182a4b8c8aa
+/home/nicolas/Archipel/template/tt/sendmail_mycart.tt
+ <=> /home/nicolas/PeepShow/template/tt/sendmail_mycart.tt
+/home/nicolas/Archipel/lib/Rft/Common.pm
+ <=> /home/nicolas/PeepShow/lib/Rft/Common.pm
+/home/nicolas/Archipel/.git/objects/be/753658f23393b7a5d938b54199a4335e749466
+ <=> /home/nicolas/PeepShow/.git/objects/be/753658f23393b7a5d938b54199a4335e749466
+/home/nicolas/Archipel/.git/objects/6e/56ce93f551896209d787be89c179a46a03f799
+ <=> /home/nicolas/PeepShow/.git/objects/6e/56ce93f551896209d787be89c179a46a03f799
+/home/nicolas/Archipel/.git/objects/3c/0c1dbd0b46ce1a0a6d78e9edcb3edbb1faef7d
+ <=> /home/nicolas/PeepShow/.git/objects/3c/0c1dbd0b46ce1a0a6d78e9edcb3edbb1faef7d
+/home/nicolas/Archipel/.git/objects/d0/f753fe80636e4f7000790b309dec1519db708a
+ <=> /home/nicolas/PeepShow/.git/objects/d0/f753fe80636e4f7000790b309dec1519db708a
+/home/nicolas/Archipel/.git/objects/a7/8714308fc8f60065e3df0c84488e5dd345e4ee
+ <=> /home/nicolas/PeepShow/.git/objects/a7/8714308fc8f60065e3df0c84488e5dd345e4ee
+/home/nicolas/Archipel/.git/packed-refs
+ <=> /home/nicolas/PeepShow/.git/packed-refs
+2c2,4
+< ec28c64c521e6c7427569bb1c98694db5b9dc79a refs/remotes/origin/master
+---
+> 57067ed986dddbae76338f2327c7ada5bf93ec4f refs/remotes/origin/tags
+> 10bdf7543682f0ad67bf23e01f2a65ba443b9beb refs/remotes/origin/master
+> 4b59468675dfb7cdf2d34fa8871203bad4947760 refs/remotes/origin/mandje
+/home/nicolas/Archipel/.git/objects/96/2602494ffd39a0e677166f467d414bdab53306
+ <=> /home/nicolas/PeepShow/.git/objects/96/2602494ffd39a0e677166f467d414bdab53306
+/home/nicolas/Archipel/.git/hooks/post-commit.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/post-commit.sample
+/home/nicolas/Archipel/template/tt/audiostreaming2.tt
+ <=> /home/nicolas/PeepShow/template/tt/audiostreaming2.tt
+/home/nicolas/Archipel/template/inc/common_footer.tt
+ <=> /home/nicolas/PeepShow/template/inc/common_footer.tt
+1,7c1,8
+< <div id="footer">
+< 	<p style="float:left;">
+< 		<a href="http://www.ugent.be/[% args.language %]" target="_blank">
+< 			<img src="[% conf.all.rooturl %]/images/icons/logo-ugent.png" width="83" height="60" />
+< 		</a>
+< 	</p>
+< 	<p style="float:right;">&copy; 2009&nbsp;[% tt_title_footer %]</p>
+---
+> <div class="ruler"><hr/></div>
+> <div id="info">
+> 	<div id="site-institution">
+> 		<a href="http://www.ugent.be/[% args.language %]" target="_blank"><img alt="loading" src="[% conf.all.originurl %]/images/icons/logo-ugent.png" width="83" height="60" alt="[% tt_title_footer %]" title="[% tt_title_footer %]" /></a>
+> 	</div>
+> 	<div id="site-legal">
+> 	&copy; 2009&nbsp;[% tt_title_footer %], <a href="http://lib.ugent.be/disclaimer.shtml" title="View Disclaimer">[% tt_title_disclaimer %]</a>
+> 	</div>
+/home/nicolas/Archipel/.git/objects/4d/7e835ca6d1ce634f9c4332da8374e2bc7427e8
+ <=> /home/nicolas/PeepShow/.git/objects/4d/7e835ca6d1ce634f9c4332da8374e2bc7427e8
+/home/nicolas/Archipel/lib/Marc/XSLT/MARC21slim2SRWDC.xsl
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/MARC21slim2SRWDC.xsl
+/home/nicolas/Archipel/.git/objects/0d/600e10f90a46e7c6da177ecde60caa14c1f533
+ <=> /home/nicolas/PeepShow/.git/objects/0d/600e10f90a46e7c6da177ecde60caa14c1f533
+/home/nicolas/Archipel/lib/Archive/BagIt.pm
+ <=> /home/nicolas/PeepShow/lib/Archive/BagIt.pm
+/home/nicolas/Archipel/.git/objects/cd/4d17f09865ce8aac2ef24b0c2bbf8e7ec4cf79
+ <=> /home/nicolas/PeepShow/.git/objects/cd/4d17f09865ce8aac2ef24b0c2bbf8e7ec4cf79
+/home/nicolas/Archipel/htdocs/css/mycart.css
+ <=> /home/nicolas/PeepShow/htdocs/css/mycart.css
+/home/nicolas/Archipel/htdocs/images/icons/out_btn.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/out_btn.png
+/home/nicolas/Archipel/lib/Plack/Middleware/openURL/resolve.pm
+ <=> /home/nicolas/PeepShow/lib/Plack/Middleware/openURL/resolve.pm
+/home/nicolas/Archipel/.git/objects/b6/6615951e5103f39954a33aa30da01991855ba1
+ <=> /home/nicolas/PeepShow/.git/objects/b6/6615951e5103f39954a33aa30da01991855ba1
+/home/nicolas/Archipel/template/inc/send_cart.tt
+ <=> /home/nicolas/PeepShow/template/inc/send_cart.tt
+/home/nicolas/Archipel/.git/objects/0c/935f67563bd82e2624e09db38b76e795934f44
+ <=> /home/nicolas/PeepShow/.git/objects/0c/935f67563bd82e2624e09db38b76e795934f44
+/home/nicolas/Archipel/htdocs/images/icons/cart_small.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/cart_small.png
+/home/nicolas/Archipel/.git/objects/1d/cf2955f745cbb333c9dfcf26cf65f6aaee6274
+ <=> /home/nicolas/PeepShow/.git/objects/1d/cf2955f745cbb333c9dfcf26cf65f6aaee6274
+/home/nicolas/Archipel/htdocs/js/videostreaming.js
+ <=> /home/nicolas/PeepShow/htdocs/js/videostreaming.js
+/home/nicolas/Archipel/template/tt/home.tt
+ <=> /home/nicolas/PeepShow/template/tt/home.tt
+/home/nicolas/Archipel/.git/objects/d9/722df4fbcd4c6f2f4e33b1ca0d5b705f244ccb
+ <=> /home/nicolas/PeepShow/.git/objects/d9/722df4fbcd4c6f2f4e33b1ca0d5b705f244ccb
+/home/nicolas/Archipel/htdocs/js/jScrollbar/jquery.jscrollbar.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jScrollbar/jquery.jscrollbar.js
+/home/nicolas/Archipel/.git/objects/82/5298a8ea4870b25116075000f314c3e3313713
+ <=> /home/nicolas/PeepShow/.git/objects/82/5298a8ea4870b25116075000f314c3e3313713
+/home/nicolas/Archipel/htdocs/images/iip/zoomOut.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/zoomOut.png
+/home/nicolas/Archipel/.git/objects/f3/819a7239f79600c793a2bd319e48eb10ab974d
+ <=> /home/nicolas/PeepShow/.git/objects/f3/819a7239f79600c793a2bd319e48eb10ab974d
+/home/nicolas/Archipel/template/inc/search/tabs.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/tabs.tt
+/home/nicolas/Archipel/.git/objects/95/f977c395ff1e1a2d9e95cf5f54ca07f020edab
+ <=> /home/nicolas/PeepShow/.git/objects/95/f977c395ff1e1a2d9e95cf5f54ca07f020edab
+/home/nicolas/Archipel/htdocs/images/iip/iip-favicon.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/iip-favicon.png
+/home/nicolas/Archipel/template/inc/cart_link.tt
+ <=> /home/nicolas/PeepShow/template/inc/cart_link.tt
+/home/nicolas/Archipel/htdocs/js/jScrollpane/jquery.jscrollpane.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jScrollpane/jquery.jscrollpane.js
+87a88
+> 
+101,105d101
+< 					/*
+< 					console.log("paneWidth initiated:"+paneWidth);
+< 					console.log("elem.innerWidth():"+elem.innerWidth());
+< 					console.log("originalPaddingTotalWidth:"+originalPaddingTotalWidth);
+< 					*/
+331,332d326
+< 
+< 				//console.log("scrollbarWidth:"+scrollbarWidth);
+733c727
+< 				//console.log("destX:"+destX);
+---
+> 
+747d740
+< 				//console.log(pane);
+765c758
+< 				pane.css('left', destLeft);
+---
+> 				
+767d759
+< 				//console.log("pane left:"+destLeft);
+770d761
+< 				//console.log(pane);
+797,801d787
+< 				/*
+< 				console.log("destX:"+destX);
+< 				console.log("contentWidth:"+contentWidth);
+< 				console.log("paneWidth:"+paneWidth);
+< 				*/
+803d788
+< 				//console.log("percentScrolled:"+percentScrolled);
+828,829d812
+< 					//console.log ("e.position().top:"+e.position().top);
+< 					//console.log("e.position().left:"+e.position().left);
+852d834
+< 			//console.log("scroll to element destX-pré:"+destX);
+854d835
+< 			
+859d839
+< 			//console.log("scroll to element destX-post:"+destX);
+/home/nicolas/Archipel/.git/objects/22/064e28229aeed78a24c558c6d84c473c448882
+ <=> /home/nicolas/PeepShow/.git/objects/22/064e28229aeed78a24c558c6d84c473c448882
+/home/nicolas/Archipel/.git/objects/1f/8d0271b53a069169bc93a45df44c2a5094bea8
+ <=> /home/nicolas/PeepShow/.git/objects/1f/8d0271b53a069169bc93a45df44c2a5094bea8
+/home/nicolas/Archipel/lib/openURL/Service/Doc/Google.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/Service/Doc/Google.pm
+/home/nicolas/Archipel/.git/objects/4f/fd586b70c59d3ecb8d2e5fab8a059105bcf62f
+ <=> /home/nicolas/PeepShow/.git/objects/4f/fd586b70c59d3ecb8d2e5fab8a059105bcf62f
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-view/carousel_cropped.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-view/carousel_cropped.png
+/home/nicolas/Archipel/.git/objects/6a/a25290941fe411f198e3c8ba0ba55f5e17ef6f
+ <=> /home/nicolas/PeepShow/.git/objects/6a/a25290941fe411f198e3c8ba0ba55f5e17ef6f
+/home/nicolas/Archipel/template/tt/videoplayer.tt
+ <=> /home/nicolas/PeepShow/template/tt/videoplayer.tt
+/home/nicolas/Archipel/.git/objects/35/41d73e2a696edc5467194f206603ef1ad7b6b6
+ <=> /home/nicolas/PeepShow/.git/objects/35/41d73e2a696edc5467194f206603ef1ad7b6b6
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/diff.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/diff.pm
+/home/nicolas/Archipel/.git/objects/d8/26e9e48be07d043719727533a676246f29f99c
+ <=> /home/nicolas/PeepShow/.git/objects/d8/26e9e48be07d043719727533a676246f29f99c
+/home/nicolas/Archipel/.git/objects/c8/6f4082184643d0e38d8e9acf9e957075be5131
+ <=> /home/nicolas/PeepShow/.git/objects/c8/6f4082184643d0e38d8e9acf9e957075be5131
+/home/nicolas/Archipel/.git/objects/fa/116c6d2c9706b7eb5e00304b06f89bf236fec7
+ <=> /home/nicolas/PeepShow/.git/objects/fa/116c6d2c9706b7eb5e00304b06f89bf236fec7
+/home/nicolas/Archipel/htdocs/images/icons/ugent_theme_favicon.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/ugent_theme_favicon.png
+/home/nicolas/Archipel/.git/objects/59/8a61ea0c3d07c2e306ff2eea48f50ca126c51c
+ <=> /home/nicolas/PeepShow/.git/objects/59/8a61ea0c3d07c2e306ff2eea48f50ca126c51c
+/home/nicolas/Archipel/.git/objects/8c/93087bbc723b56e4e330b2f42a8d7e0bacf4bc
+ <=> /home/nicolas/PeepShow/.git/objects/8c/93087bbc723b56e4e330b2f42a8d7e0bacf4bc
+/home/nicolas/Archipel/.git/objects/31/54eee44f80aa0be515f98adcbdcc2c25f601c5
+ <=> /home/nicolas/PeepShow/.git/objects/31/54eee44f80aa0be515f98adcbdcc2c25f601c5
+/home/nicolas/Archipel/.git/objects/7b/f774a824aaa6fcc90053da386e83845a42d86e
+ <=> /home/nicolas/PeepShow/.git/objects/7b/f774a824aaa6fcc90053da386e83845a42d86e
+/home/nicolas/Archipel/htdocs/images/jCarousel/prev_vert_enabled_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/prev_vert_enabled_white.png
+/home/nicolas/Archipel/.git/objects/4c/c61578f2d5c2e30a400508193dd04bf30f938f
+ <=> /home/nicolas/PeepShow/.git/objects/4c/c61578f2d5c2e30a400508193dd04bf30f938f
+/home/nicolas/Archipel/.git/objects/5e/ebccf79dc62ec2c539205c0196d7d8e4a1c5b3
+ <=> /home/nicolas/PeepShow/.git/objects/5e/ebccf79dc62ec2c539205c0196d7d8e4a1c5b3
+/home/nicolas/Archipel/.git/hooks/commit-msg.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/commit-msg.sample
+/home/nicolas/Archipel/.git/objects/9e/c3d7fb8f347fd04ee4e93b6f355840f422828b
+ <=> /home/nicolas/PeepShow/.git/objects/9e/c3d7fb8f347fd04ee4e93b6f355840f422828b
+/home/nicolas/Archipel/.git/objects/ec/a8766b5a835387f6556ae663df8490ebc697fa
+ <=> /home/nicolas/PeepShow/.git/objects/ec/a8766b5a835387f6556ae663df8490ebc697fa
+/home/nicolas/Archipel/htdocs/images/icons/scrollbar_next_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/scrollbar_next_disabled.png
+/home/nicolas/Archipel/.git/logs/refs/heads/master
+ <=> /home/nicolas/PeepShow/.git/logs/refs/heads/master
+1,20c1,27
+< 0000000000000000000000000000000000000000 ec28c64c521e6c7427569bb1c98694db5b9dc79a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314817636 +0200	clone: from git@github.com:nicolasfranck/Archipel.git
+< ec28c64c521e6c7427569bb1c98694db5b9dc79a 356f932697329221011e0117797fbd50a0a49b5c nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314823691 +0200	commit: Cache::FastMmap
+< 356f932697329221011e0117797fbd50a0a49b5c 4c511c9f735cbd1ea4ea46ae61a5d2f65d36d650 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314895004 +0200	pull origin master: Fast-forward
+< 4c511c9f735cbd1ea4ea46ae61a5d2f65d36d650 34682a09a34e28fbed7f75ec5dccb3bc4f0c8f35 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314910567 +0200	commit: new_column split in two
+< 34682a09a34e28fbed7f75ec5dccb3bc4f0c8f35 1da028938dc9827ae2b96bdc9f97b4a898b27455 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314911975 +0200	commit: columns fix
+< 1da028938dc9827ae2b96bdc9f97b4a898b27455 00467100ed121f3e7fd2a1bdb386311896571220 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314985193 +0200	pull origin master: Fast-forward
+< 00467100ed121f3e7fd2a1bdb386311896571220 4b0a02415b99c49747bb40c222c304da65b13730 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315328768 +0200	pull origin master: Fast-forward
+< 4b0a02415b99c49747bb40c222c304da65b13730 708bef67a2d282243a871bcb87ef454602d9a9c7 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315415013 +0200	pull origin master: Fast-forward
+< 708bef67a2d282243a871bcb87ef454602d9a9c7 4b11e682e361a45e35165c3963fb78c762138d42 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315503600 +0200	pull origin master: Fast-forward
+< 4b11e682e361a45e35165c3963fb78c762138d42 1f8d0271b53a069169bc93a45df44c2a5094bea8 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315514999 +0200	commit: xml fix
+< 1f8d0271b53a069169bc93a45df44c2a5094bea8 1bf26a735df6902fe1e304bf5e083ae94a27e197 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315595011 +0200	pull origin master: Fast-forward
+< 1bf26a735df6902fe1e304bf5e083ae94a27e197 ebfb24816e651947a404155330ecc0c89c5d7f63 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315669636 +0200	commit: viewerIIP fix + rft_id Fedora fix
+< ebfb24816e651947a404155330ecc0c89c5d7f63 d6d00df3ad8df3044c327a5a475d5f15acb06adf nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315767932 +0200	commit: afwerking
+< d6d00df3ad8df3044c327a5a475d5f15acb06adf e32551fcda646c05fb830d3c3d2bb1159aa7670a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315769419 +0200	commit: afwerking
+< e32551fcda646c05fb830d3c3d2bb1159aa7670a 26f86a565c62472d08edbe975583a70c88c42c3a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315847031 +0200	pull origin master: Fast-forward
+< 26f86a565c62472d08edbe975583a70c88c42c3a d2646421ee6624cc53f1b55ee4e5a2f8c570af24 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315860256 +0200	commit: ook lege files en devs
+< d2646421ee6624cc53f1b55ee4e5a2f8c570af24 894de6432009d3f9185bda2fb9ce33e100d35469 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315933778 +0200	pull origin master: Fast-forward
+< 894de6432009d3f9185bda2fb9ce33e100d35469 f149e91cd558b97b13523b7ae890f5ed2fa345c4 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315949153 +0200	commit: lkj
+< f149e91cd558b97b13523b7ae890f5ed2fa345c4 f4e57f968adfbc3009667ac37cc97649cd1faa86 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316019894 +0200	pull origin master: Fast-forward
+< f4e57f968adfbc3009667ac37cc97649cd1faa86 08a57b0e62c03cad2819c604abaed182a4b8c8aa nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316118455 +0200	commit: slkf
+---
+> 0000000000000000000000000000000000000000 10bdf7543682f0ad67bf23e01f2a65ba443b9beb nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314294444 +0200	clone: from git@github.com:nics/PeepShow.git
+> 10bdf7543682f0ad67bf23e01f2a65ba443b9beb 738a8fec6b551216c8cef32a9fe5d691adf3ff4a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314380288 +0200	pull origin master: Fast-forward
+> 738a8fec6b551216c8cef32a9fe5d691adf3ff4a 7eb30b0b1aab0a48bc6a87979cd7555b3691539d nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314450824 +0200	commit: opkuis
+> 7eb30b0b1aab0a48bc6a87979cd7555b3691539d 02bae8a50296d7889be8e775ccce385f73bc7967 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314525201 +0200	commit: opkuis
+> 02bae8a50296d7889be8e775ccce385f73bc7967 b39474d6a67346998c4c2ed663b13cc5f717857f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314640310 +0200	pull origin master: Fast-forward
+> b39474d6a67346998c4c2ed663b13cc5f717857f e8f4ceb7f01cba5e87afe9411e1af952c10c3795 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314651760 +0200	commit: contra update iipmooviewer en catmandu::delete
+> e8f4ceb7f01cba5e87afe9411e1af952c10c3795 d0a6f03b1b44a296b66daf47cf59ee11ec0bc10b nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314727090 +0200	pull origin master: Fast-forward
+> d0a6f03b1b44a296b66daf47cf59ee11ec0bc10b abaefd2e8de2e0c2c796c6d8df7cab9344b49760 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314894999 +0200	pull origin master: Fast-forward
+> abaefd2e8de2e0c2c796c6d8df7cab9344b49760 742c75a6ca03db14a54936c49fb1b55ce4fd422b nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314901041 +0200	commit: contra update
+> 742c75a6ca03db14a54936c49fb1b55ce4fd422b 26a4d961d7ffc88f1a5800c92d41978824ea8fbe nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314910542 +0200	commit: contra update
+> 26a4d961d7ffc88f1a5800c92d41978824ea8fbe 39745b5025d1a73ae5cc1bac636cd9d6a4346bd3 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314911820 +0200	commit: columns fix
+> 39745b5025d1a73ae5cc1bac636cd9d6a4346bd3 919de789d68c05f7ba4e4616483d55d45364cf44 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314912073 +0200	commit: kl
+> 919de789d68c05f7ba4e4616483d55d45364cf44 2bcd654b83e2ab4b6f115c9f4db690bde10c7c70 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314985181 +0200	pull origin master: Fast-forward
+> 2bcd654b83e2ab4b6f115c9f4db690bde10c7c70 82f3d232b0be27f845e4f89f090f268b0519f89e nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315062245 +0200	commit: documentatie import
+> 82f3d232b0be27f845e4f89f090f268b0519f89e d3351c141d23d80589ec6d3e438566ab341ad1a1 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315169357 +0200	commit: install grim
+> d3351c141d23d80589ec6d3e438566ab341ad1a1 ce0a3272e1bef1cfb7cea0d16238d32db291013f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315170032 +0200	commit: install grim
+> ce0a3272e1bef1cfb7cea0d16238d32db291013f 2bf9ad149ce21260458e307e63ebabf5b29e427e nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315170721 +0200	commit: opensearch fix
+> 2bf9ad149ce21260458e307e63ebabf5b29e427e 32ee90e35553d333c08fa6bf41362ed57fd301fa nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315242780 +0200	pull origin master: Fast-forward
+> 32ee90e35553d333c08fa6bf41362ed57fd301fa c9ffe484f90c8f06ed53296b87bf033caf36ed84 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315343880 +0200	commit: audio-video
+> c9ffe484f90c8f06ed53296b87bf033caf36ed84 4f2c88b502ce3043fe3395c453e5fca19d123035 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315415005 +0200	pull origin master: Fast-forward
+> 4f2c88b502ce3043fe3395c453e5fca19d123035 33042aa7f0112e3f5c23b61e879c4d5d8c393b7a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315598875 +0200	pull origin master: Fast-forward
+> 33042aa7f0112e3f5c23b61e879c4d5d8c393b7a 194b98f71110611226d39eb89c3fb1ee4797891f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315751802 +0200	commit: contra update
+> 194b98f71110611226d39eb89c3fb1ee4797891f 0c6f5f30082e206884888e44da481043f1b1ee60 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315767913 +0200	commit: afwerking
+> 0c6f5f30082e206884888e44da481043f1b1ee60 a762c988c8d12bc46b722bd796d1f045b0dbd3b2 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315847030 +0200	pull origin master: Fast-forward
+> a762c988c8d12bc46b722bd796d1f045b0dbd3b2 97ed542e1ab02782b3a1b6b98b5815d49ed86c66 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315939644 +0200	pull origin master: Fast-forward
+> 97ed542e1ab02782b3a1b6b98b5815d49ed86c66 05f5225946a4f8e8099087d346b3902c5472672a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315949108 +0200	commit: lkjdf
+> 05f5225946a4f8e8099087d346b3902c5472672a d3a7898f3ccd7904babf04f694da2c74195d5a4f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316034988 +0200	commit: mlkjdf
+/home/nicolas/Archipel/htdocs/images/icons/peel.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/peel.png
+/home/nicolas/Archipel/lib/Template/Plugin/Aleph.pm
+ <=> /home/nicolas/PeepShow/lib/Template/Plugin/Aleph.pm
+/home/nicolas/Archipel/.git/objects/19/4f9d1223ae0f88dd622b4cabc745e6c880ed10
+ <=> /home/nicolas/PeepShow/.git/objects/19/4f9d1223ae0f88dd622b4cabc745e6c880ed10
+/home/nicolas/Archipel/htdocs/images/icons/close-icon.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/close-icon.png
+/home/nicolas/Archipel/.git/objects/82/df6c36215ecc5769b185b2291ea43ee5570079
+ <=> /home/nicolas/PeepShow/.git/objects/82/df6c36215ecc5769b185b2291ea43ee5570079
+/home/nicolas/Archipel/.git/objects/ad/e610063c3909354eeb9ae144c4f0eccc7dc730
+ <=> /home/nicolas/PeepShow/.git/objects/ad/e610063c3909354eeb9ae144c4f0eccc7dc730
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/load.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/load.pm
+/home/nicolas/Archipel/template/inc/form_advanced.tt
+ <=> /home/nicolas/PeepShow/template/inc/form_advanced.tt
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_vert_enabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_vert_enabled.png
+/home/nicolas/Archipel/htdocs/images/bg_t.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/bg_t.gif
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-all/Screenshot.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-all/Screenshot.png
+/home/nicolas/Archipel/.git/hooks/pre-commit.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/pre-commit.sample
+/home/nicolas/Archipel/lib/Marc/XSLT/Source.pm
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/Source.pm
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/unbag.old
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/unbag.old
+/home/nicolas/Archipel/htdocs/images/icons/checkmark.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/checkmark.png
+/home/nicolas/Archipel/.git/objects/4f/b293ec41d96edfd5db107779ebd06e0035998e
+ <=> /home/nicolas/PeepShow/.git/objects/4f/b293ec41d96edfd5db107779ebd06e0035998e
+/home/nicolas/Archipel/.git/objects/b8/cdd6bfd69133c7abb7d52e87c85d4efa34c861
+ <=> /home/nicolas/PeepShow/.git/objects/b8/cdd6bfd69133c7abb7d52e87c85d4efa34c861
+/home/nicolas/Archipel/.git/objects/ac/ad81a069fb653d6bb7c2f465b81059ceea5f35
+ <=> /home/nicolas/PeepShow/.git/objects/ac/ad81a069fb653d6bb7c2f465b81059ceea5f35
+/home/nicolas/Archipel/.git/objects/34/9746571ded7c273c2503c10138d7074ed09a61
+ <=> /home/nicolas/PeepShow/.git/objects/34/9746571ded7c273c2503c10138d7074ed09a61
+/home/nicolas/Archipel/template/inc/html.tt
+ <=> /home/nicolas/PeepShow/template/inc/html.tt
+/home/nicolas/Archipel/.git/objects/65/7c6f37494e2a6c839dbe36e3b30a19db2bc6d9
+ <=> /home/nicolas/PeepShow/.git/objects/65/7c6f37494e2a6c839dbe36e3b30a19db2bc6d9
+/home/nicolas/Archipel/template/tt/add_column.tt
+ <=> /home/nicolas/PeepShow/template/tt/add_column.tt
+/home/nicolas/Archipel/.git/objects/21/e50a06ddc5f93fe12cd83be96701011969f926
+ <=> /home/nicolas/PeepShow/.git/objects/21/e50a06ddc5f93fe12cd83be96701011969f926
+/home/nicolas/Archipel/.git/objects/c1/8c5860edaac3fc8e94bed9bd26cf263192c497
+ <=> /home/nicolas/PeepShow/.git/objects/c1/8c5860edaac3fc8e94bed9bd26cf263192c497
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/count.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/count.pm
+/home/nicolas/Archipel/yaml/aleph.yml
+ <=> /home/nicolas/PeepShow/yaml/aleph.yml
+/home/nicolas/Archipel/.git/logs/HEAD
+ <=> /home/nicolas/PeepShow/.git/logs/HEAD
+1,20c1,27
+< 0000000000000000000000000000000000000000 ec28c64c521e6c7427569bb1c98694db5b9dc79a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314817636 +0200	clone: from git@github.com:nicolasfranck/Archipel.git
+< ec28c64c521e6c7427569bb1c98694db5b9dc79a 356f932697329221011e0117797fbd50a0a49b5c nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314823691 +0200	commit: Cache::FastMmap
+< 356f932697329221011e0117797fbd50a0a49b5c 4c511c9f735cbd1ea4ea46ae61a5d2f65d36d650 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314895004 +0200	pull origin master: Fast-forward
+< 4c511c9f735cbd1ea4ea46ae61a5d2f65d36d650 34682a09a34e28fbed7f75ec5dccb3bc4f0c8f35 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314910567 +0200	commit: new_column split in two
+< 34682a09a34e28fbed7f75ec5dccb3bc4f0c8f35 1da028938dc9827ae2b96bdc9f97b4a898b27455 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314911975 +0200	commit: columns fix
+< 1da028938dc9827ae2b96bdc9f97b4a898b27455 00467100ed121f3e7fd2a1bdb386311896571220 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314985193 +0200	pull origin master: Fast-forward
+< 00467100ed121f3e7fd2a1bdb386311896571220 4b0a02415b99c49747bb40c222c304da65b13730 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315328768 +0200	pull origin master: Fast-forward
+< 4b0a02415b99c49747bb40c222c304da65b13730 708bef67a2d282243a871bcb87ef454602d9a9c7 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315415013 +0200	pull origin master: Fast-forward
+< 708bef67a2d282243a871bcb87ef454602d9a9c7 4b11e682e361a45e35165c3963fb78c762138d42 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315503600 +0200	pull origin master: Fast-forward
+< 4b11e682e361a45e35165c3963fb78c762138d42 1f8d0271b53a069169bc93a45df44c2a5094bea8 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315514999 +0200	commit: xml fix
+< 1f8d0271b53a069169bc93a45df44c2a5094bea8 1bf26a735df6902fe1e304bf5e083ae94a27e197 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315595011 +0200	pull origin master: Fast-forward
+< 1bf26a735df6902fe1e304bf5e083ae94a27e197 ebfb24816e651947a404155330ecc0c89c5d7f63 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315669636 +0200	commit: viewerIIP fix + rft_id Fedora fix
+< ebfb24816e651947a404155330ecc0c89c5d7f63 d6d00df3ad8df3044c327a5a475d5f15acb06adf nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315767932 +0200	commit: afwerking
+< d6d00df3ad8df3044c327a5a475d5f15acb06adf e32551fcda646c05fb830d3c3d2bb1159aa7670a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315769419 +0200	commit: afwerking
+< e32551fcda646c05fb830d3c3d2bb1159aa7670a 26f86a565c62472d08edbe975583a70c88c42c3a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315847031 +0200	pull origin master: Fast-forward
+< 26f86a565c62472d08edbe975583a70c88c42c3a d2646421ee6624cc53f1b55ee4e5a2f8c570af24 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315860256 +0200	commit: ook lege files en devs
+< d2646421ee6624cc53f1b55ee4e5a2f8c570af24 894de6432009d3f9185bda2fb9ce33e100d35469 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315933778 +0200	pull origin master: Fast-forward
+< 894de6432009d3f9185bda2fb9ce33e100d35469 f149e91cd558b97b13523b7ae890f5ed2fa345c4 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315949153 +0200	commit: lkj
+< f149e91cd558b97b13523b7ae890f5ed2fa345c4 f4e57f968adfbc3009667ac37cc97649cd1faa86 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316019894 +0200	pull origin master: Fast-forward
+< f4e57f968adfbc3009667ac37cc97649cd1faa86 08a57b0e62c03cad2819c604abaed182a4b8c8aa nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316118455 +0200	commit: slkf
+---
+> 0000000000000000000000000000000000000000 10bdf7543682f0ad67bf23e01f2a65ba443b9beb nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314294444 +0200	clone: from git@github.com:nics/PeepShow.git
+> 10bdf7543682f0ad67bf23e01f2a65ba443b9beb 738a8fec6b551216c8cef32a9fe5d691adf3ff4a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314380288 +0200	pull origin master: Fast-forward
+> 738a8fec6b551216c8cef32a9fe5d691adf3ff4a 7eb30b0b1aab0a48bc6a87979cd7555b3691539d nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314450824 +0200	commit: opkuis
+> 7eb30b0b1aab0a48bc6a87979cd7555b3691539d 02bae8a50296d7889be8e775ccce385f73bc7967 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314525201 +0200	commit: opkuis
+> 02bae8a50296d7889be8e775ccce385f73bc7967 b39474d6a67346998c4c2ed663b13cc5f717857f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314640310 +0200	pull origin master: Fast-forward
+> b39474d6a67346998c4c2ed663b13cc5f717857f e8f4ceb7f01cba5e87afe9411e1af952c10c3795 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314651760 +0200	commit: contra update iipmooviewer en catmandu::delete
+> e8f4ceb7f01cba5e87afe9411e1af952c10c3795 d0a6f03b1b44a296b66daf47cf59ee11ec0bc10b nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314727090 +0200	pull origin master: Fast-forward
+> d0a6f03b1b44a296b66daf47cf59ee11ec0bc10b abaefd2e8de2e0c2c796c6d8df7cab9344b49760 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314894999 +0200	pull origin master: Fast-forward
+> abaefd2e8de2e0c2c796c6d8df7cab9344b49760 742c75a6ca03db14a54936c49fb1b55ce4fd422b nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314901041 +0200	commit: contra update
+> 742c75a6ca03db14a54936c49fb1b55ce4fd422b 26a4d961d7ffc88f1a5800c92d41978824ea8fbe nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314910542 +0200	commit: contra update
+> 26a4d961d7ffc88f1a5800c92d41978824ea8fbe 39745b5025d1a73ae5cc1bac636cd9d6a4346bd3 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314911820 +0200	commit: columns fix
+> 39745b5025d1a73ae5cc1bac636cd9d6a4346bd3 919de789d68c05f7ba4e4616483d55d45364cf44 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314912073 +0200	commit: kl
+> 919de789d68c05f7ba4e4616483d55d45364cf44 2bcd654b83e2ab4b6f115c9f4db690bde10c7c70 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314985181 +0200	pull origin master: Fast-forward
+> 2bcd654b83e2ab4b6f115c9f4db690bde10c7c70 82f3d232b0be27f845e4f89f090f268b0519f89e nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315062245 +0200	commit: documentatie import
+> 82f3d232b0be27f845e4f89f090f268b0519f89e d3351c141d23d80589ec6d3e438566ab341ad1a1 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315169357 +0200	commit: install grim
+> d3351c141d23d80589ec6d3e438566ab341ad1a1 ce0a3272e1bef1cfb7cea0d16238d32db291013f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315170032 +0200	commit: install grim
+> ce0a3272e1bef1cfb7cea0d16238d32db291013f 2bf9ad149ce21260458e307e63ebabf5b29e427e nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315170721 +0200	commit: opensearch fix
+> 2bf9ad149ce21260458e307e63ebabf5b29e427e 32ee90e35553d333c08fa6bf41362ed57fd301fa nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315242780 +0200	pull origin master: Fast-forward
+> 32ee90e35553d333c08fa6bf41362ed57fd301fa c9ffe484f90c8f06ed53296b87bf033caf36ed84 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315343880 +0200	commit: audio-video
+> c9ffe484f90c8f06ed53296b87bf033caf36ed84 4f2c88b502ce3043fe3395c453e5fca19d123035 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315415005 +0200	pull origin master: Fast-forward
+> 4f2c88b502ce3043fe3395c453e5fca19d123035 33042aa7f0112e3f5c23b61e879c4d5d8c393b7a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315598875 +0200	pull origin master: Fast-forward
+> 33042aa7f0112e3f5c23b61e879c4d5d8c393b7a 194b98f71110611226d39eb89c3fb1ee4797891f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315751802 +0200	commit: contra update
+> 194b98f71110611226d39eb89c3fb1ee4797891f 0c6f5f30082e206884888e44da481043f1b1ee60 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315767913 +0200	commit: afwerking
+> 0c6f5f30082e206884888e44da481043f1b1ee60 a762c988c8d12bc46b722bd796d1f045b0dbd3b2 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315847030 +0200	pull origin master: Fast-forward
+> a762c988c8d12bc46b722bd796d1f045b0dbd3b2 97ed542e1ab02782b3a1b6b98b5815d49ed86c66 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315939644 +0200	pull origin master: Fast-forward
+> 97ed542e1ab02782b3a1b6b98b5815d49ed86c66 05f5225946a4f8e8099087d346b3902c5472672a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315949108 +0200	commit: lkjdf
+> 05f5225946a4f8e8099087d346b3902c5472672a d3a7898f3ccd7904babf04f694da2c74195d5a4f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316034988 +0200	commit: mlkjdf
+/home/nicolas/Archipel/htdocs/js/iip/mootools-core-1.3-full-compat.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/mootools-core-1.3-full-compat.js
+/home/nicolas/Archipel/lib/PeepShow/Handler/Query/Register.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Query/Register.pm
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Store/Metadata.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Store/Metadata.pm
+/home/nicolas/Archipel/.git/objects/52/a8ce10001621a25739618abef05873b7e4b346
+ <=> /home/nicolas/PeepShow/.git/objects/52/a8ce10001621a25739618abef05873b7e4b346
+/home/nicolas/Archipel/htdocs/images/icons/tag.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/tag.png
+/home/nicolas/Archipel/.git/objects/a6/466ebcf3c5e596ad2f8250317e0c8932493f4a
+ <=> /home/nicolas/PeepShow/.git/objects/a6/466ebcf3c5e596ad2f8250317e0c8932493f4a
+/home/nicolas/Archipel/.git/refs/heads/master
+ <=> /home/nicolas/PeepShow/.git/refs/heads/master
+1c1
+< 08a57b0e62c03cad2819c604abaed182a4b8c8aa
+---
+> d3a7898f3ccd7904babf04f694da2c74195d5a4f
+/home/nicolas/Archipel/.git/objects/d2/cda6ab5f8bd97c57ba78fcee0bb57ce181c1d2
+ <=> /home/nicolas/PeepShow/.git/objects/d2/cda6ab5f8bd97c57ba78fcee0bb57ce181c1d2
+/home/nicolas/Archipel/htdocs/css/columns.css
+ <=> /home/nicolas/PeepShow/htdocs/css/columns.css
+/home/nicolas/Archipel/htdocs/js/jCarousel/jquery.jcarousel_new.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jCarousel/jquery.jcarousel_new.js
+/home/nicolas/Archipel/htdocs/js/audiostreaming.js
+ <=> /home/nicolas/PeepShow/htdocs/js/audiostreaming.js
+/home/nicolas/Archipel/htdocs/images/icons/image_not_found.jpg
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/image_not_found.jpg
+/home/nicolas/Archipel/htdocs/images/icons/cart_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/cart_white.png
+/home/nicolas/Archipel/.git/objects/1b/f26a735df6902fe1e304bf5e083ae94a27e197
+ <=> /home/nicolas/PeepShow/.git/objects/1b/f26a735df6902fe1e304bf5e083ae94a27e197
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/ids.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/ids.pm
+/home/nicolas/Archipel/.git/objects/1d/27fcf78c385476e0c45e5ad69a142866503c5e
+ <=> /home/nicolas/PeepShow/.git/objects/1d/27fcf78c385476e0c45e5ad69a142866503c5e
+/home/nicolas/Archipel/.git/objects/26/574a8a3e9d38cecc651679e8583856c7508702
+ <=> /home/nicolas/PeepShow/.git/objects/26/574a8a3e9d38cecc651679e8583856c7508702
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_vert_enabled_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_vert_enabled_white.png
+/home/nicolas/Archipel/.git/objects/1b/6f337625362efbe78f73969a958a794823e8fe
+ <=> /home/nicolas/PeepShow/.git/objects/1b/6f337625362efbe78f73969a958a794823e8fe
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Store/Media.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Store/Media.pm
+/home/nicolas/Archipel/.git/objects/0d/a0033b7ea6bde75473c3312bc6208a0f9629c1
+ <=> /home/nicolas/PeepShow/.git/objects/0d/a0033b7ea6bde75473c3312bc6208a0f9629c1
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/devs.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/devs.pm
+/home/nicolas/Archipel/.git/objects/f9/13b047fcae31bcf6c714f451dfd725bbffdd8a
+ <=> /home/nicolas/PeepShow/.git/objects/f9/13b047fcae31bcf6c714f451dfd725bbffdd8a
+/home/nicolas/Archipel/htdocs/images/icons/excel.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/excel.gif
+/home/nicolas/Archipel/htdocs/images/icons/save.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/save.gif
+/home/nicolas/Archipel/lib/Marc/XSLT/MARC21slim2MODS3-4.xsl
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/MARC21slim2MODS3-4.xsl
+/home/nicolas/Archipel/htdocs/images/icons/prev_small.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/prev_small.png
+/home/nicolas/Archipel/test/import2.pl
+ <=> /home/nicolas/PeepShow/test/import2.pl
+/home/nicolas/Archipel/htdocs/images/jCarousel/last_enabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/last_enabled.png
+/home/nicolas/Archipel/.git/objects/b1/7d92ff6d85734a8720821c0d908759ee157c0d
+ <=> /home/nicolas/PeepShow/.git/objects/b1/7d92ff6d85734a8720821c0d908759ee157c0d
+/home/nicolas/Archipel/.git/objects/a6/cd7478399f53286059d508f945e79e026606a2
+ <=> /home/nicolas/PeepShow/.git/objects/a6/cd7478399f53286059d508f945e79e026606a2
+/home/nicolas/Archipel/template/inc/home/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/home/head.tt
+/home/nicolas/Archipel/.git/objects/7b/628d47704fc8d28b10e583a0cc8933c2e90d7e
+ <=> /home/nicolas/PeepShow/.git/objects/7b/628d47704fc8d28b10e583a0cc8933c2e90d7e
+/home/nicolas/Archipel/.git/objects/92/4d6e6035461a44bbc103649ef58be50445add5
+ <=> /home/nicolas/PeepShow/.git/objects/92/4d6e6035461a44bbc103649ef58be50445add5
+/home/nicolas/Archipel/.git/objects/4f/dd6b3863cffaa231fe11efa7bd884673b5b9dc
+ <=> /home/nicolas/PeepShow/.git/objects/4f/dd6b3863cffaa231fe11efa7bd884673b5b9dc
+/home/nicolas/Archipel/.git/objects/0a/cd54dfb6593480b12a51515253d4d394512e09
+ <=> /home/nicolas/PeepShow/.git/objects/0a/cd54dfb6593480b12a51515253d4d394512e09
+/home/nicolas/Archipel/.git/objects/c1/e49ba88dc9e2419e061518797bdc1c554840f3
+ <=> /home/nicolas/PeepShow/.git/objects/c1/e49ba88dc9e2419e061518797bdc1c554840f3
+/home/nicolas/Archipel/htdocs/images/screenshots/openURL/size.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/openURL/size.png
+/home/nicolas/Archipel/htdocs/images/icons/high-resolution-hover.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/high-resolution-hover.gif
+/home/nicolas/Archipel/.git/objects/13/8f12aea55b0d490cb235e9612fc4abac41eb50
+ <=> /home/nicolas/PeepShow/.git/objects/13/8f12aea55b0d490cb235e9612fc4abac41eb50
+/home/nicolas/Archipel/.git/objects/10/c81031f643b876c4790f0315866f690ab78e34
+ <=> /home/nicolas/PeepShow/.git/objects/10/c81031f643b876c4790f0315866f690ab78e34
+/home/nicolas/Archipel/htdocs/css/iip/blending.css
+ <=> /home/nicolas/PeepShow/htdocs/css/iip/blending.css
+/home/nicolas/Archipel/.git/objects/ce/5ffbae2c998412773e400677c06a2251133396
+ <=> /home/nicolas/PeepShow/.git/objects/ce/5ffbae2c998412773e400677c06a2251133396
+/home/nicolas/Archipel/template/inc/json_link.tt
+ <=> /home/nicolas/PeepShow/template/inc/json_link.tt
+/home/nicolas/Archipel/template/data/en/search.tt
+ <=> /home/nicolas/PeepShow/template/data/en/search.tt
+/home/nicolas/Archipel/.git/objects/64/54f74727485714c4b605f805f8550b8e2dbff9
+ <=> /home/nicolas/PeepShow/.git/objects/64/54f74727485714c4b605f805f8550b8e2dbff9
+/home/nicolas/Archipel/.git/objects/a5/2389f6e33a7cb7321316993a2cad46f1cf5c1a
+ <=> /home/nicolas/PeepShow/.git/objects/a5/2389f6e33a7cb7321316993a2cad46f1cf5c1a
+/home/nicolas/Archipel/.git/objects/b7/fb5c91aa60415465af0d7f021243158b49c570
+ <=> /home/nicolas/PeepShow/.git/objects/b7/fb5c91aa60415465af0d7f021243158b49c570
+/home/nicolas/Archipel/htdocs/css/iip/iip.css
+ <=> /home/nicolas/PeepShow/htdocs/css/iip/iip.css
+/home/nicolas/Archipel/htdocs/images/icons/high-resolution.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/high-resolution.gif
+/home/nicolas/Archipel/lib/PeepShow/Handler/Cart/Devs.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Cart/Devs.pm
+/home/nicolas/Archipel/htdocs/images/jCarousel/prev_vert_hover_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/prev_vert_hover_white.png
+/home/nicolas/Archipel/template/inc/columns/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/columns/head.tt
+/home/nicolas/Archipel/.git/objects/53/cc6ba6600e5bef379f15ae1e81be1e19b96a29
+ <=> /home/nicolas/PeepShow/.git/objects/53/cc6ba6600e5bef379f15ae1e81be1e19b96a29
+/home/nicolas/Archipel/.git/objects/71/a19d8b6927f1f7b8bbd44bd32f145b91ab7278
+ <=> /home/nicolas/PeepShow/.git/objects/71/a19d8b6927f1f7b8bbd44bd32f145b91ab7278
+/home/nicolas/Archipel/htdocs/images/logo.png
+ <=> /home/nicolas/PeepShow/htdocs/images/logo.png
+/home/nicolas/Archipel/htdocs/images/icons/zoom.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/zoom.png
+/home/nicolas/Archipel/.git/objects/a8/50cf7bd1b94a65cef68a03281e874baf3b96c9
+ <=> /home/nicolas/PeepShow/.git/objects/a8/50cf7bd1b94a65cef68a03281e874baf3b96c9
+/home/nicolas/Archipel/.git/objects/c1/b3d75c21b395d20ce63829546c4ae5aec4a14b
+ <=> /home/nicolas/PeepShow/.git/objects/c1/b3d75c21b395d20ce63829546c4ae5aec4a14b
+/home/nicolas/Archipel/.git/objects/31/12a9ac4f532cc078de18a389c67d5536db2dc0
+ <=> /home/nicolas/PeepShow/.git/objects/31/12a9ac4f532cc078de18a389c67d5536db2dc0
+/home/nicolas/Archipel/htdocs/css/sparql.css
+ <=> /home/nicolas/PeepShow/htdocs/css/sparql.css
+2c2
+< 	/*border:1px solid black;*/
+---
+> 	border:1px solid black;
+7a8
+> 
+10,13c11
+< 	/*border:1px solid black;*/
+< }
+< #sparql_div #paging a {
+< 	margin:5px;
+---
+> 	border:1px solid black;
+17c15
+< 	/*border:1px solid black;*/
+---
+> 	border:1px solid black;	
+28c26
+< 	/*border:1px solid black;*/
+---
+> 	border:1px solid black;
+36c34
+< 	/*border:1px solid black;*/
+---
+> 	border:1px solid black;
+39,41d36
+< #sparql_div #images .bl .imgh img.related_image {
+< 	width:80px;
+< }
+50c45
+< 	/*border:1px solid black;*/
+---
+> 	border:1px solid black;
+/home/nicolas/Archipel/.git/objects/d7/e500c89dd98ce9bd582b5b92cd487311688f65
+ <=> /home/nicolas/PeepShow/.git/objects/d7/e500c89dd98ce9bd582b5b92cd487311688f65
+/home/nicolas/Archipel/htdocs/images/icons/logo-boekentoren-invert.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/logo-boekentoren-invert.png
+/home/nicolas/Archipel/.git/objects/f4/e57f968adfbc3009667ac37cc97649cd1faa86
+ <=> /home/nicolas/PeepShow/.git/objects/f4/e57f968adfbc3009667ac37cc97649cd1faa86
+/home/nicolas/Archipel/htdocs/images/icons/xml.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/xml.gif
+/home/nicolas/Archipel/.git/objects/4d/6a643e6bd611489b05e6a20d216a582b623cb4
+ <=> /home/nicolas/PeepShow/.git/objects/4d/6a643e6bd611489b05e6a20d216a582b623cb4
+/home/nicolas/Archipel/htdocs/images/logo_.jpg
+ <=> /home/nicolas/PeepShow/htdocs/images/logo_.jpg
+/home/nicolas/Archipel/.git/objects/e9/a65ff2135445c72790c8ee13939d3ef40875d5
+ <=> /home/nicolas/PeepShow/.git/objects/e9/a65ff2135445c72790c8ee13939d3ef40875d5
+/home/nicolas/Archipel/template/tt/carousel.tt
+ <=> /home/nicolas/PeepShow/template/tt/carousel.tt
+/home/nicolas/Archipel/htdocs/images/jCarousel/first.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/first.png
+/home/nicolas/Archipel/.git/objects/d3/4dcdb4499395ab10790dad520b929bd0ac0b10
+ <=> /home/nicolas/PeepShow/.git/objects/d3/4dcdb4499395ab10790dad520b929bd0ac0b10
+/home/nicolas/Archipel/lib/PeepShow/search/all.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/search/all.pm
+/home/nicolas/Archipel/.git/objects/d3/f07ca45cb9dc67f9457b0bc633fd76023440b3
+ <=> /home/nicolas/PeepShow/.git/objects/d3/f07ca45cb9dc67f9457b0bc633fd76023440b3
+/home/nicolas/Archipel/htdocs/images/iip/blank.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/blank.gif
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/orientation.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/orientation.pm
+/home/nicolas/Archipel/.git/objects/ce/c4df1764b9ad80742ad92db4e99ae6565b9c49
+ <=> /home/nicolas/PeepShow/.git/objects/ce/c4df1764b9ad80742ad92db4e99ae6565b9c49
+/home/nicolas/Archipel/.git/objects/85/42844cbb646ba77f4ab114fafc40947eddd9a6
+ <=> /home/nicolas/PeepShow/.git/objects/85/42844cbb646ba77f4ab114fafc40947eddd9a6
+/home/nicolas/Archipel/.git/objects/6e/7933542f4dde0d3bd3f0302bc5dd09266fa290
+ <=> /home/nicolas/PeepShow/.git/objects/6e/7933542f4dde0d3bd3f0302bc5dd09266fa290
+/home/nicolas/Archipel/.git/objects/5e/b0783359f49d7d3939f6749f5c5a42f05399c9
+ <=> /home/nicolas/PeepShow/.git/objects/5e/b0783359f49d7d3939f6749f5c5a42f05399c9
+/home/nicolas/Archipel/.git/objects/36/bd6ce5f21fc0fb7483f3c04ac26ea6741caec4
+ <=> /home/nicolas/PeepShow/.git/objects/36/bd6ce5f21fc0fb7483f3c04ac26ea6741caec4
+/home/nicolas/Archipel/.git/objects/1a/67beeab84b16f711b7b216456fee177557dcd4
+ <=> /home/nicolas/PeepShow/.git/objects/1a/67beeab84b16f711b7b216456fee177557dcd4
+/home/nicolas/Archipel/lib/PeepShow/Tools/Record.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Tools/Record.pm
+/home/nicolas/Archipel/htdocs/images/iip/iip.32x32.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/iip.32x32.png
+/home/nicolas/Archipel/.git/objects/6a/f5d8d2251945a4d6c4f6a9e40c0685b629858d
+ <=> /home/nicolas/PeepShow/.git/objects/6a/f5d8d2251945a4d6c4f6a9e40c0685b629858d
+/home/nicolas/Archipel/.git/objects/44/fdee4d22796a5523ad7284789655791ddca8b3
+ <=> /home/nicolas/PeepShow/.git/objects/44/fdee4d22796a5523ad7284789655791ddca8b3
+/home/nicolas/Archipel/htdocs/js/iip/iipmooviewer_nocontrols.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/iipmooviewer_nocontrols.js
+/home/nicolas/Archipel/.git/objects/f1/4136855228e2105dea3d97e0070c0dfe0f0436
+ <=> /home/nicolas/PeepShow/.git/objects/f1/4136855228e2105dea3d97e0070c0dfe0f0436
+/home/nicolas/Archipel/test/benchmark_get4.pl
+ <=> /home/nicolas/PeepShow/test/benchmark_get4.pl
+/home/nicolas/Archipel/test/kadoc.pl
+ <=> /home/nicolas/PeepShow/test/kadoc.pl
+/home/nicolas/Archipel/htdocs/css/carousel/carousel.css
+ <=> /home/nicolas/PeepShow/htdocs/css/carousel/carousel.css
+/home/nicolas/Archipel/lib/openURL/Service/Video/Streaming.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/Service/Video/Streaming.pm
+/home/nicolas/Archipel/.git/objects/81/b18624b6d4707ff6a04c384593fc6bed3e96b1
+ <=> /home/nicolas/PeepShow/.git/objects/81/b18624b6d4707ff6a04c384593fc6bed3e96b1
+/home/nicolas/Archipel/.git/objects/46/a4033d320c27310f3ee6d094135e7b06ad66c2
+ <=> /home/nicolas/PeepShow/.git/objects/46/a4033d320c27310f3ee6d094135e7b06ad66c2
+/home/nicolas/Archipel/lib/Catmandu/Importer/Aleph.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Importer/Aleph.pm
+/home/nicolas/Archipel/htdocs/images/icons/powerpoint.jpeg
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/powerpoint.jpeg
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_vert_hover_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_vert_hover_white.png
+/home/nicolas/Archipel/.git/objects/2f/93f481be4448a2703fb8e82de540602b3b2f30
+ <=> /home/nicolas/PeepShow/.git/objects/2f/93f481be4448a2703fb8e82de540602b3b2f30
+/home/nicolas/Archipel/.git/objects/32/e2d147d40f2a6b9adf18c186ee828d0da30752
+ <=> /home/nicolas/PeepShow/.git/objects/32/e2d147d40f2a6b9adf18c186ee828d0da30752
+/home/nicolas/Archipel/.git/objects/88/8e8446b6b2ec0003eaa8386391b144846e5d4c
+ <=> /home/nicolas/PeepShow/.git/objects/88/8e8446b6b2ec0003eaa8386391b144846e5d4c
+/home/nicolas/Archipel/.git/objects/ee/dc62e29ca35428767c4c88fc969989cbc9c784
+ <=> /home/nicolas/PeepShow/.git/objects/ee/dc62e29ca35428767c4c88fc969989cbc9c784
+/home/nicolas/Archipel/htdocs/images/icons/json.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/json.png
+/home/nicolas/Archipel/.git/objects/b5/eb846ce71db241df1bb8004c045b05ae1b0eb4
+ <=> /home/nicolas/PeepShow/.git/objects/b5/eb846ce71db241df1bb8004c045b05ae1b0eb4
+/home/nicolas/Archipel/.git/objects/c3/5b1535dfc88eb927e0c14e39d3dc6471e22fec
+ <=> /home/nicolas/PeepShow/.git/objects/c3/5b1535dfc88eb927e0c14e39d3dc6471e22fec
+/home/nicolas/Archipel/lib/openURL/App/Carousel.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/App/Carousel.pm
+/home/nicolas/Archipel/.git/objects/06/0cc1afa6c47be4a1292a3040e68f9007cf3df9
+ <=> /home/nicolas/PeepShow/.git/objects/06/0cc1afa6c47be4a1292a3040e68f9007cf3df9
+/home/nicolas/Archipel/.git/objects/31/5bbae732372413014638712a9fbad9c2311be3
+ <=> /home/nicolas/PeepShow/.git/objects/31/5bbae732372413014638712a9fbad9c2311be3
+/home/nicolas/Archipel/.git/objects/e8/8d98cb6ac57e54e76b3564d0d17cad5cd293c3
+ <=> /home/nicolas/PeepShow/.git/objects/e8/8d98cb6ac57e54e76b3564d0d17cad5cd293c3
+/home/nicolas/Archipel/htdocs/images/icons/min_small.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/min_small.png
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag/Audio/FLV.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag/Audio/FLV.pm
+/home/nicolas/Archipel/template/inc/search/record/image_example.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/record/image_example.tt
+/home/nicolas/Archipel/.git/objects/81/5e909579ff90c1c7b178cd1c42070a38c36457
+ <=> /home/nicolas/PeepShow/.git/objects/81/5e909579ff90c1c7b178cd1c42070a38c36457
+/home/nicolas/Archipel/.git/objects/b1/c5bbc2feebc2a67971b01fda2ec63d028a65f1
+ <=> /home/nicolas/PeepShow/.git/objects/b1/c5bbc2feebc2a67971b01fda2ec63d028a65f1
+/home/nicolas/Archipel/.git/objects/64/54238dc239b89509f8a38d3ce86dd143fafe14
+ <=> /home/nicolas/PeepShow/.git/objects/64/54238dc239b89509f8a38d3ce86dd143fafe14
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag.pm
+/home/nicolas/Archipel/htdocs/images/icons/downloads.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/downloads.gif
+/home/nicolas/Archipel/htdocs/js/array.prototypes.js
+ <=> /home/nicolas/PeepShow/htdocs/js/array.prototypes.js
+/home/nicolas/Archipel/.git/objects/5b/a4a5c74a17c5b27f0c83d3e06421334fed7bde
+ <=> /home/nicolas/PeepShow/.git/objects/5b/a4a5c74a17c5b27f0c83d3e06421334fed7bde
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-view/record.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-view/record.png
+/home/nicolas/Archipel/.git/objects/51/3d6745c4e833f671a9e56630ea38eac343189d
+ <=> /home/nicolas/PeepShow/.git/objects/51/3d6745c4e833f671a9e56630ea38eac343189d
+/home/nicolas/Archipel/.git/objects/ee/af9ac5d14da36e2447bbfddecbde182be7c508
+ <=> /home/nicolas/PeepShow/.git/objects/ee/af9ac5d14da36e2447bbfddecbde182be7c508
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag/Video/FLV.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag/Video/FLV.pm
+/home/nicolas/Archipel/htdocs/images/jCarousel/close.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/close.png
+/home/nicolas/Archipel/.git/objects/e1/423b2a4872b4209aaebb9541da346be521104c
+ <=> /home/nicolas/PeepShow/.git/objects/e1/423b2a4872b4209aaebb9541da346be521104c
+/home/nicolas/Archipel/.git/objects/66/40893d11b4cf1ea3a6a2665b4628c68ef364fd
+ <=> /home/nicolas/PeepShow/.git/objects/66/40893d11b4cf1ea3a6a2665b4628c68ef364fd
+/home/nicolas/Archipel/.git/objects/8e/6b5084798e14da397c4d4358b2c22128226dbb
+ <=> /home/nicolas/PeepShow/.git/objects/8e/6b5084798e14da397c4d4358b2c22128226dbb
+/home/nicolas/Archipel/template/data/en/home.tt
+ <=> /home/nicolas/PeepShow/template/data/en/home.tt
+/home/nicolas/Archipel/.git/FETCH_HEAD
+ <=> /home/nicolas/PeepShow/.git/FETCH_HEAD
+1c1
+< f4e57f968adfbc3009667ac37cc97649cd1faa86		branch 'master' of github.com:nicolasfranck/Archipel
+---
+> 05f5225946a4f8e8099087d346b3902c5472672a		branch 'master' of github.com:nics/PeepShow
+/home/nicolas/Archipel/.git/objects/51/e43f6d7abf615b8c4ae00484bfea290268c880
+ <=> /home/nicolas/PeepShow/.git/objects/51/e43f6d7abf615b8c4ae00484bfea290268c880
+/home/nicolas/Archipel/.git/objects/2c/aeb659b2b456618755e3151c99a1a34c6366f4
+ <=> /home/nicolas/PeepShow/.git/objects/2c/aeb659b2b456618755e3151c99a1a34c6366f4
+/home/nicolas/Archipel/.git/objects/35/6c8b1d0829d9ad8f04016fb185564832d2d7e2
+ <=> /home/nicolas/PeepShow/.git/objects/35/6c8b1d0829d9ad8f04016fb185564832d2d7e2
+/home/nicolas/Archipel/htdocs/images/icons/logo-ugent-white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/logo-ugent-white.png
+/home/nicolas/Archipel/.git/objects/f1/49e91cd558b97b13523b7ae890f5ed2fa345c4
+ <=> /home/nicolas/PeepShow/.git/objects/f1/49e91cd558b97b13523b7ae890f5ed2fa345c4
+/home/nicolas/Archipel/.git/objects/af/3418ce71c9e6b47f043e606ac094ff2dcdfdae
+ <=> /home/nicolas/PeepShow/.git/objects/af/3418ce71c9e6b47f043e606ac094ff2dcdfdae
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/oai.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/oai.pm
+/home/nicolas/Archipel/.git/objects/45/36259b913d2a9fc77c6e12bbbfdddb656f005c
+ <=> /home/nicolas/PeepShow/.git/objects/45/36259b913d2a9fc77c6e12bbbfdddb656f005c
+/home/nicolas/Archipel/.git/objects/d1/d282f14fb780852d0287da30a9c8846f5671eb
+ <=> /home/nicolas/PeepShow/.git/objects/d1/d282f14fb780852d0287da30a9c8846f5671eb
+/home/nicolas/Archipel/htdocs/images/icons/up_small.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/up_small.png
+/home/nicolas/Archipel/.git/objects/f6/43fec011b9c539cc02c619fbca3fe38a93debc
+ <=> /home/nicolas/PeepShow/.git/objects/f6/43fec011b9c539cc02c619fbca3fe38a93debc
+/home/nicolas/Archipel/htdocs/images/icons/scrollbar_prev_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/scrollbar_prev_disabled.png
+/home/nicolas/Archipel/.git/objects/29/055722db5aaa663d4cc34d4da83c742179a205
+ <=> /home/nicolas/PeepShow/.git/objects/29/055722db5aaa663d4cc34d4da83c742179a205
+/home/nicolas/Archipel/htdocs/images/icons/cart_big.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/cart_big.png
+/home/nicolas/Archipel/.git/objects/df/4b32cb33c94d109246e5aab6ca162d6c454a98
+ <=> /home/nicolas/PeepShow/.git/objects/df/4b32cb33c94d109246e5aab6ca162d6c454a98
+/home/nicolas/Archipel/.git/objects/7d/3b8c0c76d60d6f5add443bd1709d6796662ff8
+ <=> /home/nicolas/PeepShow/.git/objects/7d/3b8c0c76d60d6f5add443bd1709d6796662ff8
+/home/nicolas/Archipel/.git/objects/ae/127c08a11e2c89ffd7612f12e033fa88f92b3d
+ <=> /home/nicolas/PeepShow/.git/objects/ae/127c08a11e2c89ffd7612f12e033fa88f92b3d
+/home/nicolas/Archipel/.git/objects/eb/62518f40101007ca20b2f1589661c9bf543fb7
+ <=> /home/nicolas/PeepShow/.git/objects/eb/62518f40101007ca20b2f1589661c9bf543fb7
+/home/nicolas/Archipel/.git/objects/be/52a583198ff1e8acedb39aa4571d159de66b2a
+ <=> /home/nicolas/PeepShow/.git/objects/be/52a583198ff1e8acedb39aa4571d159de66b2a
+/home/nicolas/Archipel/.git/objects/ec/0ec73b3199443b12d31cb17c7590f239b74c14
+ <=> /home/nicolas/PeepShow/.git/objects/ec/0ec73b3199443b12d31cb17c7590f239b74c14
+/home/nicolas/Archipel/template/inc/search/record/record_mapping.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/record/record_mapping.tt
+/home/nicolas/Archipel/template/inc/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/head.tt
+11a12,13
+> <script type="text/javascript" src="[% conf.all.rooturl %]/js/urlvars.js"></script>
+> <script type="text/javascript" src="[% conf.all.rooturl %]/js/language.js"></script>
+27,31d28
+< <!--demo-start-->
+< <link type="image/x-icon" href="[% conf.all.rooturl %]/images/favicon.ico" rel="shortcut icon">
+< <script type="text/javascript" src="[% conf.all.rooturl %]/js/textsizer.js"></script>
+< <script type="text/javascript" src="[% conf.all.rooturl %]/js/rel.js"></script>
+< <!--demo-end-->
+/home/nicolas/Archipel/.git/objects/ad/a07030fb286880b5f098ab4631c0d362ed87ac
+ <=> /home/nicolas/PeepShow/.git/objects/ad/a07030fb286880b5f098ab4631c0d362ed87ac
+/home/nicolas/Archipel/.git/objects/4d/b456ce873a2211b7e645e9d8d5db3b14d6a513
+ <=> /home/nicolas/PeepShow/.git/objects/4d/b456ce873a2211b7e645e9d8d5db3b14d6a513
+/home/nicolas/Archipel/htdocs/images/icons/save-hover.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/save-hover.gif
+/home/nicolas/Archipel/.git/objects/35/6f932697329221011e0117797fbd50a0a49b5c
+ <=> /home/nicolas/PeepShow/.git/objects/35/6f932697329221011e0117797fbd50a0a49b5c
+/home/nicolas/Archipel/htdocs/images/icons/cart-add.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/cart-add.gif
+/home/nicolas/Archipel/.git/objects/a5/742085d10badeadf2c1eef20b6d86773456f98
+ <=> /home/nicolas/PeepShow/.git/objects/a5/742085d10badeadf2c1eef20b6d86773456f98
+/home/nicolas/Archipel/.git/objects/cd/beaf50f0f6eab75fbfc019f16a10ee0a0b4ac8
+ <=> /home/nicolas/PeepShow/.git/objects/cd/beaf50f0f6eab75fbfc019f16a10ee0a0b4ac8
+/home/nicolas/Archipel/.git/objects/52/21f9b11af3158d9c5b75e80c5d11b0579606bc
+ <=> /home/nicolas/PeepShow/.git/objects/52/21f9b11af3158d9c5b75e80c5d11b0579606bc
+/home/nicolas/Archipel/.git/objects/31/d80841b1ba717aaefa77f5d602939061413b74
+ <=> /home/nicolas/PeepShow/.git/objects/31/d80841b1ba717aaefa77f5d602939061413b74
+/home/nicolas/Archipel/.git/objects/26/f86a565c62472d08edbe975583a70c88c42c3a
+ <=> /home/nicolas/PeepShow/.git/objects/26/f86a565c62472d08edbe975583a70c88c42c3a
+/home/nicolas/Archipel/.git/objects/be/2f83197af2cce5b3f9c29d95a09a5eedd2cb97
+ <=> /home/nicolas/PeepShow/.git/objects/be/2f83197af2cce5b3f9c29d95a09a5eedd2cb97
+/home/nicolas/Archipel/.git/objects/fc/f2c31335fa5a08e6adc71c454d31b8f6bd19f6
+ <=> /home/nicolas/PeepShow/.git/objects/fc/f2c31335fa5a08e6adc71c454d31b8f6bd19f6
+/home/nicolas/Archipel/lib/Grim/XML/Media/media.xsd
+ <=> /home/nicolas/PeepShow/lib/Grim/XML/Media/media.xsd
+/home/nicolas/Archipel/.git/objects/df/65791d6b3f3117d74f68075d0433c02db277d5
+ <=> /home/nicolas/PeepShow/.git/objects/df/65791d6b3f3117d74f68075d0433c02db277d5
+/home/nicolas/Archipel/.git/objects/2b/9d40edfed7cbac31b0a2c5abeb3e84b27ccd5f
+ <=> /home/nicolas/PeepShow/.git/objects/2b/9d40edfed7cbac31b0a2c5abeb3e84b27ccd5f
+/home/nicolas/Archipel/.git/objects/59/ec6c01ccfa582f86d99be01efd1a9434bbafb9
+ <=> /home/nicolas/PeepShow/.git/objects/59/ec6c01ccfa582f86d99be01efd1a9434bbafb9
+/home/nicolas/Archipel/htdocs/images/jCarousel/last_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/last_hover.png
+/home/nicolas/Archipel/htdocs/js/jquery.mousewheel.min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.mousewheel.min.js
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_vert_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_vert_hover.png
+/home/nicolas/Archipel/htdocs/css/raster_ie.css
+ <=> /home/nicolas/PeepShow/htdocs/css/raster_ie.css
+8d7
+<         /*width:940px;*/
+/home/nicolas/Archipel/lib/PeepShow/Handler/Query/Parse.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Query/Parse.pm
+/home/nicolas/Archipel/lib/PeepShow/Handler/Query/Parse/All.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Query/Parse/All.pm
+/home/nicolas/Archipel/.git/objects/d4/b6e709dac80a749724de60ee1475254d0e63ed
+ <=> /home/nicolas/PeepShow/.git/objects/d4/b6e709dac80a749724de60ee1475254d0e63ed
+/home/nicolas/Archipel/htdocs/images/icons/in_btn.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/in_btn.png
+/home/nicolas/Archipel/htdocs/images/top_bg.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/top_bg.gif
+/home/nicolas/Archipel/htdocs/js/jCarousel/jquery.jcarousel.min_new.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jCarousel/jquery.jcarousel.min_new.js
+/home/nicolas/Archipel/.git/objects/ab/a74be584726d102ec463ba71d67e23f9a7fa0e
+ <=> /home/nicolas/PeepShow/.git/objects/ab/a74be584726d102ec463ba71d67e23f9a7fa0e
+/home/nicolas/Archipel/.git/objects/16/1ae0183ac460ecdfab18a901a8bfd96ad8e4b3
+ <=> /home/nicolas/PeepShow/.git/objects/16/1ae0183ac460ecdfab18a901a8bfd96ad8e4b3
+/home/nicolas/Archipel/htdocs/images/icons/exchange.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/exchange.gif
+/home/nicolas/Archipel/template/inc/search/perm.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/perm.tt
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_enabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_enabled.png
+/home/nicolas/Archipel/htdocs/js/jquery.lazyload-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.lazyload-min.js
+/home/nicolas/Archipel/lib/Grim/XML/Media/Validator.pm
+ <=> /home/nicolas/PeepShow/lib/Grim/XML/Media/Validator.pm
+/home/nicolas/Archipel/lib/PeepShow/search/view.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/search/view.pm
+/home/nicolas/Archipel/.git/objects/76/fd8e3a7da4340c1e1963e81f3f74b51d144ff7
+ <=> /home/nicolas/PeepShow/.git/objects/76/fd8e3a7da4340c1e1963e81f3f74b51d144ff7
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/checkjpeg2000.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/checkjpeg2000.pm
+/home/nicolas/Archipel/.git/objects/98/66f33b2037880b46459ffe8f9bdbfdc04171dc
+ <=> /home/nicolas/PeepShow/.git/objects/98/66f33b2037880b46459ffe8f9bdbfdc04171dc
+/home/nicolas/Archipel/htdocs/images/jCarousel/first_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/first_disabled.png
+/home/nicolas/Archipel/.git/objects/dc/6aa030c540e5336125f2fd48a49af229d77ac8
+ <=> /home/nicolas/PeepShow/.git/objects/dc/6aa030c540e5336125f2fd48a49af229d77ac8
+/home/nicolas/Archipel/.git/objects/57/ed2c4dc6f20d131c8e8a1a8af7f083e26f4398
+ <=> /home/nicolas/PeepShow/.git/objects/57/ed2c4dc6f20d131c8e8a1a8af7f083e26f4398
+/home/nicolas/Archipel/htdocs/images/icons/high-resolution.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/high-resolution.png
+/home/nicolas/Archipel/.git/objects/ed/64b8085d995707096368096ed408754be60de1
+ <=> /home/nicolas/PeepShow/.git/objects/ed/64b8085d995707096368096ed408754be60de1
+/home/nicolas/Archipel/.git/objects/4a/7c613e5c35dc07308dccf93b638188a8829f3d
+ <=> /home/nicolas/PeepShow/.git/objects/4a/7c613e5c35dc07308dccf93b638188a8829f3d
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/publish.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/publish.pm
+/home/nicolas/Archipel/.git/objects/05/f3c09da415c3e3cd40d07d75ada075b1454240
+ <=> /home/nicolas/PeepShow/.git/objects/05/f3c09da415c3e3cd40d07d75ada075b1454240
+/home/nicolas/Archipel/.git/objects/26/aa607d4b6b014ce234044e80e7ecbeacdeb91c
+ <=> /home/nicolas/PeepShow/.git/objects/26/aa607d4b6b014ce234044e80e7ecbeacdeb91c
+/home/nicolas/Archipel/htdocs/css/iip/style.css
+ <=> /home/nicolas/PeepShow/htdocs/css/iip/style.css
+/home/nicolas/Archipel/template/inc/form.tt
+ <=> /home/nicolas/PeepShow/template/inc/form.tt
+/home/nicolas/Archipel/.git/hooks/prepare-commit-msg.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/prepare-commit-msg.sample
+/home/nicolas/Archipel/.git/objects/39/9c2cfbdd278e760314da45553cbbfe39e5200c
+ <=> /home/nicolas/PeepShow/.git/objects/39/9c2cfbdd278e760314da45553cbbfe39e5200c
+/home/nicolas/Archipel/htdocs/flash/flowplayer/flowplayer.audio-3.2.1.swf
+ <=> /home/nicolas/PeepShow/htdocs/flash/flowplayer/flowplayer.audio-3.2.1.swf
+/home/nicolas/Archipel/.git/objects/16/5429a263f73403febee052d9ae10da60cb06f3
+ <=> /home/nicolas/PeepShow/.git/objects/16/5429a263f73403febee052d9ae10da60cb06f3
+/home/nicolas/Archipel/.git/objects/19/469776ea3e8be1ee1d64538f9524b059661314
+ <=> /home/nicolas/PeepShow/.git/objects/19/469776ea3e8be1ee1d64538f9524b059661314
+/home/nicolas/Archipel/.git/hooks/pre-applypatch.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/pre-applypatch.sample
+/home/nicolas/Archipel/.git/objects/a0/8c588809c82e04df62bf3f48e31978ea7d6bfe
+ <=> /home/nicolas/PeepShow/.git/objects/a0/8c588809c82e04df62bf3f48e31978ea7d6bfe
+/home/nicolas/Archipel/.git/refs/remotes/origin/master
+ <=> /home/nicolas/PeepShow/.git/refs/remotes/origin/master
+1c1
+< 08a57b0e62c03cad2819c604abaed182a4b8c8aa
+---
+> d3a7898f3ccd7904babf04f694da2c74195d5a4f
+/home/nicolas/Archipel/.git/objects/53/1a9f3985bdd431d539689ae75baea722c803ab
+ <=> /home/nicolas/PeepShow/.git/objects/53/1a9f3985bdd431d539689ae75baea722c803ab
+/home/nicolas/Archipel/maps/aleph.map
+ <=> /home/nicolas/PeepShow/maps/aleph.map
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/checksum.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/checksum.pm
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/dump.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/dump.pm
+/home/nicolas/Archipel/.git/objects/45/d1801c64dcfb408c41aea14401c21a6dd3c239
+ <=> /home/nicolas/PeepShow/.git/objects/45/d1801c64dcfb408c41aea14401c21a6dd3c239
+/home/nicolas/Archipel/.git/objects/8d/57443ba239f0ee42a895e9802a20e1a1425e90
+ <=> /home/nicolas/PeepShow/.git/objects/8d/57443ba239f0ee42a895e9802a20e1a1425e90
+/home/nicolas/Archipel/lib/Query/Fix/Advanced.pm
+ <=> /home/nicolas/PeepShow/lib/Query/Fix/Advanced.pm
+/home/nicolas/Archipel/.git/objects/a1/8beb322158da9a4c61fac60d5ce32082b0ace2
+ <=> /home/nicolas/PeepShow/.git/objects/a1/8beb322158da9a4c61fac60d5ce32082b0ace2
+/home/nicolas/Archipel/htdocs/images/icons/minus.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/minus.png
+/home/nicolas/Archipel/htdocs/images/icons/show_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/show_hover.png
+/home/nicolas/Archipel/htdocs/images/favicon.ico
+ <=> /home/nicolas/PeepShow/htdocs/images/favicon.ico
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_vert_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_vert_disabled.png
+/home/nicolas/Archipel/htdocs/images/iip/down.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/down.png
+/home/nicolas/Archipel/htdocs/images/jCarousel/first_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/first_hover.png
+/home/nicolas/Archipel/htdocs/css/ui/jquery-ui.css
+ <=> /home/nicolas/PeepShow/htdocs/css/ui/jquery-ui.css
+/home/nicolas/Archipel/htdocs/images/icons/Video.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/Video.png
+/home/nicolas/Archipel/.git/objects/10/1174195d6937b8f410aa95e9ca3ceff442aee1
+ <=> /home/nicolas/PeepShow/.git/objects/10/1174195d6937b8f410aa95e9ca3ceff442aee1
+/home/nicolas/Archipel/.git/objects/77/a7412675a344f1a3ccd7cc68a6c05a0bb8ebf3
+ <=> /home/nicolas/PeepShow/.git/objects/77/a7412675a344f1a3ccd7cc68a6c05a0bb8ebf3
+/home/nicolas/Archipel/.git/objects/b8/1dc89619eead6c500de710ca51533363f59eda
+ <=> /home/nicolas/PeepShow/.git/objects/b8/1dc89619eead6c500de710ca51533363f59eda
+/home/nicolas/Archipel/lib/PeepShow/App/Common.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/App/Common.pm
+/home/nicolas/Archipel/.git/objects/0f/91fd0329a5ca57eb91833f008719e3d8c334e8
+ <=> /home/nicolas/PeepShow/.git/objects/0f/91fd0329a5ca57eb91833f008719e3d8c334e8
+/home/nicolas/Archipel/.git/objects/7d/b881043f651916cf233c563b38f121013ca676
+ <=> /home/nicolas/PeepShow/.git/objects/7d/b881043f651916cf233c563b38f121013ca676
+/home/nicolas/Archipel/.git/objects/23/a860e1bf076470d320cf72e462716374dcf414
+ <=> /home/nicolas/PeepShow/.git/objects/23/a860e1bf076470d320cf72e462716374dcf414
+/home/nicolas/Archipel/.git/objects/00/467100ed121f3e7fd2a1bdb386311896571220
+ <=> /home/nicolas/PeepShow/.git/objects/00/467100ed121f3e7fd2a1bdb386311896571220
+/home/nicolas/Archipel/lib/Template/Plugin/uri_unescape.pm
+ <=> /home/nicolas/PeepShow/lib/Template/Plugin/uri_unescape.pm
+/home/nicolas/Archipel/lib/Plack/Middleware/openURL/app.pm
+ <=> /home/nicolas/PeepShow/lib/Plack/Middleware/openURL/app.pm
+/home/nicolas/Archipel/htdocs/images/bg_menu.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/bg_menu.gif
+/home/nicolas/Archipel/.git/objects/4c/511c9f735cbd1ea4ea46ae61a5d2f65d36d650
+ <=> /home/nicolas/PeepShow/.git/objects/4c/511c9f735cbd1ea4ea46ae61a5d2f65d36d650
+/home/nicolas/Archipel/htdocs/js/json.js
+ <=> /home/nicolas/PeepShow/htdocs/js/json.js
+/home/nicolas/Archipel/htdocs/images/icons/iip-badge.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/iip-badge.png
+/home/nicolas/Archipel/.git/objects/2d/14c90fd17bf04d29e70566c21a75a436991d1b
+ <=> /home/nicolas/PeepShow/.git/objects/2d/14c90fd17bf04d29e70566c21a75a436991d1b
+/home/nicolas/Archipel/.git/objects/e0/8573e521bb59461c1a03ac4e750d7528beae64
+ <=> /home/nicolas/PeepShow/.git/objects/e0/8573e521bb59461c1a03ac4e750d7528beae64
+/home/nicolas/Archipel/htdocs/js/jquery.em.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.em.js
+/home/nicolas/Archipel/.git/objects/f9/e1bad6a17a61e96431d185d21f7ddc77273f8a
+ <=> /home/nicolas/PeepShow/.git/objects/f9/e1bad6a17a61e96431d185d21f7ddc77273f8a
+/home/nicolas/Archipel/htdocs/images/icons/loading.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/loading.png
+/home/nicolas/Archipel/template/inc/form_normal.tt
+ <=> /home/nicolas/PeepShow/template/inc/form_normal.tt
+8a9
+> 		<a href="[% conf.all.originurl %]/help?language=[% args.language %]">[% tt_title_form_normal_help %]</a>
+/home/nicolas/Archipel/lib/openURL/Service/Image/Size.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/Service/Image/Size.pm
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-view/record_cropped.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-view/record_cropped.png
+/home/nicolas/Archipel/.git/objects/71/a8cf95bf57be42f8b00855db3a626e57e0f8ad
+ <=> /home/nicolas/PeepShow/.git/objects/71/a8cf95bf57be42f8b00855db3a626e57e0f8ad
+/home/nicolas/Archipel/htdocs/css/jScrollbar/jScrollbar.jquery.css
+ <=> /home/nicolas/PeepShow/htdocs/css/jScrollbar/jScrollbar.jquery.css
+/home/nicolas/Archipel/template/data/en/googlemaps.tt
+ <=> /home/nicolas/PeepShow/template/data/en/googlemaps.tt
+/home/nicolas/Archipel/.git/objects/1b/9bdc6d334a2135881c02d79d351a633f891656
+ <=> /home/nicolas/PeepShow/.git/objects/1b/9bdc6d334a2135881c02d79d351a633f891656
+/home/nicolas/Archipel/htdocs/images/icons/search.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/search.png
+/home/nicolas/Archipel/.git/objects/fb/d7348463bcbac2503fd306ec2900b84af5aee1
+ <=> /home/nicolas/PeepShow/.git/objects/fb/d7348463bcbac2503fd306ec2900b84af5aee1
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Exif/Image.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Exif/Image.pm
+/home/nicolas/Archipel/.git/objects/91/4d32905d0a748dd4532d151e7e5e809e930dae
+ <=> /home/nicolas/PeepShow/.git/objects/91/4d32905d0a748dd4532d151e7e5e809e930dae
+/home/nicolas/Archipel/.git/objects/24/e2812731ecf3f645e6a2ea9a5e4e39ab90944c
+ <=> /home/nicolas/PeepShow/.git/objects/24/e2812731ecf3f645e6a2ea9a5e4e39ab90944c
+/home/nicolas/Archipel/lib/PeepShow/App/Marc.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/App/Marc.pm
+/home/nicolas/Archipel/.git/objects/fb/c1dc7c4feddad9fd68242b23f95fee20cb7641
+ <=> /home/nicolas/PeepShow/.git/objects/fb/c1dc7c4feddad9fd68242b23f95fee20cb7641
+/home/nicolas/Archipel/lib/Marc/XSLT/MARC21slim2OAIDC.xsl
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/MARC21slim2OAIDC.xsl
+/home/nicolas/Archipel/lib/RestFields/Fixer.pm
+ <=> /home/nicolas/PeepShow/lib/RestFields/Fixer.pm
+/home/nicolas/Archipel/.git/objects/59/be65f6e10924d0ee4acbdc324063b196801fdc
+ <=> /home/nicolas/PeepShow/.git/objects/59/be65f6e10924d0ee4acbdc324063b196801fdc
+/home/nicolas/Archipel/.git/objects/51/c69921b01383918fe5f1357b84c049f4bfc885
+ <=> /home/nicolas/PeepShow/.git/objects/51/c69921b01383918fe5f1357b84c049f4bfc885
+/home/nicolas/Archipel/.git/objects/4d/4de34948e1ab15bffc9f107c73069f0ebfeab0
+ <=> /home/nicolas/PeepShow/.git/objects/4d/4de34948e1ab15bffc9f107c73069f0ebfeab0
+/home/nicolas/Archipel/htdocs/images/icons/scrollbar_prev.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/scrollbar_prev.png
+/home/nicolas/Archipel/.git/objects/56/5ff14d4654c2dc63f21348972aa530ccdb0df8
+ <=> /home/nicolas/PeepShow/.git/objects/56/5ff14d4654c2dc63f21348972aa530ccdb0df8
+/home/nicolas/Archipel/htdocs/images/screenshots/openURL/zoomer_cropped.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/openURL/zoomer_cropped.png
+/home/nicolas/Archipel/lib/Acl/VPN.pm
+ <=> /home/nicolas/PeepShow/lib/Acl/VPN.pm
+/home/nicolas/Archipel/htdocs/images/iip/left.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/left.png
+/home/nicolas/Archipel/htdocs/js/cart.peepshow.js
+ <=> /home/nicolas/PeepShow/htdocs/js/cart.peepshow.js
+/home/nicolas/Archipel/.git/objects/92/c2414798b154384d0d3c2a503dd5e1f0ac009d
+ <=> /home/nicolas/PeepShow/.git/objects/92/c2414798b154384d0d3c2a503dd5e1f0ac009d
+/home/nicolas/Archipel/htdocs/images/icons/clipboard.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/clipboard.png
+/home/nicolas/Archipel/.git/info/exclude
+ <=> /home/nicolas/PeepShow/.git/info/exclude
+/home/nicolas/Archipel/.git/objects/9c/8b301b043c2e53c8d03d115f54f79a398dc611
+ <=> /home/nicolas/PeepShow/.git/objects/9c/8b301b043c2e53c8d03d115f54f79a398dc611
+/home/nicolas/Archipel/lib/Grim/XML/Media/Writer.pm
+ <=> /home/nicolas/PeepShow/lib/Grim/XML/Media/Writer.pm
+/home/nicolas/Archipel/.git/objects/34/682a09a34e28fbed7f75ec5dccb3bc4f0c8f35
+ <=> /home/nicolas/PeepShow/.git/objects/34/682a09a34e28fbed7f75ec5dccb3bc4f0c8f35
+/home/nicolas/Archipel/.git/objects/6f/68582bb65c83f93092efe9a7c3a8f6f91a27d0
+ <=> /home/nicolas/PeepShow/.git/objects/6f/68582bb65c83f93092efe9a7c3a8f6f91a27d0
+/home/nicolas/Archipel/.git/objects/ea/624fb7a3fd5e465d6d6a4e069040f8aadc888a
+ <=> /home/nicolas/PeepShow/.git/objects/ea/624fb7a3fd5e465d6d6a4e069040f8aadc888a
+/home/nicolas/Archipel/.git/objects/51/fb5628d6fb70189393826d2dcfea72e657b7e5
+ <=> /home/nicolas/PeepShow/.git/objects/51/fb5628d6fb70189393826d2dcfea72e657b7e5
+/home/nicolas/Archipel/template/inc/search/pages/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/pages/head.tt
+/home/nicolas/Archipel/.git/objects/ca/eb98c7ba100b10d6fc242da0d1786ef929b1be
+ <=> /home/nicolas/PeepShow/.git/objects/ca/eb98c7ba100b10d6fc242da0d1786ef929b1be
+/home/nicolas/Archipel/.git/objects/f6/aa02dc3d3ad450ea1ae88ecb524eb20f4af318
+ <=> /home/nicolas/PeepShow/.git/objects/f6/aa02dc3d3ad450ea1ae88ecb524eb20f4af318
+/home/nicolas/Archipel/.git/objects/ee/8b05407ec859b3d38c74d8ea70cb49e56fe56f
+ <=> /home/nicolas/PeepShow/.git/objects/ee/8b05407ec859b3d38c74d8ea70cb49e56fe56f
+/home/nicolas/Archipel/test/num.pl
+ <=> /home/nicolas/PeepShow/test/num.pl
+/home/nicolas/Archipel/lib/Marc/XSLT/OAI.pm
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/OAI.pm
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag/MP4.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag/MP4.pm
+/home/nicolas/Archipel/htdocs/images/icons/zoom_fullscreen.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/zoom_fullscreen.gif
+/home/nicolas/Archipel/.git/objects/59/80aedc4dbafb8ca4b175f3c06c2c8523a63da4
+ <=> /home/nicolas/PeepShow/.git/objects/59/80aedc4dbafb8ca4b175f3c06c2c8523a63da4
+/home/nicolas/Archipel/.git/objects/34/c3ab51b7c46efe01fd132cd401c6dd560d6a51
+ <=> /home/nicolas/PeepShow/.git/objects/34/c3ab51b7c46efe01fd132cd401c6dd560d6a51
+/home/nicolas/Archipel/htdocs/js/textsizer.js
+ <=> /home/nicolas/PeepShow/htdocs/js/textsizer.js
+/home/nicolas/Archipel/.git/objects/a1/019eee1e71968a467236664683e46fdb3a9db1
+ <=> /home/nicolas/PeepShow/.git/objects/a1/019eee1e71968a467236664683e46fdb3a9db1
+/home/nicolas/Archipel/.git/objects/a5/478ab7d12e6ce18e08449b29465c542dffe317
+ <=> /home/nicolas/PeepShow/.git/objects/a5/478ab7d12e6ce18e08449b29465c542dffe317
+/home/nicolas/Archipel/.git/objects/4b/11e682e361a45e35165c3963fb78c762138d42
+ <=> /home/nicolas/PeepShow/.git/objects/4b/11e682e361a45e35165c3963fb78c762138d42
+/home/nicolas/Archipel/.git/objects/08/5f924c05331b81c6b3d738d1cda0d873d8c62e
+ <=> /home/nicolas/PeepShow/.git/objects/08/5f924c05331b81c6b3d738d1cda0d873d8c62e
+/home/nicolas/Archipel/.git/objects/2f/e70679879ccfbefa989bb22c9061717e1c1cd8
+ <=> /home/nicolas/PeepShow/.git/objects/2f/e70679879ccfbefa989bb22c9061717e1c1cd8
+/home/nicolas/Archipel/.git/objects/f6/d88e1a7add1f49367a9ceb53437f91a7e3e485
+ <=> /home/nicolas/PeepShow/.git/objects/f6/d88e1a7add1f49367a9ceb53437f91a7e3e485
+/home/nicolas/Archipel/.git/objects/bc/3e099fb9f9bf63f888f584a32022e79dd33ee5
+ <=> /home/nicolas/PeepShow/.git/objects/bc/3e099fb9f9bf63f888f584a32022e79dd33ee5
+/home/nicolas/Archipel/.git/objects/e1/77bc0e843e47fb4f9da08e971658a43ce1b8c6
+ <=> /home/nicolas/PeepShow/.git/objects/e1/77bc0e843e47fb4f9da08e971658a43ce1b8c6
+/home/nicolas/Archipel/lib/PeepShow/xml.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/xml.pm
+/home/nicolas/Archipel/.git/objects/73/22a55e02c9bc297d4d69b44d8308e552ae9d5b
+ <=> /home/nicolas/PeepShow/.git/objects/73/22a55e02c9bc297d4d69b44d8308e552ae9d5b
+/home/nicolas/Archipel/.git/objects/58/90f1f2effc5696b97ce48b6b9982a54b8a1e9b
+ <=> /home/nicolas/PeepShow/.git/objects/58/90f1f2effc5696b97ce48b6b9982a54b8a1e9b
+/home/nicolas/Archipel/.git/objects/6d/9a7e5d5506ab0d8826b2992fdba862f52b0f3d
+ <=> /home/nicolas/PeepShow/.git/objects/6d/9a7e5d5506ab0d8826b2992fdba862f52b0f3d
+/home/nicolas/Archipel/.git/objects/8f/0be200002e27753788a948efdf406ab1e84954
+ <=> /home/nicolas/PeepShow/.git/objects/8f/0be200002e27753788a948efdf406ab1e84954
+/home/nicolas/Archipel/htdocs/images/icons/scrollbar_prev_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/scrollbar_prev_hover.png
+/home/nicolas/Archipel/.git/objects/7a/e3ab389965686acc16c08fc73f2805986d2d09
+ <=> /home/nicolas/PeepShow/.git/objects/7a/e3ab389965686acc16c08fc73f2805986d2d09
+/home/nicolas/Archipel/template/inc/search/paging_prevnext.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/paging_prevnext.tt
+/home/nicolas/Archipel/lib/PeepShow/Handler/Query/Parser.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Query/Parser.pm
+/home/nicolas/Archipel/.git/objects/f2/02dac8b636da0065270002d62ca5b1aafdfd78
+ <=> /home/nicolas/PeepShow/.git/objects/f2/02dac8b636da0065270002d62ca5b1aafdfd78
+/home/nicolas/Archipel/.git/objects/68/ad3decc21f9960c77e5175adf8229b10beb0e5
+ <=> /home/nicolas/PeepShow/.git/objects/68/ad3decc21f9960c77e5175adf8229b10beb0e5
+/home/nicolas/Archipel/.git/objects/6f/3560f4c98aea3210d97586f22206bf1f28b545
+ <=> /home/nicolas/PeepShow/.git/objects/6f/3560f4c98aea3210d97586f22206bf1f28b545
+/home/nicolas/Archipel/template/data/en/search/all.tt
+ <=> /home/nicolas/PeepShow/template/data/en/search/all.tt
+/home/nicolas/Archipel/.git/objects/53/008311c9c3dbe23bcb0863b54e60a48cfcac58
+ <=> /home/nicolas/PeepShow/.git/objects/53/008311c9c3dbe23bcb0863b54e60a48cfcac58
+/home/nicolas/Archipel/.git/objects/8d/48bc5ad853bf7b9a95077091d789c44e77704b
+ <=> /home/nicolas/PeepShow/.git/objects/8d/48bc5ad853bf7b9a95077091d789c44e77704b
+/home/nicolas/Archipel/htdocs/js/iip/iipmooviewer-1.1_works.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/iipmooviewer-1.1_works.js
+/home/nicolas/Archipel/.git/hooks/applypatch-msg.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/applypatch-msg.sample
+/home/nicolas/Archipel/test/log
+ <=> /home/nicolas/PeepShow/test/log
+/home/nicolas/Archipel/.git/objects/ce/cd11cff971d55f2ef8f01405db992ec0937ff4
+ <=> /home/nicolas/PeepShow/.git/objects/ce/cd11cff971d55f2ef8f01405db992ec0937ff4
+/home/nicolas/Archipel/.git/objects/88/7de22b963a9b64b89eb6dff7098425a46e667f
+ <=> /home/nicolas/PeepShow/.git/objects/88/7de22b963a9b64b89eb6dff7098425a46e667f
+/home/nicolas/Archipel/htdocs/images/icons/solr.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/solr.gif
+/home/nicolas/Archipel/htdocs/js/urlvars.js
+ <=> /home/nicolas/PeepShow/htdocs/js/urlvars.js
+/home/nicolas/Archipel/.git/objects/e8/4269bbe15472e5e8c701756d620c83c25acc09
+ <=> /home/nicolas/PeepShow/.git/objects/e8/4269bbe15472e5e8c701756d620c83c25acc09
+/home/nicolas/Archipel/htdocs/images/icons/logo-boekentoren.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/logo-boekentoren.png
+/home/nicolas/Archipel/.git/objects/cb/98a8f0493ffb64a4fe1c6ea93a7bb43e7ecb87
+ <=> /home/nicolas/PeepShow/.git/objects/cb/98a8f0493ffb64a4fe1c6ea93a7bb43e7ecb87
+/home/nicolas/Archipel/.git/objects/b1/98e1fb620f7ef462650af21288aaba9e1a3e67
+ <=> /home/nicolas/PeepShow/.git/objects/b1/98e1fb620f7ef462650af21288aaba9e1a3e67
+/home/nicolas/Archipel/test/di.pl
+ <=> /home/nicolas/PeepShow/test/di.pl
+/home/nicolas/Archipel/.git/objects/fd/03cac1dadbe4b2fccf52a05a2e0ada4037b7e5
+ <=> /home/nicolas/PeepShow/.git/objects/fd/03cac1dadbe4b2fccf52a05a2e0ada4037b7e5
+/home/nicolas/Archipel/htdocs/images/icons/image_not_available_small.jpg
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/image_not_available_small.jpg
+/home/nicolas/Archipel/.git/objects/96/b4121df444b1054031dfae2116ba108b3a1ded
+ <=> /home/nicolas/PeepShow/.git/objects/96/b4121df444b1054031dfae2116ba108b3a1ded
+/home/nicolas/Archipel/htdocs/images/icons/plus.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/plus.gif
+/home/nicolas/Archipel/.git/objects/64/46ab88658e6a113e54aa6cb7588b7bc4a55591
+ <=> /home/nicolas/PeepShow/.git/objects/64/46ab88658e6a113e54aa6cb7588b7bc4a55591
+/home/nicolas/Archipel/.git/objects/c1/41d37b92f7b23ffe05d39d4526c301a1a1b4e1
+ <=> /home/nicolas/PeepShow/.git/objects/c1/41d37b92f7b23ffe05d39d4526c301a1a1b4e1
+/home/nicolas/Archipel/.git/objects/7d/47083c3bc61763b27229367cb276f6433774a9
+ <=> /home/nicolas/PeepShow/.git/objects/7d/47083c3bc61763b27229367cb276f6433774a9
+/home/nicolas/Archipel/template/inc/googlemaps/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/googlemaps/head.tt
+/home/nicolas/Archipel/htdocs/images/jCarousel/prev_vert_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/prev_vert_disabled.png
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/watermark.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/watermark.pm
+/home/nicolas/Archipel/.git/objects/66/5fd9553471780d0bf5180a5003b54971981ae0
+ <=> /home/nicolas/PeepShow/.git/objects/66/5fd9553471780d0bf5180a5003b54971981ae0
+/home/nicolas/Archipel/htdocs/images/icons/image_not_available_medium.jpg
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/image_not_available_medium.jpg
+/home/nicolas/Archipel/.git/objects/9c/7490497ea3b75c80daa3feadd7357cdbd589d5
+ <=> /home/nicolas/PeepShow/.git/objects/9c/7490497ea3b75c80daa3feadd7357cdbd589d5
+/home/nicolas/Archipel/htdocs/css/common.css
+ <=> /home/nicolas/PeepShow/htdocs/css/common.css
+98c98
+< span.current{border-bottom:1px solid #B80707;color:#B80707;padding:4px;}
+---
+> span.current{border-bottom:1px solid #8D0E3A;color:#8D0E3A;font-family: 'Consolas', 'Courier', "Courier New", monospace;font-weight:bold;padding:4px;font-size:12px;}
+469a470,489
+> }
+> /*
+> 	tags
+> */
+> #tags {
+> }
+> #tags #tag_add {
+> 	display:block;
+> 	float:left;
+> 	width:350px;
+> 	padding:10px;
+> 	font-weight:bold;
+> }
+> #tags #tag_add #captcha_html {
+> 	display:none;
+> }
+> #tags #tag_list {
+> 	display:block;
+>         float:right;
+>         width:500px;
+/home/nicolas/Archipel/htdocs/images/icons/next_small.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/next_small.png
+/home/nicolas/Archipel/test/benchmark_get3.pl
+ <=> /home/nicolas/PeepShow/test/benchmark_get3.pl
+12,16c12,16
+< sub logger {
+< 	my $msg = shift;
+< 	open FILE,">benchmark.log";
+< 	print FILE $$msg;
+< 	close FILE;
+---
+> sub log {
+>         my $msg = shift;
+>         open FILE,">benchmark.log";
+>         print FILE $$msg;
+>         close FILE;
+18c18
+< my $baseurl = "http://localhost/OpenURL/resolve";
+---
+> 
+21c21,26
+< my $count = 0;
+---
+> #my $path = "http://127.0.0.1/OpenURL/resolve";
+> my $path = "http://50.17.222.182/arch/OpenURL/resolve"
+> my $offset = $ARGV[0] || 0;
+> my $limit = $ARGV[1] || 10;
+> my $max = $offset + $limit;
+> my $count = $offset;
+26,28c31,33
+< 		foreach my $file(@{$item->{file}}){
+< 			my $url = "$baseurl?rft_id=".$record->{_id}.":".$item->{item_id}."&svc_id=thumbnail";
+< 			print "$url => ";
+---
+> 		foreach my $svc_id(keys %{$item->{devs}}){
+> 			next if $count < $offset;
+> 			return if $count >= $max;
+30c35,36
+< 			my $response = $ua->head($url);
+---
+> 			my $url = "$path?rft_id=".$record->{_id}.":".$item->{item_id}."&svc_id=thumbnail";
+> 			my $response = $ua->get($url);
+32,34c38,40
+< 				logger($response->content_ref);
+< 				die("error in ".$record->{_id}.", see benchmark.log\n");
+< 			}
+---
+>                                 log($response->content_ref);
+>                                 die("error, see benchmark.log\n");
+>                         }
+42c48
+< print "\naverage:".($sumseconds / $count)." seconds\n";
+---
+> print "\naverage:".($sumseconds / ($count - $offset))." seconds\n";
+/home/nicolas/Archipel/lib/Record/View/Pages.pm
+ <=> /home/nicolas/PeepShow/lib/Record/View/Pages.pm
+/home/nicolas/Archipel/template/tt/viewerGoogle.tt
+ <=> /home/nicolas/PeepShow/template/tt/viewerGoogle.tt
+/home/nicolas/Archipel/.git/objects/66/c0a2074e38be8d62c3a252d0d2c38a0fa3e9df
+ <=> /home/nicolas/PeepShow/.git/objects/66/c0a2074e38be8d62c3a252d0d2c38a0fa3e9df
+/home/nicolas/Archipel/.git/objects/53/28f07b8fb8e96578996e24c80ad2f4d8d1041f
+ <=> /home/nicolas/PeepShow/.git/objects/53/28f07b8fb8e96578996e24c80ad2f4d8d1041f
+/home/nicolas/Archipel/.git/objects/de/23f3a8362fdf058043fb12489b5c3b5da313d6
+ <=> /home/nicolas/PeepShow/.git/objects/de/23f3a8362fdf058043fb12489b5c3b5da313d6
+/home/nicolas/Archipel/htdocs/js/iip/mootools-1.2-more-compressed.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/mootools-1.2-more-compressed.js
+/home/nicolas/Archipel/.git/objects/24/bed802dd06ae10efec4dc22de6e44561ed4d4d
+ <=> /home/nicolas/PeepShow/.git/objects/24/bed802dd06ae10efec4dc22de6e44561ed4d4d
+/home/nicolas/Archipel/htdocs/images/icons/zoomicon.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/zoomicon.gif
+/home/nicolas/Archipel/.git/hooks/post-receive.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/post-receive.sample
+/home/nicolas/Archipel/.git/objects/0d/3372ed3329ac3d353380854eeb430beea2ea71
+ <=> /home/nicolas/PeepShow/.git/objects/0d/3372ed3329ac3d353380854eeb430beea2ea71
+/home/nicolas/Archipel/htdocs/images/iip/right.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/right.png
+/home/nicolas/Archipel/htdocs/js/iip/iipmooviewer-1.1.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/iipmooviewer-1.1.js
+/home/nicolas/Archipel/.git/objects/23/b59f2c6e46bd89a56f0b751cc6b812c4f23a2d
+ <=> /home/nicolas/PeepShow/.git/objects/23/b59f2c6e46bd89a56f0b751cc6b812c4f23a2d
+/home/nicolas/Archipel/htdocs/images/icons/archipel.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/archipel.png
+/home/nicolas/Archipel/htdocs/images/icons/pdf.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/pdf.gif
+/home/nicolas/Archipel/htdocs/images/iip/zoomIn.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/zoomIn.png
+/home/nicolas/Archipel/htdocs/images/iip/reset.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/reset.png
+/home/nicolas/Archipel/template/data/en/paging_terms.tt
+ <=> /home/nicolas/PeepShow/template/data/en/paging_terms.tt
+/home/nicolas/Archipel/.git/objects/f8/73c13d757163d79caeb11be913160b7ba7aa24
+ <=> /home/nicolas/PeepShow/.git/objects/f8/73c13d757163d79caeb11be913160b7ba7aa24
+/home/nicolas/Archipel/.git/objects/16/54c25cc8c053706a8d29d9776084e062ea04fa
+ <=> /home/nicolas/PeepShow/.git/objects/16/54c25cc8c053706a8d29d9776084e062ea04fa
+/home/nicolas/Archipel/.git/objects/ae/18367005ed6a00056d9333a34e2b48ecbbdf32
+ <=> /home/nicolas/PeepShow/.git/objects/ae/18367005ed6a00056d9333a34e2b48ecbbdf32
+/home/nicolas/Archipel/template/tt/columns.tt
+ <=> /home/nicolas/PeepShow/template/tt/columns.tt
+/home/nicolas/Archipel/.git/objects/32/abc2b52c67a507e5a719aed8b2c4ae6eb34f5f
+ <=> /home/nicolas/PeepShow/.git/objects/32/abc2b52c67a507e5a719aed8b2c4ae6eb34f5f
+/home/nicolas/Archipel/.git/objects/77/f346fe8801ed961a0d04d1ad98f6fe83003d39
+ <=> /home/nicolas/PeepShow/.git/objects/77/f346fe8801ed961a0d04d1ad98f6fe83003d39
+/home/nicolas/Archipel/.git/objects/e2/2cc6fe3d4dfe4cf99a6d58d4e62134a4763f4d
+ <=> /home/nicolas/PeepShow/.git/objects/e2/2cc6fe3d4dfe4cf99a6d58d4e62134a4763f4d
+/home/nicolas/Archipel/.git/objects/48/53144231d17f5541deb690375e23c19eaab4ae
+ <=> /home/nicolas/PeepShow/.git/objects/48/53144231d17f5541deb690375e23c19eaab4ae
+/home/nicolas/Archipel/htdocs/images/icons/menu-current.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/menu-current.png
+/home/nicolas/Archipel/.git/objects/30/7b79652351500ba419ff135c9655ad8631752c
+ <=> /home/nicolas/PeepShow/.git/objects/30/7b79652351500ba419ff135c9655ad8631752c
+/home/nicolas/Archipel/.git/objects/f5/f77638daa6a720a6f1afd496795908c0094d7c
+ <=> /home/nicolas/PeepShow/.git/objects/f5/f77638daa6a720a6f1afd496795908c0094d7c
+/home/nicolas/Archipel/.git/objects/9b/2e7a27d38ccacd5ddf986efe9c03b3d01c152e
+ <=> /home/nicolas/PeepShow/.git/objects/9b/2e7a27d38ccacd5ddf986efe9c03b3d01c152e
+/home/nicolas/Archipel/htdocs/images/screenshots/openURL/carousel.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/openURL/carousel.png
+/home/nicolas/Archipel/.git/objects/79/da81f70f56d9bcb164c1098f3e041b23771bb4
+ <=> /home/nicolas/PeepShow/.git/objects/79/da81f70f56d9bcb164c1098f3e041b23771bb4
+/home/nicolas/Archipel/.git/objects/b4/909836efa170b183bd61ae0ca0029f6463a097
+ <=> /home/nicolas/PeepShow/.git/objects/b4/909836efa170b183bd61ae0ca0029f6463a097
+/home/nicolas/Archipel/.git/objects/c2/5bc135b40d9e5c94cdf47bd09b10904d9fb89b
+ <=> /home/nicolas/PeepShow/.git/objects/c2/5bc135b40d9e5c94cdf47bd09b10904d9fb89b
+/home/nicolas/Archipel/.git/objects/87/b22705b1b3d66b2cc3dc7181aaacb8d8c06019
+ <=> /home/nicolas/PeepShow/.git/objects/87/b22705b1b3d66b2cc3dc7181aaacb8d8c06019
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/checktiff.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/checktiff.pm
+/home/nicolas/Archipel/.git/hooks/update.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/update.sample
+/home/nicolas/Archipel/htdocs/images/top_bg_.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/top_bg_.gif
+/home/nicolas/Archipel/.git/objects/50/ee638df8b13c64a522b5fa27891b3cb0348445
+ <=> /home/nicolas/PeepShow/.git/objects/50/ee638df8b13c64a522b5fa27891b3cb0348445
+/home/nicolas/Archipel/lib/Catmandu/Index/Solr.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Index/Solr.pm
+/home/nicolas/Archipel/.git/objects/09/93cb0380d064e73b9c80e6fb929fcfa986e142
+ <=> /home/nicolas/PeepShow/.git/objects/09/93cb0380d064e73b9c80e6fb929fcfa986e142
+/home/nicolas/Archipel/htdocs/js/jquery.lazyload.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.lazyload.js
+/home/nicolas/Archipel/.git/objects/40/40cc265b227583688613b211cf546d2530ee90
+ <=> /home/nicolas/PeepShow/.git/objects/40/40cc265b227583688613b211cf546d2530ee90
+/home/nicolas/Archipel/.git/objects/fd/118651b0dc4a7228a52e7500589d1dc3656f08
+ <=> /home/nicolas/PeepShow/.git/objects/fd/118651b0dc4a7228a52e7500589d1dc3656f08
+/home/nicolas/Archipel/htdocs/images/icons/cart.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/cart.png
+/home/nicolas/Archipel/.git/objects/d2/6062ae18622bd40a38597c3ed125f3c22b6efa
+ <=> /home/nicolas/PeepShow/.git/objects/d2/6062ae18622bd40a38597c3ed125f3c22b6efa
+/home/nicolas/Archipel/template/inc/rss_link.tt
+ <=> /home/nicolas/PeepShow/template/inc/rss_link.tt
+/home/nicolas/Archipel/template/data/nl/googlemaps.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/googlemaps.tt
+/home/nicolas/Archipel/.git/objects/e5/cd9197176e90361431d64bd65e74213faece76
+ <=> /home/nicolas/PeepShow/.git/objects/e5/cd9197176e90361431d64bd65e74213faece76
+/home/nicolas/Archipel/lib/Marc/XSLT/RDF.pm
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/RDF.pm
+/home/nicolas/Archipel/htdocs/flash/jwplayer/player.swf
+ <=> /home/nicolas/PeepShow/htdocs/flash/jwplayer/player.swf
+/home/nicolas/Archipel/.git/objects/c2/91d8b5a697ae2361fe9cfd24b22095e929992f
+ <=> /home/nicolas/PeepShow/.git/objects/c2/91d8b5a697ae2361fe9cfd24b22095e929992f
+/home/nicolas/Archipel/.git/objects/61/5a4cb5d7636b680351f9d3c71a117dd5beb14f
+ <=> /home/nicolas/PeepShow/.git/objects/61/5a4cb5d7636b680351f9d3c71a117dd5beb14f
+/home/nicolas/Archipel/htdocs/images/jCarousel/prev_vert_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/prev_vert_hover.png
+/home/nicolas/Archipel/conf/archipel.yml
+ <=> /home/nicolas/PeepShow/conf/archipel.yml
+/home/nicolas/Archipel/.git/objects/d2/646421ee6624cc53f1b55ee4e5a2f8c570af24
+ <=> /home/nicolas/PeepShow/.git/objects/d2/646421ee6624cc53f1b55ee4e5a2f8c570af24
+/home/nicolas/Archipel/.git/objects/bb/d691d56e047aaa3d33a04f305142ce095fa124
+ <=> /home/nicolas/PeepShow/.git/objects/bb/d691d56e047aaa3d33a04f305142ce095fa124
+/home/nicolas/Archipel/htdocs/images/iip/navbar.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/navbar.png
+/home/nicolas/Archipel/.git/objects/b2/63c4144a44d6ea44ebdca04a86b8f08f4a28d8
+ <=> /home/nicolas/PeepShow/.git/objects/b2/63c4144a44d6ea44ebdca04a86b8f08f4a28d8
+/home/nicolas/Archipel/.git/objects/18/0e8d3b66675a090967d4d20adf64d3c7df974a
+ <=> /home/nicolas/PeepShow/.git/objects/18/0e8d3b66675a090967d4d20adf64d3c7df974a
+/home/nicolas/Archipel/lib/openURL/resolve.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/resolve.pm
+/home/nicolas/Archipel/.git/objects/ba/b9029341b32cce35f3f9c148ed8540c67c21a3
+ <=> /home/nicolas/PeepShow/.git/objects/ba/b9029341b32cce35f3f9c148ed8540c67c21a3
+/home/nicolas/Archipel/.git/objects/38/23eadf79311a4ae03e6b562c0d337d64c10bea
+ <=> /home/nicolas/PeepShow/.git/objects/38/23eadf79311a4ae03e6b562c0d337d64c10bea
+/home/nicolas/Archipel/lib/PeepShow/App/Search.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/App/Search.pm
+/home/nicolas/Archipel/.git/objects/a4/60183c344053310f03d8b37da6dbd22fea3f78
+ <=> /home/nicolas/PeepShow/.git/objects/a4/60183c344053310f03d8b37da6dbd22fea3f78
+/home/nicolas/Archipel/.git/objects/6c/07fd3133fd97a595e49d805181aac657f39a6a
+ <=> /home/nicolas/PeepShow/.git/objects/6c/07fd3133fd97a595e49d805181aac657f39a6a
+/home/nicolas/Archipel/.git/objects/07/9efce51a6796a45bd6842d6b432b447bebeaef
+ <=> /home/nicolas/PeepShow/.git/objects/07/9efce51a6796a45bd6842d6b432b447bebeaef
+/home/nicolas/Archipel/.git/objects/e8/bf802d5e77b1922ee8e2565a2c820ffd4e3979
+ <=> /home/nicolas/PeepShow/.git/objects/e8/bf802d5e77b1922ee8e2565a2c820ffd4e3979
+/home/nicolas/Archipel/htdocs/js/googlemaps.js
+ <=> /home/nicolas/PeepShow/htdocs/js/googlemaps.js
+/home/nicolas/Archipel/.git/objects/de/0edd315515a852a41595fd8300023d6a0c2b8a
+ <=> /home/nicolas/PeepShow/.git/objects/de/0edd315515a852a41595fd8300023d6a0c2b8a
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/idsvalid.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/idsvalid.pm
+/home/nicolas/Archipel/.git/objects/de/b071150fbda074482ee87c84379c865b5deb91
+ <=> /home/nicolas/PeepShow/.git/objects/de/b071150fbda074482ee87c84379c865b5deb91
+/home/nicolas/Archipel/.git/objects/80/b3f2cf6d32d1af26a7ea736a55522d1bb6c5bd
+ <=> /home/nicolas/PeepShow/.git/objects/80/b3f2cf6d32d1af26a7ea736a55522d1bb6c5bd
+/home/nicolas/Archipel/.git/objects/e4/c354e025f00c4198a631393699df8b29c927ed
+ <=> /home/nicolas/PeepShow/.git/objects/e4/c354e025f00c4198a631393699df8b29c927ed
+/home/nicolas/Archipel/.git/objects/56/5027d30532f09de6c16cf71cdabfaa79918892
+ <=> /home/nicolas/PeepShow/.git/objects/56/5027d30532f09de6c16cf71cdabfaa79918892
+/home/nicolas/Archipel/template/tt/audiostreaming.tt
+ <=> /home/nicolas/PeepShow/template/tt/audiostreaming.tt
+/home/nicolas/Archipel/htdocs/images/iip/fullscreen.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/fullscreen.png
+/home/nicolas/Archipel/.git/objects/89/4de6432009d3f9185bda2fb9ce33e100d35469
+ <=> /home/nicolas/PeepShow/.git/objects/89/4de6432009d3f9185bda2fb9ce33e100d35469
+/home/nicolas/Archipel/.git/objects/7d/9e89664835f3369cf786ff50301eadd20b9905
+ <=> /home/nicolas/PeepShow/.git/objects/7d/9e89664835f3369cf786ff50301eadd20b9905
+/home/nicolas/Archipel/.git/objects/dd/e37e5995bbf2e0ef7320deb6ffbdb1c0108870
+ <=> /home/nicolas/PeepShow/.git/objects/dd/e37e5995bbf2e0ef7320deb6ffbdb1c0108870
+/home/nicolas/Archipel/.git/objects/0f/a7bd126bc957f78b3443c97a6dd1e0302cbe59
+ <=> /home/nicolas/PeepShow/.git/objects/0f/a7bd126bc957f78b3443c97a6dd1e0302cbe59
+/home/nicolas/Archipel/htdocs/js/iip/moocanvas-compressed.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/moocanvas-compressed.js
+/home/nicolas/Archipel/htdocs/images/jCarousel/last.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/last.png
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Stats.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Stats.pm
+/home/nicolas/Archipel/.git/objects/21/0af3a7dce707a40ef060fa223c022af51ccd2b
+ <=> /home/nicolas/PeepShow/.git/objects/21/0af3a7dce707a40ef060fa223c022af51ccd2b
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag/TIFF.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag/TIFF.pm
+/home/nicolas/Archipel/template/inc/search/all/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/all/head.tt
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_vert_disabled_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_vert_disabled_white.png
+/home/nicolas/Archipel/.git/objects/fc/233753b4f973a7d1d67e44b5dc128e37a67431
+ <=> /home/nicolas/PeepShow/.git/objects/fc/233753b4f973a7d1d67e44b5dc128e37a67431
+/home/nicolas/Archipel/.git/objects/34/472486bc3f50125646b1647b2980988842ddb9
+ <=> /home/nicolas/PeepShow/.git/objects/34/472486bc3f50125646b1647b2980988842ddb9
+/home/nicolas/Archipel/.git/objects/86/88a4c0355203415950a31feab4cc43a731f8cb
+ <=> /home/nicolas/PeepShow/.git/objects/86/88a4c0355203415950a31feab4cc43a731f8cb
+/home/nicolas/Archipel/lib/Marc/XSLT/MARC21slim2RDFDC.xsl
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/MARC21slim2RDFDC.xsl
+/home/nicolas/Archipel/htdocs/js/jCarousel/jquery.jcarousel.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jCarousel/jquery.jcarousel.js
+/home/nicolas/Archipel/.git/objects/78/45c0265f4578c9c62271503565da81a5766043
+ <=> /home/nicolas/PeepShow/.git/objects/78/45c0265f4578c9c62271503565da81a5766043
+/home/nicolas/Archipel/.git/objects/b8/4e8d37ffd7dd3c93ea3db515a05dae45dd7488
+ <=> /home/nicolas/PeepShow/.git/objects/b8/4e8d37ffd7dd3c93ea3db515a05dae45dd7488
+/home/nicolas/Archipel/.git/objects/6d/35d78ddf9d399ca319cef0e4fb340ac1a12343
+ <=> /home/nicolas/PeepShow/.git/objects/6d/35d78ddf9d399ca319cef0e4fb340ac1a12343
+/home/nicolas/Archipel/.git/objects/27/6ab5e2afc4c08383bcbc94f028a176fa8da2b5
+ <=> /home/nicolas/PeepShow/.git/objects/27/6ab5e2afc4c08383bcbc94f028a176fa8da2b5
+/home/nicolas/Archipel/htdocs/images/icons/remove.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/remove.gif
+/home/nicolas/Archipel/template/inc/search/all/hits.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/all/hits.tt
+/home/nicolas/Archipel/.git/objects/57/6b8c81f6b691fa598b81dbf8eaea467b7615b9
+ <=> /home/nicolas/PeepShow/.git/objects/57/6b8c81f6b691fa598b81dbf8eaea467b7615b9
+/home/nicolas/Archipel/lib/Query/Fix.pm
+ <=> /home/nicolas/PeepShow/lib/Query/Fix.pm
+/home/nicolas/Archipel/.git/objects/c0/03b5cb74fbc6e20bfe58081f73d50d041835cb
+ <=> /home/nicolas/PeepShow/.git/objects/c0/03b5cb74fbc6e20bfe58081f73d50d041835cb
+/home/nicolas/Archipel/.git/objects/a6/d05c29134e58696b583f99b157b20e578783b9
+ <=> /home/nicolas/PeepShow/.git/objects/a6/d05c29134e58696b583f99b157b20e578783b9
+/home/nicolas/Archipel/.git/objects/b4/a1751bfd5298d1a82bca8f8512b824cc116d22
+ <=> /home/nicolas/PeepShow/.git/objects/b4/a1751bfd5298d1a82bca8f8512b824cc116d22
+/home/nicolas/Archipel/.git/objects/dc/f3d5f4f129664766fcf287fc3c54be3c1f5cae
+ <=> /home/nicolas/PeepShow/.git/objects/dc/f3d5f4f129664766fcf287fc3c54be3c1f5cae
+/home/nicolas/Archipel/.git/objects/5f/f3a2c403d1d085e31bfef99c3961749abc2ff0
+ <=> /home/nicolas/PeepShow/.git/objects/5f/f3a2c403d1d085e31bfef99c3961749abc2ff0
+/home/nicolas/Archipel/.git/objects/16/7592ac043a6338822bb26afbb459d66ad83ce4
+ <=> /home/nicolas/PeepShow/.git/objects/16/7592ac043a6338822bb26afbb459d66ad83ce4
+/home/nicolas/Archipel/.git/objects/32/e343b4878371f3cbc63d062ba017f11c58bb21
+ <=> /home/nicolas/PeepShow/.git/objects/32/e343b4878371f3cbc63d062ba017f11c58bb21
+/home/nicolas/Archipel/.git/objects/eb/fb24816e651947a404155330ecc0c89c5d7f63
+ <=> /home/nicolas/PeepShow/.git/objects/eb/fb24816e651947a404155330ecc0c89c5d7f63
+/home/nicolas/Archipel/.git/objects/0a/9d6d09de4d26a7f85357fefedaac2a7885ea97
+ <=> /home/nicolas/PeepShow/.git/objects/0a/9d6d09de4d26a7f85357fefedaac2a7885ea97
+/home/nicolas/Archipel/lib/PeepShow/mycart.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/mycart.pm
+/home/nicolas/Archipel/.git/objects/64/0f9942e21ba47d9a7106a56a296d6db0d47b3d
+ <=> /home/nicolas/PeepShow/.git/objects/64/0f9942e21ba47d9a7106a56a296d6db0d47b3d
+/home/nicolas/Archipel/.git/objects/8e/10cdf45ffd78deee26c166f9c45d458e63accd
+ <=> /home/nicolas/PeepShow/.git/objects/8e/10cdf45ffd78deee26c166f9c45d458e63accd
+/home/nicolas/Archipel/htdocs/js/jquery-1.4.4-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery-1.4.4-min.js
+/home/nicolas/Archipel/.git/objects/65/e649d926f42eff7d3962f479174319e43c0546
+ <=> /home/nicolas/PeepShow/.git/objects/65/e649d926f42eff7d3962f479174319e43c0546
+/home/nicolas/Archipel/.git/objects/91/bd773bc86fda4d9200b7e68f19eb5a9b145dd8
+ <=> /home/nicolas/PeepShow/.git/objects/91/bd773bc86fda4d9200b7e68f19eb5a9b145dd8
+/home/nicolas/Archipel/htdocs/images/jCarousel/previous.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/previous.png
+/home/nicolas/Archipel/.git/objects/d6/5477cbff6b327e16f2574b54a242032f61e71b
+ <=> /home/nicolas/PeepShow/.git/objects/d6/5477cbff6b327e16f2574b54a242032f61e71b
+/home/nicolas/Archipel/.git/objects/e8/2f5b989603d68013c4e7dc7089579ca0f5f7ac
+ <=> /home/nicolas/PeepShow/.git/objects/e8/2f5b989603d68013c4e7dc7089579ca0f5f7ac
+/home/nicolas/Archipel/.git/objects/5c/4c4682d7fe20ce6a97da0300c41a9dedd1283b
+ <=> /home/nicolas/PeepShow/.git/objects/5c/4c4682d7fe20ce6a97da0300c41a9dedd1283b
+/home/nicolas/Archipel/.git/objects/0f/90613cec6077713c0489acd07214ea677be21f
+ <=> /home/nicolas/PeepShow/.git/objects/0f/90613cec6077713c0489acd07214ea677be21f
+/home/nicolas/Archipel/htdocs/js/iip/mootools-1.2-more.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/mootools-1.2-more.js
+/home/nicolas/Archipel/htdocs/js/jquery.tools.min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.tools.min.js
+/home/nicolas/Archipel/htdocs/images/screenshots/openURL/zoomer.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/openURL/zoomer.png
+/home/nicolas/Archipel/.git/objects/95/d0274894c82aaddcce6c104e3752a60aecb13d
+ <=> /home/nicolas/PeepShow/.git/objects/95/d0274894c82aaddcce6c104e3752a60aecb13d
+/home/nicolas/Archipel/htdocs/images/jCarousel/next.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next.png
+/home/nicolas/Archipel/.git/objects/ac/443f9b7c2049cfda1ae5221f20ad7128ccc3fb
+ <=> /home/nicolas/PeepShow/.git/objects/ac/443f9b7c2049cfda1ae5221f20ad7128ccc3fb
+/home/nicolas/Archipel/lib/Grim/XML/Media/Reader.pm
+ <=> /home/nicolas/PeepShow/lib/Grim/XML/Media/Reader.pm
+/home/nicolas/Archipel/htdocs/js/iip/moocanvas.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/moocanvas.js
+/home/nicolas/Archipel/template/tt/search/all.tt
+ <=> /home/nicolas/PeepShow/template/tt/search/all.tt
+/home/nicolas/Archipel/.git/objects/2f/17383024e0a55c86b8626da1a7f98d67d2f25d
+ <=> /home/nicolas/PeepShow/.git/objects/2f/17383024e0a55c86b8626da1a7f98d67d2f25d
+/home/nicolas/Archipel/template/data/nl/search/all.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/search/all.tt
+/home/nicolas/Archipel/htdocs/js/jCarousel/jquery.jcarousel-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jCarousel/jquery.jcarousel-min.js
+/home/nicolas/Archipel/.git/objects/fe/b1bb42535ac776a670f35d86dab2348a9ae1c9
+ <=> /home/nicolas/PeepShow/.git/objects/fe/b1bb42535ac776a670f35d86dab2348a9ae1c9
+/home/nicolas/Archipel/.git/objects/2e/21921eafdcd6270be2e77249be1c7261b293e2
+ <=> /home/nicolas/PeepShow/.git/objects/2e/21921eafdcd6270be2e77249be1c7261b293e2
+/home/nicolas/Archipel/htdocs/images/iip/iepngfix.htc
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/iepngfix.htc
+/home/nicolas/Archipel/.git/index
+ <=> /home/nicolas/PeepShow/.git/index
+Binary files /home/nicolas/Archipel/.git/index and /home/nicolas/PeepShow/.git/index differ
+/home/nicolas/Archipel/.git/objects/6e/3fda3df357d4b398258c49a809cf876302e2b0
+ <=> /home/nicolas/PeepShow/.git/objects/6e/3fda3df357d4b398258c49a809cf876302e2b0
+/home/nicolas/Archipel/template/data/en/search/record.tt
+ <=> /home/nicolas/PeepShow/template/data/en/search/record.tt
+/home/nicolas/Archipel/.git/objects/6a/22bd4b1791e040ab3fa0e7f579b12462fb1ee8
+ <=> /home/nicolas/PeepShow/.git/objects/6a/22bd4b1791e040ab3fa0e7f579b12462fb1ee8
+/home/nicolas/Archipel/template/data/nl/new_column.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/new_column.tt
+/home/nicolas/Archipel/template/inc/xml_link.tt
+ <=> /home/nicolas/PeepShow/template/inc/xml_link.tt
+/home/nicolas/Archipel/.git/objects/db/21c359f656dda4af3fb271ddd71cc5408c69af
+ <=> /home/nicolas/PeepShow/.git/objects/db/21c359f656dda4af3fb271ddd71cc5408c69af
+/home/nicolas/Archipel/htdocs/js/iip/mootools-1.2-core.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/mootools-1.2-core.js
+/home/nicolas/Archipel/.git/objects/bc/a882f4c1482cc18100800586937e2e7fc7f4d7
+ <=> /home/nicolas/PeepShow/.git/objects/bc/a882f4c1482cc18100800586937e2e7fc7f4d7
+/home/nicolas/Archipel/lib/Marc/XSLT/SRW.pm
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/SRW.pm
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_vert_disabled_white_old.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_vert_disabled_white_old.png
+/home/nicolas/Archipel/.git/objects/48/97d044dd08e61c37bad4393657d1b2c38f1068
+ <=> /home/nicolas/PeepShow/.git/objects/48/97d044dd08e61c37bad4393657d1b2c38f1068
+/home/nicolas/Archipel/.git/objects/e7/c8a32f3c5e7058618084217cc7d2dd10345310
+ <=> /home/nicolas/PeepShow/.git/objects/e7/c8a32f3c5e7058618084217cc7d2dd10345310
+/home/nicolas/Archipel/.git/objects/00/ef13e9c1dc412b10251c9365178449acde13a1
+ <=> /home/nicolas/PeepShow/.git/objects/00/ef13e9c1dc412b10251c9365178449acde13a1
+/home/nicolas/Archipel/.git/objects/a8/f18e9bf3aca94b185641860ec087f9b1dc4dd9
+ <=> /home/nicolas/PeepShow/.git/objects/a8/f18e9bf3aca94b185641860ec087f9b1dc4dd9
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/kadoc_xml.old
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/kadoc_xml.old
+/home/nicolas/Archipel/htdocs/images/icons/downloads_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/downloads_white.png
+/home/nicolas/Archipel/.git/objects/17/961cd147d643f40d9a98c47e5f7c3f178b143c
+ <=> /home/nicolas/PeepShow/.git/objects/17/961cd147d643f40d9a98c47e5f7c3f178b143c
+/home/nicolas/Archipel/htdocs/css/jCarousel/tango/skin.css
+ <=> /home/nicolas/PeepShow/htdocs/css/jCarousel/tango/skin.css
+/home/nicolas/Archipel/.git/objects/c4/52c4b3d0d59a96cfa1b5042b8cb39910d7cc4a
+ <=> /home/nicolas/PeepShow/.git/objects/c4/52c4b3d0d59a96cfa1b5042b8cb39910d7cc4a
+/home/nicolas/Archipel/.git/objects/57/77b4331945cb06c784712f077bfa9982507119
+ <=> /home/nicolas/PeepShow/.git/objects/57/77b4331945cb06c784712f077bfa9982507119
+/home/nicolas/Archipel/.git/HEAD
+ <=> /home/nicolas/PeepShow/.git/HEAD
+/home/nicolas/Archipel/.git/objects/15/6685f64b8772d31f189213193018c4c4f4b867
+ <=> /home/nicolas/PeepShow/.git/objects/15/6685f64b8772d31f189213193018c4c4f4b867
+/home/nicolas/Archipel/.git/hooks/pre-rebase.sample
+ <=> /home/nicolas/PeepShow/.git/hooks/pre-rebase.sample
+/home/nicolas/Archipel/template/inc/search/results_short.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/results_short.tt
+/home/nicolas/Archipel/.git/objects/86/45dadf19541b4a7952621a65d10c3d5f8154cd
+ <=> /home/nicolas/PeepShow/.git/objects/86/45dadf19541b4a7952621a65d10c3d5f8154cd
+/home/nicolas/Archipel/.git/objects/14/bda9037bd3e5712a5dfdcd89e3d77e769c555f
+ <=> /home/nicolas/PeepShow/.git/objects/14/bda9037bd3e5712a5dfdcd89e3d77e769c555f
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/delete.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/delete.pm
+/home/nicolas/Archipel/.git/objects/bd/487e32f399ded7b6f4753f8e565afd9750adbe
+ <=> /home/nicolas/PeepShow/.git/objects/bd/487e32f399ded7b6f4753f8e565afd9750adbe
+/home/nicolas/Archipel/template/data/nl/columns.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/columns.tt
+/home/nicolas/Archipel/.git/objects/85/966a457fd8fea1d81619e4b941771e8f58257d
+ <=> /home/nicolas/PeepShow/.git/objects/85/966a457fd8fea1d81619e4b941771e8f58257d
+/home/nicolas/Archipel/.git/objects/8a/1164cadc6335b70b1d6bdcd29f13e12251c0cc
+ <=> /home/nicolas/PeepShow/.git/objects/8a/1164cadc6335b70b1d6bdcd29f13e12251c0cc
+/home/nicolas/Archipel/.git/objects/d3/70709ff545bac378a344fef61ed05a0a7e3ce8
+ <=> /home/nicolas/PeepShow/.git/objects/d3/70709ff545bac378a344fef61ed05a0a7e3ce8
+/home/nicolas/Archipel/htdocs/js/jquery.em-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.em-min.js
+/home/nicolas/Archipel/htdocs/css/master.css
+ <=> /home/nicolas/PeepShow/htdocs/css/master.css
+1,316c1,221
+< /* ======================================================== */
+< /*	Created by Devit Schizoper 								*/
+< /*	Created HomePages http://LoadFoo.starzonewebhost.com	*/
+< /*	Created Day 01.12.2006 									*/
+< /* ======================================================== */
+< 
+< 
+< html,body, div, span, object, iframe, h1, h2, h3, h4, h5, h6,
+< p, blockquote, pre, a, abbr, acronym, address, code, del, dfn,
+< em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+< table, caption, tbody, tfoot, thead, tr, th, td,
+< hr {
+<   margin:  0;
+<   padding: 0;
+<   border:  0;
+<   vertical-align: baseline;
+<   font-weight: inherit;
+<   font-style:  inherit;
+<   font-size:   100%;
+< }
+< body {
+< 	margin: 0px;
+< 	background: url(../images/top_bg.gif);
+< 	background-repeat: repeat-x;
+< 	font-family: Verdana, Arial, sans-serif;
+<         font-size: .8em;
+< 	line-height: 18px;
+< }
+< img {
+< 	-ms-interpolation-mode: bicubic;
+< }
+< p {
+< 	line-height: 17px;
+< 	margin: 11px 0 10px 0;
+< 	padding: 0px;
+< }
+< 
+< h2 {
+< 	color: #9f9f9f;
+< 	margin:0px;
+< 	padding:0px;
+< 	font-size: 15px;
+< }
+< 
+< ul {
+< 	font-size: 10px;
+< 	margin:0;
+< 	padding:0;
+< 	list-style-image: url(../images/bullet.gif);
+< }
+< 
+< a {
+< 	text-decoration:none;
+< 	/*color: #93B300;*/
+< 	color:#B80707;
+< }
+< a:hover {
+< 	color:#C42727;
+< }
+< a:visited, a:link {
+< 	color:#B80707;
+< }
+< 
+< img{
+<         border:none;
+< }
+< blockquote{
+< 	background: #F7FDE3;
+< 	color: #606060;
+< 	padding: 10px;
+< }
+< 
+< table {
+<         width:100%;margin:0px;padding:0px;
+< }
+< td,th{
+<         margin:0px;
+<         padding:10px;
+< }
+< iframe {
+<   float: none;
+< }
+< 
+< ul, ol {
+<   list-style: none;
+< }
+< /**** Main Container ***/
+< 
+< 
+< #wrap {
+<        margin-left: auto;
+<        margin-right: auto;
+<        width:945px;
+< }
+< 
+< 
+< /**** Top ***/
+< 
+< 
+< #top {
+< 	width:945px;
+< 	height: 88px;
+< 	color: #fff;
+< 	background: #000 url(../images/top_bg.gif);
+< 	overflow:hidden;
+< 	margin-left:auto;
+< 	margin-right:auto;
+< }
+< 
+< #top h2 {
+< 	color: White;
+< 	letter-spacing: 3px;
+< 	font-size: 2.4em;
+< 	font-weight: normal;
+< 	position: relative;
+< 	margin: 0px;
+< 	top:33px;
+< 	display:block;
+< 	float:left;
+< 	background: url(../images/bg_t.gif) no-repeat;
+< 	padding-left: 10px;
+< }
+< 
+< #top h2 a {
+< 	color: white;
+< 	text-decoration: none;
+< }
+< 
+< #top h2 a:hover {
+<         color: #93B300;
+< }
+< 
+< 
+< /**** Main Menu ***/
+< 
+< 
+< #menu {
+< 	display: block;
+< 	float:right;
+< }
+< 
+< #menu ul {
+< 	margin: 0;
+< 	list-style: none;
+< }
+< 
+< #menu li {
+< 	display: block;
+< 	float: left;
+< 	white-space: nowrap;
+< }
+< 
+< #menu li a {
+< 	display: block;
+< 	padding: 55px 20px 12px 20px;
+< 	text-decoration: none;
+< 	color: #fff;
+< 	font-weight: bold;
+< }
+< 
+< * html #menu a {width:1%;}
+< 
+< #menu li a:hover {
+< 	background: url(../images/bg_menu.gif);
+< }
+< 
+< #menu li a.current {
+< 	letter-spacing: 1px;
+< 	color: gray;
+< 	background: url(../images/bg_menu.gif);
+< }
+< 
+< #menu li a.current:hover {
+< 	color: #fff;
+< }
+< 
+< 
+< /**** Content Container ***/
+< 
+< 
+< #content {
+< 	width: 100%;
+< 	margin-top:30px;
+< }
+< 
+< #content h2 {
+< 	margin: 0;
+< 	padding: 10px 0 10px 0;
+< }
+< 
+< 
+< /**** Content ***/
+< 
+< 
+< #left ul {
+< 	padding: 15px 0 15px 35px;
+< 	margin:0;
+< }
+< 
+< #left li {
+< 	margin-bottom:5px;
+< }
+< 
+< #left {
+< 	width: 390px;
+< 	float:left;
+< 	display: block;
+<        margin-left: 20px;
+< 	display: inline;
+< }
+< 
+< 
+< /**** Sidebar ***/
+< 
+< 
+< #right {
+< 	width: 315px; 
+< 	float: right;
+< 	display:block;
+< 	margin-top: 10px;
+< }
+< 
+< #right .box {
+< 	width: 24em;/*280px*/
+< 	background: #F6F9FB;
+< 	border: 1px solid #E1E1E1;
+< 	padding:10px 10px 15px 10px;
+< 	float: right;
+< }
+< 
+< #right .box h2 {
+< 	font-size: 1.1em;
+< 	margin: 0px 0 0px 0;
+< 	padding:0px 0 5px 0;
+< }
+< 
+< #right .box a {
+< 	margin: 10px 0 10px 0;
+< 	color: #93B300;
+< 	font-size: 10px;
+< }
+< 
+< #right .box p {
+< 	margin: 5px 0 10px 0;
+< 	line-height: 15px;
+< }
+< 
+< #right .box ul {
+< 	padding: 0 0 7px 20px;
+< 	margin:10px 0 10px 0;
+< }
+< 
+< #right .box li {
+< 	margin-top:5px;
+< }
+< 
+< #nav{ list-style: none; margin: 2.0em 0; width: 25em; float: right;}
+< #nav li{ padding: 0; margin: 0; }
+< #nav a{
+< 	display: block;
+< 	height: 2.0em;
+< 	padding: 0.3em 0.3em 0.3em 0.8em;
+< 	border-bottom: 2px; /*solid #1a1a1a*/
+< 	border-top: 2px; /*solid #1a1a1a*/
+< 	color: #93B300;
+< 	background-color: #F7F9FB;
+< 	font-weight: bold;
+< 	text-decoration: none;
+< 	}a
+< 
+< #nav a:hover {
+< 	color: #1a1a1a;
+< 	background: url("../images/bg_t.gif") no-repeat;
+< 	background-color: #fff;
+< 	font-weight: bold;
+< 	}	
+< 
+< /**** Clear Div ***/
+< 
+< 
+< #clear {
+< 	display: block;
+< 	clear: both;
+< 	width: 100%;
+< 	height:1px;
+< 	overflow:hidden;
+< }
+< 
+< 
+< /**** Footer ***/
+< 
+< 
+< #footer {
+<         margin: 80px auto 0 auto;
+< 	text-align: center;
+< 	border-top: dotted 1px gray;
+< 	padding: 20px 0 20px 0;
+< 	width:945px;
+< }
+< 
+< #footer p {
+< 	margin: 0px;
+< 	padding: 0;
+< }
+< /*
+< 	aanpassing
+< */
+< #main {
+< 	position: relative;
+< 	overflow: hidden;
+< 	margin-left:  auto;
+< 	margin-right: auto;width: 945px
+< }
+< h1{
+<         padding:20px;padding-left:0px;margin:0px;color:black;font-weight:bold;font-size:14pt;
+< }
+---
+> /*=====reset=====*/
+> html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+> p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, 
+> em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+> table, caption, tbody, tfoot, thead, tr, th, td, 
+> hr {
+>   margin:  0;
+>   padding: 0;
+>   border:  0;
+>   vertical-align: baseline;
+>   font-weight: inherit;
+>   font-style:  inherit;
+>   font-size:   100%;
+> }
+> body {
+> 	background: #ffffff;
+> }
+> th {
+> 	color:#121D22;
+> }
+> a {
+>   text-decoration: none;font-family:'Lucida Sans', 'Lucida Sans Unicode', Verdana, serif;font-size:10pt;
+>   
+> }
+> a:link, a:visited, a:focus, a:hover, a:active {
+>         text-decoration:none;
+>         color:#8D0E3A;
+> }
+> a:focus, a:hover, a:active {
+>         border-bottom:1px dotted #8D0E3A;
+> }
+> 
+> a img {
+>   border: none;
+> }
+> 
+> iframe {
+>   float: none;
+> }
+> 
+> ul, ol {
+>   list-style: none;
+> }
+> /*=====boxes=====*/
+> 
+> .item, .line {
+>   clear: left;
+>   padding-top: 12px;
+> }
+> 
+> .line .item {
+>   clear: none;
+>   float: left;
+>   width: 298px;
+>   padding-top:   0;
+>   padding-right: 24px;
+> }
+> 
+> .line .item.last {
+>   padding-right: 0;
+> }
+> 
+> /*=====structure=====*/
+> 
+> body {
+>   margin-top:    12px;
+>   margin-bottom: 12px;
+> }
+> 
+> #head, #main, #info, #menu-main ul {
+>   position: relative;
+>   overflow: hidden;
+>   margin-left:  auto;
+>   margin-right: auto;width: 945px;
+> }
+> 
+> #head {
+>   height: 112px;
+> }
+> 
+> #info {
+>   height: 72px;
+>   margin-top: 12px;
+> }
+> #info a{
+> 	font-size:10px;
+> }
+> #content-one, #content-two { float: left; margin-bottom: -12px; padding-bottom: 12px; }
+> #content-one { width: 644px; margin-right: -298px; border-right: 298px solid #f2f2f2; }
+> #content-two { background-color: #f2f2f2; }
+> #content-one .item { padding-right: 24px; }
+> #content-two .item { width: 274px; padding-left: 12px; padding-right: 12px; }
+> 
+> /*=====typography & colors=====*/
+> 
+> body {
+>   font-family:'Lucida Sans', 'Lucida Sans Unicode', 'Verdana','Consolas', serif;
+>   font-size:  12px;
+>   line-height: 18px;
+>   color:#2F4551;
+> }
+> td{
+> 	color:#2F4551;
+> }
+> #info {
+>   font-size: 10px;
+> }
+> 
+> 
+> #main {
+> 	padding-bottom: 12px;
+> 	padding-top:12px;
+> }
+> 
+> #main a {
+> 	font-family: 'Consolas', 'Courier', "Courier New", monospace; 
+> 	font-weight: bold;font-size:9pt;
+> }
+> 
+> 
+> ul, li, dt, dd, p {
+>   margin-top: 6px;
+> }
+> img{
+> 	border:none;
+> }
+> 
+> button {
+>   border:  0;
+>   padding: 3px 6px;
+>   color:      #ffffff;
+>   background: #121d22;
+>   font-size: 12px;
+> }
+> 
+> 
+> .ruler {
+>   margin-top:20px;
+>   height: 2px;
+>   background-color: #121d22;
+> }
+> 
+> .ruler hr {
+>   display: none;
+> }
+> 
+> #menu-utility {
+>   position: absolute;
+>   top:   0;
+>   right: 0;
+> }
+> #menu-utility a{
+> 	font-size:9pt;color:#8D0E3A;
+> }
+> #menu-utility a:hover {
+> 	text-decoration:none;
+> 	color:#8D0E3A;
+> }
+> #menu-utility a:visited {
+> 	color:#8D0E3A;
+> }
+> 
+> 
+> #menu-main {
+>   background: #121d22;
+> }
+> 
+> #menu-main ul {
+>   list-style: none;
+> }
+> 
+> #menu-main ul li {
+>   margin: 0 24px 0 0;
+>   float: left;
+>   height: 36px;
+> }
+> 
+> #menu-main ul li.last {
+> 	margin-right: 0;
+> }
+> 
+> #menu-main ul li a {
+>   display: block;
+>   font-size: 14px;
+>   font-family:"Lucida Sans", "Lucida Sans Unicode","Verdana","sans-serif";
+>   color: #ffffff;
+>   line-height: 36px;
+> }
+> #menu-main ul li a:focus, #menu-main ul li a:hover, #menu-main ul li a:active, #menu-main ul li a.current {
+>   background: #121d22 url(../images/icons/menu-current.png) no-repeat scroll bottom center;
+> }
+> 
+> #site-title h1 {
+>   display: none;
+> }
+> 
+> #site-institution {
+>   position: absolute;
+>   top: 0;
+>   left: 0;
+> }
+> 
+> #site-legal {
+>   position: absolute;
+>   top: 0;
+>   right: 0;
+> }
+> 
+> table {
+> 	width:100%;margin:0px;padding:0px;
+> }
+> td,th{
+> 	margin:0px;
+> 	padding:10px;
+> }
+> h1{
+> 	padding:20px;padding-left:0px;margin:0px;color:black;font-weight:bold;font-size:14pt;
+> }
+> p{
+> 	margin:0px;padding:10px;
+> }
+/home/nicolas/Archipel/htdocs/images/jCarousel/prev_vert_disabled_white_old.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/prev_vert_disabled_white_old.png
+/home/nicolas/Archipel/htdocs/images/icons/word.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/word.gif
+/home/nicolas/Archipel/.git/objects/07/4d17b905cf76827222be98eb49fe6b4ab28a93
+ <=> /home/nicolas/PeepShow/.git/objects/07/4d17b905cf76827222be98eb49fe6b4ab28a93
+/home/nicolas/Archipel/htdocs/images/jCarousel/last_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/last_disabled.png
+/home/nicolas/Archipel/lib/Rft.pm
+ <=> /home/nicolas/PeepShow/lib/Rft.pm
+/home/nicolas/Archipel/.git/objects/ec/16fd905dca5285f1ef1ab0307bb3cacab7cac5
+ <=> /home/nicolas/PeepShow/.git/objects/ec/16fd905dca5285f1ef1ab0307bb3cacab7cac5
+/home/nicolas/Archipel/lib/Marc/XSLT.pm
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT.pm
+/home/nicolas/Archipel/htdocs/images/bullet.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/bullet.gif
+/home/nicolas/Archipel/.git/objects/aa/3f6d6827e8fa2f2a6de5c665bfe6248be723d2
+ <=> /home/nicolas/PeepShow/.git/objects/aa/3f6d6827e8fa2f2a6de5c665bfe6248be723d2
+/home/nicolas/Archipel/.git/objects/43/fda2ac799ee4755f269ff7914763b43bd22c2b
+ <=> /home/nicolas/PeepShow/.git/objects/43/fda2ac799ee4755f269ff7914763b43bd22c2b
+/home/nicolas/Archipel/template/inc/search/record/head.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/record/head.tt
+/home/nicolas/Archipel/lib/PeepShow/Handler/Record/View.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Record/View.pm
+/home/nicolas/Archipel/.git/objects/eb/2e502d1e3de77b37efc680d12e2e611a1a8cd0
+ <=> /home/nicolas/PeepShow/.git/objects/eb/2e502d1e3de77b37efc680d12e2e611a1a8cd0
+/home/nicolas/Archipel/README
+ <=> /home/nicolas/PeepShow/README
+0a1,76
+> Installatie Imagemagick
+> 	Laatste versie (6.7.0-10 of hoger) voor correctie ondersteuning van parameter dissolve bij watermerken:
+> 		hoewel binaries van vóór 6.6.4-10.7 correct werken met dissolve, is dat niet het geval
+> 		in perlmagick.
+> 		
+> 	Prerequistes: 	liblcms-dev 
+> 	configuratie:
+> 		./configure --with-lcms --enable-prof
+> 		=> negeer warning "cannot profile using shared libraries"
+> 	perlmagick daarna installeren
+> 		profilering
+> 		$magick->Read("input.tif");
+> 		#gebruik 'name' als path, en niet 'profile' als blob (werkt niet)
+> 		$magick->Profile(name=>"myprofile.icc");
+> 		$magick->Write("out.tif");
+> 	
+> ---------------------------------------------------------
+> Installatie Kakadu
+> 	cd coresys/make;
+> 	make -f Makefile-Linux-32 all
+> 	cd apps/make;
+> 	make -f Makefile-Linux-32 all_but_hyperdoc
+> 	cd managed/make
+> 	make -f Makefile-Linux-32 all
+> 
+> Om gecomprimeerde tiff-bestanden te kunnen verwerken, voeg deze regel toe aan de Makefile in apps/make:
+> C_OPT += -DKDU_INCLUDE_TIFF -ltiff
+> 
+> --------------------------------------------------------
+> 
+> Conversie naar JPEG2000
+> 	Clevels = 8
+> 	Clayers = 8
+> 	-rate <24,32|24> 
+> 		/*
+> 			keuze afhankelijk van de aangetroffen bits per pixel
+> 		*/
+> 	Stiles = {256,256}
+> 	Creversible=<yes|no>
+> 		/*
+> 			lossless compression is niet noodzakelijk, maar lossy zal wel de rate-control van groter belang maken
+> 		*/
+> 	-no_weights
+> 	-ORGgen_tlm=<num tile-parts>
+> 		/*
+> 			headers met lengte van elke tile zitten normaal aan het begin van elke tile. 
+> 			Als snelheid een issue is, kunnen deze headers ook nog eens 
+> 			extra worden opgenomen in de main-header bovenaan. 
+> 			Men moet op voorhand voorspellen hoeveel tile-parts gecreëerd zullen worden
+> 			want de plaats wordt gereserveerd nog vóór bekend wordt hoeveel tile-parts de 
+> 			foto werkelijk heeft. Indien het werkelijke aantal kleiner is, dan wordt de 
+> 			resterende opgevuld met dummies; in het andere geval worden de overblijvende 
+> 			headers niet toegevoegd.
+> 			=> optioneel
+> 		*/
+> 	-jpx_space
+> 		`bilevel1', `bilevel2', `YCbCr1', `YCbCr2', `YCbCr3', `PhotoYCC',`CMY', `CMYK', `YCCK', `CIELab', `CIEJab', `sLUM', `sRGB', `sYCC',`esRGB', `esYCC', `ROMMRGB', `YPbPr60',  `YPbPr50'
+> 
+> 		/*
+> 			bovenvermelde kleurenruimten worden ondersteund door kdu_compress vanaf 
+> 			de commandline voor het file-formaat jpx. Als 'color space' kunnen enkel 
+> 			'input device class' worden gebruikt in kakadu, en dat zowel voor jp2 als jpx. 
+> 			Daarmee vallen 'display device classes' als Adobe RGB uit de boot.
+> 			=> optie is niet altijd even interessant: het is aan de decoder om de 
+> 			gelezen data om te zetten naar de kleurenruimte die hij wil
+> 			=> om misinterpretaties te tegen te gaan dient men best de kleurenruimte naar sRGB om te zetten om complicaties of vreemde resultaten te vermijden
+> 			=> optioneel
+> 			cf. http://www.projectcest.be/index.php/JPEG2000_expertmeeting
+> 			cf. http://www.dlib.org/dlib/may11/vanderknijff/05vanderknijff.html
+> 			cf. http://www.imagemagick.org/Usage/formats/#color_profile
+> 
+> 			=> via Kakadu API kunnen wel andere ICC profielen worden opgegeven, die voldoen aan de volgende kenmerken:
+> 			- 1 of 3 componenten (vandaar dat RGB en GREYSCALE geen probleem zijn)
+> 		
+> 			cf. http://tech.groups.yahoo.com/group/kakadu_jpeg2000/message/3654
+> 		*/	
+/home/nicolas/Archipel/htdocs/images/icons/Audio.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/Audio.png
+/home/nicolas/Archipel/.git/objects/cf/559ce54356bb43dc70d2dddf6ca87661c0200e
+ <=> /home/nicolas/PeepShow/.git/objects/cf/559ce54356bb43dc70d2dddf6ca87661c0200e
+/home/nicolas/Archipel/.git/objects/cc/6361e0fcc41ee9bc8513e113684175cdb0bc61
+ <=> /home/nicolas/PeepShow/.git/objects/cc/6361e0fcc41ee9bc8513e113684175cdb0bc61
+/home/nicolas/Archipel/.git/objects/04/03773f0942d2a1d90ca7bb8550c958a0b83ce1
+ <=> /home/nicolas/PeepShow/.git/objects/04/03773f0942d2a1d90ca7bb8550c958a0b83ce1
+/home/nicolas/Archipel/.git/objects/70/8bef67a2d282243a871bcb87ef454602d9a9c7
+ <=> /home/nicolas/PeepShow/.git/objects/70/8bef67a2d282243a871bcb87ef454602d9a9c7
+/home/nicolas/Archipel/.git/objects/5b/d997ac7026cb48c4cdbbf59e91e829fe6c8e74
+ <=> /home/nicolas/PeepShow/.git/objects/5b/d997ac7026cb48c4cdbbf59e91e829fe6c8e74
+/home/nicolas/Archipel/test/parse.pl
+ <=> /home/nicolas/PeepShow/test/parse.pl
+/home/nicolas/Archipel/lib/openURL/Service/Image/IIP.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/Service/Image/IIP.pm
+/home/nicolas/Archipel/htdocs/images/iip/toolbar.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/toolbar.png
+/home/nicolas/Archipel/test/test.xml
+ <=> /home/nicolas/PeepShow/test/test.xml
+/home/nicolas/Archipel/test/benchmark.log
+ <=> /home/nicolas/PeepShow/test/benchmark.log
+0a1
+> Error/7:1 3 FIF
+/home/nicolas/Archipel/.git/description
+ <=> /home/nicolas/PeepShow/.git/description
+/home/nicolas/Archipel/template/inc/search/all/help.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/all/help.tt
+/home/nicolas/Archipel/.git/objects/01/4b3246ff1cb7c2c04b8a6fdf34c9f0083f5dc0
+ <=> /home/nicolas/PeepShow/.git/objects/01/4b3246ff1cb7c2c04b8a6fdf34c9f0083f5dc0
+/home/nicolas/Archipel/.git/objects/4b/5e277df716e67bce05a6edde724c80fde48c10
+ <=> /home/nicolas/PeepShow/.git/objects/4b/5e277df716e67bce05a6edde724c80fde48c10
+/home/nicolas/Archipel/test/hash.txt
+ <=> /home/nicolas/PeepShow/test/hash.txt
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_hover.png
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Unbag/Audio/MP3.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Unbag/Audio/MP3.pm
+/home/nicolas/Archipel/htdocs/js/jquery-1.4.4.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery-1.4.4.js
+/home/nicolas/Archipel/.git/objects/7e/c6d52fe9aa1a1b3d5b034a71dbeb20e1314431
+ <=> /home/nicolas/PeepShow/.git/objects/7e/c6d52fe9aa1a1b3d5b034a71dbeb20e1314431
+/home/nicolas/Archipel/.git/objects/90/720d6e3b7348b58d74285eb6a179a787c99047
+ <=> /home/nicolas/PeepShow/.git/objects/90/720d6e3b7348b58d74285eb6a179a787c99047
+/home/nicolas/Archipel/test/matches.txt
+ <=> /home/nicolas/PeepShow/test/matches.txt
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Index/Solr.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Index/Solr.pm
+/home/nicolas/Archipel/.git/objects/ab/bc7f4dcfcfbf718d37b00d85b9bcd68c7fec35
+ <=> /home/nicolas/PeepShow/.git/objects/ab/bc7f4dcfcfbf718d37b00d85b9bcd68c7fec35
+/home/nicolas/Archipel/.git/objects/1e/7ea13396b594ddf6d19e9c87f572b0d9264c2f
+ <=> /home/nicolas/PeepShow/.git/objects/1e/7ea13396b594ddf6d19e9c87f572b0d9264c2f
+/home/nicolas/Archipel/.git/objects/a5/c84d9222b58399c40a37ebb1822f259d451635
+ <=> /home/nicolas/PeepShow/.git/objects/a5/c84d9222b58399c40a37ebb1822f259d451635
+/home/nicolas/Archipel/.git/objects/62/56291c5157711c9da6f27d710a1c6a5dc28b1d
+ <=> /home/nicolas/PeepShow/.git/objects/62/56291c5157711c9da6f27d710a1c6a5dc28b1d
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-view/pages.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-view/pages.png
+/home/nicolas/Archipel/.git/objects/6b/1d7dc69127156bfbffb4fecdb046055e42dc10
+ <=> /home/nicolas/PeepShow/.git/objects/6b/1d7dc69127156bfbffb4fecdb046055e42dc10
+/home/nicolas/Archipel/.git/objects/ae/e2414255ed44d3e191752031d589b9aeadce01
+ <=> /home/nicolas/PeepShow/.git/objects/ae/e2414255ed44d3e191752031d589b9aeadce01
+/home/nicolas/Archipel/psgi/app.psgi
+ <=> /home/nicolas/PeepShow/psgi/app.psgi
+4a5,7
+> use PeepShow::opensearch;
+> use PeepShow::opensearch::view;
+> use PeepShow::help;
+13a17
+> use PeepShow::tag;
+19,20d22
+< use Catmandu;
+< use Digest::MD5 qw(md5_hex);
+27,30c29,32
+<         if(!mkpath($session_dir)){
+<                 print STDERR "could not create session directory $session_dir\n";
+<                 exit 1;
+<         }
+---
+> 	if(!mkpath($session_dir)){
+> 		print STDERR "could not create session directory $session_dir\n";
+> 		exit 1;
+> 	}
+32,33c34,35
+<         print STDERR "$session_dir is not writable\n";
+<         exit 1;
+---
+> 	print STDERR "$session_dir is not writable\n";
+> 	exit 1;
+35a38
+> $cache_file ||= "/tmp/mycache";
+43c46
+<         print STDERR "cache dir $cache_dir is not writable\n";
+---
+>  	print STDERR "cache dir $cache_dir is not writable\n";
+47,48c50,51
+<         print STDERR "cache file $cache_file, but is not writable\n";
+<         exit 1;
+---
+> 	print STDERR "cache file $cache_file, but is not writable\n";
+> 	exit 1;
+54c57
+< 	enable 'Session',store=>Plack::Session::Store::File->new(dir=> '/tmp/sessions/archipel');
+---
+> 	enable 'Session',store=>Plack::Session::Store::File->new(dir=> $session_dir);
+60a64,66
+> 	mount "/opensearch",PeepShow::opensearch->to_app;
+> 	mount "/opensearch/view",PeepShow::opensearch::view->to_app;
+> 	mount "/help",PeepShow::help->to_app;
+66a73
+> 	mount "/tag",PeepShow::tag->to_app;
+/home/nicolas/Archipel/htdocs/images/icons/show.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/show.png
+/home/nicolas/Archipel/template/data/nl/search.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/search.tt
+/home/nicolas/Archipel/lib/Catmandu/Store/Merge.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Store/Merge.pm
+/home/nicolas/Archipel/.git/objects/e1/4f2053470fbae04b61a885e0c52e077eb5d355
+ <=> /home/nicolas/PeepShow/.git/objects/e1/4f2053470fbae04b61a885e0c52e077eb5d355
+/home/nicolas/Archipel/htdocs/images/jCarousel/prev_vert_disabled_white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/prev_vert_disabled_white.png
+/home/nicolas/Archipel/.git/objects/e6/4cdce743a3a53f2f081aecd608c936a2dbfe7e
+ <=> /home/nicolas/PeepShow/.git/objects/e6/4cdce743a3a53f2f081aecd608c936a2dbfe7e
+/home/nicolas/Archipel/htdocs/images/icons/ugent-white.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/ugent-white.png
+/home/nicolas/Archipel/.git/objects/6f/30595d89ac00a94a9275f823383998007f80b0
+ <=> /home/nicolas/PeepShow/.git/objects/6f/30595d89ac00a94a9275f823383998007f80b0
+/home/nicolas/Archipel/htdocs/images/icons/Doc.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/Doc.png
+/home/nicolas/Archipel/.git/objects/3b/9b221215db6c728bed8839436c4d084a8c1070
+ <=> /home/nicolas/PeepShow/.git/objects/3b/9b221215db6c728bed8839436c4d084a8c1070
+/home/nicolas/Archipel/.git/objects/e3/2551fcda646c05fb830d3c3d2bb1159aa7670a
+ <=> /home/nicolas/PeepShow/.git/objects/e3/2551fcda646c05fb830d3c3d2bb1159aa7670a
+/home/nicolas/Archipel/.git/objects/e0/191ae7f66c7b01cc985e4eb4eab495a82595c8
+ <=> /home/nicolas/PeepShow/.git/objects/e0/191ae7f66c7b01cc985e4eb4eab495a82595c8
+/home/nicolas/Archipel/template/data/nl/home.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/home.tt
+/home/nicolas/Archipel/.git/objects/f3/5518c15f9d53f203f0ef2abba3308197ee3c47
+ <=> /home/nicolas/PeepShow/.git/objects/f3/5518c15f9d53f203f0ef2abba3308197ee3c47
+/home/nicolas/Archipel/test/exif.pl
+ <=> /home/nicolas/PeepShow/test/exif.pl
+/home/nicolas/Archipel/.git/objects/57/65a3e20f28e99b28af94b020b96f6e16fb35ca
+ <=> /home/nicolas/PeepShow/.git/objects/57/65a3e20f28e99b28af94b020b96f6e16fb35ca
+/home/nicolas/Archipel/template/tt/search/pages.tt
+ <=> /home/nicolas/PeepShow/template/tt/search/pages.tt
+/home/nicolas/Archipel/.git/refs/remotes/origin/HEAD
+ <=> /home/nicolas/PeepShow/.git/refs/remotes/origin/HEAD
+/home/nicolas/Archipel/template/data/nl/search/record.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/search/record.tt
+/home/nicolas/Archipel/.git/objects/d6/d00df3ad8df3044c327a5a475d5f15acb06adf
+ <=> /home/nicolas/PeepShow/.git/objects/d6/d00df3ad8df3044c327a5a475d5f15acb06adf
+/home/nicolas/Archipel/.git/objects/f9/e0f8d95f5df9acae9b27712d44170bd96ba8d9
+ <=> /home/nicolas/PeepShow/.git/objects/f9/e0f8d95f5df9acae9b27712d44170bd96ba8d9
+/home/nicolas/Archipel/htdocs/images/icons/update.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/update.gif
+/home/nicolas/Archipel/.git/objects/f0/926e786971213a9432d2ee7e4f6bfc2903894b
+ <=> /home/nicolas/PeepShow/.git/objects/f0/926e786971213a9432d2ee7e4f6bfc2903894b
+/home/nicolas/Archipel/.git/objects/a6/39045e119a05e418789464209f4adfd1e71d21
+ <=> /home/nicolas/PeepShow/.git/objects/a6/39045e119a05e418789464209f4adfd1e71d21
+/home/nicolas/Archipel/.git/objects/38/fa1f0b88edcdf10bf14e07832031349114ef68
+ <=> /home/nicolas/PeepShow/.git/objects/38/fa1f0b88edcdf10bf14e07832031349114ef68
+/home/nicolas/Archipel/htdocs/images/icons/play.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/play.png
+/home/nicolas/Archipel/.git/objects/51/d4af685ae09e197e6b95366a64eadd23a32fe9
+ <=> /home/nicolas/PeepShow/.git/objects/51/d4af685ae09e197e6b95366a64eadd23a32fe9
+/home/nicolas/Archipel/.git/objects/65/5dcab13ff45229bef83e7700bd5ca9c81fe7f2
+ <=> /home/nicolas/PeepShow/.git/objects/65/5dcab13ff45229bef83e7700bd5ca9c81fe7f2
+/home/nicolas/Archipel/htdocs/images/icons/zoom_fullscreen-hover.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/zoom_fullscreen-hover.gif
+/home/nicolas/Archipel/.git/objects/9f/38e9ffd2bb1c1353c758eaa40d5584ed748acc
+ <=> /home/nicolas/PeepShow/.git/objects/9f/38e9ffd2bb1c1353c758eaa40d5584ed748acc
+/home/nicolas/Archipel/template/inc/search/all/manip.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/all/manip.tt
+/home/nicolas/Archipel/lib/PeepShow/rss.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/rss.pm
+/home/nicolas/Archipel/.git/objects/e1/ed9d1198d0a2c63770479c36e7480c7e46b591
+ <=> /home/nicolas/PeepShow/.git/objects/e1/ed9d1198d0a2c63770479c36e7480c7e46b591
+/home/nicolas/Archipel/.git/objects/5a/52a93b57f02c9ea967d562dd4357fb46d73b07
+ <=> /home/nicolas/PeepShow/.git/objects/5a/52a93b57f02c9ea967d562dd4357fb46d73b07
+/home/nicolas/Archipel/.git/objects/09/49ab535a06e9277d0ecd18c895bbfb308bb0bf
+ <=> /home/nicolas/PeepShow/.git/objects/09/49ab535a06e9277d0ecd18c895bbfb308bb0bf
+/home/nicolas/Archipel/.git/objects/13/25285d294650c423c69337c6ce246d830417e1
+ <=> /home/nicolas/PeepShow/.git/objects/13/25285d294650c423c69337c6ce246d830417e1
+/home/nicolas/Archipel/.git/objects/ec/f29bafd9b825db59829f1d90ff7e2f1993f160
+ <=> /home/nicolas/PeepShow/.git/objects/ec/f29bafd9b825db59829f1d90ff7e2f1993f160
+/home/nicolas/Archipel/lib/Template/Plugin/ToJSON.pm
+ <=> /home/nicolas/PeepShow/lib/Template/Plugin/ToJSON.pm
+/home/nicolas/Archipel/htdocs/images/jCarousel/first_enabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/first_enabled.png
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/unbag.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/unbag.pm
+/home/nicolas/Archipel/.git/objects/44/4a9a21059a6d064154f5c609e50ecbd636990d
+ <=> /home/nicolas/PeepShow/.git/objects/44/4a9a21059a6d064154f5c609e50ecbd636990d
+/home/nicolas/Archipel/htdocs/css/jScrollpane/jquery.jscrollpane.css
+ <=> /home/nicolas/PeepShow/htdocs/css/jScrollpane/jquery.jscrollpane.css
+/home/nicolas/Archipel/.git/objects/3c/51da39f9c20ecb7cb545c9a968e1a48ca13dcc
+ <=> /home/nicolas/PeepShow/.git/objects/3c/51da39f9c20ecb7cb545c9a968e1a48ca13dcc
+/home/nicolas/Archipel/template/tt/videolink.tt
+ <=> /home/nicolas/PeepShow/template/tt/videolink.tt
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-all/search_normal.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-all/search_normal.png
+/home/nicolas/Archipel/template/tt/audio.tt
+ <=> /home/nicolas/PeepShow/template/tt/audio.tt
+/home/nicolas/Archipel/.git/objects/bf/73a2b83c323aa8876222cbef2cbc6f692da595
+ <=> /home/nicolas/PeepShow/.git/objects/bf/73a2b83c323aa8876222cbef2cbc6f692da595
+/home/nicolas/Archipel/htdocs/images/jCarousel/previous_hover.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/previous_hover.png
+/home/nicolas/Archipel/.git/objects/19/98d4400c4b1889af57a9ad4d35114211b590ab
+ <=> /home/nicolas/PeepShow/.git/objects/19/98d4400c4b1889af57a9ad4d35114211b590ab
+/home/nicolas/Archipel/htdocs/js/jquery.scrollTo-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.scrollTo-min.js
+/home/nicolas/Archipel/.git/objects/8b/5b58b58e65bc78185efec10498fc0be4b94011
+ <=> /home/nicolas/PeepShow/.git/objects/8b/5b58b58e65bc78185efec10498fc0be4b94011
+/home/nicolas/Archipel/template/data/en/common.tt
+ <=> /home/nicolas/PeepShow/template/data/en/common.tt
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/insert2media.old
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/insert2media.old
+/home/nicolas/Archipel/.git/objects/eb/92a3ea3845b5c844509405221ef3e07777087e
+ <=> /home/nicolas/PeepShow/.git/objects/eb/92a3ea3845b5c844509405221ef3e07777087e
+/home/nicolas/Archipel/.git/objects/83/07527e9317e6037ad2b3bafcbbbf27b055a661
+ <=> /home/nicolas/PeepShow/.git/objects/83/07527e9317e6037ad2b3bafcbbbf27b055a661
+/home/nicolas/Archipel/.git/objects/45/d4b9de86c3904518db3fa590710abe628f566b
+ <=> /home/nicolas/PeepShow/.git/objects/45/d4b9de86c3904518db3fa590710abe628f566b
+/home/nicolas/Archipel/.git/objects/79/18e5bf1362ce4fa6318baa27ac429bc8805987
+ <=> /home/nicolas/PeepShow/.git/objects/79/18e5bf1362ce4fa6318baa27ac429bc8805987
+/home/nicolas/Archipel/.git/objects/10/f79b32b4480af484efbd3448ef0c7ba5f8d5b4
+ <=> /home/nicolas/PeepShow/.git/objects/10/f79b32b4480af484efbd3448ef0c7ba5f8d5b4
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/checkjpeg.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/checkjpeg.pm
+/home/nicolas/Archipel/htdocs/js/iip/iipmooviewer-1.1-compressed.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/iipmooviewer-1.1-compressed.js
+/home/nicolas/Archipel/.git/objects/ce/ab55df9ff97505324fbb1b11580b09ed758eea
+ <=> /home/nicolas/PeepShow/.git/objects/ce/ab55df9ff97505324fbb1b11580b09ed758eea
+/home/nicolas/Archipel/.git/objects/f7/1c37153467ef779fad1328563b239415f5c70e
+ <=> /home/nicolas/PeepShow/.git/objects/f7/1c37153467ef779fad1328563b239415f5c70e
+/home/nicolas/Archipel/htdocs/js/sparql.js
+ <=> /home/nicolas/PeepShow/htdocs/js/sparql.js
+/home/nicolas/Archipel/.git/objects/36/1e10507ef32af19007db73e77db01be565d6b8
+ <=> /home/nicolas/PeepShow/.git/objects/36/1e10507ef32af19007db73e77db01be565d6b8
+/home/nicolas/Archipel/.git/objects/15/dc3960e3b5e39016e31d4f833af67250441594
+ <=> /home/nicolas/PeepShow/.git/objects/15/dc3960e3b5e39016e31d4f833af67250441594
+/home/nicolas/Archipel/htdocs/images/jCarousel/prev_vert_enabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/prev_vert_enabled.png
+/home/nicolas/Archipel/.git/objects/b6/a79368fb4025acea6e00077fbc676de57fef85
+ <=> /home/nicolas/PeepShow/.git/objects/b6/a79368fb4025acea6e00077fbc676de57fef85
+/home/nicolas/Archipel/lib/openURL/Service/Image/Djatoka.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/Service/Image/Djatoka.pm
+/home/nicolas/Archipel/.git/objects/81/24ca6fc8f551cd1e52dae29e4f3ccbde09872b
+ <=> /home/nicolas/PeepShow/.git/objects/81/24ca6fc8f551cd1e52dae29e4f3ccbde09872b
+/home/nicolas/Archipel/htdocs/js/iip/spectrum.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/spectrum.js
+/home/nicolas/Archipel/.git/objects/1d/b3938f5d93ae50cdba68608b130d6b6309d082
+ <=> /home/nicolas/PeepShow/.git/objects/1d/b3938f5d93ae50cdba68608b130d6b6309d082
+/home/nicolas/Archipel/.git/objects/e1/932341a6b735636ec46c4845c3fdb3c07eb1d5
+ <=> /home/nicolas/PeepShow/.git/objects/e1/932341a6b735636ec46c4845c3fdb3c07eb1d5
+/home/nicolas/Archipel/.git/objects/03/97cc12bd9bd66fa2312cf7c1c2a2b15deccc69
+ <=> /home/nicolas/PeepShow/.git/objects/03/97cc12bd9bd66fa2312cf7c1c2a2b15deccc69
+/home/nicolas/Archipel/.git/objects/a6/0d2c01087bef38f50f4b1fa5d8dd72b5ca172e
+ <=> /home/nicolas/PeepShow/.git/objects/a6/0d2c01087bef38f50f4b1fa5d8dd72b5ca172e
+/home/nicolas/Archipel/.git/objects/49/4615bc7e25d3da4306395feec0dc55d3829d83
+ <=> /home/nicolas/PeepShow/.git/objects/49/4615bc7e25d3da4306395feec0dc55d3829d83
+/home/nicolas/Archipel/.git/objects/ca/ca53257909a9326870753ef8be86a1cc175140
+ <=> /home/nicolas/PeepShow/.git/objects/ca/ca53257909a9326870753ef8be86a1cc175140
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Index/Make.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Index/Make.pm
+/home/nicolas/Archipel/htdocs/images/icons/logo-ugent.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/logo-ugent.png
+/home/nicolas/Archipel/.git/objects/ab/358310e4529c9b6f899cb1eb0dfa69d8184d42
+ <=> /home/nicolas/PeepShow/.git/objects/ab/358310e4529c9b6f899cb1eb0dfa69d8184d42
+/home/nicolas/Archipel/conf/template.yml
+ <=> /home/nicolas/PeepShow/conf/template.yml
+/home/nicolas/Archipel/.git/objects/ac/7d790582e6a6767b78f2bf207af3d73b05f3cc
+ <=> /home/nicolas/PeepShow/.git/objects/ac/7d790582e6a6767b78f2bf207af3d73b05f3cc
+/home/nicolas/Archipel/lib/Cart/Singleton.pm
+ <=> /home/nicolas/PeepShow/lib/Cart/Singleton.pm
+/home/nicolas/Archipel/htdocs/js/iip/mootools-1.2-core-compressed.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/mootools-1.2-core-compressed.js
+/home/nicolas/Archipel/.git/objects/cb/d9db529042373104648809960de09e6537692d
+ <=> /home/nicolas/PeepShow/.git/objects/cb/d9db529042373104648809960de09e6537692d
+/home/nicolas/Archipel/htdocs/images/icons/next_small_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/next_small_disabled.png
+/home/nicolas/Archipel/test/benchmark_get.pl
+ <=> /home/nicolas/PeepShow/test/benchmark_get.pl
+8a9
+> use Data::Dumper;
+17c18
+< my $baseurl = "http://localhost:5000/OpenURL/resolve";
+---
+> 
+20c21,24
+< my $count = 0;
+---
+> my $offset = $ARGV[0] || 0;
+> my $limit = $ARGV[1] || 10;
+> my $max = $offset + $limit;
+> my $count = $offset;
+26c30,31
+< 			my $url = "$baseurl?rft_id=".$record->{_id}.":".$item->{item_id}."&svc_id=thumbnail";
+---
+> 			next if $count < $offset;
+> 			return if $count >= $max;
+28,30c33,36
+< 			my $response = $ua->head($url);
+< 			if($response->is_error){
+< 				next;
+---
+> 			my $url = "http://localhost/cgi-bin/iipsrv.fcgi?FIF=".$file->{path}."&cnt=1&sds=0,90&jtl=0,0";
+> 			
+> 			my $response = $ua->get($url);
+> 			if($response->is_error || $response->content_type ne "image/jpeg"){
+35,36d40
+< 			
+< 			print "$url => ";
+43c47
+< print "\naverage:".($sumseconds / $count)." seconds\n";
+---
+> print "\naverage:".($sumseconds / ($count - $offset))." seconds\n";
+/home/nicolas/Archipel/.git/logs/refs/remotes/origin/master
+ <=> /home/nicolas/PeepShow/.git/logs/refs/remotes/origin/master
+1,13c1,15
+< ec28c64c521e6c7427569bb1c98694db5b9dc79a 356f932697329221011e0117797fbd50a0a49b5c nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314823743 +0200	update by push
+< 356f932697329221011e0117797fbd50a0a49b5c 34682a09a34e28fbed7f75ec5dccb3bc4f0c8f35 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314910610 +0200	update by push
+< 34682a09a34e28fbed7f75ec5dccb3bc4f0c8f35 1da028938dc9827ae2b96bdc9f97b4a898b27455 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314912012 +0200	update by push
+< 1da028938dc9827ae2b96bdc9f97b4a898b27455 00467100ed121f3e7fd2a1bdb386311896571220 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315169421 +0200	update by push
+< 00467100ed121f3e7fd2a1bdb386311896571220 4b0a02415b99c49747bb40c222c304da65b13730 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315344071 +0200	update by push
+< 4b0a02415b99c49747bb40c222c304da65b13730 708bef67a2d282243a871bcb87ef454602d9a9c7 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315430427 +0200	update by push
+< 708bef67a2d282243a871bcb87ef454602d9a9c7 1f8d0271b53a069169bc93a45df44c2a5094bea8 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315515031 +0200	update by push
+< 1f8d0271b53a069169bc93a45df44c2a5094bea8 ebfb24816e651947a404155330ecc0c89c5d7f63 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315669689 +0200	update by push
+< ebfb24816e651947a404155330ecc0c89c5d7f63 e32551fcda646c05fb830d3c3d2bb1159aa7670a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315769463 +0200	update by push
+< e32551fcda646c05fb830d3c3d2bb1159aa7670a d2646421ee6624cc53f1b55ee4e5a2f8c570af24 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315860304 +0200	update by push
+< d2646421ee6624cc53f1b55ee4e5a2f8c570af24 f149e91cd558b97b13523b7ae890f5ed2fa345c4 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315949185 +0200	update by push
+< f149e91cd558b97b13523b7ae890f5ed2fa345c4 f4e57f968adfbc3009667ac37cc97649cd1faa86 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316037034 +0200	update by push
+< f4e57f968adfbc3009667ac37cc97649cd1faa86 08a57b0e62c03cad2819c604abaed182a4b8c8aa nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316118497 +0200	update by push
+---
+> 10bdf7543682f0ad67bf23e01f2a65ba443b9beb 02bae8a50296d7889be8e775ccce385f73bc7967 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314529659 +0200	update by push
+> 02bae8a50296d7889be8e775ccce385f73bc7967 e8f4ceb7f01cba5e87afe9411e1af952c10c3795 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314651819 +0200	update by push
+> e8f4ceb7f01cba5e87afe9411e1af952c10c3795 d0a6f03b1b44a296b66daf47cf59ee11ec0bc10b nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314740190 +0200	update by push
+> d0a6f03b1b44a296b66daf47cf59ee11ec0bc10b 26a4d961d7ffc88f1a5800c92d41978824ea8fbe nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314910647 +0200	update by push
+> 26a4d961d7ffc88f1a5800c92d41978824ea8fbe 919de789d68c05f7ba4e4616483d55d45364cf44 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1314912108 +0200	update by push
+> 919de789d68c05f7ba4e4616483d55d45364cf44 d3351c141d23d80589ec6d3e438566ab341ad1a1 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315169405 +0200	update by push
+> d3351c141d23d80589ec6d3e438566ab341ad1a1 ce0a3272e1bef1cfb7cea0d16238d32db291013f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315170065 +0200	update by push
+> ce0a3272e1bef1cfb7cea0d16238d32db291013f 2bf9ad149ce21260458e307e63ebabf5b29e427e nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315170758 +0200	update by push
+> 2bf9ad149ce21260458e307e63ebabf5b29e427e 32ee90e35553d333c08fa6bf41362ed57fd301fa nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315328754 +0200	update by push
+> 32ee90e35553d333c08fa6bf41362ed57fd301fa c9ffe484f90c8f06ed53296b87bf033caf36ed84 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315343896 +0200	update by push
+> c9ffe484f90c8f06ed53296b87bf033caf36ed84 4f2c88b502ce3043fe3395c453e5fca19d123035 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315430405 +0200	update by push
+> 4f2c88b502ce3043fe3395c453e5fca19d123035 0c6f5f30082e206884888e44da481043f1b1ee60 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315769506 +0200	update by push
+> 0c6f5f30082e206884888e44da481043f1b1ee60 a762c988c8d12bc46b722bd796d1f045b0dbd3b2 nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315860376 +0200	update by push
+> a762c988c8d12bc46b722bd796d1f045b0dbd3b2 05f5225946a4f8e8099087d346b3902c5472672a nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1315949142 +0200	update by push
+> 05f5225946a4f8e8099087d346b3902c5472672a d3a7898f3ccd7904babf04f694da2c74195d5a4f nicolas <nicolas@nicolas-RT563AA-B14-t3625-be> 1316035021 +0200	update by push
+/home/nicolas/Archipel/lib/Template/Plugin/uri_escape.pm
+ <=> /home/nicolas/PeepShow/lib/Template/Plugin/uri_escape.pm
+/home/nicolas/Archipel/htdocs/images/icons/link.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/link.png
+/home/nicolas/Archipel/.git/objects/28/f05958a59b0f1b7c66ac0f091d465ab4388a18
+ <=> /home/nicolas/PeepShow/.git/objects/28/f05958a59b0f1b7c66ac0f091d465ab4388a18
+/home/nicolas/Archipel/.git/objects/df/40239cadb3d12202125107d915910b5b8beb2f
+ <=> /home/nicolas/PeepShow/.git/objects/df/40239cadb3d12202125107d915910b5b8beb2f
+/home/nicolas/Archipel/htdocs/js/jquery-tools-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery-tools-min.js
+/home/nicolas/Archipel/.git/objects/29/23b561302267ec146e0122323fe0c15e11d767
+ <=> /home/nicolas/PeepShow/.git/objects/29/23b561302267ec146e0122323fe0c15e11d767
+/home/nicolas/Archipel/.git/objects/50/d27e54fd66931950559cd946350905b80916c6
+ <=> /home/nicolas/PeepShow/.git/objects/50/d27e54fd66931950559cd946350905b80916c6
+/home/nicolas/Archipel/.git/objects/5d/a558f1ee885b00eda0b31eda14162c8ffd6664
+ <=> /home/nicolas/PeepShow/.git/objects/5d/a558f1ee885b00eda0b31eda14162c8ffd6664
+/home/nicolas/Archipel/lib/Acl.pm
+ <=> /home/nicolas/PeepShow/lib/Acl.pm
+/home/nicolas/Archipel/.git/objects/df/25946e38043c14978da17ad6d61601763f5f73
+ <=> /home/nicolas/PeepShow/.git/objects/df/25946e38043c14978da17ad6d61601763f5f73
+/home/nicolas/Archipel/.git/objects/0b/83b68e6e99508ab2ddec7681709a8200590672
+ <=> /home/nicolas/PeepShow/.git/objects/0b/83b68e6e99508ab2ddec7681709a8200590672
+/home/nicolas/Archipel/.git/objects/4b/c6e65ccdc441f187507c4e2c4d60344a19d6e5
+ <=> /home/nicolas/PeepShow/.git/objects/4b/c6e65ccdc441f187507c4e2c4d60344a19d6e5
+/home/nicolas/Archipel/.git/objects/90/f0292781109d5684547fd20a24e545d4b57a5a
+ <=> /home/nicolas/PeepShow/.git/objects/90/f0292781109d5684547fd20a24e545d4b57a5a
+/home/nicolas/Archipel/.git/objects/fb/6afeb16d53662b47fab9f3d1464a09d627efb5
+ <=> /home/nicolas/PeepShow/.git/objects/fb/6afeb16d53662b47fab9f3d1464a09d627efb5
+/home/nicolas/Archipel/.git/objects/28/e83b188d10f3eafcb414864d7c6e5d4bd390e7
+ <=> /home/nicolas/PeepShow/.git/objects/28/e83b188d10f3eafcb414864d7c6e5d4bd390e7
+/home/nicolas/Archipel/.git/objects/8f/2702ca9e559ee799c54cf8c989759c62409151
+ <=> /home/nicolas/PeepShow/.git/objects/8f/2702ca9e559ee799c54cf8c989759c62409151
+/home/nicolas/Archipel/.git/objects/d8/ddee31d69d8344ef8f49de8ed6f07933e65306
+ <=> /home/nicolas/PeepShow/.git/objects/d8/ddee31d69d8344ef8f49de8ed6f07933e65306
+/home/nicolas/Archipel/.git/objects/41/f7fdc310602e67502ff1019c096dc5bdb1022e
+ <=> /home/nicolas/PeepShow/.git/objects/41/f7fdc310602e67502ff1019c096dc5bdb1022e
+/home/nicolas/Archipel/template/data/nl/paging_terms.tt
+ <=> /home/nicolas/PeepShow/template/data/nl/paging_terms.tt
+/home/nicolas/Archipel/.git/objects/85/e36e435057c51b67c9a8d45e389f7899e9b28a
+ <=> /home/nicolas/PeepShow/.git/objects/85/e36e435057c51b67c9a8d45e389f7899e9b28a
+/home/nicolas/Archipel/.git/objects/84/f3bc245bb2f7907a03ff3cd9500a1f412dda81
+ <=> /home/nicolas/PeepShow/.git/objects/84/f3bc245bb2f7907a03ff3cd9500a1f412dda81
+/home/nicolas/Archipel/htdocs/flash/jwplayer/yt.swf
+ <=> /home/nicolas/PeepShow/htdocs/flash/jwplayer/yt.swf
+/home/nicolas/Archipel/.git/objects/49/6facd9a476cca500e89441d7c74af5c47d1ba2
+ <=> /home/nicolas/PeepShow/.git/objects/49/6facd9a476cca500e89441d7c74af5c47d1ba2
+/home/nicolas/Archipel/template/data/en/search/pages.tt
+ <=> /home/nicolas/PeepShow/template/data/en/search/pages.tt
+/home/nicolas/Archipel/template/tt/googlemaps.tt
+ <=> /home/nicolas/PeepShow/template/tt/googlemaps.tt
+/home/nicolas/Archipel/lib/Marc/XSLT/Mods.pm
+ <=> /home/nicolas/PeepShow/lib/Marc/XSLT/Mods.pm
+/home/nicolas/Archipel/.git/objects/90/43d848a7d48f918c5af20d0f827221446bddf9
+ <=> /home/nicolas/PeepShow/.git/objects/90/43d848a7d48f918c5af20d0f827221446bddf9
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/indexmerge.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/indexmerge.pm
+/home/nicolas/Archipel/lib/Template/Plugin/Quote.pm
+ <=> /home/nicolas/PeepShow/lib/Template/Plugin/Quote.pm
+/home/nicolas/Archipel/.git/objects/db/648e5e7fb3cc75b1aea94c0d69596bd45c796d
+ <=> /home/nicolas/PeepShow/.git/objects/db/648e5e7fb3cc75b1aea94c0d69596bd45c796d
+/home/nicolas/Archipel/lib/PeepShow/Handler/Query/Parse/View.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Handler/Query/Parse/View.pm
+/home/nicolas/Archipel/.git/objects/34/6dae698307aca33b6586f411c51e056272c9a0
+ <=> /home/nicolas/PeepShow/.git/objects/34/6dae698307aca33b6586f411c51e056272c9a0
+/home/nicolas/Archipel/.git/objects/fa/4cfc84dc25d3ae65789f075109a5c85061cb8a
+ <=> /home/nicolas/PeepShow/.git/objects/fa/4cfc84dc25d3ae65789f075109a5c85061cb8a
+/home/nicolas/Archipel/.git/objects/0c/a8f7c33380a85f4f0505edc94c970fba05f907
+ <=> /home/nicolas/PeepShow/.git/objects/0c/a8f7c33380a85f4f0505edc94c970fba05f907
+/home/nicolas/Archipel/.git/objects/21/9bfcc7cba19b5d5d2da0bc8f7a2f77cc7d01a0
+ <=> /home/nicolas/PeepShow/.git/objects/21/9bfcc7cba19b5d5d2da0bc8f7a2f77cc7d01a0
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-all/search_normal_cropped.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-all/search_normal_cropped.png
+/home/nicolas/Archipel/htdocs/images/icons/scrollbar_next.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/scrollbar_next.png
+/home/nicolas/Archipel/lib/Marc/MARC21slimUtils.xsl
+ <=> /home/nicolas/PeepShow/lib/Marc/MARC21slimUtils.xsl
+/home/nicolas/Archipel/.git/objects/4b/5f8d9fe03a8bf7ec2df6bec612b4d415915729
+ <=> /home/nicolas/PeepShow/.git/objects/4b/5f8d9fe03a8bf7ec2df6bec612b4d415915729
+/home/nicolas/Archipel/.git/objects/ad/0db63f52cefa718a45278c940f505f001aa969
+ <=> /home/nicolas/PeepShow/.git/objects/ad/0db63f52cefa718a45278c940f505f001aa969
+/home/nicolas/Archipel/.git/objects/ae/f19b985d4edd6710763cc385ee18a671080bb9
+ <=> /home/nicolas/PeepShow/.git/objects/ae/f19b985d4edd6710763cc385ee18a671080bb9
+/home/nicolas/Archipel/.git/objects/44/f23e079bb21711322b25fc243c248a27411e05
+ <=> /home/nicolas/PeepShow/.git/objects/44/f23e079bb21711322b25fc243c248a27411e05
+/home/nicolas/Archipel/htdocs/images/icons/orders.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/orders.png
+/home/nicolas/Archipel/.git/objects/49/f7722ab92289824e31ad5c37982cf8996918ce
+ <=> /home/nicolas/PeepShow/.git/objects/49/f7722ab92289824e31ad5c37982cf8996918ce
+/home/nicolas/Archipel/.git/objects/d5/bb446e9638898a536d36c2e2e2cf6839be1ddb
+ <=> /home/nicolas/PeepShow/.git/objects/d5/bb446e9638898a536d36c2e2e2cf6839be1ddb
+/home/nicolas/Archipel/htdocs/images/jCarousel/next_disabled.png
+ <=> /home/nicolas/PeepShow/htdocs/images/jCarousel/next_disabled.png
+/home/nicolas/Archipel/.git/objects/17/71bed1b5426c77a02dd3cebe2a25f49d3b4e5b
+ <=> /home/nicolas/PeepShow/.git/objects/17/71bed1b5426c77a02dd3cebe2a25f49d3b4e5b
+/home/nicolas/Archipel/template/inc/search/pages/items_paging_prevnext.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/pages/items_paging_prevnext.tt
+/home/nicolas/Archipel/template/tt/search/record.tt
+ <=> /home/nicolas/PeepShow/template/tt/search/record.tt
+39d38
+< 			[% PROCESS inc/search/record/sparql.tt %]
+/home/nicolas/Archipel/htdocs/images/icons/plus.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/plus.png
+/home/nicolas/Archipel/.git/objects/9e/f45a88b310ca538839fa0ed457a17f4679512c
+ <=> /home/nicolas/PeepShow/.git/objects/9e/f45a88b310ca538839fa0ed457a17f4679512c
+/home/nicolas/Archipel/htdocs/js/iip/mootools-core-1.3-full-compat-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/mootools-core-1.3-full-compat-min.js
+/home/nicolas/Archipel/.git/objects/5c/e57e253186cf7928ffea5994b09fb1d254fbf6
+ <=> /home/nicolas/PeepShow/.git/objects/5c/e57e253186cf7928ffea5994b09fb1d254fbf6
+/home/nicolas/Archipel/.git/objects/53/22bcec0e826a42c72bee5dd7b1240f42a3d569
+ <=> /home/nicolas/PeepShow/.git/objects/53/22bcec0e826a42c72bee5dd7b1240f42a3d569
+/home/nicolas/Archipel/.git/objects/8e/0547ae30c1bdafb8c81fee5c53b3ecde385ea8
+ <=> /home/nicolas/PeepShow/.git/objects/8e/0547ae30c1bdafb8c81fee5c53b3ecde385ea8
+/home/nicolas/Archipel/.git/objects/pack/pack-de8e4420840d5554e3d69d9549ea1a326e1a8941.pack
+ <=> /home/nicolas/PeepShow/.git/objects/pack/pack-de8e4420840d5554e3d69d9549ea1a326e1a8941.pack
+/home/nicolas/Archipel/test/benchmark_get2.pl
+ <=> /home/nicolas/PeepShow/test/benchmark_get2.pl
+2c2,4
+< use lib $ENV{HOME}.'/Catmandu/lib';
+---
+> BEGIN{
+> 	push @INC,$ENV{HOME}.'/Catmandu/lib'
+> }
+5c7
+< use Catmandu::Index::Solr;
+---
+> use Catmandu::Store::Simple;
+7d8
+< use Try::Tiny;
+11,15c12,16
+< sub logger {
+< 	my $msg = shift;
+< 	open FILE,">benchmark.log";
+< 	print FILE $$msg;
+< 	close FILE;
+---
+> sub log {
+>         my $msg = shift;
+>         open FILE,">benchmark.log";
+>         print FILE $$msg;
+>         close FILE;
+17c18
+< my $baseurl = "http://localhost:5000/OpenURL/resolve";
+---
+> 
+19,20c20,24
+< my $index = Catmandu::Index::Solr->new(url=>"http://localhost:8983/solr/core0",id_field=>"id");
+< my $count = 0;
+---
+> my $db = Catmandu::Store::Simple->new(path=>$ENV{HOME}.'/data/media.db');
+> my $offset = $ARGV[0] || 0;
+> my $limit = $ARGV[1] || 10;
+> my $max = $offset + $limit;
+> my $count = $offset;
+22,29c26,31
+< 
+< try{
+< 	my($hits,$totalhits)=$index->search("*",rows=>500);
+< 	foreach my $hit(@$hits){
+< 		my @files = split(' ',$hit->{files});
+< 		foreach my $file(@files){
+< 			my $url = "$baseurl?rft_id=$file&svc_id=thumbnail";
+< 			print "$url => ";
+---
+> $db->each(sub{
+> 	my $record = shift;
+> 	foreach my $item(@{$record->{media}}){
+> 		foreach my $svc_id(keys %{$item->{devs}}){
+> 			next if $count < $offset;
+> 			return if $count >= $max;
+31,37c33,37
+< 			my $response = $ua->head($url);
+< 			if($response->is_error){
+< 				next;
+< 				print "status code:".$response->code."\n";
+< 				logger($response->content_ref);
+< 				die("error in ".$hit->{id}.", see benchmark.log\n");
+< 			}
+---
+> 			my $response = $ua->get($item->{devs}->{thumbnail}->{url});
+> 			if($response->is_error || $response->content_type ne "image/jpeg"){
+>                                 log($response->content_ref);
+>                                 die("error, see benchmark.log\n");
+>                         }
+44,49c44,45
+< 	print "totalhits:$totalhits\n";
+< 	$count = 1 if $totalhits == 0;
+< }catch{
+< 	print $_;
+< };
+< print "\naverage:".($sumseconds / $count)." seconds\n";
+---
+> });
+> print "\naverage:".($sumseconds / ($count - $offset))." seconds\n";
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/insert2meta.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/insert2meta.pm
+/home/nicolas/Archipel/.git/objects/ce/88970393d3c1e89a6f08f83f1cd83a7cda38eb
+ <=> /home/nicolas/PeepShow/.git/objects/ce/88970393d3c1e89a6f08f83f1cd83a7cda38eb
+/home/nicolas/Archipel/.git/objects/69/ccfbb1dcbeab02b19abe97d47ce78b827bd63c
+ <=> /home/nicolas/PeepShow/.git/objects/69/ccfbb1dcbeab02b19abe97d47ce78b827bd63c
+/home/nicolas/Archipel/template/data/en/mycart.tt
+ <=> /home/nicolas/PeepShow/template/data/en/mycart.tt
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/.dbfiles.pm.swp
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/.dbfiles.pm.swp
+/home/nicolas/Archipel/htdocs/images/iip/loading.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/loading.gif
+/home/nicolas/Archipel/test/commit.pl
+ <=> /home/nicolas/PeepShow/test/commit.pl
+/home/nicolas/Archipel/test/devs.pl
+ <=> /home/nicolas/PeepShow/test/devs.pl
+/home/nicolas/Archipel/.git/objects/87/39a33586e7449c12e380abaf950de89a9ac051
+ <=> /home/nicolas/PeepShow/.git/objects/87/39a33586e7449c12e380abaf950de89a9ac051
+/home/nicolas/Archipel/.git/objects/2b/4fcf28de9fcaa1a03f4ba21f7e94546bc11dc8
+ <=> /home/nicolas/PeepShow/.git/objects/2b/4fcf28de9fcaa1a03f4ba21f7e94546bc11dc8
+/home/nicolas/Archipel/.git/objects/61/36e89d90178b0e4673e0590b07da224c03271f
+ <=> /home/nicolas/PeepShow/.git/objects/61/36e89d90178b0e4673e0590b07da224c03271f
+/home/nicolas/Archipel/.git/objects/de/ff5c824c338e416ae2b212cfd2f0255ef26467
+ <=> /home/nicolas/PeepShow/.git/objects/de/ff5c824c338e416ae2b212cfd2f0255ef26467
+/home/nicolas/Archipel/.git/objects/f2/b46e5719dcde74ee8039b1b7e22e39ce295a0b
+ <=> /home/nicolas/PeepShow/.git/objects/f2/b46e5719dcde74ee8039b1b7e22e39ce295a0b
+/home/nicolas/Archipel/.git/objects/5d/857fa0f623bb67d4ba2adc688b444364f36e30
+ <=> /home/nicolas/PeepShow/.git/objects/5d/857fa0f623bb67d4ba2adc688b444364f36e30
+/home/nicolas/Archipel/htdocs/js/iip/iipmooviewer-1.1-min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/iip/iipmooviewer-1.1-min.js
+/home/nicolas/Archipel/template/inc/mycart/paging.tt
+ <=> /home/nicolas/PeepShow/template/inc/mycart/paging.tt
+/home/nicolas/Archipel/.git/objects/c7/75b14e81905b5ce14d39085c8e7c784df2e42e
+ <=> /home/nicolas/PeepShow/.git/objects/c7/75b14e81905b5ce14d39085c8e7c784df2e42e
+/home/nicolas/Archipel/.git/objects/59/8b89e3fb61dc28fcf434cf15c6b4dc2e191ff8
+ <=> /home/nicolas/PeepShow/.git/objects/59/8b89e3fb61dc28fcf434cf15c6b4dc2e191ff8
+/home/nicolas/Archipel/template/tt/edit_column.tt
+ <=> /home/nicolas/PeepShow/template/tt/edit_column.tt
+/home/nicolas/Archipel/template/inc/search/all/paging.tt
+ <=> /home/nicolas/PeepShow/template/inc/search/all/paging.tt
+/home/nicolas/Archipel/template/inc/id.tt
+ <=> /home/nicolas/PeepShow/template/inc/id.tt
+/home/nicolas/Archipel/lib/Grim/XML/Media/Record/Item.pm
+ <=> /home/nicolas/PeepShow/lib/Grim/XML/Media/Record/Item.pm
+/home/nicolas/Archipel/.git/objects/9d/1c8dfb960e04b86e3f290f7fa2a49d3f1903ee
+ <=> /home/nicolas/PeepShow/.git/objects/9d/1c8dfb960e04b86e3f290f7fa2a49d3f1903ee
+/home/nicolas/Archipel/lib/PeepShow/Resolver/DB.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/Resolver/DB.pm
+/home/nicolas/Archipel/lib/openURL/app.pm
+ <=> /home/nicolas/PeepShow/lib/openURL/app.pm
+/home/nicolas/Archipel/.git/objects/f7/17f8e450b22b9deea4dce4eaa597ed9f34254b
+ <=> /home/nicolas/PeepShow/.git/objects/f7/17f8e450b22b9deea4dce4eaa597ed9f34254b
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-view/carousel.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-view/carousel.png
+/home/nicolas/Archipel/lib/PeepShow/facet.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/facet.pm
+/home/nicolas/Archipel/template/data/en/new_column.tt
+ <=> /home/nicolas/PeepShow/template/data/en/new_column.tt
+/home/nicolas/Archipel/.git/objects/59/21030b89b8dedfde2849ac1cc1e231451fbc44
+ <=> /home/nicolas/PeepShow/.git/objects/59/21030b89b8dedfde2849ac1cc1e231451fbc44
+/home/nicolas/Archipel/.git/objects/da/99adb32c099d5fd573dc34b981ee104f0d2d47
+ <=> /home/nicolas/PeepShow/.git/objects/da/99adb32c099d5fd573dc34b981ee104f0d2d47
+/home/nicolas/Archipel/htdocs/js/jquery-ui.min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery-ui.min.js
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/checkurls.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/checkurls.pm
+/home/nicolas/Archipel/lib/.bashrc
+ <=> /home/nicolas/PeepShow/lib/.bashrc
+/home/nicolas/Archipel/.git/objects/c9/46ddc40785a7f6b404d5ba62c973655857af0b
+ <=> /home/nicolas/PeepShow/.git/objects/c9/46ddc40785a7f6b404d5ba62c973655857af0b
+/home/nicolas/Archipel/htdocs/css/common.old.css
+ <=> /home/nicolas/PeepShow/htdocs/css/common.old.css
+/home/nicolas/Archipel/.git/objects/7c/46b2a4de091495d3d4a7c7df97c4c73c6602e2
+ <=> /home/nicolas/PeepShow/.git/objects/7c/46b2a4de091495d3d4a7c7df97c4c73c6602e2
+/home/nicolas/Archipel/.git/objects/8e/aa4ef2030f8ace9731ee92df391e92a60dbc45
+ <=> /home/nicolas/PeepShow/.git/objects/8e/aa4ef2030f8ace9731ee92df391e92a60dbc45
+/home/nicolas/Archipel/.git/objects/1c/06262c2356afee2d86e993ad1c91b4067d65ac
+ <=> /home/nicolas/PeepShow/.git/objects/1c/06262c2356afee2d86e993ad1c91b4067d65ac
+/home/nicolas/Archipel/.git/objects/c8/3eb2bd75dc57dcb73de96ea275e3822c47a904
+ <=> /home/nicolas/PeepShow/.git/objects/c8/3eb2bd75dc57dcb73de96ea275e3822c47a904
+/home/nicolas/Archipel/htdocs/js/jCarousel/jquery.jcarousel.min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jCarousel/jquery.jcarousel.min.js
+/home/nicolas/Archipel/.git/objects/1d/a028938dc9827ae2b96bdc9f97b4a898b27455
+ <=> /home/nicolas/PeepShow/.git/objects/1d/a028938dc9827ae2b96bdc9f97b4a898b27455
+/home/nicolas/Archipel/.git/objects/0e/47c83a45703a51d80608577e586e69c19021a3
+ <=> /home/nicolas/PeepShow/.git/objects/0e/47c83a45703a51d80608577e586e69c19021a3
+/home/nicolas/Archipel/.git/objects/19/fb397eb58212244e52df809b5fa9498147e14c
+ <=> /home/nicolas/PeepShow/.git/objects/19/fb397eb58212244e52df809b5fa9498147e14c
+/home/nicolas/Archipel/.git/objects/ca/a9fe750bb21a02db2c7c7ca05cbdc864a2baff
+ <=> /home/nicolas/PeepShow/.git/objects/ca/a9fe750bb21a02db2c7c7ca05cbdc864a2baff
+/home/nicolas/Archipel/.git/objects/44/da7ebf38a465441fa733409bc00038f6cf076a
+ <=> /home/nicolas/PeepShow/.git/objects/44/da7ebf38a465441fa733409bc00038f6cf076a
+/home/nicolas/Archipel/htdocs/images/iip/zoomIn2.png
+ <=> /home/nicolas/PeepShow/htdocs/images/iip/zoomIn2.png
+/home/nicolas/Archipel/.git/objects/2c/6de601f98da211ad90b9eae7f83b876afaca2a
+ <=> /home/nicolas/PeepShow/.git/objects/2c/6de601f98da211ad90b9eae7f83b876afaca2a
+/home/nicolas/Archipel/template/inc/bookmark_link.tt
+ <=> /home/nicolas/PeepShow/template/inc/bookmark_link.tt
+/home/nicolas/Archipel/htdocs/js/jScrollpane/jquery.jscrollpane.min.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jScrollpane/jquery.jscrollpane.min.js
+/home/nicolas/Archipel/.git/objects/45/954a8bc6f625d67eab8e39892d7c97ce66e8a0
+ <=> /home/nicolas/PeepShow/.git/objects/45/954a8bc6f625d67eab8e39892d7c97ce66e8a0
+/home/nicolas/Archipel/.git/objects/b3/08889ca4f88fd6ace10462df7a51e418c59ae5
+ <=> /home/nicolas/PeepShow/.git/objects/b3/08889ca4f88fd6ace10462df7a51e418c59ae5
+/home/nicolas/Archipel/htdocs/images/icons/plus_small.png
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/plus_small.png
+/home/nicolas/Archipel/.git/objects/c0/10f71a5d6b26bc5c595739fcc3fe9a311af884
+ <=> /home/nicolas/PeepShow/.git/objects/c0/10f71a5d6b26bc5c595739fcc3fe9a311af884
+/home/nicolas/Archipel/htdocs/css/iip/iip.compressed.css
+ <=> /home/nicolas/PeepShow/htdocs/css/iip/iip.compressed.css
+/home/nicolas/Archipel/.git/objects/cc/e1c6a933fc1ba2f0dfde871891d782e47ac84a
+ <=> /home/nicolas/PeepShow/.git/objects/cc/e1c6a933fc1ba2f0dfde871891d782e47ac84a
+/home/nicolas/Archipel/.git/objects/2a/922f846ec2a04761f93e8fe68dc2ef554f2d1f
+ <=> /home/nicolas/PeepShow/.git/objects/2a/922f846ec2a04761f93e8fe68dc2ef554f2d1f
+/home/nicolas/Archipel/.git/objects/6a/8f61ffeb5fa0eabd7e49ec03ca087cfb2fb148
+ <=> /home/nicolas/PeepShow/.git/objects/6a/8f61ffeb5fa0eabd7e49ec03ca087cfb2fb148
+/home/nicolas/Archipel/lib/Query/Fix/Simple.pm
+ <=> /home/nicolas/PeepShow/lib/Query/Fix/Simple.pm
+/home/nicolas/Archipel/lib/PeepShow/googlemaps.pm
+ <=> /home/nicolas/PeepShow/lib/PeepShow/googlemaps.pm
+/home/nicolas/Archipel/htdocs/images/screenshots/nl/search-view/pages_cropped.png
+ <=> /home/nicolas/PeepShow/htdocs/images/screenshots/nl/search-view/pages_cropped.png
+/home/nicolas/Archipel/htdocs/images/icons/new.gif
+ <=> /home/nicolas/PeepShow/htdocs/images/icons/new.gif
+/home/nicolas/Archipel/lib/Record/View.pm
+ <=> /home/nicolas/PeepShow/lib/Record/View.pm
+/home/nicolas/Archipel/htdocs/js/jquery.easing.1.3.js
+ <=> /home/nicolas/PeepShow/htdocs/js/jquery.easing.1.3.js
+/home/nicolas/Archipel/.git/objects/29/ba73460dc1aeefcd166bba5d17115ffeec2794
+ <=> /home/nicolas/PeepShow/.git/objects/29/ba73460dc1aeefcd166bba5d17115ffeec2794
+/home/nicolas/Archipel/lib/Rft/Fedora.pm
+ <=> /home/nicolas/PeepShow/lib/Rft/Fedora.pm
+/home/nicolas/Archipel/.git/objects/25/9ddcaccf3ce2abf1331b524fff17c1e7003c36
+ <=> /home/nicolas/PeepShow/.git/objects/25/9ddcaccf3ce2abf1331b524fff17c1e7003c36
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Command/import2tmp.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Command/import2tmp.pm
+/home/nicolas/Archipel/htdocs/js/rel.js
+ <=> /home/nicolas/PeepShow/htdocs/js/rel.js
+/home/nicolas/Archipel/test/rft.pl
+ <=> /home/nicolas/PeepShow/test/rft.pl
+/home/nicolas/Archipel/lib/Catmandu/Cmd/Opts/Grim/Store.pm
+ <=> /home/nicolas/PeepShow/lib/Catmandu/Cmd/Opts/Grim/Store.pm
+/home/nicolas/Archipel/.git/objects/83/2df8ca05a06a66d96e5388bab0900ea614427d
+ <=> /home/nicolas/PeepShow/.git/objects/83/2df8ca05a06a66d96e5388bab0900ea614427d

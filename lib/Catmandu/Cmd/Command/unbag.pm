@@ -19,6 +19,7 @@ use Benchmark;
 use IO::Tee;
 use IO::File;
 use Clone qw(clone);
+use File::Path qw(mkpath);
 
 
 has dbout => (
@@ -120,7 +121,8 @@ has _mapping => (
 		{
 			"tif"=>"JPEG2000",
 			"tiff"=>"JPEG2000",
-			"mp3"=>"Audio::MP3"
+			"mp3"=>"Audio::MP3",
+			"vob"=>"MP4"
 		}
 	}
 );
@@ -335,7 +337,7 @@ sub make_new_dirs {
 	my $self = shift;
 	my $dirs = ['tempdir','datadir','thumbdir'];
 	foreach my $dir(@$dirs){
-                mkdir($self->$dir) or die($!);
+                mkpath($self->$dir) or die($!);
         }
 }
 sub execute{

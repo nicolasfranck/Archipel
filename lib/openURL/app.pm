@@ -34,6 +34,7 @@ sub handle{
 	}
 	my $id = $opts->{id};
 	my $type = $opts->{type};
+	my $args = $opts->{args} || {};
 	
 	#bestaat record?
 	my $record = $self->db->load($id);
@@ -48,7 +49,7 @@ sub handle{
 	}
 	#load class	
 	my($hash,$code,$err)=$self->get_package($package,$args)->handle({
-		id => $id,type => $type, env => $env
+		id => $id,type => $type,args=>$args,env => $env
 	},$record);
 	return $hash,$template,$code,$err;
 }

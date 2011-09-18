@@ -4,7 +4,7 @@
 	<head>
 		[% PROCESS inc/new_column/head.tt %]
 		<script type="text/javascript">
-		var this_url = '[% conf.all.rooturl %]';
+		var this_url = '[% conf.all.originurl %]';
 		function switch_lang(lang){
 			this_url += '/admin?action=edit&language='+lang;
 			var input_id = $('input[name=id]');
@@ -38,7 +38,7 @@
 			<table>	
 				<tr>
 					<td>
-						<a href="[% conf.all.rooturl %]/admin">terug naar overzicht</a>
+						<a href="[% conf.all.originurl %]/admin">terug naar overzicht</a>
 					</td>
 				</tr>
 				<tr>
