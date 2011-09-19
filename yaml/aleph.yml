@@ -12,3 +12,5 @@ type:
  year: 'int'
 subarray:
  subject: 1
+multiValued:
+ author: 1

@@ -16,6 +16,7 @@ sub handle{
         my $key;
         my $value;
 	my $context = $record->{media}->[$opts->{item_id} - 1]->{context};
+	#geen file gedefiniëerd
         if(not defined($file)){
 		return {
 			env => [{
@@ -24,12 +25,16 @@ sub handle{
 			}]
 		},302,undef;
         }
-	if($file->{no_proxy}){
-		return {env=>[{
-			key => 'plack.redirect.url',
-			value => $file->{url}
-		}]},302,undef;
+	#lokale file, maar extern getest
+	if($file->{path} && !-f $file->{path}){
+		return {
+                        env => [{
+                                key => 'plack.xsend.url',
+                                value=> Catmandu->conf->{middleware}->{openURL}->{resolve}->{context}->{$context}->{$opts->{svc_id}}->{MissingImage}->{url}
+                        }]
+                },302,undef;
 	}
+	#externe file, geen path
 	$file->{url} =~ s/localhost/127.0.0.1/;
 	# http://50.17.222.182/thumbies/mijnfoto.jpeg
         if(is_web_uri($file->{url})){

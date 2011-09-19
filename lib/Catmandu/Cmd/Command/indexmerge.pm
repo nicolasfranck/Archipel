@@ -69,14 +69,16 @@ sub execute{
 		die "both databases are not equal\n" if not $self->equal;
 	}
 	#verzamel tweelingen
+	my $max = 100;
 	try{
 		my $i = 0;
 		$self->_metadata->each(sub{
 			my $a = shift;
 			my $b = $self->_media->load($a->{_id});
 			if(defined($b) && defined($b->{media}) && scalar(@{$b->{media}} > 0)){
-				print $a->{_id}."\n";
-				$self->_index->save($self->make_index_merge($a,$b));
+				print $a->{_id}."\n";	
+				my $merge = $self->make_index_merge($a,$b);
+				$self->_index->save($merge);
 				$i++;
 				if($i>1000){
 					$i = 0;
@@ -86,6 +88,7 @@ sub execute{
 			}else{
 				return;
 			}
+			die("stop") if $i >= $max;
 		});
 		$self->_index->commit;
 		print "committing work\n";
@@ -93,6 +96,10 @@ sub execute{
 		print "optimizing work\n";
 	}catch{
 		print $_;
+		$self->_index->commit;
+                print "committing work\n";
+                $self->_index->optimize;
+                print "optimizing work\n";
 	};
 }
 

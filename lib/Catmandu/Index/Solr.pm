@@ -33,8 +33,11 @@ sub save {
 
     foreach my $key (keys %$obj) {
         my $value = $obj->{$key};
-        my $field = WebService::Solr::Field->new($key => $value);
-        push(@fields, $field);
+	if(ref $value eq "ARRAY"){
+        	push @fields,WebService::Solr::Field->new($key => $_) foreach(@$value);
+	}else{
+		push @fields,WebService::Solr::Field->new($key =>$value);
+	}
     }
 
     my $document = WebService::Solr::Document->new(@fields);

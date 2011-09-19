@@ -7,6 +7,7 @@ use Encode;
 use YAML;
 use File::Basename;
 use Try::Tiny;
+
 use Data::Dumper;
 
 has yaml_index_arg => (
@@ -84,12 +85,21 @@ sub make_index_merge {
                         delete $a->{$key};
                         $key = $self->_yaml_index->{rename}->{$key};
                 }
-                #key
-                $i->{$key} .= join(' ',$self->one_array($a->{$key}))." " if scalar(@{$a->{$key}} > 0);
-                #to int?
-                $i->{$key} = int($i->{$key}) if defined($self->_yaml_index->{type}) && defined($self->_yaml_index->{type}->{$key}) && $self->_yaml_index->{type}->{$key} eq "int";
-                #sort
-                $i->{$self->_yaml_index->{sort}->{$key}} = $self->clean($i->{$key}) if defined($self->_yaml_index->{sort}->{$key});
+		if(defined($self->_yaml_index->{multiValued}->{$key})){
+			next if scalar(@{$a->{$key}} < 0);
+			$i->{$key} ||= [];
+			push @{$i->{$key}},join(' ',$self->one_array($a->{$key}));
+			if(defined($self->_yaml_index->{sort}->{$key})){
+				$i->{$self->_yaml_index->{sort}->{$key}} ||= [];
+				push @{$i->{$self->_yaml_index->{sort}->{$key}}},$self->clean(join(' ',$self->one_array($a->{$key})));
+			}
+		}else{
+			next if scalar(@{$a->{$key}} < 0);
+			#key
+			$i->{$key} .= join(' ',$self->one_array($a->{$key}))." " if scalar(@{$a->{$key}} > 0);
+			#sort
+			$i->{$self->_yaml_index->{sort}->{$key}} = $self->clean($i->{$key}) if defined($self->_yaml_index->{sort}->{$key});
+		}
         }
         #media
         my @files = ();
