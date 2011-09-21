@@ -190,8 +190,11 @@ sub create_devs {
 		return undef;
 	}
 	my $devs_info = {};
+	my $file_info = $self->exif->ImageInfo($opts->{in});
+        my $max_axis = max($file_info->{ImageHeight},$file_info->{ImageWidth});
 	$self->print("--> making derivatives..\n");
 	foreach my $type(keys %{$self->devs}){
+		next if $max_axis < $self->devs->{$type}->{axis};
 		my $out = $opts->{thumbdir}."/$sublocation/".$opts->{outname}."_$type.jpeg";
 		$self->print("\t[TIFF] $opts->{in} -> $out [JPEG $type]\n");
 		my $i = $self->create_dev($opts->{in},$out,$type);
@@ -209,7 +212,6 @@ sub make_item {
                         content_type => $file_info->{info}->{MIMEType},
                         width => $file_info->{info}->{ImageWidth},
                         height => $file_info->{info}->{ImageHeight},
-			access => 1
                 }],
                 context => 'Image',
 		services => [
@@ -227,7 +229,6 @@ sub make_item {
                         content_type => $devs_info->{$type}->{info}->{MIMEType},
                         width => $devs_info->{$type}->{info}->{ImageWidth},
                         height => $devs_info->{$type}->{info}->{ImageHeight},
-			access => 1
                 };
 	}
 	return $item;

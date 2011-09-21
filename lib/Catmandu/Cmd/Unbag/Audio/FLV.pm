@@ -147,7 +147,6 @@ sub make_item {
                         content_type => $file_info->{info}->{MIMEType},
                         width => $file_info->{info}->{ImageWidth},
                         height => $file_info->{info}->{ImageHeight},
-			access =>1
                 }],
                 context => 'Audio',
 		devs => {},

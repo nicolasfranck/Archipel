@@ -230,7 +230,6 @@ sub make_item {
                         content_type => $devs_info->{$type}->{info}->{MIMEType},
                         width => $devs_info->{$type}->{info}->{ImageWidth},
                         height => $devs_info->{$type}->{info}->{ImageHeight},
-			access => 1
                 };
 	}
 	return $item;
