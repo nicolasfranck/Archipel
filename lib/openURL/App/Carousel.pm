@@ -43,11 +43,14 @@ sub handle{
 			context => $item->{context}
 		};
 	}
+	my $scrollto = $opts->{args}->{scrollto};
+	$scrollto = defined($scrollto) && $scrollto ne "" ? int($scrollto):0;	
 	return {
 		id => $record->{_id},
 		rels => $rels,
 		rooturl => Catmandu->conf->{all}->{rooturl},
-		openURL => Catmandu->conf->{middleware}->{openURL}
+		openURL => Catmandu->conf->{middleware}->{openURL},
+		scrollto => $scrollto
 	},200,undef;
 }
 

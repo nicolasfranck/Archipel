@@ -193,7 +193,7 @@ sub create_devs {
 	}
 	my $devs_info = {};
 	my $file_info = $self->exif->ImageInfo($opts->{in});
-	my $max_axis = max($file_info->{ImageHeight},$file_info->{ImageWidth});
+        my $max_axis = max($file_info->{ImageHeight},$file_info->{ImageWidth});
 	foreach my $type(keys %{$self->devs}){
 		next if $max_axis < $self->devs->{$type}->{axis};
 		my $out = $opts->{thumbdir}."/$sublocation/".$opts->{outname}."_$type.jpeg";

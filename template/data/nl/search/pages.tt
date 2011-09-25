@@ -1,6 +1,3 @@
 [% PROCESS data/nl/common.tt %]
 [% PROCESS data/nl/search.tt %]
 [% PROCESS data/nl/paging_terms.tt %]
-[% 
-tt_title_search_pages_link_carousel = "blader.."
-%]

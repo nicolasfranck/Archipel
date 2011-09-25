@@ -69,7 +69,6 @@ sub execute{
 		die "both databases are not equal\n" if not $self->equal;
 	}
 	#verzamel tweelingen
-	my $max = 100;
 	try{
 		my $i = 0;
 		$self->_metadata->each(sub{
@@ -88,7 +87,6 @@ sub execute{
 			}else{
 				return;
 			}
-			die("stop") if $i >= $max;
 		});
 		$self->_index->commit;
 		print "committing work\n";

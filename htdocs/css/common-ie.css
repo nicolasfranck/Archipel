@@ -1,0 +1,7 @@
+.imgholder img{
+	display:block;
+	margin-left:auto;margin-right:auto;
+	/*voor IE7 of minder*/
+	width:expression(this.clientWidth > 110 ? "110px":"auto");
+	height:expression(this.clientHeight > 110 ? "110px":"auto");
+}

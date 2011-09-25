@@ -1,0 +1,6 @@
+.imgholder img {
+	display:block;
+        margin:auto;
+	width:expression(this.clientWidth > 94 ? "94px":"auto");
+	height:expression(this.clientHeight > 70 ? "70px":"auto");
+}

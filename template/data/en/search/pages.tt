@@ -1,6 +1,3 @@
 [% PROCESS data/en/common.tt %]
 [% PROCESS data/en/search.tt %]
 [% PROCESS data/en/paging_terms.tt %]
-[% 
-tt_title_search_pages_link_carousel = "inspect.."
-%]

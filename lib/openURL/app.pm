@@ -19,13 +19,10 @@ sub stash {
 	$self->{stash};
 }
 sub db {
-	my $self = shift;
-	if(@_){$self->{db}=shift;}
-	$self->{db};
+	$_[0]->{db};
 }
 sub handle{
 	my($self,$opts,$env)=@_;
-
 	my @keys = qw(id type);
 	foreach(@keys){
 		if(!(defined($opts->{$_}) && $opts->{$_} ne "")){
@@ -35,20 +32,20 @@ sub handle{
 	my $id = $opts->{id};
 	my $type = $opts->{type};
 	my $args = $opts->{args} || {};
-	
+
 	#bestaat record?
 	my $record = $self->db->load($id);
 	if(!(defined($record) && defined($record->{media}))){
 		return undef,undef,404,"$id does not exist";
 	}
 	#zoek pakket
-	my($package,$args,$template) = $self->get_handling_package($type);
+	my($package,$pkargs,$template) = $self->get_handling_package($type);
 	if(not defined($package)){
 		#handling_package_undefined
 		return undef,undef,500,"Technical error. Handling package for $id-$type not defined in configuration file";
 	}
 	#load class	
-	my($hash,$code,$err)=$self->get_package($package,$args)->handle({
+	my($hash,$code,$err)=$self->get_package($package,$pkargs)->handle({
 		id => $id,type => $type,args=>$args,env => $env
 	},$record);
 	return $hash,$template,$code,$err;

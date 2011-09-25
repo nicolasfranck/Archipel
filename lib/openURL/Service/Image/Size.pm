@@ -1,6 +1,5 @@
 package openURL::Service::Image::Size;
 use strict;
-use Data::Validate::URI qw(is_web_uri);
 use Catmandu;
 
 my $ip = Catmandu->conf->{all}->{ip};
@@ -25,19 +24,10 @@ sub handle{
 			}]
 		},302,undef;
         }
-	#lokale file, maar extern getest
-	if($file->{path} && !-f $file->{path}){
-		return {
-                        env => [{
-                                key => 'plack.xsend.url',
-                                value=> Catmandu->conf->{middleware}->{openURL}->{resolve}->{context}->{$context}->{$opts->{svc_id}}->{MissingImage}->{url}
-                        }]
-                },302,undef;
-	}
 	#externe file, geen path
-	$file->{url} =~ s/localhost/127.0.0.1/;
+	$file->{url} =~ s/localhost/127\.0\.0\.1/;
 	# http://50.17.222.182/thumbies/mijnfoto.jpeg
-        if(is_web_uri($file->{url})){
+        if($file->{url} =~ /^http(?:s)?:\/\//o){
                 if($file->{url} !~ $rootexp && $file->{url} !~ $localhost){
                         $key = 'plack.xsend.url';
                         $value = '/external/'.$file->{url};

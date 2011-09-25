@@ -14,6 +14,7 @@ with qw(
 	Catmandu::Cmd::Opts::Grim::Store::Metadata
 	Catmandu::Cmd::Opts::Grim::Harvester
 );
+use parent qw(Catmandu::Cmd::Stats);
 use Catmandu::Store::Simple;
 use Catmandu::Index::Solr;
 use File::Temp;
@@ -22,7 +23,6 @@ use Image::ExifTool;
 use Clone qw(clone);
 use Image::Magick::Thumbnail::Simple;
 use Data::UUID;
-use parent qw(Catmandu::Cmd::Stats);
 
 our @OAI_DC_ELEMENTS = qw(
     title 
@@ -90,6 +90,21 @@ has thumbdir => (
         documentation => "thumbdir",
         required => 0
 );
+sub stat_properties {
+        my($self,$filename)=@_;
+        my($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks)=stat($filename);
+        open FILE,"<$filename" or die($!);
+        my $md5 = Digest::MD5->new->addfile(*FILE)->hexdigest;
+        close FILE;
+        return {
+                size => $size,
+                date_created => $ctime,
+                date_accessed=>$atime,
+                date_modified=>$mtime,
+                md5_checksum => $md5,
+                path => $filename
+        };
+}
 sub choose_path{
         my $self = shift;
         my $addpath;
@@ -205,6 +220,7 @@ sub make_media_record {
 				};
 			}
 			$item->{devs}->{$size->{key}} = $dev;
+			delete $item->{devs}->{$size->{key}} if scalar(keys %{$item->{devs}->{$size->{key}}}) == 0;
 		}
 		unlink($tempfile) if -w $tempfile;
 	}else{

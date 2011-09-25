@@ -4,7 +4,6 @@ exclude:
 rename:
  _id: 'id'
 sort:
- id: "id_sort"
  title: "title_sort"
  author: "author_sort"
  subject: "subject_sort"
@@ -13,4 +12,25 @@ type:
 subarray:
  subject: 1
 multiValued:
+ context: 1
+ content_type: 1
+ files: 1
+ identifier: 1
  author: 1
+ title: 1
+ publisher: 1
+ subject: 1
+ description: 1
+ note: 1
+ rights: 1
+ location: 1
+ year: 1
+ relation: 1
+ source: 1
+ creator: 1
+ contributor: 1
+ type: 1
+ format: 1
+ language: 1
+ coverage: 1
+ date: 1

@@ -3,16 +3,16 @@ database:
  core:
   class: "Catmandu::Store::Merge"
   args:
-   patha: "../data/metadata.db"
-   pathb: "../data/media.db"
+   patha: "../data/metadata-archipel.db"
+   pathb: "../data/media-archipel.db"
  columns:
   class: "Catmandu::Store::Simple"
   args:
-   path: "../data/columns.db"
+   path: "../data/columns-archipel.db"
  cart:
   class: "Catmandu::Store::Simple"
   args:
-   path: "../data/snapshots.db"
+   path: "../data/snapshots-archipel.db"
 index:
  core:
   class: "Catmandu::Index::Solr"
@@ -134,7 +134,7 @@ middleware:
        height: 113
      audiostreaming: 
       HandlingPackage: "openURL::Service::Audio::Streaming"
-      Template: "tt/audiostreaming2"
+      Template: "tt/audiostreaming"
       Streamer: 'rtmp://localhost:1935/flvplayback'
   app:
    path: "/app"

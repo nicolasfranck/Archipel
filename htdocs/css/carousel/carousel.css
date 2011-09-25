@@ -89,8 +89,9 @@ li:hover {
 }
 .imgholder img {
 	display:block;
-        margin-left:auto;
-        margin-right:auto;
+        margin:auto;
+	max-width: 94px;
+	max-height: 70px;
 }
 .textholder {
 	position: absolute;

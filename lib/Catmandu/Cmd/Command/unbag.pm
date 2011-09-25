@@ -121,8 +121,7 @@ has _mapping => (
 		{
 			"tif"=>"JPEG2000",
 			"tiff"=>"JPEG2000",
-			"mp3"=>"Audio::MP3",
-			"vob"=>"MP4"
+			"mp3"=>"Audio::MP3"
 		}
 	}
 );
@@ -179,13 +178,19 @@ sub process_bag{
 		}
 	}
 	#_id <- DC-Identifier
-	my $_id = $baginfo->{'DC-Identifier'}->[0];
-	if(not defined($_id)){
+	my $_id;
+	foreach my $id(@{$baginfo->{'DC-Identifier'}}){
+		if($self->id_valid($id)){
+			$_id = $id;
+			last;
+		}
+	}
+	if(!defined($_id)){
 		$self->tee->print("[not found, skipping bag]\n");
 		return 0;
 	}elsif(not $self->id_valid($_id)){
 		$self->tee->print("[id $_id not valid, skipping bag]\n");
-                return 0;
+		return 0;
 	}
 	$self->tee->print("[OK]\n");
 	$self->tee->print("DC-Identifier:$_id\n\n");

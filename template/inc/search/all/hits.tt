@@ -7,25 +7,12 @@
 	[% FOREACH hit IN args.hits  %]
 		<div class="block shadow">
 			<div class="imgholder" onclick="window.location.href='[% link_base _ i %]'">
-				[% poster_index = hit.poster_item_id - 1 %]
-				[% thumb = hit.media.${poster_index}.devs.thumbnail %]
-				[% IF !(thumb.defined && thumb != "") %]
-					[% thumb = conf.middleware.openURL.resolve.context.${hit.media.${poster_index}.context}.thumbnail.MissingImage %]
-				[% END %]
-				[% width = thumb.width %]
-				[% height = thumb.height %]
-				[% wratio = 1 %][% hratio = 1 %]
-				[% IF width > 160 %][% wratio = 160 / width %][% END %]
-				[% IF height > 110 %][% hratio = 110 / height %][% END %]
-				[% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
-				[% rwidth = width * ratio %]
-				[% rheight = height * ratio %]
-				<img alt="loading" src="[% conf.all.rooturl _ openurl_resolve_path %]?rft_id=[% hit.item("_id") %]:[% hit.poster_item_id %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.middleware.openURL.resolve.version %]" width="[% rwidth %]" height="[% rheight %]" />
+				<img alt="[% hit.id %]" src="[% conf.all.rooturl _ openurl_resolve_path %]?rft_id=[% hit.id %]:[% hit.poster_item_id || 1 %]&amp;svc_id=thumbnail&amp;url_ver=[% conf.middleware.openURL.resolve.version %]" />
 			</div>
 			<div class="caption">
 				[% hit.title.0 %]
 			</div>
-			<input title="[% tt_title_add_to_cart %]" type="checkbox" _id="[% hit.item("_id") %]" rft_id="[% hit.item('_id') %]" class="rft checkbox_cart" [% 'CHECKED' IF sess.devs.${hit.item('_id')} %] />	
+			<input title="[% tt_title_add_to_cart %]" type="checkbox" _id="[% hit.id %]" rft_id="[% hit.id %]" class="rft checkbox_cart" [% 'CHECKED' IF sess.devs.${hit.id} %] />	
 		</div>
 		[% i = i + 1 %]
 	[% END %]

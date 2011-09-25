@@ -1,46 +1,60 @@
+[% 	
+	num_items = params.numitems || conf.app.search.num_default;	
+	start_index = (params.page - 1) * num_items;
+
+%]
 [% FOREACH item IN args.hit.media %]
-	[% mapped_service = conf.middleware.openURL.app.types.carousel.mapping.${item.context} %]
-	[% mapped_service_allowed = 0 %]
-	[% IF ((args.hit.access.defined && args.hit.access.services.${mapped_service} == 1) || (args.is_local)) && args.hit.media.${poster_index}.services.grep(mapped_service).size > 0 %]
-		[% mapped_service_allowed = 1 %]
-	[% END %]
+
+	[% 
+		mapped_service = conf.middleware.openURL.app.types.carousel.mapping.${item.context};
+		mapped_service_allowed = 0;
+		IF ((args.hit.access.defined && args.hit.access.services.${mapped_service} == 1) || (args.is_local)) && args.hit.media.${poster_index}.services.grep(mapped_service).size > 0;
+			mapped_service_allowed = 1;
+		END;
+		show_carousel = args.hit.media.size > 1 && args.carousel_num_items_allowed > 1 ? 1 : 0;
+	%]
+
 	<div class="block_normal shadow">
+
+		
 		[% IF mapped_service_allowed %]
-			<a href="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=" _ mapped_service _ "&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" target="_BLANK">
-				<img class="show" src="[% conf.all.rooturl %]/images/icons/zoom.png" />
-			</a>
-		[% END %]
-	        <div class="imgholder">
-	                [% thumb = item.devs.thumbnail %]
-			[% IF !(thumb.defined && thumb.path.defined) %]
-                        	[% thumb = conf.middleware.openURL.resolve.context.${item.context}.thumbnail.MissingImage %]
-                        [% END %]
-	                [% width = thumb.width %]
-	                [% height = thumb.height %]
-	                [% wratio = 1 %][% hratio = 1 %]
-	                [% IF width > 110 %][% wratio = 110 / width %][% END %]
-	                [% IF height > 110 %][% hratio = 110 / height %][% END %]
-	                [% IF hratio < wratio %][% ratio = hratio %][% ELSE %][% ratio = wratio %][% END %]
-	                [% rwidth = width * ratio %]
-	                [% rheight = height * ratio %]
-			[% IF mapped_service_allowed %]				
-				<a href="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=" _ mapped_service _ "&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" target="_BLANK">
-					<img alt="loading" src="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" width="[% rwidth %]" height="[% rheight %]" /> 
-				</a>
+			[% IF show_carousel %]
+				<a href="[% conf.all.rooturl _ openurl_app_path _ "?id=" _ args.hit.item("_id") _ "&amp;type=carousel&amp;scrollto=" %][% loop.index + start_index %]" target="_BLANK">
+                                        <img class="show" src="[% conf.all.rooturl %]/images/icons/zoom.png" />
+                                </a>
 			[% ELSE %]
-				<img alt="loading" src="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" width="[% rwidth %]" height="[% rheight %]" />
+				<a href="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=" _ mapped_service _ "&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" target="_BLANK">
+					<img class="show" src="[% conf.all.rooturl %]/images/icons/zoom.png" />
+				</a>
+			[% END %]
+		[% END %]
+
+	        <div class="imgholder">
+			[% IF mapped_service_allowed %]
+				[% IF show_carousel %]
+					<a href="[% conf.all.rooturl _ openurl_app_path _ "?id=" _ args.hit.item("_id") _ "&amp;type=carousel&amp;scrollto=" %][% loop.index + start_index %]" target="_BLANK">
+						<img alt="[% args.hit.item("_id") _ ":" _ item.item_id %]" src="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" />
+	                                </a>
+				[% ELSE %]				
+					<a href="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=" _ mapped_service _ "&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" target="_BLANK">
+						<img alt="[% args.hit.item("_id") _ ":" _ item.item_id %]" src="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" /> 
+					</a>
+				[% END %]
+			[% ELSE %]
+				<img alt="[% args.hit.item("_id") _ ":" _ item.item_id %]" src="[% conf.all.rooturl _ openurl_resolve_path _ "?rft_id=" _ args.hit.item("_id") _ ":" _ item.item_id _ "&amp;svc_id=thumbnail&amp;url_ver=" _ conf.middleware.openURL.resolve.version %]" />
 			[% END %]
 	        </div>
+
 		<div class="caption_item">
-		[% hei = 12 %]
 		[% FOREACH svc_id IN conf.devs_order.${item.context} %]
 			[% IF ((args.hit.access.services.${svc_id} == 1) || args.is_local) && item.services.grep(svc_id).size > 0 %]
 	                	<a href="[% conf.all.rooturl _ openurl_resolve_path %]?rft_id=[% args.hit.item("_id") %]:[% item.item_id %]&amp;svc_id=[% svc_id %]&amp;url_ver=[% conf.middleware.openURL.resolve.version %]" title="[% svc_id %]" target="_BLANK">
-		                        <img src="[% conf.all.rooturl %]/images/icons/thumbnail.png" height="[% hei %]" />
+		                        <img src="[% conf.all.rooturl %]/images/icons/thumbnail.png" class="[% svc_id %]_icon" />
 		                </a>
 	                [% END %]
-			[% hei = hei + 2 %]
 	        [% END %]
 	        </div>
+
 	</div>
+
 [% END %]

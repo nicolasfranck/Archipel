@@ -8,8 +8,6 @@ use YAML;
 use File::Basename;
 use Try::Tiny;
 
-use Data::Dumper;
-
 has yaml_index_arg => (
         traits => ['Getopt'],
         is => 'rw',
@@ -118,15 +116,26 @@ sub make_index_merge {
                         $content_types->insert($item->{devs}->{$svc_id}->{content_type});
                 }
         }
-	$i->{files} = join(' ',@files);
-        $i->{context}=join(' ',$contexts->elements);
-        $i->{content_type}=join(' ',$content_types->elements);
+	$i->{files} = [@files];
+        $i->{context}=[$contexts->elements];
+        $i->{content_type}=[$content_types->elements];
+	$i->{poster_item_id} = $b->{poster_item_id} || 1;
+
         #verwijder alles dat leeg of undefined is
-        foreach my $key(keys %$i){
-                $i->{$key} =~ s/\s\s+/ /g;
-                $i->{$key} =~ s/^\s//;
-                $i->{$key} =~ s/\s$//;
-                delete $i->{$key} if not defined($i->{$key}) or $i->{$key} eq "";
+	@keys = keys %$i;
+        foreach my $key(@keys){
+		if(ref $i->{$key} eq "ARRAY"){	
+			for(my $c = 0;$c<scalar(@{$i->{$key}});$c++){
+				$i->{$key}->[$c] =~ s/\s\s+/ /g;
+	                        $i->{$key}->[$c] =~ s/^\s//;
+        	                $i->{$key}->[$c] =~ s/\s$//;
+			}
+		}else{
+	                $i->{$key} =~ s/\s\s+/ /g;
+        	        $i->{$key} =~ s/^\s//;
+                	$i->{$key} =~ s/\s$//;
+	                delete $i->{$key} if not defined($i->{$key}) or $i->{$key} eq "";
+		}
         }
         return $i;
 }

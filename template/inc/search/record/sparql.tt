@@ -232,6 +232,12 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 
 				av_media_link.appendChild(av_icon);				
 				div_imgholder.appendChild(av_media_link);
+
+				var a = document.createElement("a");
+	                        a.setAttribute("href",videoplayer_url);
+        	                a.setAttribute("title",json["doc"][i]);
+                	        a.setAttribute("target","_blank");
+                        	a.appendChild(img);
 			}
 
 			var a = document.createElement("a");

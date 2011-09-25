@@ -11,8 +11,6 @@ sub new {
 		err => undef,
 		out=> undef,
 		exitcode => 0,
-		input_info => {},
-		output_info => {},
 		tempdir => $opts{tempdir} || "/tmp",
 		devs => {thumbnail => {axis=>150},small => {axis=>300}},
 		printer => (ref($opts{printer}) eq "IO::Tee")? $opts{printer}:IO::Tee->new(\*STDOUT),
@@ -46,7 +44,7 @@ sub tempdir {
 	$self->{tempdir};
 }
 sub devs {
-	$_[0]->{devs};
+	shift->{devs};
 }
 sub choose_path{
         my $self = shift;
@@ -57,7 +55,7 @@ sub choose_path{
         return $addpath;
 }
 sub exif {
-	$_[0]->{exif};
+	shift->{exif};
 }
 sub is_image{
         my($self,$file)=@_;
@@ -77,15 +75,5 @@ sub is_jpeg{
         return 0 if $info->{FileType} ne "JPEG";
         return 0 if $info->{MIMEType} ne "image/jpeg";
         return 1;
-}
-sub input_info {
-	my $self = shift;
-	if(@_){$self->{input_info}=shift;}
-        $self->{input_info};
-}
-sub output_info {
-        my $self = shift;
-        if(@_){$self->{output_info}=shift;}
-        $self->{output_info};
 }
 1;

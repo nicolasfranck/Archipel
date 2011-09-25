@@ -36,6 +36,7 @@ sub execute{
         my($self,$opts,$args)=@_;
 	#databank
 	my $record = $self->_store->load($self->id);
+	$record->{fXML} = "is_deleted_for_presentation";
 	print Dumper($record) if defined($record);
 }
 

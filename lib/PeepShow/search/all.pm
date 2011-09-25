@@ -31,17 +31,13 @@ any([qw(get post)],'/',sub{
 			#alles ok? Dan kijken in het configuratiebestand of we parameters moeten opslaan (reset parameters of in sessie)
 			$hash = $self->query_register->inspect($params,!$self->query_parser->has_error);
 			#+pas query toe
-			my($hits,$totalhits,$err,$rest_fields)=$self->db->query_store($q,%$opts);
-			
+			my($hits,$totalhits,$err,$rest_fields)=$self->db->query_index($q,%$opts);
 			my $rest = $self->restfield_fixer->fix($rest_fields);
 			if(!defined($err) && $totalhits > 0){
+
 				$self->store_sess($hash->{sess});
 				$self->store_param($hash->{params});
-				#toon hits, in overzicht
-				for(my $i=0;$i<scalar(@$hits);$i++){
-					$hits->[$i]->{numitems}=scalar(@{$hits->[$i]->{media}});
-					$hits->[$i]->{media}=slice($hits->[$i]->{media},0,1);
-				}
+
 				my $page_info = Data::Pageset->new({
 				    'total_entries'       => $totalhits,
 				    'entries_per_page'    => $params->{num},
