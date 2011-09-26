@@ -96,7 +96,11 @@ div.prevnext .first{position:absolute;left:0px;top:8px;}
 div.prevnext .prev{position:absolute;left:80px;top:8px;}
 div.prevnext .next{position:absolute;right:80px;top:8px;}
 div.prevnext .last{position:absolute;right:0px;top:8px;}
-span.current{border-bottom:1px solid #8D0E3A;color:#8D0E3A;font-family: 'Consolas', 'Courier', "Courier New", monospace;font-weight:bold;padding:4px;font-size:12px;}
+span.current{
+	border-bottom: 1px solid #B80707;
+	color: #B80707;
+	padding: 4px;
+}
 div.results{	    
     clear: both;
     margin: 0px 0;

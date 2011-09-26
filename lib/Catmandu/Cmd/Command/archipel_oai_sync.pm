@@ -126,6 +126,7 @@ sub make_media_record {
 	my $still_url;
 	my $media_url;
 	my $context;
+	my $services = {};
 
 	#afleiden van still en media
 	foreach my $relation(@{$oai_record->metadata->{relation}}){
@@ -136,19 +137,18 @@ sub make_media_record {
 		}
 	}
 
-	my $services = {"thumbnail"=>1};
 	if($media_url){
 		$services->{videostreaming} = 1;
 		$context = "Video";
 	}else{
 		$context = "Image";
 	}
-	my $item = {item_id=>1,context=>$context,services=>[keys %$services]};
+	my $item = {item_id=>1,context=>$context};
 
 	my $media_record= {
 		_id => $oai_record->header->identifier,
 		access => {
-			services => clone($services)
+			services => {thumbnail=>1,small=>1,medium=>1,large=>1,videostreaming=>1,audiostreaming=>1}
 		},
 		poster_item_id => 1,
 		media => []
@@ -219,16 +219,17 @@ sub make_media_record {
 					height => $dev_info->{ImageHeight},
 				};
 			}
-			$item->{devs}->{$size->{key}} = $dev;
-			delete $item->{devs}->{$size->{key}} if scalar(keys %{$item->{devs}->{$size->{key}}}) == 0;
+			if(scalar(keys %$dev) > 0){
+				$item->{devs}->{$size->{key}} = $dev;
+				$services->{$size->{key}} = 1;
+			}
 		}
 		unlink($tempfile) if -w $tempfile;
 	}else{
 		$item->{devs} = {};
 	}
-
+	$item->{services} = [keys %$services];
 	push @{$media_record->{media}},$item;
-
 	return $media_record,undef;
 }
 sub confirm {
@@ -277,6 +278,7 @@ sub execute{
 		}
 		$self->_metadata->save($new_metadata_record);
 		$self->_media->save($new_media_record);
+		die("") if $found >= 4;
                 $imported++;
 	}
 	print "$found records found, $imported records imported, $num_errs errors\n";
