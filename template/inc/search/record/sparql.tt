@@ -203,6 +203,12 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 			var img = new Image();
 			img.src = json["image"][i];
 			img.setAttribute("title",json["title"][i]);
+			$(img).css({
+				"max-width":90,"max-height":60,
+				"width":"expression(this.clientWidth > 90 ? \"90px\":\"auto\")",
+				"height":"expression(this.clientHeight > 60 ? \"60px\":\"auto\")"
+			});
+			/*
 			if(img.width){
 				var wratio = 1;
 				var hratio = 1;
@@ -215,6 +221,7 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 			}else{
 				img.width = 80;
 			}
+			*/
 			
 			if(json["av"][i]){
 				var av_icon = document.createElement("img");
@@ -234,19 +241,20 @@ var xml_namespaces = JSON.parse("[% conf.xml.namespace.to_json().escape_quotes()
 				div_imgholder.appendChild(av_media_link);
 
 				var a = document.createElement("a");
-	                        a.setAttribute("href",videoplayer_url);
+	                        a.setAttribute("href",video_player_url);
         	                a.setAttribute("title",json["doc"][i]);
                 	        a.setAttribute("target","_blank");
                         	a.appendChild(img);
+				div_imgholder.appendChild(a.cloneNode(true));
+			}else{
+				var a = document.createElement("a");
+                                a.setAttribute("href",json["image"][i]);
+                                a.setAttribute("title",json["doc"][i]);
+                                a.setAttribute("target","_blank");
+                                a.appendChild(img);
+				div_imgholder.appendChild(a.cloneNode(true));
 			}
-
-			var a = document.createElement("a");
-			a.setAttribute("href",json["doc"][i]);
-			a.setAttribute("title",json["doc"][i]);
-			a.setAttribute("target","_blank");
-			a.appendChild(img);
 		
-			div_imgholder.appendChild(a.cloneNode(true));
 			div_block.appendChild(div_imgholder);
 
 

@@ -278,7 +278,6 @@ sub execute{
 		}
 		$self->_metadata->save($new_metadata_record);
 		$self->_media->save($new_media_record);
-		die("") if $found >= 4;
                 $imported++;
 	}
 	print "$found records found, $imported records imported, $num_errs errors\n";
