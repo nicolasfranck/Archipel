@@ -3,8 +3,8 @@ database:
  core:
   class: "Catmandu::Store::Merge"
   args:
-   patha: "../data/metadata-archipel.db"
-   pathb: "../data/media-archipel.db"
+   patha: "../data/metadata-vti.db"
+   pathb: "../data/media-vti.db"
  columns:
   class: "Catmandu::Store::Simple"
   args:

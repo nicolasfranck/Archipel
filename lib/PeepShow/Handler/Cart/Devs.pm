@@ -30,9 +30,7 @@ sub _cart {
         $self->{_cart};
 }
 sub _db {
-        my $self = shift;
-        if(@_){$self->{_db}=shift;}
-        $self->{_db};
+        $_[0]->{_db};
 }
 sub handle{
 	my $self = shift;	
@@ -154,13 +152,6 @@ sub handleRecord{
 					$newobj->{marked}=0;
 					$newobj->{title}=$hit->{title};
 					$newobj->{poster_item_id} = $hit->{poster_item_id};
-					my $thumb = $hit->{media}->[$hit->{poster_item_id} - 1]->{devs}->{thumbnail};
-					if(!(defined($thumb) && defined($thumb->{path}))){
-						my $context = $hit->{media}->[$hit->{poster_item_id} - 1]->{context};
-						$thumb = Catmandu->conf->{middleware}->{openURL}->{resolve}->{context}->{$context}->{thumbnail}->{MissingImage}; 
-					}
-					$newobj->{posterwidth}=$thumb->{width};
-					$newobj->{posterheight}=$thumb->{height};
 					$newobj->{added}=time;
 					$newobj->{numitems}=scalar(@{$hit->{media}});
 				}else{
@@ -271,4 +262,4 @@ sub _clear{
 	};
 }
 
-1;
+__PACKAGE__;

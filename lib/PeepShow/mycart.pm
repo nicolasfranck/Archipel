@@ -101,8 +101,6 @@ any([qw(get post)],'',sub{
 					title => $sess->{devs}->{$_}->{title},
 					marked => $sess->{devs}->{$_}->{marked},
 					numitems => $sess->{devs}->{$_}->{numitems},
-					posterwidth => $sess->{devs}->{$_}->{posterwidth},
-					posterheight => $sess->{devs}->{$_}->{posterheight}
 				};
 			}
 			sort keys %{$sess->{devs}}
