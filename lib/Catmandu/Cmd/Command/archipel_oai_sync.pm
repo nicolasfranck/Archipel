@@ -129,11 +129,19 @@ sub make_media_record {
 	my $services = {};
 
 	#afleiden van still en media
+	my($stillfound,$mediafound);
 	foreach my $relation(@{$oai_record->metadata->{relation}}){
-		if($relation =~ /\/still/){
+		if($relation =~ /\/still/ && !$stillfound){
+			$stillfound = 1;
 			$still_url = $relation;
-		}elsif($relation =~ /\/media/){
-			$media_url = $relation;
+		}elsif($relation =~ /\/media/ && !$mediafound){
+			if($relation =~ /\.jp(e)?g$/io){
+				$stillfound = 1;
+				$still_url = $relation;
+			}else{
+				$mediafound = 1;
+				$media_url = $relation;
+			}
 		}
 	}
 
