@@ -23,7 +23,6 @@ use Image::ExifTool;
 use Clone qw(clone);
 use Image::Magick::Thumbnail::Simple;
 use Data::UUID;
-use List::Util qw(min max);
 
 our @OAI_DC_ELEMENTS = qw(
     title 
@@ -124,108 +123,122 @@ sub make_metadata_record {
 sub make_media_record {
 	my($self,$oai_record)=@_;
 
-	my $media_record= {
-                _id => $oai_record->header->identifier,
-                access => {
-                        services => {thumbnail=>1,small=>1,medium=>1,large=>1,videostreaming=>1,audiostreaming=>1}
-                },
-                poster_item_id => 1,
-                media => []
-        };
-	my $item = {item_id=>1};
-	my $files = [];
+	my $still_url;
+	my $media_url;
 	my $context;
 	my $services = {};
-	my $devs = {};
 
-	#afleiden van video/audio en afgeleide
-	my($stillfound,$avfound);
+	#afleiden van still en media
+	my($stillfound,$mediafound);
 	foreach my $relation(@{$oai_record->metadata->{relation}}){
-		last if $avfound && $stillfound;
-		print "$relation\n";
-		my $response = $self->_ua->get($relation);
-                if(!$response->is_success){
-			warn "no success downloading $relation\n";
-			next;
-		}
-                my $tempfile = tmpnam();
-                open FILE,">$tempfile" or return undef,$!;
-                print FILE $response->content;
-                close FILE;
-                my $info = $self->_exif->ImageInfo($tempfile);
-		if($info->{MIMEType} =~ /^video/o && !$avfound){
-			print "\tmimetype:$info->{MIMEType}\n";
-			$files->[0]->{url} = $relation;
-	                $files->[0]->{width} = $info->{ImageWidth};
-        	        $files->[0]->{height} = $info->{ImageHeight};
-                	$files->[0]->{size} = -s $tempfile;
-	                $files->[0]->{content_type} = $info->{MIMEType};
-			$context = "Video";
-			$services->{videostreaming} = 1;
-			$avfound = 1;
-		}elsif($info->{MIMEType} =~ /^audio/o && !$avfound){
-			print "\tmimetype:$info->{MIMEType}\n";
-			$files->[0]->{url} = $relation;
-                	$files->[0]->{size} = -s $tempfile;
-	                $files->[0]->{content_type} = $info->{MIMEType};
-			$context = "Audio";
-			$services->{audiostreaming} = 1;
-			$avfound = 1;
-		}elsif($info->{MIMEType} =~ /^image/o && !$stillfound){
-			print "\tmimetype:$info->{MIMEType}\n";
-			#welke afgeleiden kun je hieruit halen? (aanmaken of bewaren..)
-        	        my $maxlat = max($info->{ImageWidth},$info->{ImageHeight});
-			foreach my $size(@sizes){
-				my $dev = {};
-				if($maxlat >= $size->{min} && $maxlat <= $size->{max}){
-					print "\tkeeping this for $size->{key}\n";
-					$dev->{url} = $relation;
-					$dev->{width} = $info->{ImageWidth};
-					$dev->{height} = $info->{ImageHeight};
-					$dev->{size} = -s $tempfile;
-					$dev->{content_type} = $info->{MIMEType};
-				}elsif($maxlat > $size->{max}){
-					print "\tmaking $size->{key}\n";
-					my $added_path = $self->choose_path;
-					my $basename = Data::UUID->new->create_str."_".$size->{key}.".jpeg";
-					my $thumbdir = $self->thumbdir;
-					my $output = "$thumbdir/$added_path/$basename";
-					mkpath("$thumbdir/$added_path");
-					my $success = $self->_thumber->thumbnail(
-						size => $size->{max},
-						input => $tempfile,
-						output => $output
-					);
-					if(!$success){
-						die($self->_thumber->error."\n");
-					}
-					my $dev_info = $self->_exif->ImageInfo($output);
-					$dev = {
-						%{$self->stat_properties($output)},
-						content_type => $dev_info->{MIMEType},
-						width => $dev_info->{ImageWidth},
-						height => $dev_info->{ImageHeight},
-					};
-				}
-				if(scalar(keys %$dev) > 0){
-                 	        	$devs->{$size->{key}} = $dev;
-                        	        $services->{$size->{key}} = 1;
-	                        }
-        	        }
+		if($relation =~ /\/still/ && !$stillfound){
 			$stillfound = 1;
-		}else{
-			warn "$info->{MIMEType} not supported\n";
-			next;
+			$still_url = $relation;
+		}elsif($relation =~ /\/media/ && !$mediafound){
+			if($relation =~ /\.jp(e)?g$/io){
+				$stillfound = 1;
+				$still_url = $relation;
+			}else{
+				$mediafound = 1;
+				$media_url = $relation;
+			}
 		}
+	}
+
+	if($media_url){
+		$services->{videostreaming} = 1;
+		$context = "Video";
+	}else{
+		$context = "Image";
+	}
+	my $item = {item_id=>1,context=>$context};
+
+	my $media_record= {
+		_id => $oai_record->header->identifier,
+		access => {
+			services => {thumbnail=>1,small=>1,medium=>1,large=>1,videostreaming=>1,audiostreaming=>1}
+		},
+		poster_item_id => 1,
+		media => []
+	};
+
+	my $files = [];
+	#file downloaden en inspecteren
+	if($media_url){
+		my $response = $self->_ua->get($media_url);
+		return undef,$response->content if not $response->is_success;
+		my $tempfile = tmpnam();
+		open FILE,">$tempfile" or return undef,$!;
+		print FILE $response->content;
+		close FILE;
+		my $media_info = $self->_exif->ImageInfo($tempfile);
+		$files->[0]->{url} = $media_url;
+		$files->[0]->{width} = $media_info->{ImageWidth};
+		$files->[0]->{height} = $media_info->{ImageHeight};
+		$files->[0]->{size} = -s $tempfile;
+		$files->[0]->{content_type} = $media_info->{MIMEType};
 		unlink($tempfile) if -w $tempfile;
 	}
-	$item->{context} = $avfound ? $context:"Image";
 	$item->{file} = $files;
-	$item->{devs} = $devs;
+
+	#haal still op en inspecteer (want bestaat geen metadata over)
+	if($still_url){
+		my $thumbnail = {};
+		my $response = $self->_ua->get($still_url);
+		return undef,$response->content if not $response->is_success;
+		my $tempfile = tmpnam();
+		open FILE,">$tempfile" or return undef,$!;
+		print FILE $response->content;
+		close FILE;
+		my $still_info = $self->_exif->ImageInfo($tempfile);
+
+		#welke afgeleiden kun je hieruit halen? (aanmaken of bewaren..)
+		my $devs = {};
+		my $maxlat = $still_info->{ImageWidth} > $still_info->{ImageHeight} ? $still_info->{ImageWidth} : $still_info->{ImageHeight};
+		foreach my $size(@sizes){
+			my $dev = {};
+			if($maxlat >= $size->{min} && $maxlat <= $size->{max}){
+				print "\tkeeping this for $size->{key}\n";
+				$dev->{url} = $still_url;
+				$dev->{width} = $still_info->{ImageWidth};
+				$dev->{height} = $still_info->{ImageHeight};
+				$dev->{size} = -s $tempfile;
+				$dev->{content_type} = $still_info->{MIMEType};
+			}elsif($maxlat > $size->{max}){
+				print "\tmaking $size->{key}\n";
+				my $added_path = $self->choose_path;
+				my $basename = Data::UUID->new->create_str."_".$size->{key}.".jpeg";
+				my $thumbdir = $self->thumbdir;
+				my $output = "$thumbdir/$added_path/$basename";
+				mkpath("$thumbdir/$added_path");
+				my $success = $self->_thumber->thumbnail(
+					size => $size->{max},
+					input => $tempfile,
+					output => $output
+				);	
+				if(!$success){
+					die($self->_thumber->error."\n");
+				}		
+				my $dev_info = $self->_exif->ImageInfo($output);			
+				$dev = {
+					%{$self->stat_properties($output)},
+					content_type => $dev_info->{MIMEType},
+					width => $dev_info->{ImageWidth},
+					height => $dev_info->{ImageHeight},
+				};
+			}
+			if(scalar(keys %$dev) > 0){
+				$item->{devs}->{$size->{key}} = $dev;
+				$services->{$size->{key}} = 1;
+			}
+		}
+		unlink($tempfile) if -w $tempfile;
+	}else{
+		$item->{devs} = {};
+	}
 	$item->{services} = [keys %$services];
 	push @{$media_record->{media}},$item;
 	return $media_record,undef;
-
 }
 sub confirm {
 	my($self,$complete_list_size)=@_;
