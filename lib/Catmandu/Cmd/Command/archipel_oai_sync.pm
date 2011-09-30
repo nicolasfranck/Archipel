@@ -142,10 +142,10 @@ sub make_media_record {
 	my($stillfound,$avfound);
 	foreach my $relation(@{$oai_record->metadata->{relation}}){
 		last if $avfound && $stillfound;
-		print "$relation\n";
+		print "\t$relation\n";
 		my $response = $self->_ua->get($relation);
                 if(!$response->is_success){
-			warn "no success downloading $relation\n";
+			warn "\tno success downloading $relation\n";
 			next;
 		}
                 my $tempfile = tmpnam();
@@ -214,7 +214,7 @@ sub make_media_record {
         	        }
 			$stillfound = 1;
 		}else{
-			warn "$info->{MIMEType} not supported\n";
+			warn "\t$info->{MIMEType} not supported\n";
 			next;
 		}
 		unlink($tempfile) if -w $tempfile;
@@ -252,6 +252,8 @@ sub execute{
 	my $found = 0;
 	my $imported = 0;
 	my $num_errs = 0;
+
+	my $max = 20;
 	while(my $record = $iterator->next){
 		print $record->header->identifier;
 		$found++;
@@ -274,6 +276,7 @@ sub execute{
 		$self->_metadata->save($new_metadata_record);
 		$self->_media->save($new_media_record);
                 $imported++;
+		last if $imported >= $max;
 	}
 	print "$found records found, $imported records imported, $num_errs errors\n";
 }
