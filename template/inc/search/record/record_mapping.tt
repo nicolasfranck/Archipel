@@ -1,6 +1,6 @@
 [% BLOCK print_query_link %]
-	[% link = conf.all.originurl _ "?q=" _ q_key _ ":\"" _ q_val _ "\"&amp;language=" _ args.language %]
-	[% PROCESS print_link link=link link_val=link_val %]
+        [% q = q_key _ ":\"" _ q_val _ "\"" %]
+        <a href="[% conf.all.originurl %]?q=[% q | uri %]&amp;language=[% args.language %]">[% link_val %]</a>
 [% END %]
 [% BLOCK print_link %]
 	<a href="[% link | url %]">[% link_val %]</a>
