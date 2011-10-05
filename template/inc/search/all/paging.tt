@@ -1,7 +1,7 @@
 <div class="paging">
 [% IF args.pages_in_set %]
 
-	[% IF args.first_page && args.first_page < args.current_page %]
+	[% IF args.first_page && args.first_page != args.current_page %]
 	<a href="[% conf.all.originurl %]?q=[% params.q | uri -%]&amp;page=[% args.first_page %]&amp;num=[% params.num %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;language=[% args.language %]">[% tt_term_paging_first %]</a>
 	[% END %]
 
@@ -22,7 +22,7 @@
 	[% END %]
 
 	[% last_index = args.pages_in_set.size - 1 %]
-	[% IF args.last_page && args.last_page > args.current_page %]
+	[% IF args.last_page && args.last_page != args.current_page %]
 	<a href="[% conf.all.originurl %]?q=[% params.q | uri -%]&amp;page=[% args.last_page %]&amp;sort=[% params.item('sort') %]&amp;sort_dir=[% params.sort_dir %]&amp;num=[% params.num %]&amp;language=[% args.language %]">[% tt_term_paging_last %]</a>
 	[% END %]
 
