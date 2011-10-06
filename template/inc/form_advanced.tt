@@ -45,8 +45,8 @@
 			<td>
 				<select name="context">
 					<option value="">[% tt_title_form_advanced_type_all_media %]</option>
-					[% FOREACH context IN conf.context.keys %]
-						<option value="Image">[% context %]</option>
+					[% FOREACH context IN conf.middleware.openURL.resolve.context.keys %]
+						<option value="[% context %]">[% context | lower %]</option>
 					[% END %]
 				</select>
 			</td>
