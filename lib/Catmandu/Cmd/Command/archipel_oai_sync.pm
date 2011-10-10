@@ -253,7 +253,6 @@ sub execute{
 	my $imported = 0;
 	my $num_errs = 0;
 
-	my $max = 20;
 	while(my $record = $iterator->next){
 		print $record->header->identifier;
 		$found++;
@@ -276,7 +275,6 @@ sub execute{
 		$self->_metadata->save($new_metadata_record);
 		$self->_media->save($new_media_record);
                 $imported++;
-		last if $imported >= $max;
 	}
 	print "$found records found, $imported records imported, $num_errs errors\n";
 }

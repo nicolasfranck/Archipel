@@ -216,6 +216,8 @@ language:
     - key: "author"
       map: "author"     
       search: 1
+    - key: "creator"
+      map: "creator"
     - key: "publisher"
       map: "publisher" 
     - key: "contributor"
@@ -263,6 +265,8 @@ language:
     - key: "author"
       map: "auteur"
       search: 1
+    - key: "creator"
+      map: "maker"
     - key: "publisher"
       map: "uitgever"
     - key: "contributor"
